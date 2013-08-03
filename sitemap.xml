@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://sweetmeat.github.io/blog/archives/</loc>
+        <loc>http://sweetme.at/blog/archives/</loc>
         <lastmod>2013-08-02T21:25:01-04:00</lastmod>
     </url>
     <url>
-        <loc>http://sweetmeat.github.io/</loc>
+        <loc>http://sweetme.at/</loc>
         <lastmod>2013-08-02T21:25:01-04:00</lastmod>
     </url>
     <url>
-        <loc>http://sweetmeat.github.io/robots.txt</loc>
+        <loc>http://sweetme.at/robots.txt</loc>
         <lastmod>2013-08-02T21:25:01-04:00</lastmod>
     </url>
 </urlset>
