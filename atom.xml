@@ -4,7 +4,7 @@
   <title><![CDATA[sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-03T23:33:41-04:00</updated>
+  <updated>2013-08-04T01:44:22-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -18,24 +18,65 @@
     <link href="http://sweetme.at/2013/08/03/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee/"/>
     <updated>2013-08-03T17:57:00-04:00</updated>
     <id>http://sweetme.at/2013/08/03/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee</id>
-    <content type="html"><![CDATA[<ul>
-<li>Resource: <a href="http://chrissimpkins.github.io/tweetledee/">Tweetledee</a></li>
-<li>Dependencies: PHP 5.3+ for RSS + JSON, PHP 5.4+ for pretty printed JSON</li>
-</ul>
-
-
-<p>You can access Twitter JSON and RSS feed data with standard command line syntax and display your results in a terminal or pipe the data through the standard out stream to any other application (see below for more information about this). Instead of running the Tweetledee code with a URL, you run the script directly through the PHP interpreter. The Tweetledee files automatically detect whether you are accessing the data by URL or from a terminal window.</p>
+    <content type="html"><![CDATA[<p>Tweetledee is a <a href="https://github.com/chrissimpkins/tweetledee">MIT licensed PHP project on GitHub</a> that simplifies access to Twitter JSON and RSS feed data for user timelines, home timelines, lists, favorites, and tweet search.  You can run the PHP files directly through the PHP interpreter using standard CLI syntax, take advantage of the many available options through command line switches, and pipe the Twitter data to any application that you&rsquo;d like.  Here&rsquo;s how you do it.</p>
 
 <!-- more -->
 
 
-<p>All of the mandatory and optional parameter names remain the same with the CLI approach; however, you use standard CLI syntax to define them. For single character options, use a short switch format (-c). For multiple character options, use a long switch format (&mdash;user).</p>
+<h2>The Software</h2>
 
-<p>Here are a few examples. Navigate to the tweetledee directory and then try the following commands:</p>
+<ul>
+<li>Resource: <a href="https://github.com/chrissimpkins/tweetledee">Tweetledee</a></li>
+<li>Docs: <a href="http://chrissimpkins.github.io/tweetledee/">Tweetledee documentation</a></li>
+<li>Dependencies: PHP 5.3+ for RSS + JSON, PHP 5.4+ for pretty printed JSON</li>
+</ul>
+
+
+<h2>How to Run Tweetledee from the Command Line</h2>
+
+<p>You can access Twitter JSON and RSS feed data through the Tweetledee files with standard command line syntax and display your results in a terminal or pipe the data through the standard out stream to any other application. Instead of running the Tweetledee scripts via URL on a web server, you run the them directly through the PHP interpreter. The Tweetledee files automatically detect whether you are accessing the data by URL or from a terminal window.</p>
+
+<p><a href="http://chrissimpkins.github.io/tweetledee/usage.html">The Tweetledee scripts have a number of available options</a> that allow you to modify the user of interest, exclude retweets or replies, define your search query and more.  These parameter names do not change with the CLI approach; however, you use standard CLI syntax to define them. For single character options, use a short switch format (<code>-c</code>). For multiple character options, use a long switch format (<code>--user</code>).</p>
+
+<p>Here are a few examples. Download the Tweetledee files from the GitHub site, navigate to the inner tweetledee directory and then test the following commands that demonstrate the options available for the <em>user timeline</em> JSON file.</p>
+
+<h4>User Timeline JSON (default user = you)</h4>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php</span></code></pre></td></tr></table></div></figure>
 
+
+<h4>User Timeline JSON (another user = me)</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php --user=csimpkins</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>User Timeline JSON (another user + exclude RT&rsquo;s)</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php --user=csimpkins --xrt=1</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>User Timeline JSON (another user + exclude RT&rsquo;s + include only 5 tweets)</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php --user=csimpkins --xrt=1 -c 5</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Pipe the Twitter Data to Another Application</h2>
+
+<p>Viewing the data in your terminal is not terribly exciting.  The beauty of this approach is that the JSON data travels through the standard out stream when you run a Tweetledee script directly through the PHP interpreter so you can pipe it to any application that accepts data through the standard in stream.  This provides an easily implemented Twitter JSON (or Atom feed) data source for any application without the hassle of generating the OAuth code yourself.</p>
+
+<p>As a trivial, relatively useless demonstration of the approach, let&rsquo;s pipe the user timeline JSON to the *nix application wc to perform a character count.</p>
+
+<h4>Twitter User JSON Data Piped to wc for a Character Count</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php | wc -c</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Simple. I leave it as an exercise for the interested reader to come up with a much more useful application of your Twitter data.</p>
 ]]></content>
   </entry>
   
