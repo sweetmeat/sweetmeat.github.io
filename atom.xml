@@ -4,7 +4,7 @@
   <title><![CDATA[sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-03T17:55:26-04:00</updated>
+  <updated>2013-08-03T22:28:46-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,5 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Pipe Twitter Data to other Applications with Tweetledee]]></title>
+    <link href="http://sweetme.at/2013/08/03/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee/"/>
+    <updated>2013-08-03T17:57:00-04:00</updated>
+    <id>http://sweetme.at/2013/08/03/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee</id>
+    <content type="html"><![CDATA[<ul>
+<li>Resource: <a href="http://chrissimpkins.github.io/tweetledee/">Tweetledee</a></li>
+<li>Dependencies: PHP 5.3+ for RSS + JSON, PHP 5.4+ for pretty printed JSON</li>
+</ul>
+
+
+<p>You can access Twitter JSON and RSS feed data with standard command line syntax and display your results in a terminal or pipe the data through the standard out stream to any other application (see below for more information about this). Instead of running the Tweetledee code with a URL, you run the script directly through the PHP interpreter. The Tweetledee files automatically detect whether you are accessing the data by URL or from a terminal window.</p>
+
+<!-- more -->
+
+
+<p>All of the mandatory and optional parameter names remain the same with the CLI approach; however, you use standard CLI syntax to define them. For single character options, use a short switch format (-c). For multiple character options, use a long switch format (&mdash;user).</p>
+
+<p>Here are a few examples. Navigate to the tweetledee directory and then try the following commands:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
 </feed>
