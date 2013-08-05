@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-04T09:12:47-04:00</updated>
+  <updated>2013-08-04T21:06:12-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[How to Pipe Twitter Data to other Applications with Tweetledee]]></title>
     <link href="http://sweetme.at/2013/08/04/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee/"/>
-    <updated>2013-08-04T08:10:00-04:00</updated>
+    <updated>2013-08-04T21:01:00-04:00</updated>
     <id>http://sweetme.at/2013/08/04/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee</id>
     <content type="html"><![CDATA[<p>Tweetledee is a <a href="https://github.com/chrissimpkins/tweetledee">MIT licensed PHP project on GitHub</a> that simplifies access to Twitter JSON and RSS feed data for user timelines, home timelines, lists, favorites, and tweet search.  You can run the PHP files directly through the PHP interpreter using standard CLI syntax, take advantage of the many available options through command line switches, and pipe the Twitter data to any application that you&rsquo;d like.  Here&rsquo;s how you do it.</p>
 
