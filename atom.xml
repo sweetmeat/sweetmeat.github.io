@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-06T23:06:09-04:00</updated>
+  <updated>2013-08-07T00:19:02-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,99 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Set Your Octopress Site Description and Keyword Meta Tags]]></title>
+    <link href="http://sweetme.at/2013/08/06/how-to-set-your-octopress-description-and-keyword-meta-tags/"/>
+    <updated>2013-08-06T23:18:00-04:00</updated>
+    <id>http://sweetme.at/2013/08/06/how-to-set-your-octopress-description-and-keyword-meta-tags</id>
+    <content type="html"><![CDATA[<p>Here is the missing documentation on how to set up description and keyword meta tags for your home page and all posts on your <a href="http://octopress.org/">Octopress site</a>.</p>
+
+<!--More-->
+
+
+<h2>Main Page Changes</h2>
+
+<p>Open the <code>_config.yml</code> file in an editor and enter a site description in the description field.  Then add a new keywords field and enter your comma delimited keyword list:</p>
+
+<figure class='code'><figcaption><span>Example Configuration of _config.yml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="c1"># ----------------------- #</span>
+</span><span class='line'><span class="c1">#      Main Configs       #</span>
+</span><span class='line'><span class="c1"># ----------------------- #</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http://sweetme.at</span>
+</span><span class='line'><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Sweetmeat</span>
+</span><span class='line'><span class="l-Scalar-Plain">subtitle</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Juicy lil&#39; bytes</span>
+</span><span class='line'><span class="l-Scalar-Plain">author</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Chris Simpkins</span>
+</span><span class='line'><span class="l-Scalar-Plain">simple_search</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">A really catchy description here.</span>
+</span><span class='line'><span class="l-Scalar-Plain">keywords</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">key 1, key 2, key 3, key 4, key 5</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Post Changes</h2>
+
+<p>For any existing posts or any new posts that you create with the <code>rake new_post['title']</code> command, you will need to add description and keyword fields to the YAML frontmatter in the post markdown file before you generate the html pages with the <code>rake generate</code> command.  Octopress does not generate these fields by default.  Here is how the YAML frontmatter should appear in your post:</p>
+
+<figure class='code'><figcaption><span>YAML frontmatter with description and keywords meta fields</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="nn">---</span>
+</span><span class='line'><span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">post</span>
+</span><span class='line'><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="s">&quot;How</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Set</span><span class="nv"> </span><span class="s">Your</span><span class="nv"> </span><span class="s">Octopress</span><span class="nv"> </span><span class="s">Site</span><span class="nv"> </span><span class="s">Description</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Keyword</span><span class="nv"> </span><span class="s">Meta</span><span class="nv"> </span><span class="s">Tags&quot;</span>
+</span><span class='line'><span class="l-Scalar-Plain">date</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2013-08-06 23:18</span>
+</span><span class='line'><span class="l-Scalar-Plain">comments</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+</span><span class='line'><span class="l-Scalar-Plain">categories</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Don&#39;t know how to set your Octopress description and keyword meta tags? Here is the solution.</span>
+</span><span class='line'><span class="l-Scalar-Plain">keywords</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">octopress, blog, meta, description, keyword, how to, guide, help</span>
+</span><span class='line'><span class="nn">---</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Make the Magic Happen</h2>
+
+<p>In order to properly display your home page description and keyword meta tags, you need to modify the <code>source/_includes/head.html</code> file with the following changes so that the keyword and description tags are appropriately generated on the home page <em>and</em> in your post pages when you create your html files.</p>
+
+<p>The default section of the head.html file contains a code block that looks like this:</p>
+
+<script src="https://gist.github.com/chrissimpkins/98c437be5bdaaac88429.js"></script>
+
+
+<p>Change this to the following script:</p>
+
+<script src="https://gist.github.com/chrissimpkins/e76937e430290915664f.js"></script>
+
+
+<p>These modifications will correctly update the home page with your site wide keyword and description meta tags, and your post pages with the information that you added in the YAML frontmatter for each post.</p>
+
+<h2>Generate Your Static Site Files</h2>
+
+<p>Now, simply re-generate your static html pages with the following command in the top level directory for your site:</p>
+
+<figure class='code'><figcaption><span>Generate Your Static HTML files</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">generate</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and then deploy your site with whatever approach you are using (git, rsync, etc.).</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Markdown Cheat Sheet]]></title>
