@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Sweetmeat</title>
+  <title>Execute Your Last Command with a sudo Prefix using a Bang Command - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Juicy lil' bytes of goodness served up by Chris Simpkins.">
-  <meta name="keywords" content="Chris Simpkins, coding, programming, web, internet, application, python, PHP, Ruby, C, C++, CPP, XML, linux, OSX, Mac, unix">
+  <meta name="description" content="Learn how to use a command line idiom to run the last command with a sudo prefix">
+  <meta name="keywords" content="shell, unix, linux, command line, sudo">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sweetme.at">
+  <link rel="canonical" href="http://sweetme.at/2013/08/07/execute-last-command-with-sudo-prefix">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -70,15 +70,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/2013/08/07/execute-last-command-with-sudo-prefix/">Execute Your Last Command With a Sudo Prefix Using a Bang Command</a></h1>
+      <h1 class="entry-title">Execute Your Last Command With a Sudo Prefix Using a Bang Command</h1>
     
     
       <p class="meta">
@@ -101,70 +98,34 @@
   </header>
 
 
-  <div class="entry-content"><p>Need to re-run that last command with sudo? Check out this idiom.</p>
+<div class="entry-content"><p>Need to re-run that last command with sudo? Check out this idiom.</p>
 
+<!--More-->
+
+
+<h2>The !! Bang Command</h2>
+
+<p>In your shell, the bang command <code>!!</code> re-runs your last command.  If you need to re-run it with superuser privileges, you can prefix the <code>!!</code> bang command with sudo and go.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">sudo</span> <span class="p">!!</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>No need to type sudo after using the up arrow and then navigating to beginning of the line.  It&rsquo;s a simple, time saving maneuver.</p>
+
+<p>Source: <a href="http://www.softpanorama.org/Scripting/Shellorama/bash_command_history_reuse.shtml">softpanorama.org</a></p>
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/08/07/execute-last-command-with-sudo-prefix/">Read on &rarr;</a>
-    </footer>
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/08/06/how-to-set-your-octopress-description-and-keyword-meta-tags/">How to Set Your Octopress Site Description and Keyword Meta Tags</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Chris Simpkins</span></span>
 
-<time datetime="2013-08-06T23:18:00-04:00" pubdate data-updated="true">Aug 6<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Here is the missing documentation on how to set up description and keyword meta tags for your home page and all posts on your <a href="http://octopress.org/">Octopress site</a>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/08/06/how-to-set-your-octopress-description-and-keyword-meta-tags/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/08/05/markdown-cheat-sheet/">Markdown Cheat Sheet</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -176,73 +137,33 @@
   
 
 
-<time datetime="2013-08-05T17:56:00-04:00" pubdate data-updated="true">Aug 5<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I needed a quick and dirty reference for the Markdown syntax.  Voila.  The raw Markdown Cheat Sheet file (in GitHub flavored Markdown) is <a href="https://github.com/chrissimpkins/markdown-cheat-sheet/blob/master/MD-cheat-sheet.md">available on GitHub</a> with a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons license</a>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/08/05/markdown-cheat-sheet/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2013-08-07T23:42:00-04:00" pubdate data-updated="true">Aug 7<span>th</span>, 2013</time>
       
-  <header>
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/2013/08/04/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee/">How to Pipe Twitter Data to Other Applications With Tweetledee</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
+      <div class="sharing">
   
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/07/execute-last-command-with-sudo-prefix/" data-via="" data-counturl="http://sweetme.at/2013/08/07/execute-last-command-with-sudo-prefix/" >Tweet</a>
+  
+  
+  
+</div>
 
-
-<time datetime="2013-08-04T21:01:00-04:00" pubdate data-updated="true">Aug 4<span>th</span>, 2013</time>
-        
-      </p>
     
-  </header>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/08/06/how-to-set-your-octopress-description-and-keyword-meta-tags/" title="Previous Post: How to Set Your Octopress Site Description and Keyword Meta Tags">&laquo; How to Set Your Octopress Site Description and Keyword Meta Tags</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-
-  <div class="entry-content"><p>Tweetledee is a <a href="https://github.com/chrissimpkins/tweetledee">MIT licensed PHP project on GitHub</a> that simplifies access to Twitter JSON and RSS feed data for user timelines, home timelines, lists, favorites, and tweet search.  You can run the PHP files directly through the PHP interpreter using standard CLI syntax, take advantage of the many available options through command line switches, and pipe the Twitter data to any application that you&rsquo;d like.  Here&rsquo;s how you do it.</p>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/08/04/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee/">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">The Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -274,6 +195,7 @@
 
   
 </aside>
+
 
     </div>
   </div>

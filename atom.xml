@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-07T23:30:58-04:00</updated>
+  <updated>2013-08-07T23:59:50-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Execute Your Last Command with a sudo Prefix using a Bang Command]]></title>
+    <link href="http://sweetme.at/2013/08/07/execute-last-command-with-sudo-prefix/"/>
+    <updated>2013-08-07T23:42:00-04:00</updated>
+    <id>http://sweetme.at/2013/08/07/execute-last-command-with-sudo-prefix</id>
+    <content type="html"><![CDATA[<p>Need to re-run that last command with sudo? Check out this idiom.</p>
+
+<!--More-->
+
+
+<h2>The !! Bang Command</h2>
+
+<p>In your shell, the bang command <code>!!</code> re-runs your last command.  If you need to re-run it with superuser privileges, you can prefix the <code>!!</code> bang command with sudo and go.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">sudo</span> <span class="p">!!</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>No need to type sudo after using the up arrow and then navigating to beginning of the line.  It&rsquo;s a simple, time saving maneuver.</p>
+
+<p>Source: <a href="http://www.softpanorama.org/Scripting/Shellorama/bash_command_history_reuse.shtml">softpanorama.org</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Set Your Octopress Site Description and Keyword Meta Tags]]></title>
