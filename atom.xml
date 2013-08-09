@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-09T00:47:46-04:00</updated>
+  <updated>2013-08-09T17:52:46-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -18,10 +18,90 @@
     <link href="http://sweetme.at/2013/08/08/sublime-text-keyboard-shortcuts/"/>
     <updated>2013-08-08T22:53:00-04:00</updated>
     <id>http://sweetme.at/2013/08/08/sublime-text-keyboard-shortcuts</id>
-    <content type="html"><![CDATA[<p>Learn how to use keyboard shortcuts to control Linux, Mac OSX, and Windows versions of Sublime Text.</p>
+    <content type="html"><![CDATA[<p>Use these rapid keyboard shortcuts to control Linux, Mac OSX, and Windows versions of Sublime Text.</p>
 
 <!--More-->
 
+
+<h1>Key to the Keys</h1>
+
+<ul>
+<li>⌘ : Command key</li>
+<li>⌃ : Control key</li>
+<li>⌫ : Delete key</li>
+<li>↓ : Down arrow key</li>
+<li>⌥ : Option or Alt key</li>
+<li>↩ : Return or Enter key</li>
+<li>⇧ : Shift key</li>
+<li>↑ : Up arrow key</li>
+</ul>
+
+
+<p><i class="icon-long-arrow-right"></i> : indicates that the step after the arrow should take place after the step before the arrow</p>
+
+<h1>General</h1>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Command</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Mac OSX</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-windows"></i> Windows</span>   </th>
+<th>  <span style="font-size:22px;"><i class="icon-linux"></i> Linux</span> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Open Cmd Prompt</strong> </td>
+<td> ⌘ + ⇧ + P </td>
+<td> Ctrl + ⇧ + P </td>
+<td> Ctrl + ⇧ + P</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Toggle Side Bar</strong> </td>
+<td> ⌘ + K, ⌘ + B </td>
+<td> Ctrl + KB </td>
+<td> Ctrl + KB</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Show Scope (Status Bar)</strong> </td>
+<td> ⌃ + ⇧ + P </td>
+<td> Ctrl + ⇧ + Alt + P </td>
+<td> Ctrl + ⇧ + Alt + P</td>
+</tr>
+</tbody>
+</table>
+
+
+<h1>Language</h1>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Command</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Mac OSX</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-windows"></i> Windows</span>   </th>
+<th>  <span style="font-size:22px;"><i class="icon-linux"></i> Linux</span> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Select File Language</strong> </td>
+<td> ⌘ + ⇧ + P <i class="icon-long-arrow-right"></i> [language] </td>
+<td> Ctrl + ⇧ + P <i class="icon-long-arrow-right"></i> [language] </td>
+<td> Ctrl + ⇧ + P <i class="icon-long-arrow-right"></i> [language]</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>Use the &ldquo;Set Syntax: [language]&rdquo; selection that is automatically populated in the command menu when you type the programming language.</p>
 
 <h1>Editing</h1>
 
