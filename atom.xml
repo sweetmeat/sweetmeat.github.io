@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-09T17:52:46-04:00</updated>
+  <updated>2013-08-09T23:55:46-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -276,6 +276,224 @@
 <td> ⌃ + ⇧ + Down </td>
 <td> Ctrl + Alt + Down </td>
 <td> Alt + ⇧ + Down</td>
+</tr>
+</tbody>
+</table>
+
+
+<h1>Transform</h1>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Command</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Mac OSX</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-windows"></i> Windows</span>   </th>
+<th>  <span style="font-size:22px;"><i class="icon-linux"></i> Linux</span>    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>To Uppercase</strong> </td>
+<td> ⌘ + K, ⌘ + U </td>
+<td> Ctrl + KU </td>
+<td> Ctrl + KU</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>To Lowercase</strong> </td>
+<td> ⌘ + K, ⌘ + L </td>
+<td> Ctrl + KL </td>
+<td> Ctrl + KL</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Increase Font Size</strong> </td>
+<td> ⌘ + </td>
+<td> Ctrl + </td>
+<td> Ctrl +</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Decrease Font Size</strong> </td>
+<td> ⌘ &ndash; </td>
+<td> Ctrl &ndash; </td>
+<td> Ctrl &ndash;</td>
+</tr>
+</tbody>
+</table>
+
+
+<h1>Find &amp; Replace</h1>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Command</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Mac OSX</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-windows"></i> Windows</span>   </th>
+<th>  <span style="font-size:22px;"><i class="icon-linux"></i> Linux</span>    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Find</strong> </td>
+<td> ⌘ + F </td>
+<td> Ctrl + F </td>
+<td> Ctrl + F</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Replace</strong> </td>
+<td> ⌘ + ⌥ + F </td>
+<td> Ctrl + H </td>
+<td> Ctrl + H</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Find in Files</strong> </td>
+<td> ⌘ + ⇧ + F </td>
+<td> Ctrl + ⇧ + F </td>
+<td> Ctrl + ⇧ + F</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Use Selection for Find</strong> </td>
+<td> ⌘ + E </td>
+<td> Ctrl + E </td>
+<td> Ctrl + E</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Use Selection for Replace</strong> </td>
+<td> ⇧ + ⌘ + E </td>
+<td> ⇧ + Ctrl + E </td>
+<td> ⇧ + Ctrl + E</td>
+</tr>
+</tbody>
+</table>
+
+
+<h1>Navigation</h1>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Command</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Mac OSX</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-windows"></i> Windows</span>   </th>
+<th>  <span style="font-size:22px;"><i class="icon-linux"></i> Linux</span>    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Quick Open File (by Name)</strong> </td>
+<td> ⌘ + P </td>
+<td> Ctrl + P </td>
+<td> Ctrl + P</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Go To Symbol</strong> </td>
+<td> ⌘ + R </td>
+<td> Ctrl + R </td>
+<td> Ctrl + R</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Go To Line</strong> </td>
+<td> ⌃ + G </td>
+<td> Ctrl + G </td>
+<td> Ctrl + G</td>
+</tr>
+</tbody>
+</table>
+
+
+<h1>Code Folding</h1>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Command</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Mac OSX</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-windows"></i> Windows</span>   </th>
+<th>  <span style="font-size:22px;"><i class="icon-linux"></i> Linux</span>    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Fold Selection</strong> </td>
+<td> ⌥ + ⌘ + [ </td>
+<td> ⇧ + Ctrl + [ </td>
+<td> ⇧ + Ctrl + [</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Unfold Selection</strong> </td>
+<td> ⌥ + ⌘ + ] </td>
+<td> ⇧ + Ctrl + ] </td>
+<td> ⇧ + Ctrl + ]</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Unfold All</strong> </td>
+<td> ⌘ + K, ⌘ + J </td>
+<td> Ctrl +KJ </td>
+<td> Ctrl + KJ</td>
+</tr>
+</tbody>
+</table>
+
+
+<h1>Bookmarks</h1>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Command</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Mac OSX</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-windows"></i> Windows</span>   </th>
+<th>  <span style="font-size:22px;"><i class="icon-linux"></i> Linux</span>    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Toggle Bookmark</strong> </td>
+<td> ⌘ + F2 </td>
+<td> Ctrl + F2 </td>
+<td> Ctrl + F2</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Next Bookmark</strong> </td>
+<td> F2 </td>
+<td> F2 </td>
+<td> F2</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Previous Bookmark</strong> </td>
+<td> ⇧ + F2 </td>
+<td> ⇧ + F2 </td>
+<td> ⇧ + F2</td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Clear Bookmarks</strong> </td>
+<td> ⇧ + ⌘ + F2 </td>
+<td> ⇧ + Ctrl + F2 </td>
+<td> ⇧ + Ctrl + F2</td>
 </tr>
 </tbody>
 </table>
