@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-09T23:55:46-04:00</updated>
+  <updated>2013-08-15T07:53:07-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Pixsy Featured this week on Tekzilla]]></title>
+    <link href="http://sweetme.at/2013/08/15/pixsy-command-line-for-internet-services/"/>
+    <updated>2013-08-15T07:37:00-04:00</updated>
+    <id>http://sweetme.at/2013/08/15/pixsy-command-line-for-internet-services</id>
+    <content type="html"><![CDATA[<p>The <a href="http://">Tekzilla crew</a> featured my application, <a href="http://pixsy.net">Pixsy</a>, on the show this week.  <a href="http://twitter.com/veronica">Veronica Belmont</a> demonstrates how to use this command line approach to access common internet services, as well as how to create your own commands for any site.  Click through for the segment.</p>
+
+<!--More-->
+
+
+<p>It starts at 20:20 in this episode:</p>
+
+<iframe src="http://revision3.com/html5player-v23580?external=true&width=850&height=425" width="850" height="425" allowFullScreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sublime Text Keyboard Shortcut Cheat Sheet]]></title>
