@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Pixsy Featured this week on Tekzilla - Sweetmeat</title>
+  <title>Bash backward and forward history search - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Veronica Belmont reviews Pixsy, a command line approach to internet services, on Tekzilla">
-  <meta name="keywords" content="tekzilla, pixsy, command line, internet, video">
+  <meta name="description" content="Learn how to make a .inputrc file to perform backward and forward searches in bash with the up and down arrow keys">
+  <meta name="keywords" content="bash, command line, CLI, history, how to, help, unix, linux">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sweetme.at/2013/08/15/pixsy-command-line-for-internet-services">
+  <link rel="canonical" href="http://sweetme.at/2013/08/16/bash-backward-and-forward-history-search">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -75,7 +75,7 @@
   
   <header>
     
-      <h1 class="entry-title">Pixsy Featured This Week on Tekzilla</h1>
+      <h1 class="entry-title">Bash Backward and Forward History Search</h1>
     
     
       <p class="meta">
@@ -91,22 +91,36 @@
   
 
 
-<time datetime="2013-08-15T07:37:00-04:00" pubdate data-updated="true">Aug 15<span>th</span>, 2013</time>
+<time datetime="2013-08-16T18:36:00-04:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>The <a href="http://revision3.com/tekzilla">Tekzilla crew</a> featured my application, <a href="http://pixsy.net">Pixsy</a>, on the show this week.  <a href="http://twitter.com/veronica">Veronica Belmont</a> demonstrates how to use this command line approach to access common internet services, as well as how to create your own commands for any site.  Click through for the segment.</p>
+<div class="entry-content"><p>I picked up this simple modification of the bash .inputrc file a few weeks ago and it has been a great addition to my command line armamentarium.  It allows you to perform a case-insensitive search through the bash history (forward or reverse) for anything that you type on the command line with the up and down arrows.</p>
 
 <!--More-->
 
 
-<p>It starts at 20:20 in this episode:</p>
+<p>If you don&rsquo;t already have a .inputrc file, create it in this path <code>~/.inputrc</code>.</p>
 
-<iframe src="http://revision3.com/html5player-v23580?external=true&width=850&height=425" width="850" height="425" allowFullScreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<p>Then, include the following script in the file:</p>
 
+<figure class='code'><figcaption><span>.inputrc script for bash case insensitive search</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>&quot;\e[A&quot;: history-search-backward
+</span><span class='line'>&quot;\e[B&quot;: history-search-forward
+</span><span class='line'>set show-all-if-ambiguous on
+</span><span class='line'>set completion-ignore-case on
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Load your bash terminal and now you can perform a case-insensitive search for anything that you enter on the command line in a forward (with the down arrow) or reverse (with the up arrow) direction.</p>
+
+<p>Kudos to  <a href="https://twitter.com/dotcode">Jude Robinson</a> <i class="icon-twitter"></i> who posted this on <a href="https://coderwall.com/p/oqtj8w">Coderwall</a>.</p>
 </div>
 
 
@@ -129,7 +143,7 @@
   
 
 
-<time datetime="2013-08-15T07:37:00-04:00" pubdate data-updated="true">Aug 15<span>th</span>, 2013</time>
+<time datetime="2013-08-16T18:36:00-04:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
       
 
 
@@ -137,7 +151,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/15/pixsy-command-line-for-internet-services/" data-via="" data-counturl="http://sweetme.at/2013/08/15/pixsy-command-line-for-internet-services/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/16/bash-backward-and-forward-history-search/" data-via="" data-counturl="http://sweetme.at/2013/08/16/bash-backward-and-forward-history-search/" >Tweet</a>
   
   
   
@@ -146,10 +160,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/08/08/sublime-text-keyboard-shortcuts/" title="Previous Post: Sublime Text Keyboard Shortcut Cheat Sheet">&laquo; Sublime Text Keyboard Shortcut Cheat Sheet</a>
+        <a class="basic-alignment left" href="/2013/08/15/pixsy-command-line-for-internet-services/" title="Previous Post: Pixsy Featured this week on Tekzilla">&laquo; Pixsy Featured this week on Tekzilla</a>
       
-      
-        <a class="basic-alignment right" href="/2013/08/16/bash-backward-and-forward-history-search/" title="Next Post: Bash backward and forward history search">Bash backward and forward history search &raquo;</a>
       
     </p>
   </footer>

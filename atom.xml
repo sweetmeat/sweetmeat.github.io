@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-15T07:53:07-04:00</updated>
+  <updated>2013-08-16T19:03:49-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -14,11 +14,42 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Bash backward and forward history search]]></title>
+    <link href="http://sweetme.at/2013/08/16/bash-backward-and-forward-history-search/"/>
+    <updated>2013-08-16T18:36:00-04:00</updated>
+    <id>http://sweetme.at/2013/08/16/bash-backward-and-forward-history-search</id>
+    <content type="html"><![CDATA[<p>I picked up this simple modification of the bash .inputrc file a few weeks ago and it has been a great addition to my command line armamentarium.  It allows you to perform a case-insensitive search through the bash history (forward or reverse) for anything that you type on the command line with the up and down arrows.</p>
+
+<!--More-->
+
+
+<p>If you don&rsquo;t already have a .inputrc file, create it in this path <code>~/.inputrc</code>.</p>
+
+<p>Then, include the following script in the file:</p>
+
+<figure class='code'><figcaption><span>.inputrc script for bash case insensitive search</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>&quot;\e[A&quot;: history-search-backward
+</span><span class='line'>&quot;\e[B&quot;: history-search-forward
+</span><span class='line'>set show-all-if-ambiguous on
+</span><span class='line'>set completion-ignore-case on
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Load your bash terminal and now you can perform a case-insensitive search for anything that you enter on the command line in a forward (with the down arrow) or reverse (with the up arrow) direction.</p>
+
+<p>Kudos to  <a href="https://twitter.com/dotcode">Jude Robinson</a> <i class="icon-twitter"></i> who posted this on <a href="https://coderwall.com/p/oqtj8w">Coderwall</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Pixsy Featured this week on Tekzilla]]></title>
     <link href="http://sweetme.at/2013/08/15/pixsy-command-line-for-internet-services/"/>
     <updated>2013-08-15T07:37:00-04:00</updated>
     <id>http://sweetme.at/2013/08/15/pixsy-command-line-for-internet-services</id>
-    <content type="html"><![CDATA[<p>The <a href="http://">Tekzilla crew</a> featured my application, <a href="http://pixsy.net">Pixsy</a>, on the show this week.  <a href="http://twitter.com/veronica">Veronica Belmont</a> demonstrates how to use this command line approach to access common internet services, as well as how to create your own commands for any site.  Click through for the segment.</p>
+    <content type="html"><![CDATA[<p>The <a href="http://revision3.com/tekzilla">Tekzilla crew</a> featured my application, <a href="http://pixsy.net">Pixsy</a>, on the show this week.  <a href="http://twitter.com/veronica">Veronica Belmont</a> demonstrates how to use this command line approach to access common internet services, as well as how to create your own commands for any site.  Click through for the segment.</p>
 
 <!--More-->
 
