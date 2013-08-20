@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-16T19:03:49-04:00</updated>
+  <updated>2013-08-19T22:08:03-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Create a Draft Post with Octopress]]></title>
+    <link href="http://sweetme.at/2013/08/19/how-to-create-a-draft-post-with-octopress/"/>
+    <updated>2013-08-19T21:52:00-04:00</updated>
+    <id>http://sweetme.at/2013/08/19/how-to-create-a-draft-post-with-octopress</id>
+    <content type="html"><![CDATA[<p>Don&rsquo;t want to publish that draft post with Octopress quite yet?  Here&rsquo;s the solution.</p>
+
+<!--More-->
+
+
+<p>The YAML frontmatter for your typical post looks like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="nn">---</span>
+</span><span class='line'><span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">post</span>
+</span><span class='line'><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="s">&#39;How</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Create</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">Draft</span><span class="nv"> </span><span class="s">Post</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Octopress&#39;</span>
+</span><span class='line'><span class="l-Scalar-Plain">date</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2013-08-19 21:52</span>
+</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Learn how to create a draft post with the Octopress blogging framework</span>
+</span><span class='line'><span class="l-Scalar-Plain">keywords</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Octopress, yaml, draft, draft post, how to, tip</span>
+</span><span class='line'><span class="l-Scalar-Plain">comments</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+</span><span class='line'><span class="l-Scalar-Plain">categories</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="nn">---</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you use the command <code>rake generate</code> with these YAML settings, your static html files are generated in the directory that you use to deploy to your live site.</p>
+
+<p>Insert <code>published: false</code> into the YAML frontmatter to make the post a draft.  Here&rsquo;s an example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="nn">---</span>
+</span><span class='line'><span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">post</span>
+</span><span class='line'><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="s">&#39;How</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Create</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">Draft</span><span class="nv"> </span><span class="s">Post</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Octopress&#39;</span>
+</span><span class='line'><span class="l-Scalar-Plain">date</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2013-08-19 21:52</span>
+</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Learn how to create a draft post with the Octopress blogging framework</span>
+</span><span class='line'><span class="l-Scalar-Plain">keywords</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Octopress, yaml, draft, draft post, how to, tip</span>
+</span><span class='line'><span class="l-Scalar-Plain">comments</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+</span><span class='line'><span class="l-Scalar-Plain">categories</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="l-Scalar-Plain">published</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+</span><span class='line'><span class="nn">---</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now when you <code>rake generate</code> and <code>rake deploy</code> (or deploy manually with git or rsync), the draft post is not pushed to the server but you can still view it locally with <code>rake preview</code> (<a href="http://localhost:4000">http://localhost:4000</a>), or <a href="http://yoursitename.dev">http://yoursitename.dev</a> if you use <a href="http://pow.cx/">POW</a>, so that you can make further edits.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Bash backward and forward history search]]></title>
