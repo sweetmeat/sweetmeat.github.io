@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-21T17:30:50-04:00</updated>
+  <updated>2013-08-23T12:12:03-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Find Files by Extension and Modification Time]]></title>
+    <link href="http://sweetme.at/2013/08/23/find-files-by-extension-and-modification-time/"/>
+    <updated>2013-08-23T11:23:00-04:00</updated>
+    <id>http://sweetme.at/2013/08/23/find-files-by-extension-and-modification-time</id>
+    <content type="html"><![CDATA[<p>I came across this file extension x file modification time search capability in linux/unix systems as I was looking into different solutions for a new software project that I am currently working on.  It&rsquo;s a simple shell one-liner.</p>
+
+<!--More-->
+
+
+<h2>The First Step : Find by File Extension</h2>
+
+<p>The *nix <code>find</code> command allows you to use wildcards for your search in order to identify any file by its filetype.  For instance, any c source code file with a .c extension can be identified with the following command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.c"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The first period in the sequence indicates the path for your search (and can be replaced with any path) and the wildcard string argument for the <code>-name</code> switch specifies any filename with a .c extension.</p>
+
+<h2>The Next Step : Find by Modification Time</h2>
+
+<p>Now let&rsquo;s extend the command to find any file modified within a specified period of time.  The find command has a <code>-mtime</code> (modified time) switch that provides this feature.  By default, it takes arguments that are 24 hour time block multipliers.  To indicate that you want to find files with a .c extension that were modified within the last 24 hours, you use this command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.c" -mtime -1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For files that were modified within the last 72 hours, use this command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.c" -mtime -3</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And if you need more granular control of the time, you can specify the time as the <code>-mtime</code> switch argument.  For files modified in the last 1h:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.c" -mtime -1h</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The command supports s (second), m (minute), h (hour), d (day), and w (week) arguments.</p>
+
+<h2>Modify the Command for Any File Extension</h2>
+
+<p>To change the file extension, simply change the wildcard string in the search.  Here&rsquo;s how you would find Python source files (with a .py extension) that were modified in the last hour:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.py" -mtime -1h</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and .png image files that were modified in the last hour:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.png" -mtime -1h</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and .txt files that were modified in the last hour:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.txt" -mtime -1h</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Simple Local HTTP Server with Python]]></title>
