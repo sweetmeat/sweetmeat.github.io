@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Find Files by Extension and Modification Time - Sweetmeat</title>
+  <title>A Simple One-Liner to Rerun Your Last Shell Command with a Modification - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to find a file by extension and modification time on unix and linux systems.">
-  <meta name="keywords" content="file, file extension, search, unix, linux, find, command, CLI, shell">
+  <meta name="description" content="Learn how to modify and re-run your last shell command with a simple one-liner">
+  <meta name="keywords" content="shell, linux, unix, modify, command, command line, CLI, error, how to">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sweetme.at/2013/08/23/find-files-by-extension-and-modification-time">
+  <link rel="canonical" href="http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -76,7 +76,7 @@
   
   <header>
     
-      <h1 class="entry-title">Find Files by Extension and Modification Time</h1>
+      <h1 class="entry-title">A Simple One-Liner to Rerun Your Last Shell Command With a Modification</h1>
     
     
       <p class="meta">
@@ -92,69 +92,33 @@
   
 
 
-<time datetime="2013-08-23T11:23:00-04:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2013</time>
+<time datetime="2013-08-26T08:31:00-04:00" pubdate data-updated="true">Aug 26<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I came across this file extension x file modification time search capability in linux/unix systems as I was looking into different solutions for a new software project that I am currently working on.  It&rsquo;s a simple shell one-liner.</p>
+<div class="entry-content"><p>This one-liner will modify an error in your last shell command and automatically re-run it.</p>
 
 <!--More-->
 
 
-<h2>The First Step : Find by File Extension</h2>
+<p>You meant to run <code>make &amp;&amp; make install</code> to build and install an application, but you actually typed <code>nake &amp;&amp; make install</code>.  The scenic route to correct this is UP ARROW to retrieve the command, navigate to the beginning of the line, switch the n to m, and then submit it again.</p>
 
-<p>The *nix <code>find</code> command allows you to use wildcards for your search in order to identify any file by its filetype.  For instance, any c source code file with a .c extension can be identified with the following command:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.c"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The first period in the sequence indicates the path for your search (and can be replaced with any path) and the wildcard string argument for the <code>-name</code> switch specifies any filename with a .c extension.</p>
-
-<h2>The Next Step : Find by Modification Time</h2>
-
-<p>Now let&rsquo;s extend the command to find any file modified within a specified period of time.  The find command has a <code>-mtime</code> (modified time) switch that provides this feature.  By default, it takes arguments that are 24 hour time block multipliers.  To indicate that you want to find files with a .c extension that were modified within the last 24 hours, you use this command:</p>
+<p>Here&rsquo;s your jetpack:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.c" -mtime -1</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>^na^ma^</span></code></pre></td></tr></table></div></figure>
 
 
-<p>For files that were modified within the last 72 hours, use this command:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.c" -mtime -3</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And if you need more granular control of the time, you can specify the time as the <code>-mtime</code> switch argument.  For files modified in the last 1h:</p>
+<p>This command uses the generic syntax:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.c" -mtime -1h</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>^before^after^</span></code></pre></td></tr></table></div></figure>
 
 
-<p>The command supports s (second), m (minute), h (hour), d (day), and w (week) arguments.</p>
-
-<h2>Modify the Command for Any File Extension</h2>
-
-<p>To change the file extension, simply change the wildcard string in the search.  Here&rsquo;s how you would find Python source files (with a .py extension) that were modified in the last hour:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.py" -mtime -1h</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and .png image files that were modified in the last hour:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.png" -mtime -1h</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and .txt files that were modified in the last hour:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.txt" -mtime -1h</span></code></pre></td></tr></table></div></figure>
-
+<p>to modify the <em>before</em> substring to the <em>after</em> substring and then it automatically resubmits the command.</p>
 </div>
 
 
@@ -177,7 +141,7 @@
   
 
 
-<time datetime="2013-08-23T11:23:00-04:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2013</time>
+<time datetime="2013-08-26T08:31:00-04:00" pubdate data-updated="true">Aug 26<span>th</span>, 2013</time>
       
 
 
@@ -185,7 +149,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/23/find-files-by-extension-and-modification-time/" data-via="" data-counturl="http://sweetme.at/2013/08/23/find-files-by-extension-and-modification-time/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification/" data-via="" data-counturl="http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification/" >Tweet</a>
   
   
   
@@ -194,10 +158,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/08/21/simple-local-http-server-with-python/" title="Previous Post: Simple Local HTTP Server with Python">&laquo; Simple Local HTTP Server with Python</a>
+        <a class="basic-alignment left" href="/2013/08/23/find-files-by-extension-and-modification-time/" title="Previous Post: Find Files by Extension and Modification Time">&laquo; Find Files by Extension and Modification Time</a>
       
-      
-        <a class="basic-alignment right" href="/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification/" title="Next Post: A Simple One-Liner to Rerun Your Last Shell Command with a Modification">A Simple One-Liner to Rerun Your Last Shell Command with a Modification &raquo;</a>
       
     </p>
   </footer>

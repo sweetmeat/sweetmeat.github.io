@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-23T13:51:51-04:00</updated>
+  <updated>2013-08-26T08:48:54-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A Simple One-Liner to Rerun Your Last Shell Command with a Modification]]></title>
+    <link href="http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification/"/>
+    <updated>2013-08-26T08:31:00-04:00</updated>
+    <id>http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification</id>
+    <content type="html"><![CDATA[<p>This one-liner will modify an error in your last shell command and automatically re-run it.</p>
+
+<!--More-->
+
+
+<p>You meant to run <code>make &amp;&amp; make install</code> to build and install an application, but you actually typed <code>nake &amp;&amp; make install</code>.  The scenic route to correct this is UP ARROW to retrieve the command, navigate to the beginning of the line, switch the n to m, and then submit it again.</p>
+
+<p>Here&rsquo;s your jetpack:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>^na^ma^</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command uses the generic syntax:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>^before^after^</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to modify the <em>before</em> substring to the <em>after</em> substring and then it automatically resubmits the command.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Find Files by Extension and Modification Time]]></title>
