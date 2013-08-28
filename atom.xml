@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-28T15:05:24-04:00</updated>
+  <updated>2013-08-28T15:37:01-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Simple Local HTTP Server with Ruby]]></title>
+    <link href="http://sweetme.at/2013/08/28/simple-local-http-server-with-ruby/"/>
+    <updated>2013-08-28T15:12:00-04:00</updated>
+    <id>http://sweetme.at/2013/08/28/simple-local-http-server-with-ruby</id>
+    <content type="html"><![CDATA[<p><a href="http://sweetme.at/2013/08/21/simple-local-http-server-with-python/">You can do it with Python</a>.  And you can do it with Ruby.  The Ruby one line command for a local HTTP server.</p>
+
+<!--More-->
+
+
+<h2>One Line Ruby HTTP Server</h2>
+
+<p>Navigate to your local site directory and then use the following command:</p>
+
+<figure class='code'><figcaption><span>One Line Ruby HTTP Server</span><a href='https://coderwall.com/p/ocnxeq'>Source</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ruby</span> <span class="o">-</span><span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="n">httpd</span> <span class="o">.</span> <span class="o">-</span><span class="nb">p</span> <span class="mi">8000</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can access your site at <code>http://localhost:8000</code>. If you want to change the port, modify the argument after the <code>-p</code> switch.  I confirmed that this works with Ruby v1.9.3.</p>
+
+<h2>Ruby?</h2>
+
+<p>Don&rsquo;t know what version of Ruby you have (or if it is installed)? Use the command <code>ruby --version</code> and you will know.</p>
+
+<p><small><i class="icon-link"></i> Kudos <a href="https://twitter.com/dallas_reedy">Dallas Reedy</a> via <a href="https://coderwall.com/p/ocnxeq">Coderwall</a></small></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Unpack a tar.gz and tar.bz2 Archive on the Command Line]]></title>

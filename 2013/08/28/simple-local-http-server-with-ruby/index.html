@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How to Unpack a tar.gz and tar.bz2 Archive on the Command Line - Sweetmeat</title>
+  <title>Simple Local HTTP Server with Ruby - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Forget the switches to unpack a gzip or bzip2 compressed tar archive? Here they are.">
-  <meta name="keywords" content="gzip, bzip2, .gz, .bz2, tar, archive, unpack, pack, compress, decompress, unix, linux">
+  <meta name="description" content="Learn how to generate a local Ruby HTTP server with a simple one line command">
+  <meta name="keywords" content="ruby, server, http, localhost, how to, code, command line, CLI">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sweetme.at/2013/08/28/how-to-unpack-a-tar.gz-and-tar.bz2-archive-on-the-command-line">
+  <link rel="canonical" href="http://sweetme.at/2013/08/28/simple-local-http-server-with-ruby">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -76,7 +76,7 @@
   
   <header>
     
-      <h1 class="entry-title">How to Unpack a tar.gz and tar.bz2 Archive on the Command Line</h1>
+      <h1 class="entry-title">Simple Local HTTP Server With Ruby</h1>
     
     
       <p class="meta">
@@ -92,43 +92,34 @@
   
 
 
-<time datetime="2013-08-28T09:00:00-04:00" pubdate data-updated="true">Aug 28<span>th</span>, 2013</time>
+<time datetime="2013-08-28T15:12:00-04:00" pubdate data-updated="true">Aug 28<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>No matter how many times I use these commands, I always need to look up the switches to decompress and unpack a compressed tar archive.  Here they are for those who have the same problem.</p>
+<div class="entry-content"><p><a href="http://sweetme.at/2013/08/21/simple-local-http-server-with-python/">You can do it with Python</a>.  And you can do it with Ruby.  The Ruby one line command for a local HTTP server.</p>
 
 <!--More-->
 
 
-<h2>Decompress and Unpack a tar.gz Archive</h2>
+<h2>One Line Ruby HTTP Server</h2>
 
-<figure class='code'><figcaption><span>Decompress and Unpack a tar.gz Archive</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>tar -xvzf &lt;filename&gt;
+<p>Navigate to your local site directory and then use the following command:</p>
+
+<figure class='code'><figcaption><span>One Line Ruby HTTP Server</span><a href='https://coderwall.com/p/ocnxeq'>Source</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ruby</span> <span class="o">-</span><span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="n">httpd</span> <span class="o">.</span> <span class="o">-</span><span class="nb">p</span> <span class="mi">8000</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Decompress and Unpack a tar.bz2 Archive</h2>
+<p>You can access your site at <code>http://localhost:8000</code>. If you want to change the port, modify the argument after the <code>-p</code> switch.  I confirmed that this works with Ruby v1.9.3.</p>
 
-<figure class='code'><figcaption><span>Decompress and Unpack a tar.bz2 Archive</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>tar -xvjf &lt;filename&gt;
-</span></code></pre></td></tr></table></div></figure>
+<h2>Ruby?</h2>
 
+<p>Don&rsquo;t know what version of Ruby you have (or if it is installed)? Use the command <code>ruby --version</code> and you will know.</p>
 
-<h2>What the Switches Do</h2>
-
-<p><code>-x</code> : extract the tar archive</p>
-
-<p><code>-v</code> : verbose output so that you see what files are being unpacked</p>
-
-<p><code>-f</code> : indicates that you are providing tar with a filename of the archive</p>
-
-<p><code>-z</code> : runs gunzip to decompress .gz files</p>
-
-<p><code>-j</code> : runs bunzip2 to decompress .bz2 files</p>
+<p><small><i class="icon-link"></i> Kudos <a href="https://twitter.com/dallas_reedy">Dallas Reedy</a> via <a href="https://coderwall.com/p/ocnxeq">Coderwall</a></small></p>
 </div>
 
 
@@ -151,7 +142,7 @@
   
 
 
-<time datetime="2013-08-28T09:00:00-04:00" pubdate data-updated="true">Aug 28<span>th</span>, 2013</time>
+<time datetime="2013-08-28T15:12:00-04:00" pubdate data-updated="true">Aug 28<span>th</span>, 2013</time>
       
 
 
@@ -159,7 +150,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/28/how-to-unpack-a-tar.gz-and-tar.bz2-archive-on-the-command-line/" data-via="" data-counturl="http://sweetme.at/2013/08/28/how-to-unpack-a-tar.gz-and-tar.bz2-archive-on-the-command-line/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/28/simple-local-http-server-with-ruby/" data-via="" data-counturl="http://sweetme.at/2013/08/28/simple-local-http-server-with-ruby/" >Tweet</a>
   
   
   
@@ -168,10 +159,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/08/27/how-to-automatically-handle-php-arguments-from-both-a-url-and-the-command-line/" title="Previous Post: How to Automatically Handle PHP Arguments from Both a URL and the Command Line in the Same File">&laquo; How to Automatically Handle PHP Arguments from Both a URL and the Command Line in the Same File</a>
+        <a class="basic-alignment left" href="/2013/08/28/how-to-unpack-a-tar.gz-and-tar.bz2-archive-on-the-command-line/" title="Previous Post: How to Unpack a tar.gz and tar.bz2 Archive on the Command Line">&laquo; How to Unpack a tar.gz and tar.bz2 Archive on the Command Line</a>
       
-      
-        <a class="basic-alignment right" href="/2013/08/28/simple-local-http-server-with-ruby/" title="Next Post: Simple Local HTTP Server with Ruby">Simple Local HTTP Server with Ruby &raquo;</a>
       
     </p>
   </footer>
