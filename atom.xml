@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-26T08:48:54-04:00</updated>
+  <updated>2013-08-27T20:32:42-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,59 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Automatically Handle PHP Arguments from Both a URL and the Command Line in the Same File]]></title>
+    <link href="http://sweetme.at/2013/08/27/how-to-automatically-handle-php-arguments-from-both-a-url-and-the-command-line/"/>
+    <updated>2013-08-27T19:33:00-04:00</updated>
+    <id>http://sweetme.at/2013/08/27/how-to-automatically-handle-php-arguments-from-both-a-url-and-the-command-line</id>
+    <content type="html"><![CDATA[<p>Want to pass arguments to your PHP script via URL on your web server as well as with standard command line syntax via the PHP interpreter?  Have your cake and eat it too with this little gem.</p>
+
+<!--More-->
+
+
+<p>I used this technique in <a href="https://github.com/chrissimpkins/tweetledee">Tweetledee</a>.  It&rsquo;s useful for testing your PHP scripts in a terminal and for piping your PHP script data to other applications.  Here is a snippet of the code from the Tweetledee favoritesjson.php file that demonstrates the conditional argument parsing logic:</p>
+
+<figure class='code'><figcaption><span>How to Handle PHP Arguments by URL and Command Line</span><a href='https://github.com/chrissimpkins/tweetledee/blob/master/tweetledee/favoritesjson.php'>Source File</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="sd">/*******************************************************************</span>
+</span><span class='line'><span class="sd">*   Parameters</span>
+</span><span class='line'><span class="sd">*    - can pass via URL to web server</span>
+</span><span class='line'><span class="sd">*    - or as a short or long switch at the command line</span>
+</span><span class='line'><span class="sd">********************************************************************/</span>
+</span><span class='line'><span class="c1">// Command line parameter definitions //</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;STDIN&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$argv</span><span class="p">)){</span>
+</span><span class='line'>      <span class="c1">// handle your command line arguments here with getopt</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="c1">// GET request parameter definitions //</span>
+</span><span class='line'><span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// handle your URL parameters (via GET or POST requests) here</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>STDIN</code> is defined if the script is being run directly through the PHP interpreter with a shell command, but it is not defined when you access the file through a web server by URL.  Test to determine if it is defined and, if so, you can parse the PHP command line arguments with the PHP <a href="http://php.net/manual/en/function.getopt.php">getopt function</a>.  This allows you to pass parameters using standard short (<code>-s</code>) and long (<code>--long</code>) command line switch syntax.</p>
+
+<p>If the test fails, then the user is accessing the file by URL.  Handle your GET and POST requests in the else code block.</p>
+
+<p>Check out the <a href="https://github.com/chrissimpkins/tweetledee/blob/master/tweetledee/favoritesjson.php#L95">full source file</a> if you&rsquo;d like to see how I handled the arguments in these conditional statements.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A Simple One-Liner to Rerun Your Last Shell Command with a Modification]]></title>
