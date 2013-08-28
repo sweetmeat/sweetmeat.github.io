@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-08-27T20:34:38-04:00</updated>
+  <updated>2013-08-28T09:19:59-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Unpack a tar.gz and tar.bz2 Archive on the Command Line]]></title>
+    <link href="http://sweetme.at/2013/08/28/how-to-unpack-a-tar.gz-and-tar.bz2-archive-on-the-command-line/"/>
+    <updated>2013-08-28T09:00:00-04:00</updated>
+    <id>http://sweetme.at/2013/08/28/how-to-unpack-a-tar.gz-and-tar.bz2-archive-on-the-command-line</id>
+    <content type="html"><![CDATA[<p>No matter how many times I use these commands, I always need to look up the switches to decompress and unpack a compressed tar archive.  Here they are for those who have the same problem.</p>
+
+<!--More-->
+
+
+<h2>Decompress and Unpack a tar.gz Archive</h2>
+
+<figure class='code'><figcaption><span>Decompress and Unpack a tar.gz Archive</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>tar -xvzf &lt;filename&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Decompress and Unpack a tar.bz2 Archive</h2>
+
+<figure class='code'><figcaption><span>Decompress and Unpack a tar.bz2 Archive</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>tar -xvjf &lt;filename&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>What the Switches Do</h2>
+
+<p><code>-x</code> : extract the tar archive</p>
+
+<p><code>-v</code> : verbose output so that you see what files are being unpacked</p>
+
+<p><code>-f</code> : indicates that you are providing tar with a filename of the archive</p>
+
+<p><code>-z</code> : runs gunzip to decompress .gz files</p>
+
+<p><code>-j</code> : runs bunzip2 to decompress .bz2 files</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Automatically Handle PHP Arguments from Both a URL and the Command Line in the Same File]]></title>
