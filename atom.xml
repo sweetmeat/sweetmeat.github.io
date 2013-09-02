@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-02T00:57:35-04:00</updated>
+  <updated>2013-09-02T15:23:44-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,72 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Open a URL in the Default Browser Across OS Platforms]]></title>
+    <link href="http://sweetme.at/2013/09/02/how-to-open-a-url-in-the-default-browser-across-os-platforms/"/>
+    <updated>2013-09-02T14:39:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/02/how-to-open-a-url-in-the-default-browser-across-os-platforms</id>
+    <content type="html"><![CDATA[<p>Programmatically launching a URL in the default browser across OS platforms is not as widely supported as you might think.  The Python webbrowser module provides fairly broad support for this.  Here&rsquo;s a shell one-liner and a Python script that allow you to do it.</p>
+
+<!--More-->
+
+
+<h2>Shell Command</h2>
+
+<p>You can run this as a one liner in your shell with the following syntax:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>python -m webbrowser &lt;URL&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To open the URL in a new tab, use the <code>-t</code> switch, and to open it in a new browser window, use the <code>-n</code> switch like this:</p>
+
+<h3>Open Sweetmeat in a New Tab</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>python -m webbrowser -t "http://sweetme.at"</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Open Sweetmeat in a New Window</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>python -m webbrowser -n "http://sweetme.at"</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Python Scripts</h2>
+
+<p>Import the webbrowser module and use the following module function:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">webbrowser</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://sweetme.at&quot;</span>
+</span><span class='line'><span class="n">webbrowser</span><span class="o">.</span><span class="n">open_new_tab</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This opens the URL in a new tab with a fallback to a new browser window if this fails.  To make a new window the default, use the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">webbrowser</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://sweetme.at&quot;</span>
+</span><span class='line'><span class="n">webbrowser</span><span class="o">.</span><span class="n">open_new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Python Docs</h2>
+
+<p>Here are the webbrowser module docs for Python versions <a href="http://docs.python.org/2.7/library/webbrowser.html">2.7</a> and <a href="http://docs.python.org/3.3/library/webbrowser.html">3.3</a>. There are a few more examples and details on possible exceptions that are raised with these scripts.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Special Characters in Your Shell]]></title>
