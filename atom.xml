@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-02T15:23:44-04:00</updated>
+  <updated>2013-09-03T08:40:45-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,58 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Open a File in Sublime Text 2 or 3 from the Command Line on Mac OSX]]></title>
+    <link href="http://sweetme.at/2013/09/03/how-to-open-a-file-in-sublime-text-2-or-3-from-the-command-line-on-mac-osx/"/>
+    <updated>2013-09-03T08:15:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/03/how-to-open-a-file-in-sublime-text-2-or-3-from-the-command-line-on-mac-osx</id>
+    <content type="html"><![CDATA[<p>You can open a file in <a href="http://www.sublimetext.com/">Sublime Text</a> from the Mac command line.  Here is how you do it with versions 2 and 3 of this popular text editor.</p>
+
+<!--More-->
+
+
+<h2>Sublime Text 2</h2>
+
+<p>Create a symbolic link to the subl binary with this command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Sublime Text 3</h2>
+
+<p>The install path is different in Sublime Text 3.  Create the symbolic link like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Confirm that it Works</h2>
+
+<p>Confirm that it works by accessing the help file with the <code>--help</code> switch:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>subl --help</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you receive an error, make sure that <code>/usr/local/bin</code> is on your PATH.</p>
+
+<h2>Use it on the Command Line</h2>
+
+<p>Use the filename as the argument to subl.  If there are spaces in the filename path, make sure that you surround the entire path with double quotes or escape the spaces.</p>
+
+<p>Here is an example with the file &lsquo;test.txt&rsquo;:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>subl test.txt</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Documentation</h2>
+
+<p>Here are links to the <a href="">Sublime Text 2</a> and <a href="http://www.sublimetext.com/docs/3/osx_command_line.html">Sublime Text 3</a> command line use documentation if you&rsquo;d like to learn more.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Open a URL in the Default Browser Across OS Platforms]]></title>
