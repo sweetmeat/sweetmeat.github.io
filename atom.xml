@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-04T23:56:30-04:00</updated>
+  <updated>2013-09-05T16:12:01-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Read RSS Feeds in Your Terminal on Linux and Mac OSX]]></title>
+    <link href="http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal/"/>
+    <updated>2013-09-05T15:01:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal</id>
+    <content type="html"><![CDATA[<p>Here&rsquo;s a one liner that allows you to read RSS feed titles in your terminal window.</p>
+
+<!--More-->
+
+
+<h2>cURL + grep + sed = Terminal RSS Feeds</h2>
+
+<p>Here is the the generic command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl "THE_RSS_FEED"  2&gt;/dev/null | grep "&lt;title&gt;" | sed -e "s/.*\&lt;title\&gt;\(.*\)\&lt;\/title\&gt;.*/»\ \1/g" | less</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Replace <code>THE_RSS_FEED</code> with the URL of the syndicated site feed (surrounded by the double quotes) and confirm that the raw feed XML displays item titles with a plain &lt;title&gt; tag (i.e. without CDATA tags or other XML detritus).</p>
+
+<p>If you&rsquo;d like to prepend a different list symbol for the titles, replace the <code>»</code> character with another ascii symbol or symbols.</p>
+
+<p>I have been playing around with this using the <a href="http://chrissimpkins.github.io/tweetledee/">Tweetledee</a> files to view Twitter search, favorites, list, and user timeline feeds.  The formatting for up to 140 chars could use a bit of work but it is functional.</p>
+
+<h2>Do it Without less</h2>
+
+<p>The command uses the less shell command to create paginated formatting.  If you prefer not to use this, just remove the last pipe (|) and the less command at the end of the command string.</p>
+
+<p><small>Source: I made slight modifications to the shell command posted by <a href="http://www.commandlinefu.com/commands/view/12671/extract-xml-rss-etc-by-tags-such-as-or-or-">c3w on commandlinefu.com</a></small></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Mute the Standard Output Stream in a Bash Shell Command]]></title>

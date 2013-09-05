@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>A Simple One-Liner to Rerun Your Last Shell Command with a Modification - Sweetmeat</title>
+  <title>Read RSS Feeds in Your Terminal on Linux and Mac OSX - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to modify and re-run your last shell command with a simple one-liner">
-  <meta name="keywords" content="shell, linux, unix, modify, command, command line, CLI, error, how to">
+  <meta name="description" content="Learn how to use a one line shell script to read RSS feed titles in your terminal window on Linux and Mac OSX.">
+  <meta name="keywords" content="RSS, terminal, feed, XML, shell, command line, CLI, how to, instructions, read">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification">
+  <link rel="canonical" href="http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -77,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">A Simple One-Liner to Rerun Your Last Shell Command With a Modification</h1>
+      <h1 class="entry-title">Read RSS Feeds in Your Terminal on Linux and Mac OSX</h1>
     
     
       <p class="meta">
@@ -93,33 +93,37 @@
   
 
 
-<time datetime="2013-08-26T08:31:00-04:00" pubdate data-updated="true">Aug 26<span>th</span>, 2013</time>
+<time datetime="2013-09-05T15:01:00-04:00" pubdate data-updated="true">Sep 5<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>This one-liner will modify an error in your last shell command and automatically re-run it.</p>
+<div class="entry-content"><p>Here&rsquo;s a one liner that allows you to read RSS feed titles in your terminal window.</p>
 
 <!--More-->
 
 
-<p>You meant to run <code>make &amp;&amp; make install</code> to build and install an application, but you actually typed <code>nake &amp;&amp; make install</code>.  The scenic route to correct this is UP ARROW to retrieve the command, navigate to the beginning of the line, switch the n to m, and then submit it again.</p>
+<h2>cURL + grep + sed = Terminal RSS Feeds</h2>
 
-<p>Here&rsquo;s your jetpack:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>^na^ma^</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This command uses the generic syntax:</p>
+<p>Here is the the generic command:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>^before^after^</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl "THE_RSS_FEED"  2&gt;/dev/null | grep "&lt;title&gt;" | sed -e "s/.*\&lt;title\&gt;\(.*\)\&lt;\/title\&gt;.*/»\ \1/g" | less</span></code></pre></td></tr></table></div></figure>
 
 
-<p>to modify the <em>before</em> substring to the <em>after</em> substring and then it automatically resubmits the command.</p>
+<p>Replace <code>THE_RSS_FEED</code> with the URL of the syndicated site feed (surrounded by the double quotes) and confirm that the raw feed XML displays item titles with a plain &lt;title&gt; tag (i.e. without CDATA tags or other XML detritus).</p>
+
+<p>If you&rsquo;d like to prepend a different list symbol for the titles, replace the <code>»</code> character with another ascii symbol or symbols.</p>
+
+<p>I have been playing around with this using the <a href="http://chrissimpkins.github.io/tweetledee/">Tweetledee</a> files to view Twitter search, favorites, list, and user timeline feeds.  The formatting for up to 140 chars could use a bit of work but it is functional.</p>
+
+<h2>Do it Without less</h2>
+
+<p>The command uses the less shell command to create paginated formatting.  If you prefer not to use this, just remove the last pipe (|) and the less command at the end of the command string.</p>
+
+<p><small>Source: I made slight modifications to the shell command posted by <a href="http://www.commandlinefu.com/commands/view/12671/extract-xml-rss-etc-by-tags-such-as-or-or-">c3w on commandlinefu.com</a></small></p>
 </div>
 
 
@@ -142,7 +146,7 @@
   
 
 
-<time datetime="2013-08-26T08:31:00-04:00" pubdate data-updated="true">Aug 26<span>th</span>, 2013</time>
+<time datetime="2013-09-05T15:01:00-04:00" pubdate data-updated="true">Sep 5<span>th</span>, 2013</time>
       
 
 
@@ -150,7 +154,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification/" data-via="" data-counturl="http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal/" data-via="" data-counturl="http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal/" >Tweet</a>
   
   
   
@@ -159,10 +163,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/08/23/find-files-by-extension-and-modification-time/" title="Previous Post: Find Files by Extension and Modification Time">&laquo; Find Files by Extension and Modification Time</a>
+        <a class="basic-alignment left" href="/2013/09/04/how-to-mute-the-standard-output-stream-in-a-bash-shell-command/" title="Previous Post: How to Mute the Standard Output Stream in a Bash Shell Command">&laquo; How to Mute the Standard Output Stream in a Bash Shell Command</a>
       
-      
-        <a class="basic-alignment right" href="/2013/08/27/how-to-automatically-handle-php-arguments-from-both-a-url-and-the-command-line/" title="Next Post: How to Automatically Handle PHP Arguments from Both a URL and the Command Line in the Same File">How to Automatically Handle PHP Arguments from Both a URL and the Command Line in the Same File &raquo;</a>
       
     </p>
   </footer>
