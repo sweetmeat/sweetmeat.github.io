@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-04T22:28:24-04:00</updated>
+  <updated>2013-09-04T23:56:30-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Mute the Standard Output Stream in a Bash Shell Command]]></title>
+    <link href="http://sweetme.at/2013/09/04/how-to-mute-the-standard-output-stream-in-a-bash-shell-command/"/>
+    <updated>2013-09-04T23:46:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/04/how-to-mute-the-standard-output-stream-in-a-bash-shell-command</id>
+    <content type="html"><![CDATA[<p>Did the developer forget a verbosity switch?  Here is the solution.</p>
+
+<!--More-->
+
+
+<h2>Mute a Bash Command</h2>
+
+<p>Append the following bash idiom to your command and you will have silence:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&-</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&lt;crickets&gt;</p>
+
+<p><small>Source: <a href="http://stackoverflow.com/questions/2292847/how-to-silent-output-in-a-bash-script">Eduardo Cuomo on SO</a></small></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Open a File in Sublime Text 2 or 3 from the Command Line on Mac OSX]]></title>
