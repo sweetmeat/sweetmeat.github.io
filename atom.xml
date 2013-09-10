@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-05T16:12:01-04:00</updated>
+  <updated>2013-09-09T22:37:18-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Swizzle, a Markdown Text Editor Theme for Mou and LightPaper]]></title>
+    <link href="http://sweetme.at/2013/09/09/swizzle-a-markdown-text-editor-theme/"/>
+    <updated>2013-09-09T22:13:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/09/swizzle-a-markdown-text-editor-theme</id>
+    <content type="html"><![CDATA[<p>Swizzle is a dark Markdown theme that I released on GitHub for the <a href="http://mouapp.com/">Mou</a> and <a href="http://clockworkengine.com/lightpaper-mac/">LightPaper</a> text editors.</p>
+
+<!--More-->
+
+
+<h2>Demo</h2>
+
+<p><img src="https://raw.github.com/chrissimpkins/swizzle/master/img/swizzle_demo.png" alt="Swizzle Demo" /></p>
+
+<h2>Download</h2>
+
+<p>Swizzle is available on <a href="https://github.com/chrissimpkins/swizzle">GitHub</a> <i class="icon-github"></i></p>
+
+<p>You can clone it with this URL:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://github.com/chrissimpkins/swizzle.git</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Install</h2>
+
+<p>Place the <code>Swizzle.txt</code> file in your application Themes directory.</p>
+
+<p><strong>Mou Themes</strong> : <code>~/Library/Application Support/Mou/Themes</code></p>
+
+<p><strong>LightPaper Themes</strong> : <code>~/.lightpaper/Themes</code></p>
+
+<p>Open your Markdown editor, open the Preferences pane, &amp; select the Swizzle theme in the dropdown for the text editor themes (not the preview themes!).</p>
+
+<h2>Specs</h2>
+
+<p><strong>Fonts</strong>: Helvetica Neue, Helvetica, &amp; Menlo</p>
+
+<p><strong>Palette</strong>: <a href="http://www.colourlovers.com/palette/444487/Curiosity_Killed">Curiosity Killed</a> with a few additions {^5 Miaka}</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Read RSS Feeds in Your Terminal on Linux and Mac OSX]]></title>
@@ -1552,73 +1594,6 @@
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Pipe Twitter Data to other Applications with Tweetledee]]></title>
-    <link href="http://sweetme.at/2013/08/04/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee/"/>
-    <updated>2013-08-04T21:01:00-04:00</updated>
-    <id>http://sweetme.at/2013/08/04/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee</id>
-    <content type="html"><![CDATA[<p>Tweetledee is a <a href="https://github.com/chrissimpkins/tweetledee">MIT licensed PHP project on GitHub</a> that simplifies access to Twitter JSON and RSS feed data for user timelines, home timelines, lists, favorites, and tweet search.  You can run the PHP files directly through the PHP interpreter using standard CLI syntax, take advantage of the many available options through command line switches, and pipe the Twitter data to any application that you&rsquo;d like.  Here&rsquo;s how you do it.</p>
-
-<!-- more -->
-
-
-<h2>The Software</h2>
-
-<ul>
-<li>Resource: <a href="https://github.com/chrissimpkins/tweetledee">Tweetledee</a></li>
-<li>Docs: <a href="http://chrissimpkins.github.io/tweetledee/">Tweetledee documentation</a></li>
-<li>Dependencies: PHP 5.3+ for RSS + JSON, PHP 5.4+ for pretty printed JSON</li>
-</ul>
-
-
-<h2>How to Run Tweetledee from the Command Line</h2>
-
-<p>You can access Twitter JSON and RSS feed data through the Tweetledee files with standard command line syntax and display your results in a terminal or pipe the data through the standard out stream to any other application. Instead of running the Tweetledee scripts via URL on a web server, you run the them directly through the PHP interpreter. The Tweetledee files automatically detect whether you are accessing the data by URL or from a terminal window.</p>
-
-<p><a href="http://chrissimpkins.github.io/tweetledee/usage.html">The Tweetledee scripts have a number of available options</a> that allow you to modify the user of interest, exclude retweets or replies, define your search query and more.  These parameter names do not change with the CLI approach; however, you use standard CLI syntax to define them. For single character options, use a short switch format (<code>-c</code>). For multiple character options, use a long switch format (<code>--user</code>).</p>
-
-<p>Here are a few examples. Download the Tweetledee files from the GitHub site, navigate to the inner tweetledee directory and then test the following commands that demonstrate the options available for the <em>user timeline</em> JSON file.</p>
-
-<h4>User Timeline JSON (default user = you)</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>User Timeline JSON (another user = me)</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php --user=csimpkins</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>User Timeline JSON (another user + exclude RT&rsquo;s)</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php --user=csimpkins --xrt=1</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>User Timeline JSON (another user + exclude RT&rsquo;s + include only 5 tweets)</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php --user=csimpkins --xrt=1 -c 5</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Pipe the Twitter Data to Another Application</h2>
-
-<p>Viewing the data in your terminal is not terribly exciting.  The beauty of this approach is that the JSON data travels through the standard out stream when you run a Tweetledee script directly through the PHP interpreter so you can pipe it to any application that accepts data through the standard in stream.  This provides an easily implemented Twitter JSON (or Atom feed) data source for any application without the hassle of generating the OAuth code yourself.</p>
-
-<p>As a trivial, relatively useless demonstration of the approach, let&rsquo;s pipe the user timeline JSON to the *nix application wc to perform a character count.</p>
-
-<h4>Twitter User JSON Data Piped to wc for a Character Count</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php | wc -c</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Simple. I leave it as an exercise for the interested reader to come up with a much more useful application of your Twitter data.</p>
 ]]></content>
   </entry>
   

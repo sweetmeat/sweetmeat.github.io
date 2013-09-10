@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Read RSS Feeds in Your Terminal on Linux and Mac OSX - Sweetmeat</title>
+  <title>Swizzle, a Markdown Text Editor Theme for Mou and LightPaper - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to use a one line shell script to read RSS feed titles in your terminal window on Linux and Mac OSX.">
-  <meta name="keywords" content="RSS, terminal, feed, XML, shell, command line, CLI, how to, instructions, read">
+  <meta name="description" content="Swizzle is a dark theme for the Mou and LightPaper Markdown text editors. Available on GitHub.">
+  <meta name="keywords" content="markdown, mou, lightpaper, theme, themes, editor, text editor">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal">
+  <link rel="canonical" href="http://sweetme.at/2013/09/09/swizzle-a-markdown-text-editor-theme">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -77,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">Read RSS Feeds in Your Terminal on Linux and Mac OSX</h1>
+      <h1 class="entry-title">Swizzle, a Markdown Text Editor Theme for Mou and LightPaper</h1>
     
     
       <p class="meta">
@@ -93,37 +93,47 @@
   
 
 
-<time datetime="2013-09-05T15:01:00-04:00" pubdate data-updated="true">Sep 5<span>th</span>, 2013</time>
+<time datetime="2013-09-09T22:13:00-04:00" pubdate data-updated="true">Sep 9<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Here&rsquo;s a one liner that allows you to read RSS feed titles in your terminal window.</p>
+<div class="entry-content"><p>Swizzle is a dark Markdown theme that I released on GitHub for the <a href="http://mouapp.com/">Mou</a> and <a href="http://clockworkengine.com/lightpaper-mac/">LightPaper</a> text editors.</p>
 
 <!--More-->
 
 
-<h2>cURL + grep + sed = Terminal RSS Feeds</h2>
+<h2>Demo</h2>
 
-<p>Here is the the generic command:</p>
+<p><img src="https://raw.github.com/chrissimpkins/swizzle/master/img/swizzle_demo.png" alt="Swizzle Demo" /></p>
+
+<h2>Download</h2>
+
+<p>Swizzle is available on <a href="https://github.com/chrissimpkins/swizzle">GitHub</a> <i class="icon-github"></i></p>
+
+<p>You can clone it with this URL:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>curl "THE_RSS_FEED"  2&gt;/dev/null | grep "&lt;title&gt;" | sed -e "s/.*\&lt;title\&gt;\(.*\)\&lt;\/title\&gt;.*/»\ \1/g" | less</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://github.com/chrissimpkins/swizzle.git</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Replace <code>THE_RSS_FEED</code> with the URL of the syndicated site feed (surrounded by the double quotes) and confirm that the raw feed XML displays item titles with a plain &lt;title&gt; tag (i.e. without CDATA tags or other XML detritus).</p>
+<h2>Install</h2>
 
-<p>If you&rsquo;d like to prepend a different list symbol for the titles, replace the <code>»</code> character with another ascii symbol or symbols.</p>
+<p>Place the <code>Swizzle.txt</code> file in your application Themes directory.</p>
 
-<p>I have been playing around with this using the <a href="http://chrissimpkins.github.io/tweetledee/">Tweetledee</a> files to view Twitter search, favorites, list, and user timeline feeds.  The formatting for up to 140 chars could use a bit of work but it is functional.</p>
+<p><strong>Mou Themes</strong> : <code>~/Library/Application Support/Mou/Themes</code></p>
 
-<h2>Do it Without less</h2>
+<p><strong>LightPaper Themes</strong> : <code>~/.lightpaper/Themes</code></p>
 
-<p>The command uses the less shell command to create paginated formatting.  If you prefer not to use this, just remove the last pipe (|) and the less command at the end of the command string.</p>
+<p>Open your Markdown editor, open the Preferences pane, &amp; select the Swizzle theme in the dropdown for the text editor themes (not the preview themes!).</p>
 
-<p><small>Source: I made slight modifications to the shell command posted by <a href="http://www.commandlinefu.com/commands/view/12671/extract-xml-rss-etc-by-tags-such-as-or-or-">c3w on commandlinefu.com</a></small></p>
+<h2>Specs</h2>
+
+<p><strong>Fonts</strong>: Helvetica Neue, Helvetica, &amp; Menlo</p>
+
+<p><strong>Palette</strong>: <a href="http://www.colourlovers.com/palette/444487/Curiosity_Killed">Curiosity Killed</a> with a few additions {^5 Miaka}</p>
 </div>
 
 
@@ -146,7 +156,7 @@
   
 
 
-<time datetime="2013-09-05T15:01:00-04:00" pubdate data-updated="true">Sep 5<span>th</span>, 2013</time>
+<time datetime="2013-09-09T22:13:00-04:00" pubdate data-updated="true">Sep 9<span>th</span>, 2013</time>
       
 
 
@@ -154,7 +164,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal/" data-via="" data-counturl="http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/09/swizzle-a-markdown-text-editor-theme/" data-via="" data-counturl="http://sweetme.at/2013/09/09/swizzle-a-markdown-text-editor-theme/" >Tweet</a>
   
   
   
@@ -163,10 +173,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/09/04/how-to-mute-the-standard-output-stream-in-a-bash-shell-command/" title="Previous Post: How to Mute the Standard Output Stream in a Bash Shell Command">&laquo; How to Mute the Standard Output Stream in a Bash Shell Command</a>
+        <a class="basic-alignment left" href="/2013/09/05/read-rss-feeds-in-your-terminal/" title="Previous Post: Read RSS Feeds in Your Terminal on Linux and Mac OSX">&laquo; Read RSS Feeds in Your Terminal on Linux and Mac OSX</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/09/swizzle-a-markdown-text-editor-theme/" title="Next Post: Swizzle, a Markdown Text Editor Theme for Mou and LightPaper">Swizzle, a Markdown Text Editor Theme for Mou and LightPaper &raquo;</a>
       
     </p>
   </footer>
