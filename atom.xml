@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-09T22:37:18-04:00</updated>
+  <updated>2013-09-10T20:19:18-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Turn Your Browser into a Text Editor with Syntax Highlighting]]></title>
+    <link href="http://sweetme.at/2013/09/10/how-to-turn-your-browser-into-a-text-editor-with-syntax-highlighting/"/>
+    <updated>2013-09-10T19:31:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/10/how-to-turn-your-browser-into-a-text-editor-with-syntax-highlighting</id>
+    <content type="html"><![CDATA[<p>Pop this script into your browser&rsquo;s navigation bar and code away in the browser with syntax highlighting for multiple languages.</p>
+
+<!--More-->
+
+
+<h2>Script</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>data:text/html, <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span><span class="nc">.e</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><span class="k">top</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">right</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">bottom</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">left</span><span class="o">:</span><span class="m">0</span><span class="p">;}</span><span class="nt">&lt;/style&gt;&lt;div</span> <span class="na">class=</span><span class="s">&quot;e&quot;</span> <span class="na">id=</span><span class="s">&quot;editor&quot;</span><span class="nt">&gt;&lt;/div&gt;&lt;script </span><span class="na">src=</span><span class="s">&quot;http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;&lt;/script&gt;&lt;script&gt;</span><span class="kd">var</span> <span class="nx">e</span><span class="o">=</span><span class="nx">ace</span><span class="p">.</span><span class="nx">edit</span><span class="p">(</span><span class="s2">&quot;editor&quot;</span><span class="p">);</span><span class="nx">e</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="s2">&quot;ace/theme/textmate&quot;</span><span class="p">);</span><span class="nx">e</span><span class="p">.</span><span class="nx">getSession</span><span class="p">().</span><span class="nx">setMode</span><span class="p">(</span><span class="s2">&quot;ace/mode/python&quot;</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><small>Source: <a href="https://gist.github.com/jdkanani/4670615">jdkanani Gist on GitHub</a> with language + theme modifications</small></p>
+
+<h2>Instructions</h2>
+
+<p>Copy the script above, paste it into your browser navigation bar, and hit Enter/Return.  Through the power of <a href="http://ace.c9.io/">Ace</a>, your browser will turn into a text editor with automatic line numbers, code folding, and syntax highlighting (in this case for Python).</p>
+
+<h2>Browser Screenshot with a Python Script</h2>
+
+<p><img src="http://sweetme.at/images/ace_browser_editor.png" alt="image" /></p>
+
+<h2>Customize Your Language</h2>
+
+<p>Ace supports over 60 languages.  To change the syntax highlighter in the script, modify the line:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">e</span><span class="p">.</span><span class="nx">getSession</span><span class="p">().</span><span class="nx">setMode</span><span class="p">(</span><span class="s2">&quot;ace/mode/python&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>with any of over 60 languages.  You can <a href="https://github.com/ajaxorg/ace/tree/master/lib/ace/mode">find the list of supported language modes in the GitHub repository</a>.  Change <code>ace/mode/python</code> to your language of choice.  For example, here is how you specify the JavaScript syntax highlighter:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">e</span><span class="p">.</span><span class="nx">getSession</span><span class="p">().</span><span class="nx">setMode</span><span class="p">(</span><span class="s2">&quot;ace/mode/javascript&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Customize Your Editor Theme</h2>
+
+<p>The Ace editor supports over 20 different text editor themes too.  To change the editor theme, modify the line:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">e</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="s2">&quot;ace/theme/textmate&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>with <a href="https://github.com/ajaxorg/ace/tree/master/lib/ace/theme">any of the supported themes</a>.  Here is how you switch to Monokai:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">e</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="s2">&quot;ace/theme/monokai&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>^5</h2>
+
+<p>Kudos to <a href="https://gist.github.com/jdkanani/4670615">jdkanani</a> for this script.  Head over to his repository and show him some love if you use it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Swizzle, a Markdown Text Editor Theme for Mou and LightPaper]]></title>
@@ -1251,349 +1316,6 @@
 
 
 <p>and then deploy your site with whatever approach you are using (git, rsync, etc.).</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Markdown Cheat Sheet]]></title>
-    <link href="http://sweetme.at/2013/08/05/markdown-cheat-sheet/"/>
-    <updated>2013-08-05T17:56:00-04:00</updated>
-    <id>http://sweetme.at/2013/08/05/markdown-cheat-sheet</id>
-    <content type="html"><![CDATA[<p>I needed a quick and dirty reference for the Markdown syntax.  Voila.  The raw Markdown Cheat Sheet file (in GitHub flavored Markdown) is <a href="https://github.com/chrissimpkins/markdown-cheat-sheet/blob/master/MD-cheat-sheet.md">available on GitHub</a> with a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons license</a>.</p>
-
-<!--More-->
-
-
-<h1 id="top">Contents</h1>
-
-
-<ul>
-<li><span style="font-size:22px;">Typography</span>
-
-<ul>
-<li><a href="#heading">Headings</a></li>
-<li><a href="#paragraph">Paragraphs</a></li>
-<li><a href="#bold">Bold Text</a></li>
-<li><a href="#italic">Italicized Text</a></li>
-<li><a href="#blockquote">Block Quotes</a></li>
-<li><a href="#list">Lists</a></li>
-</ul>
-</li>
-<li><span style="font-size:22px;">Links</span>
-
-<ul>
-<li><a href="#inlinelink">Inline Links</a></li>
-<li><a href="#reflink">Reference Links</a></li>
-</ul>
-</li>
-<li><span style="font-size:22px;">Tables</span>
-
-<ul>
-<li><a href="#table">Standard Table</a></li>
-</ul>
-</li>
-<li><span style="font-size:22px;">Code</span>
-
-<ul>
-<li><a href="#inlinecode">Inline Code</a></li>
-<li><a href="#codeblock">Code Blocks</a></li>
-</ul>
-</li>
-<li><span style="font-size:22px;">Images</span>
-
-<ul>
-<li><a href="#inlineimg">Inline Images</a></li>
-<li><a href="#refimg">Image References</a></li>
-</ul>
-</li>
-<li><span style="font-size:22px;">Other</span>
-
-<ul>
-<li><a href="#horiz">Horizontal Rules</a></li>
-<li><a href="#backslash">Backslash Escape Characters</a></li>
-</ul>
-</li>
-</ul>
-
-
-<h1>Typography</h1>
-
-<h3 id="heading">Headings <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Heading Markdown</span><a href='http://daringfireball.net/projects/markdown/syntax#header'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;h1&gt; = # Header
-</span><span class='line'>&lt;h2&gt; = ## Header
-</span><span class='line'>&lt;h3&gt; = ### Header
-</span><span class='line'>&lt;h4&gt; = #### Header
-</span><span class='line'>&lt;h5&gt; = ##### Header
-</span><span class='line'>&lt;h6&gt; = ###### Header</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<h3 id="paragraph">Paragraphs <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Paragraph Markdown</span><a href='http://daringfireball.net/projects/markdown/syntax#p'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>This is the first paragraph.
-</span><span class='line'>
-</span><span class='line'>And this is the second separated by a blank line.
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<h3 id="bold">Bold Text <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Bold Text Markdown</span><a href='http://daringfireball.net/projects/markdown/syntax#em'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>In this sentence the word **bold** is tagged with &lt;strong&gt; tags.</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<h3 id="italic">Italicized Text <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Italicized Text</span><a href='http://daringfireball.net/projects/markdown/syntax#em'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>In this sentence the word *italics* is tagged with &lt;em&gt; tags.</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<h3 id="blockquote">Blockquotes <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Blockquotes Markdown</span><a href='http://daringfireball.net/projects/markdown/syntax#blockquote'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/***********************************
-</span><span class='line'>* Standard Blockquote
-</span><span class='line'>***********************************/
-</span><span class='line'>&gt; This is a block
-</span><span class='line'>&gt; of really cool
-</span><span class='line'>&gt; text
-</span><span class='line'>
-</span><span class='line'>/***********************************
-</span><span class='line'>* Nested Blockquote
-</span><span class='line'>***********************************/
-</span><span class='line'>&gt; Here is a block
-</span><span class='line'>&gt; that contains
-</span><span class='line'>&gt;&gt; a nest!
-</span><span class='line'>&gt; and I'm back out of the nest...</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<h3 id="list">Lists <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Lists Markdown</span><a href='http://daringfireball.net/projects/markdown/syntax#list'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/***********************************
-</span><span class='line'>* Unordered List
-</span><span class='line'>***********************************/
-</span><span class='line'>- list item 1
-</span><span class='line'>- list item 2
-</span><span class='line'>  - sublist 1
-</span><span class='line'>  - sublist 2
-</span><span class='line'>- list item 3
-</span><span class='line'>
-</span><span class='line'>/***********************************
-</span><span class='line'>* Ordered List
-</span><span class='line'>***********************************/
-</span><span class='line'>1. list item 1
-</span><span class='line'>2. list item 2
-</span><span class='line'>  1. sublist 1
-</span><span class='line'>  2. sublist 2
-</span><span class='line'>3. list item 3
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>Links</h1>
-
-<h3 id="inlinelink">Inline Link <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Inline Link Markdown</span><a href='http://daringfireball.net/projects/markdown/syntax#link'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>This is a line with an [inline link to Google](http://www.google.com "Google").</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<h3 id="reflink">Reference Links <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Reference Links Markdown</span><a href='http://daringfireball.net/projects/markdown/syntax#link'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>This line has reference links for [Google] [1] and [GitHub] [2].
-</span><span class='line'>
-</span><span class='line'>  [1]: http://www.google.com "Google"
-</span><span class='line'>  [2]: http://www.github.com "GitHub"</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>Tables</h1>
-
-<h3 id="table">Standard Table <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Standard Table Markdown</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>// This works on GitHub
-</span><span class='line'>| Header 1 | Header 2     |
-</span><span class='line'>| -------- | ------------ |
-</span><span class='line'>| Content  | More content |</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>Code</h1>
-
-<h3 id="inlinecode">Inline Code <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Inline Code Markdown</span><a href='http://daringfireball.net/projects/markdown/syntax#code'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Here is some inline `code` that will be formatted appropriately</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<h3 id="codeblock">Code Blocks <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Code Block Markdown</span><a href='https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks'>GitHub Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/***********************************
-</span><span class='line'>* Standard Code Block
-</span><span class='line'>***********************************/
-</span><span class='line'>Tab or four spaces for standard code block syntax:
-</span><span class='line'>  void replace(){
-</span><span class='line'>      //lots of really cool code in here
-</span><span class='line'>  }
-</span><span class='line'>
-</span><span class='line'>/******************************************************
-</span><span class='line'>* GitHub Flavored Code Block with Syntax Highlighting
-</span><span class='line'>*******************************************************/
-</span><span class='line'>Three ticks before and after the code block & specify language:
-</span><span class='line'>  ```language
-</span><span class='line'>  void replace(){
-</span><span class='line'>      //lots of really cool code in here
-</span><span class='line'>  }
-</span><span class='line'>  ```</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>Images</h1>
-
-<h3 id="inlineimg">Inline Images <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Inline Image Markdown</span><a href='http://daringfireball.net/projects/markdown/syntax#img'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>![alt text](path/to/img.jpg "Title")</span></code></pre></td></tr></table></div></figure>
-
-
-<h3 id="refimg">Image References <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Image Reference Markdown</span><a href='http://daringfireball.net/projects/markdown/syntax#img'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>![alt text][id]
-</span><span class='line'>
-</span><span class='line'>  [id]: path/to/img.jpg "Title"</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>Other</h1>
-
-<h3 id="horiz">Horizontal Rules <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Horizontal Rule Markdown</span><a href='http://daringfireball.net/projects/markdown/syntax#hr'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>- - -</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<h3 id="backslash">Backslash Escape Characters <a href="#top"><i class="icon-circle-arrow-up"></i></a></h3>
-
-
-<figure class='code'><figcaption><span>Backslash Escape Characters</span><a href='http://daringfireball.net/projects/markdown/syntax#backslash'>Gruber Docs</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\   backslash
-</span><span class='line'>`   backtick
-</span><span class='line'>*   asterisk
-</span><span class='line'>_   underscore
-</span><span class='line'>{}  curly braces
-</span><span class='line'>[]  square brackets
-</span><span class='line'>()  parentheses
-</span><span class='line'>#   hash mark
-</span><span class='line'>+   plus sign
-</span><span class='line'>-   minus sign (hyphen)
-</span><span class='line'>.   dot
-</span><span class='line'>!   exclamation mark</span></code></pre></td></tr></table></div></figure>
-
-
-
 ]]></content>
   </entry>
   
