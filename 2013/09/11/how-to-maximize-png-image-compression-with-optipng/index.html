@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Bash backward and forward history search - Sweetmeat</title>
+  <title>How to Maximize PNG Image Compression with OptiPNG - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to make a .inputrc file to perform backward and forward searches in bash with the up and down arrow keys">
-  <meta name="keywords" content="bash, command line, CLI, history, how to, help, unix, linux">
+  <meta name="description" content="Learn how to maximize your PNG image compression with the open source application, OptiPNG">
+  <meta name="keywords" content="png, PNG, compression, image, web, lossless, lossy, data, optipng, open source, application">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sweetme.at/2013/08/16/bash-backward-and-forward-history-search">
+  <link rel="canonical" href="http://sweetme.at/2013/09/11/how-to-maximize-png-image-compression-with-optipng">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -77,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">Bash Backward and Forward History Search</h1>
+      <h1 class="entry-title">How to Maximize PNG Image Compression With OptiPNG</h1>
     
     
       <p class="meta">
@@ -93,36 +93,55 @@
   
 
 
-<time datetime="2013-08-16T18:36:00-04:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
+<time datetime="2013-09-11T22:17:00-04:00" pubdate data-updated="true">Sep 11<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I picked up this simple modification of the bash .inputrc file a few weeks ago and it has been a great addition to my command line armamentarium.  It allows you to perform a case-insensitive search through the bash history (forward or reverse) for anything that you type on the command line with the up and down arrows.</p>
+<div class="entry-content"><p>OptiPNG is an open source, lossless PNG file compression application that performs well on compression testing.  Here&rsquo;s how you maximize your compression ratios with it.</p>
 
 <!--More-->
 
 
-<p>If you don&rsquo;t already have a .inputrc file, create it in this path <code>~/.inputrc</code>.</p>
+<h2>Install</h2>
 
-<p>Then, include the following script in the file:</p>
+<p>OptiPNG is an open source application that is <a href="http://optipng.sourceforge.net/">available on SourceForge</a>.  Documentation in a pdf format is available <a href="http://optipng.sourceforge.net/optipng-0.7.4.man.pdf">here</a>.</p>
 
-<figure class='code'><figcaption><span>.inputrc script for bash case insensitive search</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>On *nix systems, you can build it with the standard set of commands:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='text'><span class='line'>&quot;\e[A&quot;: history-search-backward
-</span><span class='line'>&quot;\e[B&quot;: history-search-forward
-</span><span class='line'>set show-all-if-ambiguous on
-</span><span class='line'>set completion-ignore-case on
-</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>./configure
+</span><span class='line'>make && sudo make install</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Load your bash terminal and now you can perform a case-insensitive search for anything that you enter on the command line in a forward (with the down arrow) or reverse (with the up arrow) direction.</p>
+<p>Windows users get an .exe binary in the zip archive on the download page.</p>
 
-<p>Kudos to  <a href="https://twitter.com/dotcode">Jude Robinson</a> <i class="icon-twitter"></i> who posted this on <a href="https://coderwall.com/p/oqtj8w">Coderwall</a>.</p>
+<h2>PNG Compression with OptiPNG</h2>
+
+<p>I have been testing a few lossless PNG compression applications with PNG files that I generated from both Photoshop CS6 and Pixelmator.  These included files ranging from 1.2 kB to 1.5 MB that were saved in each application&rsquo;s default RGB + alpha 8 bit format, as well as in the Photoshop &ldquo;Save for web&rdquo; compressed format.  Generally speaking, the best compression / time command based upon my testing on a MacBook Pro (2.4 GHz Intel Core i7, 8GB RAM) is:</p>
+
+<h3>Near Maximal Compression + Fast</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>optipng -o2 -strip all &lt;image.png&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command strips all meta data and compresses the image data.  It led to a 18% decrease in the default Pixelmator PNG size and a 95% decrease in the default Photoshop PNG size.</p>
+
+<p>If you want to maximize your compression ratio with a fairly significant time tradeoff at larger file sizes, you can use the <code>-o7</code> switch.</p>
+
+<h3>Maximal Compression + Not So Fast (for Large File Sizes)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>optipng -o7 -strip all &lt;image.png&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the files that I tested, this led to a modest ~1 percentage point gain, though your results may vary depending upon the complexity of your image.</p>
+
+<p>The Photoshop CS6 &ldquo;Save for web&rdquo; PNG-8 compression format with 256 colors, bicubic sampling, no metadata, &amp; diffusion dither resulted in a file that had near maximal compression by current standards.  On a 100x100 pixel image, I was only able to wring out another 2.4% of the original file size with the latter optipng command.</p>
 </div>
 
 
@@ -145,7 +164,7 @@
   
 
 
-<time datetime="2013-08-16T18:36:00-04:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
+<time datetime="2013-09-11T22:17:00-04:00" pubdate data-updated="true">Sep 11<span>th</span>, 2013</time>
       
 
 
@@ -153,7 +172,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/16/bash-backward-and-forward-history-search/" data-via="" data-counturl="http://sweetme.at/2013/08/16/bash-backward-and-forward-history-search/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/11/how-to-maximize-png-image-compression-with-optipng/" data-via="" data-counturl="http://sweetme.at/2013/09/11/how-to-maximize-png-image-compression-with-optipng/" >Tweet</a>
   
   
   
@@ -162,10 +181,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/08/15/pixsy-command-line-for-internet-services/" title="Previous Post: Pixsy Featured this week on Tekzilla">&laquo; Pixsy Featured this week on Tekzilla</a>
+        <a class="basic-alignment left" href="/2013/09/10/how-to-turn-your-browser-into-a-text-editor-with-syntax-highlighting/" title="Previous Post: How to Turn Your Browser into a Text Editor with Syntax Highlighting">&laquo; How to Turn Your Browser into a Text Editor with Syntax Highlighting</a>
       
-      
-        <a class="basic-alignment right" href="/2013/08/19/how-to-create-a-draft-post-with-octopress/" title="Next Post: How to Create a Draft Post with Octopress">How to Create a Draft Post with Octopress &raquo;</a>
       
     </p>
   </footer>

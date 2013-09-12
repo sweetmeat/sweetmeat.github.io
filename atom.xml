@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-10T21:50:48-04:00</updated>
+  <updated>2013-09-11T23:06:46-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Maximize PNG Image Compression with OptiPNG]]></title>
+    <link href="http://sweetme.at/2013/09/11/how-to-maximize-png-image-compression-with-optipng/"/>
+    <updated>2013-09-11T22:17:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/11/how-to-maximize-png-image-compression-with-optipng</id>
+    <content type="html"><![CDATA[<p>OptiPNG is an open source, lossless PNG file compression application that performs well on compression testing.  Here&rsquo;s how you maximize your compression ratios with it.</p>
+
+<!--More-->
+
+
+<h2>Install</h2>
+
+<p>OptiPNG is an open source application that is <a href="http://optipng.sourceforge.net/">available on SourceForge</a>.  Documentation in a pdf format is available <a href="http://optipng.sourceforge.net/optipng-0.7.4.man.pdf">here</a>.</p>
+
+<p>On *nix systems, you can build it with the standard set of commands:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>./configure
+</span><span class='line'>make && sudo make install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Windows users get an .exe binary in the zip archive on the download page.</p>
+
+<h2>PNG Compression with OptiPNG</h2>
+
+<p>I have been testing a few lossless PNG compression applications with PNG files that I generated from both Photoshop CS6 and Pixelmator.  These included files ranging from 1.2 kB to 1.5 MB that were saved in each application&rsquo;s default RGB + alpha 8 bit format, as well as in the Photoshop &ldquo;Save for web&rdquo; compressed format.  Generally speaking, the best compression / time command based upon my testing on a MacBook Pro (2.4 GHz Intel Core i7, 8GB RAM) is:</p>
+
+<h3>Near Maximal Compression + Fast</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>optipng -o2 -strip all &lt;image.png&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command strips all meta data and compresses the image data.  It led to a 18% decrease in the default Pixelmator PNG size and a 95% decrease in the default Photoshop PNG size.</p>
+
+<p>If you want to maximize your compression ratio with a fairly significant time tradeoff at larger file sizes, you can use the <code>-o7</code> switch.</p>
+
+<h3>Maximal Compression + Not So Fast (for Large File Sizes)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>optipng -o7 -strip all &lt;image.png&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the files that I tested, this led to a modest ~1 percentage point gain, though your results may vary depending upon the complexity of your image.</p>
+
+<p>The Photoshop CS6 &ldquo;Save for web&rdquo; PNG-8 compression format with 256 colors, bicubic sampling, no metadata, &amp; diffusion dither resulted in a file that had near maximal compression by current standards.  On a 100x100 pixel image, I was only able to wring out another 2.4% of the original file size with the latter optipng command.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Turn Your Browser into a Text Editor with Syntax Highlighting]]></title>
@@ -1223,99 +1273,6 @@
 <p>No need to type sudo after using the up arrow and then navigating to beginning of the line.  It&rsquo;s a simple, time saving maneuver.</p>
 
 <p>Source: <a href="http://www.softpanorama.org/Scripting/Shellorama/bash_command_history_reuse.shtml">softpanorama.org</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Set Your Octopress Site Description and Keyword Meta Tags]]></title>
-    <link href="http://sweetme.at/2013/08/06/how-to-set-your-octopress-description-and-keyword-meta-tags/"/>
-    <updated>2013-08-06T23:18:00-04:00</updated>
-    <id>http://sweetme.at/2013/08/06/how-to-set-your-octopress-description-and-keyword-meta-tags</id>
-    <content type="html"><![CDATA[<p>Here is the missing documentation on how to set up description and keyword meta tags for your home page and all posts on your <a href="http://octopress.org/">Octopress site</a>.</p>
-
-<!--More-->
-
-
-<h2>Main Page Changes</h2>
-
-<p>Open the <code>_config.yml</code> file in an editor and enter a site description in the description field.  Then add a new keywords field and enter your comma delimited keyword list:</p>
-
-<figure class='code'><figcaption><span>Example Configuration of _config.yml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="c1"># ----------------------- #</span>
-</span><span class='line'><span class="c1">#      Main Configs       #</span>
-</span><span class='line'><span class="c1"># ----------------------- #</span>
-</span><span class='line'>
-</span><span class='line'><span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http://sweetme.at</span>
-</span><span class='line'><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Sweetmeat</span>
-</span><span class='line'><span class="l-Scalar-Plain">subtitle</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Juicy lil&#39; bytes</span>
-</span><span class='line'><span class="l-Scalar-Plain">author</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Chris Simpkins</span>
-</span><span class='line'><span class="l-Scalar-Plain">simple_search</span><span class="p-Indicator">:</span>
-</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">A really catchy description here.</span>
-</span><span class='line'><span class="l-Scalar-Plain">keywords</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">key 1, key 2, key 3, key 4, key 5</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Post Changes</h2>
-
-<p>For any existing posts or any new posts that you create with the <code>rake new_post['title']</code> command, you will need to add description and keyword fields to the YAML frontmatter in the post markdown file before you generate the html pages with the <code>rake generate</code> command.  Octopress does not generate these fields by default.  Here is how the YAML frontmatter should appear in your post:</p>
-
-<figure class='code'><figcaption><span>YAML frontmatter with description and keywords meta fields</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="nn">---</span>
-</span><span class='line'><span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">post</span>
-</span><span class='line'><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="s">&quot;How</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Set</span><span class="nv"> </span><span class="s">Your</span><span class="nv"> </span><span class="s">Octopress</span><span class="nv"> </span><span class="s">Site</span><span class="nv"> </span><span class="s">Description</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Keyword</span><span class="nv"> </span><span class="s">Meta</span><span class="nv"> </span><span class="s">Tags&quot;</span>
-</span><span class='line'><span class="l-Scalar-Plain">date</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2013-08-06 23:18</span>
-</span><span class='line'><span class="l-Scalar-Plain">comments</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-</span><span class='line'><span class="l-Scalar-Plain">categories</span><span class="p-Indicator">:</span>
-</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Don&#39;t know how to set your Octopress description and keyword meta tags? Here is the solution.</span>
-</span><span class='line'><span class="l-Scalar-Plain">keywords</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">octopress, blog, meta, description, keyword, how to, guide, help</span>
-</span><span class='line'><span class="nn">---</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Make the Magic Happen</h2>
-
-<p>In order to properly display your home page description and keyword meta tags, you need to modify the <code>source/_includes/head.html</code> file with the following changes so that the keyword and description tags are appropriately generated on the home page <em>and</em> in your post pages when you create your html files.</p>
-
-<p>The default section of the head.html file contains a code block that looks like this:</p>
-
-<script src="https://gist.github.com/chrissimpkins/98c437be5bdaaac88429.js"></script>
-
-
-<p>Change this to the following script:</p>
-
-<script src="https://gist.github.com/chrissimpkins/e76937e430290915664f.js"></script>
-
-
-<p>These modifications will correctly update the home page with your site wide keyword and description meta tags, and your post pages with the information that you added in the YAML frontmatter for each post.</p>
-
-<h2>Generate Your Static Site Files</h2>
-
-<p>Now, simply re-generate your static html pages with the following command in the top level directory for your site:</p>
-
-<figure class='code'><figcaption><span>Generate Your Static HTML files</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">generate</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and then deploy your site with whatever approach you are using (git, rsync, etc.).</p>
 ]]></content>
   </entry>
   
