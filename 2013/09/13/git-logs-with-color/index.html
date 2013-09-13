@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How to Automatically Handle PHP Arguments from Both a URL and the Command Line in the Same File - Sweetmeat</title>
+  <title>Git Logs with Color and Graphs - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to use the same PHP script to accept URL and shell based arguments">
-  <meta name="keywords" content="php, shell, CLI, command line, URL, argument, parameter">
+  <meta name="description" content="Learn how to add color to">
+  <meta name="keywords" content="Chris Simpkins, coding, programming, web, internet, application, python, PHP, Ruby, C, C++, CPP, XML, linux, OSX, Mac, unix">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sweetme.at/2013/08/27/how-to-automatically-handle-php-arguments-from-both-a-url-and-the-command-line">
+  <link rel="canonical" href="http://sweetme.at/2013/09/13/git-logs-with-color">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -77,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">How to Automatically Handle PHP Arguments From Both a URL and the Command Line in the Same File</h1>
+      <h1 class="entry-title">Git Logs With Color and Graphs</h1>
     
     
       <p class="meta">
@@ -93,58 +93,64 @@
   
 
 
-<time datetime="2013-08-27T19:33:00-04:00" pubdate data-updated="true">Aug 27<span>th</span>, 2013</time>
+<time datetime="2013-09-13T09:44:00-04:00" pubdate data-updated="true">Sep 13<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Want to pass arguments to your PHP script via URL on your web server as well as with standard command line syntax via the PHP interpreter?  Have your cake and eat it too with this little gem.</p>
+<div class="entry-content"><p>Want to add some color to your Git log?  Check out this git log configuration that gives you one commit per line, a commit graph, abbreviated commit ID&rsquo;s, relative dates, &amp; commit author all bundled up in color coordinated text.</p>
 
 <!--More-->
 
 
-<p>I used this technique in <a href="https://github.com/chrissimpkins/tweetledee">Tweetledee</a>.  It&rsquo;s useful for testing your PHP scripts in a terminal and for piping your PHP script data to other applications.  Here is a snippet of the code from the Tweetledee favoritesjson.php file that demonstrates the conditional argument parsing logic:</p>
+<h2>Git Logs with Graphs and Color</h2>
 
-<figure class='code'><figcaption><span>How to Handle PHP Arguments by URL and Command Line</span><a href='https://github.com/chrissimpkins/tweetledee/blob/master/tweetledee/favoritesjson.php'>Source File</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>Navigate to your git initialized directory (that includes previous commits) and use this command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative</span></code></pre></td></tr></table></div></figure>
+
+
+<p><small>Source: <a href="https://twitter.com/twittmonkey">Patryk Małek</a> in comments on <a href="https://coderwall.com/p/euwpig">this Coderwall post</a> by <a href="https://twitter.com/filipekiss">Filipe Kiss</a></small></p>
+
+<p>and your output will look like this:
+<img src="/images/git-log-color-com.png" alt="image" /></p>
+
+<h2>Conserve ATP, Make a Git Alias</h2>
+
+<p>Save yourself keystrokes by creating a git alias so that you can open your colorful new log style as if you were using any built-in git command.</p>
+
+<h3>Method 1</h3>
+
+<p>Filipe and Patryk demonstrate how to configure the git alias &ldquo;lg&rdquo; in the thread.  For the above command, it looks like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Make sure that you keep that <code>--global</code> switch if you want this included as part of your global git configuration.</p>
+
+<p>To change the alias name, modify the <code>alias.lg</code> string with the alias that you&rsquo;d like to use.  For example, to call it purtylog you would change it to <code>alias.purtylog</code>.</p>
+
+<h3>Method 2</h3>
+
+<p>Alternatively, you can add your new alias to your <code>~/gitconfig</code> file.  Open the file in an editor and (if you have not already done so) add an <code>[alias]</code> section to the file with the following alias definition for lg:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="sd">/*******************************************************************</span>
-</span><span class='line'><span class="sd">*   Parameters</span>
-</span><span class='line'><span class="sd">*    - can pass via URL to web server</span>
-</span><span class='line'><span class="sd">*    - or as a short or long switch at the command line</span>
-</span><span class='line'><span class="sd">********************************************************************/</span>
-</span><span class='line'><span class="c1">// Command line parameter definitions //</span>
-</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;STDIN&#39;</span><span class="p">))</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$argv</span><span class="p">)){</span>
-</span><span class='line'>      <span class="c1">// handle your command line arguments here with getopt</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="c1">// GET request parameter definitions //</span>
-</span><span class='line'><span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>  <span class="c1">// handle your URL parameters (via GET or POST requests) here</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[alias]
+</span><span class='line'>    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative</span></code></pre></td></tr></table></div></figure>
 
 
-<p><code>STDIN</code> is defined if the script is being run directly through the PHP interpreter with a shell command, but it is not defined when you access the file through a web server by URL.  Test to determine if it is defined and, if so, you can parse the PHP command line arguments with the PHP <a href="http://php.net/manual/en/function.getopt.php">getopt function</a>.  This allows you to pass arguments using standard short (<code>-s</code>) and long (<code>--long</code>) command line switch syntax.</p>
+<h2>Use It</h2>
 
-<p>If the test fails, then the user is accessing the file by URL.  Handle your GET and POST requests in the else code block.</p>
+<p>With both methods, you then view your new log style with the following command (using your new alias):</p>
 
-<p>Check out the <a href="https://github.com/chrissimpkins/tweetledee/blob/master/tweetledee/favoritesjson.php#L95">full source file</a> if you&rsquo;d like to see how I handled the arguments in these conditional statements.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git lg</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
@@ -167,7 +173,7 @@
   
 
 
-<time datetime="2013-08-27T19:33:00-04:00" pubdate data-updated="true">Aug 27<span>th</span>, 2013</time>
+<time datetime="2013-09-13T09:44:00-04:00" pubdate data-updated="true">Sep 13<span>th</span>, 2013</time>
       
 
 
@@ -175,7 +181,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/27/how-to-automatically-handle-php-arguments-from-both-a-url-and-the-command-line/" data-via="" data-counturl="http://sweetme.at/2013/08/27/how-to-automatically-handle-php-arguments-from-both-a-url-and-the-command-line/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/13/git-logs-with-color/" data-via="" data-counturl="http://sweetme.at/2013/09/13/git-logs-with-color/" >Tweet</a>
   
   
   
@@ -184,10 +190,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification/" title="Previous Post: A Simple One-Liner to Rerun Your Last Shell Command with a Modification">&laquo; A Simple One-Liner to Rerun Your Last Shell Command with a Modification</a>
+        <a class="basic-alignment left" href="/2013/09/11/how-to-maximize-png-image-compression-with-optipng/" title="Previous Post: How to Maximize PNG Image Compression with OptiPNG">&laquo; How to Maximize PNG Image Compression with OptiPNG</a>
       
-      
-        <a class="basic-alignment right" href="/2013/08/28/how-to-unpack-a-tar.gz-and-tar.bz2-archive-on-the-command-line/" title="Next Post: How to Unpack a tar.gz and tar.bz2 Archive on the Command Line">How to Unpack a tar.gz and tar.bz2 Archive on the Command Line &raquo;</a>
       
     </p>
   </footer>
