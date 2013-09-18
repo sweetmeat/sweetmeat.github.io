@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-16T08:55:02-04:00</updated>
+  <updated>2013-09-17T23:51:59-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,99 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A Generic Reusable Install Shell Script That You Can Modify for Your Projects]]></title>
+    <link href="http://sweetme.at/2013/09/17/a-generic-reusable-install-shell-script-that-you-can-modify-for-your-projects/"/>
+    <updated>2013-09-17T23:13:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/17/a-generic-reusable-install-shell-script-that-you-can-modify-for-your-projects</id>
+    <content type="html"><![CDATA[<p>Here is a generic bash shell script for single file installs that you can easily modify and include in your own projects.</p>
+
+<!--More-->
+
+
+<h2>Description</h2>
+
+<p>The script confirms that the target directory path exists and copies the developer-specified file into that path.  If it does not exist, it creates the directory path and then copies the file into the new directory.</p>
+
+<h2>Script</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/bash
+</span><span class='line'># Scriptacular - install.sh
+</span><span class='line'># Copyright 2013 Christopher Simpkins
+</span><span class='line'># MIT License
+</span><span class='line'>
+</span><span class='line'>TARGET_DIR="path/to/the/install/directory"
+</span><span class='line'>INSTALL_FILE="your-file.txt"
+</span><span class='line'>SUCCESS_MSG="Sexy message for user goes here!"
+</span><span class='line'>
+</span><span class='line'>if [ -d "$TARGET_DIR" ]; then
+</span><span class='line'>  cp "$INSTALL_FILE" "$TARGET_DIR"
+</span><span class='line'>  echo "$SUCCESS_MSG"
+</span><span class='line'>else
+</span><span class='line'>  echo "Creating the install directory path..."
+</span><span class='line'>  mkdir -p "$TARGET_DIR"
+</span><span class='line'>  echo "Done. Installing '$INSTALL_FILE'..."
+</span><span class='line'>  cp "$INSTALL_FILE" "$TARGET_DIR"
+</span><span class='line'>  echo "$SUCCESS_MSG"
+</span><span class='line'>fi
+</span><span class='line'>exit 0</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Save the script as <code>install.sh</code>.</p>
+
+<h2>Customization</h2>
+
+<ol>
+<li>Modify <code>TARGET_DIR</code> with the target install directory</li>
+<li>Modify <code>INSTALL_FILE</code> with the path to the file that is to be installed</li>
+<li>Modify <code>SUCCESS_MSG</code> with the message to present to the user after a successful install</li>
+</ol>
+
+
+<h2>Use</h2>
+
+<p>The user will need navigate to the directory that contains <code>install.sh</code> in your release and set the file permissions so that they can execute the script:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>chmod 744 install.sh</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and then use it with the following command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>./install.sh</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Script Repository</h2>
+
+<p>The script is <a href="https://github.com/chrissimpkins/scriptacular/blob/master/install/install.sh">available on GitHub</a>.</p>
+
+<h2>License</h2>
+
+<p><a href="https://github.com/chrissimpkins/scriptacular/blob/master/LICENSE">MIT license</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Rapidly Navigate to the Beginning or End of Your Bash Command]]></title>
@@ -828,37 +921,6 @@
 
 
 <p>Now when you <code>rake generate</code> and <code>rake deploy</code> (or deploy manually with git or rsync), the draft post is not pushed to the server but you can still view it locally with <code>rake preview</code> (<a href="http://localhost:4000">http://localhost:4000</a>), or <a href="http://yoursitename.dev">http://yoursitename.dev</a> if you use <a href="http://pow.cx/">POW</a>, so that you can make further edits.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Bash backward and forward history search]]></title>
-    <link href="http://sweetme.at/2013/08/16/bash-backward-and-forward-history-search/"/>
-    <updated>2013-08-16T18:36:00-04:00</updated>
-    <id>http://sweetme.at/2013/08/16/bash-backward-and-forward-history-search</id>
-    <content type="html"><![CDATA[<p>I picked up this simple modification of the bash .inputrc file a few weeks ago and it has been a great addition to my command line armamentarium.  It allows you to perform a case-insensitive search through the bash history (forward or reverse) for anything that you type on the command line with the up and down arrows.</p>
-
-<!--More-->
-
-
-<p>If you don&rsquo;t already have a .inputrc file, create it in this path <code>~/.inputrc</code>.</p>
-
-<p>Then, include the following script in the file:</p>
-
-<figure class='code'><figcaption><span>.inputrc script for bash case insensitive search</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='text'><span class='line'>&quot;\e[A&quot;: history-search-backward
-</span><span class='line'>&quot;\e[B&quot;: history-search-forward
-</span><span class='line'>set show-all-if-ambiguous on
-</span><span class='line'>set completion-ignore-case on
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Load your bash terminal and now you can perform a case-insensitive search for anything that you enter on the command line in a forward (with the down arrow) or reverse (with the up arrow) direction.</p>
-
-<p>Kudos to  <a href="https://twitter.com/dotcode">Jude Robinson</a> <i class="icon-twitter"></i> who posted this on <a href="https://coderwall.com/p/oqtj8w">Coderwall</a>.</p>
 ]]></content>
   </entry>
   
