@@ -10,31 +10,27 @@
   
   <meta name="description" content="A bash install script that you can easily modify and use in your projects.">
   <meta name="keywords" content="bash, install, script, unix, linux, mac osx, developer, dev, application, applications, app, apps">
-
-  <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://sweetme.at/2013/09/17/a-generic-reusable-install-shell-script-that-you-can-modify-for-your-projects">
-  <link href="/favicon.ico" rel="icon">
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-<meta name="msvalidate.01" content="B7F76ABC07B92C53D7A954927CB1BE82" />
+  
+  <link rel="canonical" href="http://sweetme.at/2013/09/17/a-generic-reusable-install-shell-script-that-you-can-modify-for-your-projects">
+  <link href="/favicon.ico" rel="icon">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
+  <meta name="msvalidate.01" content="B7F76ABC07B92C53D7A954927CB1BE82" />
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -111,7 +107,7 @@
 
 <h2>Script</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -131,26 +127,27 @@
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/bash
-</span><span class='line'># Scriptacular - install.sh
-</span><span class='line'># Copyright 2013 Christopher Simpkins
-</span><span class='line'># MIT License
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'><span class="c"># Scriptacular - install.sh</span>
+</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
+</span><span class='line'><span class="c"># MIT License</span>
 </span><span class='line'>
-</span><span class='line'>TARGET_DIR="path/to/the/install/directory"
-</span><span class='line'>INSTALL_FILE="your-file.txt"
-</span><span class='line'>SUCCESS_MSG="Sexy message for user goes here!"
+</span><span class='line'><span class="nv">TARGET_DIR</span><span class="o">=</span><span class="s2">&quot;path/to/the/install/directory&quot;</span>
+</span><span class='line'><span class="nv">INSTALL_FILE</span><span class="o">=</span><span class="s2">&quot;your-file.txt&quot;</span>
+</span><span class='line'><span class="nv">SUCCESS_MSG</span><span class="o">=</span><span class="s2">&quot;Sexy message for user goes here!&quot;</span>
 </span><span class='line'>
-</span><span class='line'>if [ -d "$TARGET_DIR" ]; then
-</span><span class='line'>  cp "$INSTALL_FILE" "$TARGET_DIR"
-</span><span class='line'>  echo "$SUCCESS_MSG"
-</span><span class='line'>else
-</span><span class='line'>  echo "Creating the install directory path..."
-</span><span class='line'>  mkdir -p "$TARGET_DIR"
-</span><span class='line'>  echo "Done. Installing '$INSTALL_FILE'..."
-</span><span class='line'>  cp "$INSTALL_FILE" "$TARGET_DIR"
-</span><span class='line'>  echo "$SUCCESS_MSG"
-</span><span class='line'>fi
-</span><span class='line'>exit 0</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;$TARGET_DIR&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span>cp <span class="s2">&quot;$INSTALL_FILE&quot;</span> <span class="s2">&quot;$TARGET_DIR&quot;</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$SUCCESS_MSG&quot;</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Creating the install directory path...&quot;</span>
+</span><span class='line'>  mkdir -p <span class="s2">&quot;$TARGET_DIR&quot;</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;Done. Installing &#39;$INSTALL_FILE&#39;...&quot;</span>
+</span><span class='line'>  cp <span class="s2">&quot;$INSTALL_FILE&quot;</span> <span class="s2">&quot;$TARGET_DIR&quot;</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$SUCCESS_MSG&quot;</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'><span class="nb">exit </span>0
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Save the script as <code>install.sh</code>.</p>
@@ -168,14 +165,16 @@
 
 <p>The user will need navigate to the directory that contains <code>install.sh</code> in your release and set the file permissions so that they can execute the script:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>chmod 744 install.sh</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>chmod 744 install.sh
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>and then use it with the following command:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>./install.sh</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>./install.sh
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>Script Repository</h2>

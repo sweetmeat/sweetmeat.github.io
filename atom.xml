@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-17T23:51:59-04:00</updated>
+  <updated>2013-09-18T09:07:32-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -29,7 +29,7 @@
 
 <h2>Script</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -49,26 +49,27 @@
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/bash
-</span><span class='line'># Scriptacular - install.sh
-</span><span class='line'># Copyright 2013 Christopher Simpkins
-</span><span class='line'># MIT License
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'><span class="c"># Scriptacular - install.sh</span>
+</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
+</span><span class='line'><span class="c"># MIT License</span>
 </span><span class='line'>
-</span><span class='line'>TARGET_DIR="path/to/the/install/directory"
-</span><span class='line'>INSTALL_FILE="your-file.txt"
-</span><span class='line'>SUCCESS_MSG="Sexy message for user goes here!"
+</span><span class='line'><span class="nv">TARGET_DIR</span><span class="o">=</span><span class="s2">&quot;path/to/the/install/directory&quot;</span>
+</span><span class='line'><span class="nv">INSTALL_FILE</span><span class="o">=</span><span class="s2">&quot;your-file.txt&quot;</span>
+</span><span class='line'><span class="nv">SUCCESS_MSG</span><span class="o">=</span><span class="s2">&quot;Sexy message for user goes here!&quot;</span>
 </span><span class='line'>
-</span><span class='line'>if [ -d "$TARGET_DIR" ]; then
-</span><span class='line'>  cp "$INSTALL_FILE" "$TARGET_DIR"
-</span><span class='line'>  echo "$SUCCESS_MSG"
-</span><span class='line'>else
-</span><span class='line'>  echo "Creating the install directory path..."
-</span><span class='line'>  mkdir -p "$TARGET_DIR"
-</span><span class='line'>  echo "Done. Installing '$INSTALL_FILE'..."
-</span><span class='line'>  cp "$INSTALL_FILE" "$TARGET_DIR"
-</span><span class='line'>  echo "$SUCCESS_MSG"
-</span><span class='line'>fi
-</span><span class='line'>exit 0</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;$TARGET_DIR&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span>cp <span class="s2">&quot;$INSTALL_FILE&quot;</span> <span class="s2">&quot;$TARGET_DIR&quot;</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$SUCCESS_MSG&quot;</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Creating the install directory path...&quot;</span>
+</span><span class='line'>  mkdir -p <span class="s2">&quot;$TARGET_DIR&quot;</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;Done. Installing &#39;$INSTALL_FILE&#39;...&quot;</span>
+</span><span class='line'>  cp <span class="s2">&quot;$INSTALL_FILE&quot;</span> <span class="s2">&quot;$TARGET_DIR&quot;</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$SUCCESS_MSG&quot;</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'><span class="nb">exit </span>0
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Save the script as <code>install.sh</code>.</p>
@@ -86,14 +87,16 @@
 
 <p>The user will need navigate to the directory that contains <code>install.sh</code> in your release and set the file permissions so that they can execute the script:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>chmod 744 install.sh</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>chmod 744 install.sh
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>and then use it with the following command:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>./install.sh</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>./install.sh
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>Script Repository</h2>
