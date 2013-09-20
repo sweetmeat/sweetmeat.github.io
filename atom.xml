@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-19T00:23:46-04:00</updated>
+  <updated>2013-09-20T00:03:55-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,118 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Compress and Obfuscate Your JavaScript with this YUI Compressor Script]]></title>
+    <link href="http://sweetme.at/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script/"/>
+    <updated>2013-09-19T23:04:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script</id>
+    <content type="html"><![CDATA[<p>The YUI Compressor is a tool that was developed by Yahoo for JavaScript obfuscation and compression (and CSS compression).  This shell script makes it simple to minify one or more JS files.</p>
+
+<!--More-->
+
+
+<h2>What it Does</h2>
+
+<p>According to <a href="http://yui.github.io/yuicompressor/">the documentation</a>:</p>
+
+<blockquote><p>It starts by analyzing the source JavaScript file to understand how it is structured. It then prints out the token stream, omitting as many white space characters as possible, and replacing all local symbols by a 1 (or 2, or 3) letter symbol wherever such a substitution is appropriate (in the face of evil features such as eval or with, the YUI Compressor takes a defensive approach by not obfuscating any of the scopes containing the evil statement).</p></blockquote>
+
+<h2>Dependencies</h2>
+
+<p>The YUI Compressor is a Java .jar file and Java version 1.4+ is necessary to run it on your system.</p>
+
+<h2>Download YUI Compressor</h2>
+
+<p>Release 2.4.8 is <a href="https://github.com/yui/yuicompressor/releases">available on the GitHub repository</a>.  Download and decompress the <code>yuicompressor-2.4.8.jar</code> file.</p>
+
+<h2>Set Up Your Shell Script</h2>
+
+<p>You can use the yuijs.sh script below (also available on <a href="https://github.com/chrissimpkins/scriptacular/blob/master/compress/yuijs.sh">my GitHub repository</a>):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Modify YUI_PATH with the path to the yuicompressor jar file</span>
+</span><span class='line'><span class="nv">YUI_PATH</span><span class="o">=</span><span class="s2">&quot;path/to/yuicompressor-2.4.8.jar&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-eq 0<span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Please include the file path(s) for the file(s) that you would like to compress.&quot;</span> 1&gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">for </span>file in <span class="s2">&quot;$@&quot;</span>;
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;$file&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span>java -jar <span class="s2">&quot;$YUI_PATH&quot;</span> -o <span class="s2">&quot;${file%%.*}-min.js&quot;</span> <span class="s2">&quot;$file&quot;</span>
+</span><span class='line'>      <span class="nb">echo</span> <span class="s2">&quot;$file was minified to ${file%%.*}-min.js&quot;</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to find the javascript file &#39;$file&#39;.&quot;</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'><span class="k">done</span>;
+</span><span class='line'><span class="nb">exit </span>0
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Change the <code>YUI_PATH</code> variable to the actual path to your <code>yuicompressor-2.4.8.jar</code> file.  Save the file and use the command <code>chmod 744 yuijs.sh</code> to make it executable.</p>
+
+<h2>Make a Bash Alias</h2>
+
+<p>Create an alias for your shell script so that you don&rsquo;t have to type the full path to the script each time that you use it.  Let&rsquo;s say that you saved the <code>yuijs.sh</code> file on the path <code>~/scripts/yuijs.sh</code>.   Open your bash startup file (either <code>.bash_profile</code> or <code>.bashrc</code>) and enter the following line to create the alias minijs:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">alias </span><span class="nv">minijs</span><span class="o">=</span><span class="s2">&quot;~/scripts/yuijs.sh&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To use this alias in your current shell process, use the source command on the bash startup file.  Assuming that you placed this in the <code>.bash_profile</code> file and your working directory contains that file, your command is:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> .bash_profile
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It is not necessary to run the source command again when you close and then reopen your terminal.</p>
+
+<h2>Compress Your JS Files with YUI Compressor</h2>
+
+<p>You&rsquo;re all set.  Now you can use the alias in any directory.  Navigate to a directory that contains one or more JS files and go to town.  It works with as many files as you&rsquo;d like to throw at it.  The file is compressed and obfuscated, and then saved as the original file name with a <code>-min</code> suffix.  The original file is <em>not modified</em> and remains in the same directory.  Hang on to the original because the obfuscated file is no longer human readable (intentionally so as to minimize file size).</p>
+
+<h4>Single File Example</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>minijs example.js
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+creates the file <code>example-min.js</code>.</p>
+
+<h4>Multiple Files Example</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>minijs example.js example2.js example3.js
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>creates the files <code>example-min.js</code>, <code>example2-min.js</code>, and <code>example3-min.js</code>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Compress Your CSS Output with the SASS Command Line Tool]]></title>
@@ -66,11 +178,10 @@
 <p>Save the command as an alias in your bash startup file (<code>~/.bash_profile</code> or <code>~/.bashrc</code>) to make it quick and easy to use.  Let&rsquo;s call it ccss for &lsquo;compressed css&rsquo;:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>alias ccss='sass -t compressed --compass --scss '</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>alias ccss='sass -t compressed --compass --scss'</span></code></pre></td></tr></table></div></figure>
 
 
-<p>
-Make sure that you maintain that last space before the closing single quote because you need to add your file path arguments when you use the alias.</p>
+<p></p>
 
 <p>If you want to use the alias in the open terminal window, run a source command on your bash startup file.  For .bash_profile it would look like this: <code>source ~/.bash_profile</code>.  You won&rsquo;t need to do this again the next time that you open the terminal.  The alias will automatically load in the new shell process that you launch.</p>
 
@@ -895,42 +1006,6 @@ Make sure that you maintain that last space before the closing single quote beca
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.txt" -mtime -1h</span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Simple Local HTTP Server with Python]]></title>
-    <link href="http://sweetme.at/2013/08/21/simple-local-http-server-with-python/"/>
-    <updated>2013-08-21T15:19:00-04:00</updated>
-    <id>http://sweetme.at/2013/08/21/simple-local-http-server-with-python</id>
-    <content type="html"><![CDATA[<p>This could be the most concise way to launch a local server to view files from any directory on your box.</p>
-
-<!--More-->
-
-
-<p>These Python one liners are simple and allow you to launch a local server from within any site directory on your machine.  By default it serves on port 8000 but you can modify the port by adding the port number at the end of the command.</p>
-
-<p>Note that the command changed in Python 3.  Navigate to your site directory and run one of the following commands:</p>
-
-<h3>Python 2.x</h3>
-
-<figure class='code'><figcaption><span>Python 2.x Command</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">SimpleHTTPServer</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Python 3.x</h3>
-
-<figure class='code'><figcaption><span>Python 3.x Command</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you use either of the default commands above, you can access your site at <code>http://localhost:8000</code>.</p>
-
-<h2>Python?</h2>
-
-<p>Don&rsquo;t know what version of Python you have (or if it is installed)?  Type <code>python --version</code> in your terminal and you will have the answer.</p>
 ]]></content>
   </entry>
   

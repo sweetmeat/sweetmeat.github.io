@@ -138,15 +138,21 @@
         <loc>
             http://sweetme.at/2013/09/18/compress-your-css-output-with-the-sass-command-line-tool/
         </loc>
-        <lastmod>2013-09-19T00:22:37-04:00</lastmod>
+        <lastmod>2013-09-19T23:30:06-04:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://sweetme.at/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script/
+        </loc>
+        <lastmod>2013-09-20T00:02:47-04:00</lastmod>
     </url>
     <url>
         <loc>http://sweetme.at/blog/archives/</loc>
-        <lastmod>2013-09-19T00:22:37-04:00</lastmod>
+        <lastmod>2013-09-20T00:02:47-04:00</lastmod>
     </url>
     <url>
         <loc>http://sweetme.at/</loc>
-        <lastmod>2013-09-19T00:22:37-04:00</lastmod>
+        <lastmod>2013-09-20T00:02:47-04:00</lastmod>
     </url>
     <url>
         <loc>http://sweetme.at/robots.txt</loc>

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>A Generic Reusable Install Shell Script That You Can Modify for Your Projects - Sweetmeat</title>
+  <title>Compress and Obfuscate Your JavaScript with this YUI Compressor Script - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="A bash install script that you can easily modify and use in your projects.">
-  <meta name="keywords" content="bash, install, script, unix, linux, mac osx, developer, dev, application, applications, app, apps">
+  <meta name="description" content="Learn how to compress and obfuscate your JavaScript files with YUI Compressor">
+  <meta name="keywords" content="javascript, js, .js, compression, compress, obfuscate, how to, yui, YUI, YUI Compressor, yuicompressor">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/09/17/a-generic-reusable-install-shell-script-that-you-can-modify-for-your-projects">
+  <link rel="canonical" href="http://sweetme.at/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -73,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">A Generic Reusable Install Shell Script That You Can Modify for Your Projects</h1>
+      <h1 class="entry-title">Compress and Obfuscate Your JavaScript With This YUI Compressor Script</h1>
     
     
       <p class="meta">
@@ -89,23 +89,35 @@
   
 
 
-<time datetime="2013-09-17T23:13:00-04:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time>
+<time datetime="2013-09-19T23:04:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Here is a generic bash shell script for single file installs that you can easily modify and include in your own projects.</p>
+<div class="entry-content"><p>The YUI Compressor is a tool that was developed by Yahoo for JavaScript obfuscation and compression (and CSS compression).  This shell script makes it simple to minify one or more JS files.</p>
 
 <!--More-->
 
 
-<h2>Description</h2>
+<h2>What it Does</h2>
 
-<p>The script confirms that the target directory path exists and copies the developer-specified file into that path.  If it does not exist, it creates the directory path and then copies the file into the new directory.</p>
+<p>According to <a href="http://yui.github.io/yuicompressor/">the documentation</a>:</p>
 
-<h2>Script</h2>
+<blockquote><p>It starts by analyzing the source JavaScript file to understand how it is structured. It then prints out the token stream, omitting as many white space characters as possible, and replacing all local symbols by a 1 (or 2, or 3) letter symbol wherever such a substitution is appropriate (in the face of evil features such as eval or with, the YUI Compressor takes a defensive approach by not obfuscating any of the scopes containing the evil statement).</p></blockquote>
+
+<h2>Dependencies</h2>
+
+<p>The YUI Compressor is a Java .jar file and Java version 1.4+ is necessary to run it on your system.</p>
+
+<h2>Download YUI Compressor</h2>
+
+<p>Release 2.4.8 is <a href="https://github.com/yui/yuicompressor/releases">available on the GitHub repository</a>.  Download and decompress the <code>yuicompressor-2.4.8.jar</code> file.</p>
+
+<h2>Set Up Your Shell Script</h2>
+
+<p>You can use the yuijs.sh script below (also available on <a href="https://github.com/chrissimpkins/scriptacular/blob/master/compress/yuijs.sh">my GitHub repository</a>):</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -125,65 +137,69 @@
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
-</span><span class='line'><span class="c"># Scriptacular - install.sh</span>
-</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
-</span><span class='line'><span class="c"># MIT License</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Modify YUI_PATH with the path to the yuicompressor jar file</span>
+</span><span class='line'><span class="nv">YUI_PATH</span><span class="o">=</span><span class="s2">&quot;path/to/yuicompressor-2.4.8.jar&quot;</span>
 </span><span class='line'>
-</span><span class='line'><span class="nv">TARGET_DIR</span><span class="o">=</span><span class="s2">&quot;path/to/the/install/directory&quot;</span>
-</span><span class='line'><span class="nv">INSTALL_FILE</span><span class="o">=</span><span class="s2">&quot;your-file.txt&quot;</span>
-</span><span class='line'><span class="nv">SUCCESS_MSG</span><span class="o">=</span><span class="s2">&quot;Sexy message for user goes here!&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;$TARGET_DIR&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">  </span>cp <span class="s2">&quot;$INSTALL_FILE&quot;</span> <span class="s2">&quot;$TARGET_DIR&quot;</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$SUCCESS_MSG&quot;</span>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Creating the install directory path...&quot;</span>
-</span><span class='line'>  mkdir -p <span class="s2">&quot;$TARGET_DIR&quot;</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;Done. Installing &#39;$INSTALL_FILE&#39;...&quot;</span>
-</span><span class='line'>  cp <span class="s2">&quot;$INSTALL_FILE&quot;</span> <span class="s2">&quot;$TARGET_DIR&quot;</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$SUCCESS_MSG&quot;</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-eq 0<span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Please include the file path(s) for the file(s) that you would like to compress.&quot;</span> 1&gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
 </span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">for </span>file in <span class="s2">&quot;$@&quot;</span>;
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;$file&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span>java -jar <span class="s2">&quot;$YUI_PATH&quot;</span> -o <span class="s2">&quot;${file%%.*}-min.js&quot;</span> <span class="s2">&quot;$file&quot;</span>
+</span><span class='line'>      <span class="nb">echo</span> <span class="s2">&quot;$file was minified to ${file%%.*}-min.js&quot;</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to find the javascript file &#39;$file&#39;.&quot;</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'><span class="k">done</span>;
 </span><span class='line'><span class="nb">exit </span>0
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Save the script as <code>install.sh</code>.</p>
+<p>Change the <code>YUI_PATH</code> variable to the actual path to your <code>yuicompressor-2.4.8.jar</code> file.  Save the file and use the command <code>chmod 744 yuijs.sh</code> to make it executable.</p>
 
-<h2>Customization</h2>
+<h2>Make a Bash Alias</h2>
 
-<ol>
-<li>Modify <code>TARGET_DIR</code> with the target install directory</li>
-<li>Modify <code>INSTALL_FILE</code> with the path to the file that is to be installed</li>
-<li>Modify <code>SUCCESS_MSG</code> with the message to present to the user after a successful install</li>
-</ol>
-
-
-<h2>Use</h2>
-
-<p>The user will need navigate to the directory that contains <code>install.sh</code> in your release and set the file permissions so that they can execute the script:</p>
+<p>Create an alias for your shell script so that you don&rsquo;t have to type the full path to the script each time that you use it.  Let&rsquo;s say that you saved the <code>yuijs.sh</code> file on the path <code>~/scripts/yuijs.sh</code>.   Open your bash startup file (either <code>.bash_profile</code> or <code>.bashrc</code>) and enter the following line to create the alias minijs:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>chmod 744 install.sh
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">alias </span><span class="nv">minijs</span><span class="o">=</span><span class="s2">&quot;~/scripts/yuijs.sh&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>and then use it with the following command:</p>
+<p>To use this alias in your current shell process, use the source command on the bash startup file.  Assuming that you placed this in the <code>.bash_profile</code> file and your working directory contains that file, your command is:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>./install.sh
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> .bash_profile
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Script Repository</h2>
+<p>It is not necessary to run the source command again when you close and then reopen your terminal.</p>
 
-<p>The script is <a href="https://github.com/chrissimpkins/scriptacular/blob/master/install/install.sh">available on GitHub</a>.</p>
+<h2>Compress Your JS Files with YUI Compressor</h2>
 
-<h2>License</h2>
+<p>You&rsquo;re all set.  Now you can use the alias in any directory.  Navigate to a directory that contains one or more JS files and go to town.  It works with as many files as you&rsquo;d like to throw at it.  The file is compressed and obfuscated, and then saved as the original file name with a <code>-min</code> suffix.  The original file is <em>not modified</em> and remains in the same directory.  Hang on to the original because the obfuscated file is no longer human readable (intentionally so as to minimize file size).</p>
 
-<p><a href="https://github.com/chrissimpkins/scriptacular/blob/master/LICENSE">MIT license</a></p>
+<h4>Single File Example</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>minijs example.js
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+creates the file <code>example-min.js</code>.</p>
+
+<h4>Multiple Files Example</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>minijs example.js example2.js example3.js
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>creates the files <code>example-min.js</code>, <code>example2-min.js</code>, and <code>example3-min.js</code>.</p>
 </div>
 
 
@@ -206,7 +222,7 @@
   
 
 
-<time datetime="2013-09-17T23:13:00-04:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time>
+<time datetime="2013-09-19T23:04:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2013</time>
       
 
 
@@ -214,7 +230,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/17/a-generic-reusable-install-shell-script-that-you-can-modify-for-your-projects/" data-via="" data-counturl="http://sweetme.at/2013/09/17/a-generic-reusable-install-shell-script-that-you-can-modify-for-your-projects/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script/" data-via="" data-counturl="http://sweetme.at/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script/" >Tweet</a>
   
   
   
@@ -223,10 +239,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/09/16/how-to-rapidly-navigate-to-the-beginning-or-end-of-your-bash-command/" title="Previous Post: How to Rapidly Navigate to the Beginning or End of Your Bash Command">&laquo; How to Rapidly Navigate to the Beginning or End of Your Bash Command</a>
+        <a class="basic-alignment left" href="/2013/09/18/compress-your-css-output-with-the-sass-command-line-tool/" title="Previous Post: Compress Your CSS Output with the SASS Command Line Tool">&laquo; Compress Your CSS Output with the SASS Command Line Tool</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/18/compress-your-css-output-with-the-sass-command-line-tool/" title="Next Post: Compress Your CSS Output with the SASS Command Line Tool">Compress Your CSS Output with the SASS Command Line Tool &raquo;</a>
       
     </p>
   </footer>
