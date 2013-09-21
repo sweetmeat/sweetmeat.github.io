@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How to Open a File in Sublime Text 2 or 3 from the Command Line on Mac OSX - Sweetmeat</title>
+  <title>How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to open a file for editing in Sublime Text from the Mac OSX command line.">
-  <meta name="keywords" content="sublime text, command line, symbolic link, link, launch, open, edit, file, code, programming">
+  <meta name="description" content="Learn how to delete entire segments of your command relative to your cursor position in the bash shell">
+  <meta name="keywords" content="bash, command, shell, command line, delete, text, how to, help">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/09/03/how-to-open-a-file-in-sublime-text-2-or-3-from-the-command-line-on-mac-osx">
+  <link rel="canonical" href="http://sweetme.at/2013/09/21/how-to-erase-segments-of-text-from-the-cursor-position-on-your-command-line">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -73,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">How to Open a File in Sublime Text 2 or 3 From the Command Line on Mac OSX</h1>
+      <h1 class="entry-title">How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line</h1>
     
     
       <p class="meta">
@@ -89,57 +89,37 @@
   
 
 
-<time datetime="2013-09-03T08:15:00-04:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2013</time>
+<time datetime="2013-09-21T17:36:00-04:00" pubdate data-updated="true">Sep 21<span>st</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>You can open a file in <a href="http://www.sublimetext.com/">Sublime Text</a> from the Mac command line.  Here is how you do it with versions 2 and 3 of this popular text editor.</p>
+<div class="entry-content"><p>Further hone your command line chops with these shortcuts that will erase segments of text before or after your cursor position.</p>
 
 <!--More-->
 
 
-<h2>Sublime Text 2</h2>
+<h2>Delete All Text After the Cursor Position</h2>
 
-<p>Create a symbolic link to the subl binary with this command:</p>
+<p>This command deletes all text from the cursor position to the end of the line:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Sublime Text 3</h2>
-
-<p>The install path is different in Sublime Text 3.  Create the symbolic link like this:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>CTRL-k
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Confirm that it Works</h2>
+<h2>Delete All Text Before the Cursor Position</h2>
 
-<p>Confirm that it works by accessing the help file with the <code>--help</code> switch:</p>
+<p>This command deletes all text from the cursor position to the beginning of the line:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>subl --help</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you receive an error, make sure that <code>/usr/local/bin</code> is on your PATH.</p>
-
-<h2>Use it on the Command Line</h2>
-
-<p>Use the filename as the argument to subl.  If there are spaces in the filename path, make sure that you surround the entire path with double quotes or escape the spaces.</p>
-
-<p>Here is an example with the file &lsquo;test.txt&rsquo;:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>subl test.txt</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>CTRL-u
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Documentation</h2>
-
-<p>Here are links to the <a href="">Sublime Text 2</a> and <a href="http://www.sublimetext.com/docs/3/osx_command_line.html">Sublime Text 3</a> command line use documentation if you&rsquo;d like to learn more.</p>
+<p>If you use it with your cursor at the end of the command, this shortcut deletes the entire line.</p>
 </div>
 
 
@@ -162,7 +142,7 @@
   
 
 
-<time datetime="2013-09-03T08:15:00-04:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2013</time>
+<time datetime="2013-09-21T17:36:00-04:00" pubdate data-updated="true">Sep 21<span>st</span>, 2013</time>
       
 
 
@@ -170,7 +150,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/03/how-to-open-a-file-in-sublime-text-2-or-3-from-the-command-line-on-mac-osx/" data-via="" data-counturl="http://sweetme.at/2013/09/03/how-to-open-a-file-in-sublime-text-2-or-3-from-the-command-line-on-mac-osx/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/21/how-to-erase-segments-of-text-from-the-cursor-position-on-your-command-line/" data-via="" data-counturl="http://sweetme.at/2013/09/21/how-to-erase-segments-of-text-from-the-cursor-position-on-your-command-line/" >Tweet</a>
   
   
   
@@ -179,10 +159,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/09/02/how-to-open-a-url-in-the-default-browser-across-os-platforms/" title="Previous Post: How to Open a URL in the Default Browser Across OS Platforms">&laquo; How to Open a URL in the Default Browser Across OS Platforms</a>
+        <a class="basic-alignment left" href="/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script/" title="Previous Post: Compress and Obfuscate Your JavaScript with this YUI Compressor Script">&laquo; Compress and Obfuscate Your JavaScript with this YUI Compressor Script</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/04/how-to-mute-the-standard-output-stream-in-a-bash-shell-command/" title="Next Post: How to Mute the Standard Output Stream in a Bash Shell Command">How to Mute the Standard Output Stream in a Bash Shell Command &raquo;</a>
       
     </p>
   </footer>
