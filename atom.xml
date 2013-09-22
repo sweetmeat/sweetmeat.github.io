@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-21T22:09:23-04:00</updated>
+  <updated>2013-09-21T22:11:12-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -164,6 +164,15 @@ creates the file <code>example-min.js</code>.</p>
 
 
 <p>creates the files <code>example-min.js</code>, <code>example2-min.js</code>, and <code>example3-min.js</code>.</p>
+
+<h4>All .js Files in Working Directory</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>minijs *.js
+</span></code></pre></td></tr></table></div></figure>
+
+
+
 ]]></content>
   </entry>
   
