@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-21T17:56:02-04:00</updated>
+  <updated>2013-09-21T22:09:23-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -91,10 +91,15 @@
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Modify YUI_PATH with the path to the yuicompressor jar file</span>
 </span><span class='line'><span class="nv">YUI_PATH</span><span class="o">=</span><span class="s2">&quot;path/to/yuicompressor-2.4.8.jar&quot;</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-eq 0<span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-eq 0 <span class="o">]</span>; <span class="k">then</span>
 </span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Please include the file path(s) for the file(s) that you would like to compress.&quot;</span> 1&gt;&amp;2
 </span><span class='line'>  <span class="nb">exit </span>1
 </span><span class='line'><span class="k">fi</span>
@@ -103,8 +108,13 @@
 </span><span class='line'><span class="k">do</span>
 </span><span class='line'><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;$file&quot;</span> <span class="o">]</span>; <span class="k">then</span>
 </span><span class='line'><span class="k">      </span>java -jar <span class="s2">&quot;$YUI_PATH&quot;</span> -o <span class="s2">&quot;${file%%.*}-min.js&quot;</span> <span class="s2">&quot;$file&quot;</span>
-</span><span class='line'>      <span class="nb">echo</span> <span class="s2">&quot;$file was minified to ${file%%.*}-min.js&quot;</span>
-</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>      <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was not able to be minified&quot;</span>
+</span><span class='line'>          <span class="nb">exit </span>1
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was minified to ${file%%.*}-min.js&quot;</span>
+</span><span class='line'>      <span class="k">fi</span>
+</span><span class='line'><span class="k">  else</span>
 </span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to find the javascript file &#39;$file&#39;.&quot;</span>
 </span><span class='line'><span class="k">fi</span>
 </span><span class='line'><span class="k">done</span>;
