@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-24T21:03:59-04:00</updated>
+  <updated>2013-09-24T21:20:25-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -100,7 +100,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Change the <code>YUI_PATH</code> variable to the actual path to your <code>yuicompressor-2.4.8.jar</code> file.  Save the file and use the command <code>chmod 744 yuicss.sh</code> to make it executable.</p>
+<p>Change the <code>YUI_PATH</code> variable to the actual path to your <code>yuicompressor-2.4.8.jar</code> file.  Save the file as <code>yuicss.sh</code> and use the command <code>chmod 744 yuicss.sh</code> to make it executable.</p>
 
 <h2>Make a Bash Alias</h2>
 
