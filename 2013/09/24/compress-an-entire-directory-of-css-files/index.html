@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Compress and Obfuscate Your JavaScript with this YUI Compressor Script - Sweetmeat</title>
+  <title>Compress an Entire Directory of CSS Files - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to compress and obfuscate your JavaScript files with YUI Compressor">
-  <meta name="keywords" content="javascript, js, .js, compression, compress, obfuscate, how to, yui, YUI, YUI Compressor, yuicompressor">
+  <meta name="description" content="Learn how to compress an entire directory of CSS files using YUI Compressor and a shell script">
+  <meta name="keywords" content="CSS, compress, optimize, YUI Compressor, yuicompressor, script, bash, shell, directory, all">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script">
+  <link rel="canonical" href="http://sweetme.at/2013/09/24/compress-an-entire-directory-of-css-files">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -73,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">Compress and Obfuscate Your JavaScript With This YUI Compressor Script</h1>
+      <h1 class="entry-title">Compress an Entire Directory of CSS Files</h1>
     
     
       <p class="meta">
@@ -89,23 +89,21 @@
   
 
 
-<time datetime="2013-09-19T23:04:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2013</time>
+<time datetime="2013-09-24T20:24:00-04:00" pubdate data-updated="true">Sep 24<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>The YUI Compressor is a tool that was developed by Yahoo for JavaScript obfuscation and compression (and CSS compression).  This shell script makes it simple to minify one or more JS files.</p>
+<div class="entry-content"><p>Have an entire directory of CSS files that you need to compress after your most recent set of changes?  Check out this YUI compressor + shell script combination.</p>
 
 <!--More-->
 
 
 <h2>What it Does</h2>
 
-<p>According to <a href="http://yui.github.io/yuicompressor/">the documentation</a>:</p>
-
-<blockquote><p>It starts by analyzing the source JavaScript file to understand how it is structured. It then prints out the token stream, omitting as many white space characters as possible, and replacing all local symbols by a 1 (or 2, or 3) letter symbol wherever such a substitution is appropriate (in the face of evil features such as eval or with, the YUI Compressor takes a defensive approach by not obfuscating any of the scopes containing the evil statement).</p></blockquote>
+<p>The YUI Compressor decreases the size of your CSS file with a variety of optimization techniques.  The entire list of modifications is available in <a href="http://yui.github.io/yuicompressor/css.html">the YUI Compressor documentation</a>.</p>
 
 <h2>Dependencies</h2>
 
@@ -113,11 +111,11 @@
 
 <h2>Download YUI Compressor</h2>
 
-<p>Release 2.4.8 is <a href="https://github.com/yui/yuicompressor/releases">available on the GitHub repository</a>.  Download and decompress the <code>yuicompressor-2.4.8.jar</code> file.</p>
+<p>Release 2.4.8 is <a href="https://github.com/yui/yuicompressor/releases">available on this GitHub repository</a>.  Download and decompress the <code>yuicompressor-2.4.8.jar</code> file.</p>
 
 <h2>Set Up Your Shell Script</h2>
 
-<p>You can use the yuijs.sh script below (also available on <a href="https://github.com/chrissimpkins/scriptacular/blob/master/compress/yuijs.sh">my GitHub repository</a>):</p>
+<p>Either create a shell script file with the following shell script or grab it from my <a href="(also%20available%20on%20[my%20GitHub%20repository](https://github.com/chrissimpkins/scriptacular/blob/master/compress/yuicss.sh">GitHub repository</a>:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -142,7 +140,19 @@
 <span class='line-number'>21</span>
 <span class='line-number'>22</span>
 <span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Modify YUI_PATH with the path to the yuicompressor jar file</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/sh</span>
+</span><span class='line'><span class="c"># Scriptacular - yuicss.sh</span>
+</span><span class='line'><span class="c"># CSS file compression with yuicompressor</span>
+</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
+</span><span class='line'><span class="c"># MIT License</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Modify YUI_PATH below with the path to your yuicompressor jar file</span>
 </span><span class='line'><span class="nv">YUI_PATH</span><span class="o">=</span><span class="s2">&quot;path/to/yuicompressor-2.4.8.jar&quot;</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-eq 0 <span class="o">]</span>; <span class="k">then</span>
@@ -153,29 +163,29 @@
 </span><span class='line'><span class="k">for </span>file in <span class="s2">&quot;$@&quot;</span>;
 </span><span class='line'><span class="k">do</span>
 </span><span class='line'><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;$file&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span>java -jar <span class="s2">&quot;$YUI_PATH&quot;</span> -o <span class="s2">&quot;${file%%.*}-min.js&quot;</span> <span class="s2">&quot;$file&quot;</span>
+</span><span class='line'><span class="k">      </span>java -jar <span class="s2">&quot;$YUI_PATH&quot;</span> -o <span class="s2">&quot;${file%%.*}-min.css&quot;</span> <span class="s2">&quot;$file&quot;</span>
 </span><span class='line'>      <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
 </span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was not able to be minified&quot;</span>
 </span><span class='line'>          <span class="nb">exit </span>1
 </span><span class='line'>      <span class="k">else</span>
-</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was minified to ${file%%.*}-min.js&quot;</span>
+</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was minified to ${file%%.*}-min.css&quot;</span>
 </span><span class='line'>      <span class="k">fi</span>
 </span><span class='line'><span class="k">  else</span>
-</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to find the javascript file &#39;$file&#39;.&quot;</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to find the style sheet file &#39;$file&#39;.&quot;</span>
 </span><span class='line'><span class="k">fi</span>
 </span><span class='line'><span class="k">done</span>;
 </span><span class='line'><span class="nb">exit </span>0
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Change the <code>YUI_PATH</code> variable to the actual path to your <code>yuicompressor-2.4.8.jar</code> file.  Save the file and use the command <code>chmod 744 yuijs.sh</code> to make it executable.</p>
+<p>Change the <code>YUI_PATH</code> variable to the actual path to your <code>yuicompressor-2.4.8.jar</code> file.  Save the file and use the command <code>chmod 744 yuicss.sh</code> to make it executable.</p>
 
 <h2>Make a Bash Alias</h2>
 
-<p>Create an alias for your shell script so that you don&rsquo;t have to type the full path to the script each time that you use it.  Let&rsquo;s say that you saved the <code>yuijs.sh</code> file on the path <code>~/scripts/yuijs.sh</code>.   Open your bash startup file (either <code>.bash_profile</code> or <code>.bashrc</code>) and enter the following line to create the alias minijs:</p>
+<p>Create an alias for your shell script so that you don&rsquo;t have to type the full path to the script each time that you use it.  For example, if you saved the <code>yuicss.sh</code> file on the path <code>~/scripts/yuicss.sh</code>, then open your bash startup file (either <code>.bash_profile</code> or <code>.bashrc</code>) and enter the following line to create the alias minicss:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">alias </span><span class="nv">minijs</span><span class="o">=</span><span class="s2">&quot;~/scripts/yuijs.sh&quot;</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">alias </span><span class="nv">minicss</span><span class="o">=</span><span class="s2">&quot;~/scripts/yuicss.sh&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -188,37 +198,29 @@
 
 <p>It is not necessary to run the source command again when you close and then reopen your terminal.</p>
 
-<h2>Compress Your JS Files with YUI Compressor</h2>
+<h2>Compress an Entire Directory of CSS Files</h2>
 
-<p>You&rsquo;re all set.  Now you can use the alias in any directory.  Navigate to a directory that contains one or more JS files and go to town.  It works with as many files as you&rsquo;d like to throw at it.  The file is compressed and obfuscated, and then saved as the original file name with a <code>-min</code> suffix.  The original file is <em>not modified</em> and remains in the same directory.  Hang on to the original because the obfuscated file is no longer human readable (intentionally so as to minimize file size).</p>
+<p>Now that you have an alias for your shell script, you can use it to compress as many CSS files contained in a single directory that you&rsquo;d like.  It&rsquo;s all done with a simple command statement.</p>
 
-<h4>Single File Example</h4>
+<p>Navigate to the directory that contains your CSS files and type the following:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>minijs example.js
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>minicss *.css
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>
-creates the file <code>example-min.js</code>.</p>
+<p>This command creates a new, minified version of each CSS file in the directory with a -min suffix added to the filename (i.e. [original filename]-min.css).  The original files are not modified.</p>
 
-<h4>Multiple Files Example</h4>
+<h2>Remove the Minified CSS Files</h2>
+
+<p>If you ever need to remove all of the minified versions of the CSS files that the script creates, navigate to the directory and run the following command:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>minijs example.js example2.js example3.js
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rm *-min.css
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>creates the files <code>example-min.js</code>, <code>example2-min.js</code>, and <code>example3-min.js</code>.</p>
-
-<h4>All .js Files in Working Directory</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>minijs *.js
-</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p><strong>Note</strong>: This command matches all files with the pattern <code>&lt;file&gt;-min.css</code>.  Make sure that there are no minified versions of external CSS files that would match this rule in the working directory (e.g. bootstrap-min.css) because they will be deleted as well.</p>
 </div>
 
 
@@ -241,7 +243,7 @@ creates the file <code>example-min.js</code>.</p>
   
 
 
-<time datetime="2013-09-19T23:04:00-04:00" pubdate data-updated="true">Sep 19<span>th</span>, 2013</time>
+<time datetime="2013-09-24T20:24:00-04:00" pubdate data-updated="true">Sep 24<span>th</span>, 2013</time>
       
 
 
@@ -249,7 +251,7 @@ creates the file <code>example-min.js</code>.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script/" data-via="" data-counturl="http://sweetme.at/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/24/compress-an-entire-directory-of-css-files/" data-via="" data-counturl="http://sweetme.at/2013/09/24/compress-an-entire-directory-of-css-files/" >Tweet</a>
   
   
   
@@ -258,10 +260,8 @@ creates the file <code>example-min.js</code>.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/09/18/compress-your-css-output-with-the-sass-command-line-tool/" title="Previous Post: Compress Your CSS Output with the SASS Command Line Tool">&laquo; Compress Your CSS Output with the SASS Command Line Tool</a>
+        <a class="basic-alignment left" href="/2013/09/21/how-to-erase-segments-of-text-from-the-cursor-position-on-your-command-line/" title="Previous Post: How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line">&laquo; How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/21/how-to-erase-segments-of-text-from-the-cursor-position-on-your-command-line/" title="Next Post: How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line">How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line &raquo;</a>
       
     </p>
   </footer>

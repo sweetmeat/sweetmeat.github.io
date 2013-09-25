@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-22T12:16:24-04:00</updated>
+  <updated>2013-09-24T21:02:04-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,139 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Compress an Entire Directory of CSS Files]]></title>
+    <link href="http://sweetme.at/2013/09/24/compress-an-entire-directory-of-css-files/"/>
+    <updated>2013-09-24T20:24:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/24/compress-an-entire-directory-of-css-files</id>
+    <content type="html"><![CDATA[<p>Have an entire directory of CSS files that you need to compress after your most recent set of changes?  Check out this YUI compressor + shell script combination.</p>
+
+<!--More-->
+
+
+<h2>What it Does</h2>
+
+<p>The YUI Compressor decreases the size of your CSS file with a variety of optimization techniques.  The entire list of modifications is available in <a href="http://yui.github.io/yuicompressor/css.html">the YUI Compressor documentation</a>.</p>
+
+<h2>Dependencies</h2>
+
+<p>The YUI Compressor is a Java .jar file and Java version 1.4+ is necessary to run it on your system.</p>
+
+<h2>Download YUI Compressor</h2>
+
+<p>Release 2.4.8 is <a href="https://github.com/yui/yuicompressor/releases">available on this GitHub repository</a>.  Download and decompress the <code>yuicompressor-2.4.8.jar</code> file.</p>
+
+<h2>Set Up Your Shell Script</h2>
+
+<p>Either create a shell script file with the following shell script or grab it from my <a href="(also%20available%20on%20[my%20GitHub%20repository](https://github.com/chrissimpkins/scriptacular/blob/master/compress/yuicss.sh">GitHub repository</a>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/sh</span>
+</span><span class='line'><span class="c"># Scriptacular - yuicss.sh</span>
+</span><span class='line'><span class="c"># CSS file compression with yuicompressor</span>
+</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
+</span><span class='line'><span class="c"># MIT License</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Modify YUI_PATH below with the path to your yuicompressor jar file</span>
+</span><span class='line'><span class="nv">YUI_PATH</span><span class="o">=</span><span class="s2">&quot;path/to/yuicompressor-2.4.8.jar&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-eq 0 <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Please include the file path(s) for the file(s) that you would like to compress.&quot;</span> 1&gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">for </span>file in <span class="s2">&quot;$@&quot;</span>;
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;$file&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span>java -jar <span class="s2">&quot;$YUI_PATH&quot;</span> -o <span class="s2">&quot;${file%%.*}-min.css&quot;</span> <span class="s2">&quot;$file&quot;</span>
+</span><span class='line'>      <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was not able to be minified&quot;</span>
+</span><span class='line'>          <span class="nb">exit </span>1
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was minified to ${file%%.*}-min.css&quot;</span>
+</span><span class='line'>      <span class="k">fi</span>
+</span><span class='line'><span class="k">  else</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to find the style sheet file &#39;$file&#39;.&quot;</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'><span class="k">done</span>;
+</span><span class='line'><span class="nb">exit </span>0
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Change the <code>YUI_PATH</code> variable to the actual path to your <code>yuicompressor-2.4.8.jar</code> file.  Save the file and use the command <code>chmod 744 yuicss.sh</code> to make it executable.</p>
+
+<h2>Make a Bash Alias</h2>
+
+<p>Create an alias for your shell script so that you don&rsquo;t have to type the full path to the script each time that you use it.  For example, if you saved the <code>yuicss.sh</code> file on the path <code>~/scripts/yuicss.sh</code>, then open your bash startup file (either <code>.bash_profile</code> or <code>.bashrc</code>) and enter the following line to create the alias minicss:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">alias </span><span class="nv">minicss</span><span class="o">=</span><span class="s2">&quot;~/scripts/yuicss.sh&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To use this alias in your current shell process, use the source command on the bash startup file.  Assuming that you placed this in the <code>.bash_profile</code> file and your working directory contains that file, your command is:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> .bash_profile
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It is not necessary to run the source command again when you close and then reopen your terminal.</p>
+
+<h2>Compress an Entire Directory of CSS Files</h2>
+
+<p>Now that you have an alias for your shell script, you can use it to compress as many CSS files contained in a single directory that you&rsquo;d like.  It&rsquo;s all done with a simple command statement.</p>
+
+<p>Navigate to the directory that contains your CSS files and type the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>minicss *.css
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command creates a new, minified version of each CSS file in the directory with a -min suffix added to the filename (i.e. [original filename]-min.css).  The original files are not modified.</p>
+
+<h2>Remove the Minified CSS Files</h2>
+
+<p>If you ever need to remove all of the minified versions of the CSS files that the script creates, navigate to the directory and run the following command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rm *-min.css
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Note</strong>: This command matches all files with the pattern <code>&lt;file&gt;-min.css</code>.  Make sure that there are no minified versions of external CSS files that would match this rule in the working directory (e.g. bootstrap-min.css) because they will be deleted as well.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line]]></title>
@@ -965,34 +1098,6 @@ creates the file <code>example-min.js</code>.</p>
 <p>If the test fails, then the user is accessing the file by URL.  Handle your GET and POST requests in the else code block.</p>
 
 <p>Check out the <a href="https://github.com/chrissimpkins/tweetledee/blob/master/tweetledee/favoritesjson.php#L95">full source file</a> if you&rsquo;d like to see how I handled the arguments in these conditional statements.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Simple One-Liner to Rerun Your Last Shell Command with a Modification]]></title>
-    <link href="http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification/"/>
-    <updated>2013-08-26T08:31:00-04:00</updated>
-    <id>http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification</id>
-    <content type="html"><![CDATA[<p>This one-liner will modify an error in your last shell command and automatically re-run it.</p>
-
-<!--More-->
-
-
-<p>You meant to run <code>make &amp;&amp; make install</code> to build and install an application, but you actually typed <code>nake &amp;&amp; make install</code>.  The scenic route to correct this is UP ARROW to retrieve the command, navigate to the beginning of the line, switch the n to m, and then submit it again.</p>
-
-<p>Here&rsquo;s your jetpack:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>^na^ma^</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This command uses the generic syntax:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>^before^after^</span></code></pre></td></tr></table></div></figure>
-
-
-<p>to modify the <em>before</em> substring to the <em>after</em> substring and then it automatically resubmits the command.</p>
 ]]></content>
   </entry>
   
