@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Compress an Entire Directory of CSS Files - Sweetmeat</title>
+  <title>Automate Your Git Directory Initialization Workflow - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to compress an entire directory of CSS files using YUI Compressor and a shell script">
-  <meta name="keywords" content="CSS, compress, optimize, YUI Compressor, yuicompressor, script, bash, shell, directory, all">
+  <meta name="description" content="Learn how to automate git initialization of a directory, tracking + staging of new files, and an initial commit.">
+  <meta name="keywords" content="git, init, automate, script, shell, help, how to, tip, tips">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/09/24/compress-an-entire-directory-of-css-files">
+  <link rel="canonical" href="http://sweetme.at/2013/09/26/automate-your-git-directory-initialization-workflow">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -73,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">Compress an Entire Directory of CSS Files</h1>
+      <h1 class="entry-title">Automate Your Git Directory Initialization Workflow</h1>
     
     
       <p class="meta">
@@ -89,33 +89,35 @@
   
 
 
-<time datetime="2013-09-24T23:47:00-04:00" pubdate data-updated="true">Sep 24<span>th</span>, 2013</time>
+<time datetime="2013-09-26T09:11:00-04:00" pubdate data-updated="true">Sep 26<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Have an entire directory of CSS files that you need to compress after your most recent set of changes?  Check out this YUI compressor + shell script combination.</p>
+<div class="entry-content"><p>Automate initialization of a directory with git, the initial tracking / staging of existing files, and your first commit with this script.  A README.md and .gitignore file come as a bonus&hellip;</p>
 
 <!--More-->
 
 
-<h2>What it Does</h2>
+<h2>Git Init + Git Add + Git Commit</h2>
 
-<p>The YUI Compressor decreases the size of your CSS file with a variety of optimization techniques.  The entire list of modifications is available in <a href="http://yui.github.io/yuicompressor/css.html">the YUI Compressor documentation</a>.</p>
+<p>So, you are applying <a href="http://git-scm.com/">Git version control</a> to a new directory of files.  The standard sequence of commands looks like this:</p>
 
-<h2>Dependencies</h2>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git init
+</span><span class='line'>git add .
+</span><span class='line'>git commit -m "Initial commit"</span></code></pre></td></tr></table></div></figure>
 
-<p>The YUI Compressor is a Java .jar file and Java version 1.4+ is necessary to run it on your system.</p>
 
-<h2>Download YUI Compressor</h2>
+<p>And then you hammer away at your project with git capturing all of your moves.</p>
 
-<p>Release 2.4.8 is <a href="https://github.com/yui/yuicompressor/releases">available on this GitHub repository</a>.  Download and decompress the <code>yuicompressor-2.4.8.jar</code> file.</p>
+<p>This script allows you to consolidate that series of commands into a single statement, and throws in blank README.md and .gitignore files.</p>
 
-<h2>Set Up Your Shell Script</h2>
-
-<p>Either create a shell script file with the following shell script or grab it from my <a href="https://github.com/chrissimpkins/scriptacular/blob/master/compress/yuicss.sh">GitHub repository</a>:</p>
+<h2>The Script</h2>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -146,46 +148,56 @@
 <span class='line-number'>27</span>
 <span class='line-number'>28</span>
 <span class='line-number'>29</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/sh</span>
-</span><span class='line'><span class="c"># Scriptacular - yuicss.sh</span>
-</span><span class='line'><span class="c"># CSS file compression with yuicompressor</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'><span class="c"># Scriptacular - gitinit.sh</span>
+</span><span class='line'><span class="c"># Initialize a directory with git, stage and commit existing files</span>
 </span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
 </span><span class='line'><span class="c"># MIT License</span>
 </span><span class='line'>
-</span><span class='line'><span class="c"># Modify YUI_PATH below with the path to your yuicompressor jar file</span>
-</span><span class='line'><span class="nv">YUI_PATH</span><span class="o">=</span><span class="s2">&quot;path/to/yuicompressor-2.4.8.jar&quot;</span>
+</span><span class='line'><span class="nv">FILE_TYPE</span><span class="o">=</span><span class="s2">&quot;.&quot;</span>
+</span><span class='line'><span class="nv">INITIAL_COMMIT_MESSAGE</span><span class="o">=</span><span class="s2">&quot;Initial commit&quot;</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-eq 0 <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Please include the file path(s) for the file(s) that you would like to compress.&quot;</span> 1&gt;&amp;2
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;.git&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;This directory has already been initialized with git.&quot;</span>
 </span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'><span class="k">  </span>git init
+</span><span class='line'>  <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to initialize your directory&quot;</span>
+</span><span class='line'>      <span class="nb">exit </span>1
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="k">  </span>git add <span class="s2">&quot;$FILE_TYPE&quot;</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to stage files&quot;</span>
+</span><span class='line'>      <span class="nb">exit </span>1
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="k">  </span>git commit -m <span class="s2">&quot;$INITIAL_COMMIT_MESSAGE&quot;</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to create the initial commit&quot;</span>
+</span><span class='line'>      <span class="nb">exit </span>1
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="k">  </span>touch README.md
+</span><span class='line'>  touch .gitignore
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot; ----- &quot;</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;The directory was initialized and an initial commit was performed with the files matching the pattern &#39;$FILE_TYPE&#39;&quot;</span>
 </span><span class='line'><span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">for </span>file in <span class="s2">&quot;$@&quot;</span>;
-</span><span class='line'><span class="k">do</span>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;$file&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span>java -jar <span class="s2">&quot;$YUI_PATH&quot;</span> -o <span class="s2">&quot;${file%%.*}-min.css&quot;</span> <span class="s2">&quot;$file&quot;</span>
-</span><span class='line'>      <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was not able to be minified&quot;</span>
-</span><span class='line'>          <span class="nb">exit </span>1
-</span><span class='line'>      <span class="k">else</span>
-</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was minified to ${file%%.*}-min.css&quot;</span>
-</span><span class='line'>      <span class="k">fi</span>
-</span><span class='line'><span class="k">  else</span>
-</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to find the style sheet file &#39;$file&#39;.&quot;</span>
-</span><span class='line'><span class="k">fi</span>
-</span><span class='line'><span class="k">done</span>;
 </span><span class='line'><span class="nb">exit </span>0
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Change the <code>YUI_PATH</code> variable to the actual path to your <code>yuicompressor-2.4.8.jar</code> file.  Save the file as <code>yuicss.sh</code> and use the command <code>chmod 744 yuicss.sh</code> to make it executable.</p>
+<p>The <a href="https://github.com/chrissimpkins/scriptacular/blob/master/version-control/gitinit.sh">script is also available on my GitHub repository</a>.  Either copy and paste the code above or download the raw script file from the repository and then run <code>chmod 744 gitinit.sh</code> on the file to make the script executable.  The following sections assume that you saved it in the path <code>~/scripts/gitinit.sh</code>.</p>
 
-<h2>Make a Bash Alias</h2>
+<h2>Create a Bash Alias</h2>
 
-<p>Create an alias for your shell script so that you don&rsquo;t have to type the full path to the script each time that you use it.  For example, if you saved the <code>yuicss.sh</code> file on the path <code>~/scripts/yuicss.sh</code>, then open your bash startup file (either <code>.bash_profile</code> or <code>.bashrc</code>) and enter the following line to create the alias minicss:</p>
+<p>Create an alias for the shell script so that you don&rsquo;t have to type the full path to the script each time that you use it.  Open your bash startup file (either <code>.bash_profile</code> or <code>.bashrc</code>) and enter the following line to create the alias gitinit:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">alias </span><span class="nv">minicss</span><span class="o">=</span><span class="s2">&quot;~/scripts/yuicss.sh&quot;</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">alias </span><span class="nv">gitinit</span><span class="o">=</span><span class="s2">&quot;~/scripts/gitinit.sh&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -198,29 +210,40 @@
 
 <p>It is not necessary to run the source command again when you close and then reopen your terminal.</p>
 
-<h2>Compress an Entire Directory of CSS Files</h2>
+<h2>Use It</h2>
 
-<p>Now that you have an alias for your shell script, you can use it to compress as many CSS files contained in a single directory that you&rsquo;d like.  It&rsquo;s all done with a simple command statement.</p>
-
-<p>Navigate to the directory that contains your CSS files and type the following:</p>
+<p>Navigate to the directory that you would like to initialize with git and enter your alias:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>minicss *.css
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>gitinit
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This command creates a new, minified version of each CSS file in the directory with a -min suffix added to the filename (i.e. [original filename]-min.css).  The original files are not modified.</p>
+<p>Examine the directory and you will find a new .git directory, README.md file, and .gitignore file.  With the unmodified shell script, all files in that were present in the directory (with the exception of the README.md and .gitignore that were just added) are tracked by git and an initial commit is performed with the commit message, &ldquo;Initial commit&rdquo;.</p>
 
-<h2>Remove the Minified CSS Files</h2>
+<h2>Modify It</h2>
 
-<p>If you ever need to remove all of the minified versions of the CSS files that the script creates, navigate to the directory and run the following command:</p>
+<h3>Limit Commit by File Type</h3>
+
+<p>You have the option to modify the script so that only a specific filetype is added to the initial commit.  Use the <code>FILE_TYPE</code> variable to indicate the filetype that you intend to commit.  For example, if you want to add all Python files (.py), change the variable to:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rm *-min.css
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">FILE_TYPE</span><span class="o">=</span><span class="s2">&quot;*.py&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Note</strong>: This command matches all files with the pattern <code>&lt;file&gt;-min.css</code>.  Make sure that there are no minified versions of external CSS files that would match this rule in the working directory (e.g. bootstrap-min.css) because they will be deleted as well.</p>
+<p>While I haven&rsquo;t tested this, it should work with multiple file types using your shell&rsquo;s brace expansion feature.  So, you could add all C source and C header files with a <code>FILE_TYPE</code> variable like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">FILE_TYPE</span><span class="o">=</span><span class="s2">&quot;*.{c,h}&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Change Your Initial Commit Message</h3>
+
+<p>And if you would prefer a different initial commit message, just change the <code>INITIAL_COMMIT_MESSAGE</code> variable at the top of the script to any message that you&rsquo;d like.  Make sure that you maintain the double quotes if there are spaces or special characters in the commit message.</p>
+
+<p>If you&rsquo;d like to add the README.md and/or .gitignore files to your commit, move the <code>touch README.md</code> and <code>touch .gitignore</code> commands in the script above the <code>git add "$FILE_TYPE"</code> line (and don&rsquo;t modify the default <code>FILE_TYPE</code> variable).</p>
 </div>
 
 
@@ -243,7 +266,7 @@
   
 
 
-<time datetime="2013-09-24T23:47:00-04:00" pubdate data-updated="true">Sep 24<span>th</span>, 2013</time>
+<time datetime="2013-09-26T09:11:00-04:00" pubdate data-updated="true">Sep 26<span>th</span>, 2013</time>
       
 
 
@@ -251,7 +274,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/24/compress-an-entire-directory-of-css-files/" data-via="" data-counturl="http://sweetme.at/2013/09/24/compress-an-entire-directory-of-css-files/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/26/automate-your-git-directory-initialization-workflow/" data-via="" data-counturl="http://sweetme.at/2013/09/26/automate-your-git-directory-initialization-workflow/" >Tweet</a>
   
   
   
@@ -260,10 +283,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/09/21/how-to-erase-segments-of-text-from-the-cursor-position-on-your-command-line/" title="Previous Post: How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line">&laquo; How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line</a>
+        <a class="basic-alignment left" href="/2013/09/24/compress-an-entire-directory-of-css-files/" title="Previous Post: Compress an Entire Directory of CSS Files">&laquo; Compress an Entire Directory of CSS Files</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/26/automate-your-git-directory-initialization-workflow/" title="Next Post: Automate Your Git Directory Initialization Workflow">Automate Your Git Directory Initialization Workflow &raquo;</a>
       
     </p>
   </footer>

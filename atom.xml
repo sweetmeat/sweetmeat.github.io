@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-24T23:48:16-04:00</updated>
+  <updated>2013-09-26T18:21:23-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,162 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Automate Your Git Directory Initialization Workflow]]></title>
+    <link href="http://sweetme.at/2013/09/26/automate-your-git-directory-initialization-workflow/"/>
+    <updated>2013-09-26T09:11:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/26/automate-your-git-directory-initialization-workflow</id>
+    <content type="html"><![CDATA[<p>Automate initialization of a directory with git, the initial tracking / staging of existing files, and your first commit with this script.  A README.md and .gitignore file come as a bonus&hellip;</p>
+
+<!--More-->
+
+
+<h2>Git Init + Git Add + Git Commit</h2>
+
+<p>So, you are applying <a href="http://git-scm.com/">Git version control</a> to a new directory of files.  The standard sequence of commands looks like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git init
+</span><span class='line'>git add .
+</span><span class='line'>git commit -m "Initial commit"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then you hammer away at your project with git capturing all of your moves.</p>
+
+<p>This script allows you to consolidate that series of commands into a single statement, and throws in blank README.md and .gitignore files.</p>
+
+<h2>The Script</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'><span class="c"># Scriptacular - gitinit.sh</span>
+</span><span class='line'><span class="c"># Initialize a directory with git, stage and commit existing files</span>
+</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
+</span><span class='line'><span class="c"># MIT License</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">FILE_TYPE</span><span class="o">=</span><span class="s2">&quot;.&quot;</span>
+</span><span class='line'><span class="nv">INITIAL_COMMIT_MESSAGE</span><span class="o">=</span><span class="s2">&quot;Initial commit&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;.git&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;This directory has already been initialized with git.&quot;</span>
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'><span class="k">  </span>git init
+</span><span class='line'>  <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to initialize your directory&quot;</span>
+</span><span class='line'>      <span class="nb">exit </span>1
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="k">  </span>git add <span class="s2">&quot;$FILE_TYPE&quot;</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to stage files&quot;</span>
+</span><span class='line'>      <span class="nb">exit </span>1
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="k">  </span>git commit -m <span class="s2">&quot;$INITIAL_COMMIT_MESSAGE&quot;</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to create the initial commit&quot;</span>
+</span><span class='line'>      <span class="nb">exit </span>1
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="k">  </span>touch README.md
+</span><span class='line'>  touch .gitignore
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot; ----- &quot;</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;The directory was initialized and an initial commit was performed with the files matching the pattern &#39;$FILE_TYPE&#39;&quot;</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'><span class="nb">exit </span>0
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <a href="https://github.com/chrissimpkins/scriptacular/blob/master/version-control/gitinit.sh">script is also available on my GitHub repository</a>.  Either copy and paste the code above or download the raw script file from the repository and then run <code>chmod 744 gitinit.sh</code> on the file to make the script executable.  The following sections assume that you saved it in the path <code>~/scripts/gitinit.sh</code>.</p>
+
+<h2>Create a Bash Alias</h2>
+
+<p>Create an alias for the shell script so that you don&rsquo;t have to type the full path to the script each time that you use it.  Open your bash startup file (either <code>.bash_profile</code> or <code>.bashrc</code>) and enter the following line to create the alias gitinit:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">alias </span><span class="nv">gitinit</span><span class="o">=</span><span class="s2">&quot;~/scripts/gitinit.sh&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To use this alias in your current shell process, use the source command on the bash startup file.  Assuming that you placed this in the <code>.bash_profile</code> file and your working directory contains that file, your command is:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> .bash_profile
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It is not necessary to run the source command again when you close and then reopen your terminal.</p>
+
+<h2>Use It</h2>
+
+<p>Navigate to the directory that you would like to initialize with git and enter your alias:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>gitinit
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Examine the directory and you will find a new .git directory, README.md file, and .gitignore file.  With the unmodified shell script, all files in that were present in the directory (with the exception of the README.md and .gitignore that were just added) are tracked by git and an initial commit is performed with the commit message, &ldquo;Initial commit&rdquo;.</p>
+
+<h2>Modify It</h2>
+
+<h3>Limit Commit by File Type</h3>
+
+<p>You have the option to modify the script so that only a specific filetype is added to the initial commit.  Use the <code>FILE_TYPE</code> variable to indicate the filetype that you intend to commit.  For example, if you want to add all Python files (.py), change the variable to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">FILE_TYPE</span><span class="o">=</span><span class="s2">&quot;*.py&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>While I haven&rsquo;t tested this, it should work with multiple file types using your shell&rsquo;s brace expansion feature.  So, you could add all C source and C header files with a <code>FILE_TYPE</code> variable like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">FILE_TYPE</span><span class="o">=</span><span class="s2">&quot;*.{c,h}&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Change Your Initial Commit Message</h3>
+
+<p>And if you would prefer a different initial commit message, just change the <code>INITIAL_COMMIT_MESSAGE</code> variable at the top of the script to any message that you&rsquo;d like.  Make sure that you maintain the double quotes if there are spaces or special characters in the commit message.</p>
+
+<p>If you&rsquo;d like to add the README.md and/or .gitignore files to your commit, move the <code>touch README.md</code> and <code>touch .gitignore</code> commands in the script above the <code>git add "$FILE_TYPE"</code> line (and don&rsquo;t modify the default <code>FILE_TYPE</code> variable).</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Compress an Entire Directory of CSS Files]]></title>
@@ -1045,59 +1201,6 @@ creates the file <code>example-min.js</code>.</p>
 <p><code>-z</code> : runs gunzip to decompress .gz files</p>
 
 <p><code>-j</code> : runs bunzip2 to decompress .bz2 files</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Automatically Handle PHP Arguments from Both a URL and the Command Line in the Same File]]></title>
-    <link href="http://sweetme.at/2013/08/27/how-to-automatically-handle-php-arguments-from-both-a-url-and-the-command-line/"/>
-    <updated>2013-08-27T19:33:00-04:00</updated>
-    <id>http://sweetme.at/2013/08/27/how-to-automatically-handle-php-arguments-from-both-a-url-and-the-command-line</id>
-    <content type="html"><![CDATA[<p>Want to pass arguments to your PHP script via URL on your web server as well as with standard command line syntax via the PHP interpreter?  Have your cake and eat it too with this little gem.</p>
-
-<!--More-->
-
-
-<p>I used this technique in <a href="https://github.com/chrissimpkins/tweetledee">Tweetledee</a>.  It&rsquo;s useful for testing your PHP scripts in a terminal and for piping your PHP script data to other applications.  Here is a snippet of the code from the Tweetledee favoritesjson.php file that demonstrates the conditional argument parsing logic:</p>
-
-<figure class='code'><figcaption><span>How to Handle PHP Arguments by URL and Command Line</span><a href='https://github.com/chrissimpkins/tweetledee/blob/master/tweetledee/favoritesjson.php'>Source File</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="sd">/*******************************************************************</span>
-</span><span class='line'><span class="sd">*   Parameters</span>
-</span><span class='line'><span class="sd">*    - can pass via URL to web server</span>
-</span><span class='line'><span class="sd">*    - or as a short or long switch at the command line</span>
-</span><span class='line'><span class="sd">********************************************************************/</span>
-</span><span class='line'><span class="c1">// Command line parameter definitions //</span>
-</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;STDIN&#39;</span><span class="p">))</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$argv</span><span class="p">)){</span>
-</span><span class='line'>      <span class="c1">// handle your command line arguments here with getopt</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="c1">// GET request parameter definitions //</span>
-</span><span class='line'><span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>  <span class="c1">// handle your URL parameters (via GET or POST requests) here</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>STDIN</code> is defined if the script is being run directly through the PHP interpreter with a shell command, but it is not defined when you access the file through a web server by URL.  Test to determine if it is defined and, if so, you can parse the PHP command line arguments with the PHP <a href="http://php.net/manual/en/function.getopt.php">getopt function</a>.  This allows you to pass arguments using standard short (<code>-s</code>) and long (<code>--long</code>) command line switch syntax.</p>
-
-<p>If the test fails, then the user is accessing the file by URL.  Handle your GET and POST requests in the else code block.</p>
-
-<p>Check out the <a href="https://github.com/chrissimpkins/tweetledee/blob/master/tweetledee/favoritesjson.php#L95">full source file</a> if you&rsquo;d like to see how I handled the arguments in these conditional statements.</p>
 ]]></content>
   </entry>
   
