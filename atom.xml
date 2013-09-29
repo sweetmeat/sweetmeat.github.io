@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-29T12:00:27-04:00</updated>
+  <updated>2013-09-29T12:01:41-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,305 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Essential Git Commands | A Cheat Sheet for Version Control Organized by Stage of Development Workflow]]></title>
+    <link href="http://sweetme.at/2013/09/29/essential-git-commands-cheat-sheet/"/>
+    <updated>2013-09-29T09:01:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/29/essential-git-commands-cheat-sheet</id>
+    <content type="html"><![CDATA[<p>A reference sheet that includes the most commonly used <a href="http://git-scm.com/">Git</a> commands organized by stage in the development workflow.</p>
+
+<!--More-->
+
+
+<h2>Contents</h2>
+
+<h3>Begin Version Control with Git</h3>
+
+<p><span style="color:#00aced;"><i class="icon-star"></i></span> <a href="#creategit">Create a Local Git Repository</a>
+<span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#trackgit">Track New Files</a>
+<span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#initcomgit">Perform Initial Version Commit</a></p>
+
+<h3>Local Development with Git</h3>
+
+<p><span style="color:#00aced;"><i class="icon-star"></i></span> <a href="#statusgit">State Reporting</a>
+<span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#modgit">View File Modifications</a>
+<span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#preparegit">Prepare for Next Commit</a>
+<span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#comgit">Commit Modified Version</a>
+<span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#branchgit">Branches and Merging</a>
+<span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#commodgit">Commit Modification</a></p>
+
+<h3>Working with Remote Repositories</h3>
+
+<p><span style="color:#00aced;"><i class="icon-star"></i></span> <a href="#remotegit">Tasks with Remote Repositories</a></p>
+
+<h1>Begin Version Control with Git</h1>
+
+<h2 id="creategit">Create a Local Git Repository</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Initialize a New Git Repository</td><td>git init</td>
+</tr>
+<tr>
+<td>Clone an Existing Git Repository</td><td>git clone [ URL ]</td>
+</tr>
+<tbody>
+</table>
+
+
+
+
+<h2 id="trackgit">Track New Files</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Begin File Tracking by Name</td><td>git add [ file-name  ]</td>
+</tr>
+<tr>
+<td>Begin File Tracking by Type</td><td>git add [ *.filetype  ]</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="initcomgit">Perform Initial Commit of Tracked Files</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Initial Commit of Tracked Files with Message</td><td>git commit -m [ &#8220;Message Content&#8221; ]</td>
+</tr>
+</tbody>
+</table>
+
+
+<h1>Local Development with Git</h1>
+
+<h2 id="statusgit">State Reporting</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>List Untracked Files</td><td>git status</td>
+</tr>
+<tr>
+<td>List New Tracked & Staged Files</td><td>git status</td>
+</tr>
+<td>List Modified Files</td><td>git status</td>
+</tr>
+<tr>
+<td>Indicate Working Branch</td><td>git status</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="modgit">View File Modifications</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Working Version vs. Staged Version</td><td>git diff</td>
+</tr>
+<tr>
+<td>Staged Version vs. Last Commit Version</td><td>git diff &#45;&#45;staged</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="preparegit">File Edit Tasks</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Stage Modified, Tracked Files by Name</td><td>git add [ file-name  ]</td>
+</tr>
+<tr>
+<td>Stage Modified, Tracked Files by Type</td><td>git add [ *.filetype  ]</td>
+</tr>
+<tr>
+<td>Begin Tracking New File by Name</td><td>git add [ file-name  ]</td>
+</tr>
+<tr>
+<td>Begin Tracking New Files by Type</td><td>git add [ *.filetype  ]</td>
+</tr>
+<tr>
+<td>Unstage Changes to Match Current Commit</td><td>git reset</td>
+</tr>
+<tr>
+<td>Stash Changes in Working Directory & Undo Unstaged Changes</td><td>git stash &#45;&#45;keep-index</td>
+</tr>
+<tr>
+<td>Restore Stashed Changes to Working Directory</td><td>git stash pop</td>
+</tr>
+<tr>
+<td>Remove Tracked File from Index + Working Directory</td><td>git rm [ file-name ]</td>
+</tr>
+<tr>
+<td>Remove Tracked File from Index, Leave in Working Directory</td><td>git rm &#45;&#45;cached [ file-name ]</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="comgit">Commit Modified Version</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Commit Tracked Files with Message</td><td>git commit -m [ &#8220;Message Content&#8221; ]</td>
+</tr>
+<tr>
+<td>Commit All Tracked Files, Ignore Stage Status</td><td>git commit -a -m [ &#8220;Message Content&#8221; ]</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="branchgit">Branches and Merging</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Make New Branch</td><td>git branch [ name ]</td>
+</tr>
+<tr>
+<td>Make New Branch, Checkout Branch</td><td>git checkout -b [ name ]</td>
+</tr>
+<tr>
+<td>Checkout Branch</td><td>git checkout [ name ]</td>
+</tr>
+<tr>
+<td>Merge Branch</td><td>git merge [ name ]</td>
+</tr>
+<tr>
+<td>Merge State of Changes</td><td>git status</td>
+</tr>
+<tr>
+<td>Abort Merge</td><td>git merge &#45;&#45;abort</td>
+</tr>
+<tr>
+<td>Delete Branch</td><td>git branch -d [ name ]</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="commodgit">Commit Modification</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Change Last Commit</td><td>git commit &#45;&#45;amend -m [ &#8220;Message&#8221; ]</td>
+</tr>
+<tr>
+<td>Discard Last Commit</td><td>git reset HEAD~</td>
+</tr>
+<tr>
+<td>Discard Last n Commits</td><td>git reset HEAD~[ n ]</td>
+</tr>
+<tr>
+<td>Revert Changes in Specific Commit</td><td>git revert [ SHA1 ]</td>
+</tr>
+<tr>
+<td>Revert Changes n Commits Back from Tip</td><td>git revert HEAD~[ n ]</td>
+</tr>
+</tbody>
+</table>
+
+
+<h1>Working with Remote Repositories</h1>
+
+<h2 id="remotegit">Tasks with Remote Repositories</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Clone a Remote Repository</td><td>git clone [ URL ]</td>
+</tr>
+<tr>
+<td>Pull Changes from Remote & Merge</td><td>git pull</td>
+</tr>
+<tr>
+<td>Pull Changes from Remote & Rebase</td><td>git pull &#45;&#45;rebase</td>
+</tr>
+<tr>
+<td>Push Changes Up to Remote</td><td>git push</td>
+</tr>
+<tr>
+<td>Add Branch to Remote</td><td>git push -u [ branch ]</td>
+</tr>
+</tbody>
+</table>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Automate Your Git Directory Initialization Workflow]]></title>
@@ -1163,44 +1462,6 @@ creates the file <code>example-min.js</code>.</p>
 <p>Don&rsquo;t know what version of Ruby you have (or if it is installed)? Use the command <code>ruby --version</code> and you will know.</p>
 
 <p><small><i class="icon-link"></i> Kudos <a href="https://twitter.com/dallas_reedy">Dallas Reedy</a> via <a href="https://coderwall.com/p/ocnxeq">Coderwall</a></small></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Unpack a tar.gz and tar.bz2 Archive on the Command Line]]></title>
-    <link href="http://sweetme.at/2013/08/28/how-to-unpack-a-tar.gz-and-tar.bz2-archive-on-the-command-line/"/>
-    <updated>2013-08-28T09:00:00-04:00</updated>
-    <id>http://sweetme.at/2013/08/28/how-to-unpack-a-tar.gz-and-tar.bz2-archive-on-the-command-line</id>
-    <content type="html"><![CDATA[<p>No matter how many times I use these commands, I always need to look up the switches to decompress and unpack a compressed tar archive.  Here they are for those who have the same problem.</p>
-
-<!--More-->
-
-
-<h2>Decompress and Unpack a tar.gz Archive</h2>
-
-<figure class='code'><figcaption><span>Decompress and Unpack a tar.gz Archive</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>tar -xvzf &lt;filename&gt;
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Decompress and Unpack a tar.bz2 Archive</h2>
-
-<figure class='code'><figcaption><span>Decompress and Unpack a tar.bz2 Archive</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>tar -xvjf &lt;filename&gt;
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>What the Switches Do</h2>
-
-<p><code>-x</code> : extract the tar archive</p>
-
-<p><code>-v</code> : verbose output so that you see what files are being unpacked</p>
-
-<p><code>-f</code> : indicates that you are providing tar with an archive filename</p>
-
-<p><code>-z</code> : runs gunzip to decompress .gz files</p>
-
-<p><code>-j</code> : runs bunzip2 to decompress .bz2 files</p>
 ]]></content>
   </entry>
   
