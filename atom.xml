@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-29T09:04:54-04:00</updated>
+  <updated>2013-09-29T09:06:28-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Essential Git Commands | A Cheat Sheet for Version Control Organized by Stage of Development Workflow]]></title>
-    <link href="http://sweetme.at/2013/09/28/essential-git-commands-cheat-sheet/"/>
-    <updated>2013-09-28T14:05:00-04:00</updated>
-    <id>http://sweetme.at/2013/09/28/essential-git-commands-cheat-sheet</id>
+    <link href="http://sweetme.at/2013/09/29/essential-git-commands-cheat-sheet/"/>
+    <updated>2013-09-29T09:01:00-04:00</updated>
+    <id>http://sweetme.at/2013/09/29/essential-git-commands-cheat-sheet</id>
     <content type="html"><![CDATA[<p>A reference sheet that includes the most commonly used <a href="http://git-scm.com/">Git</a> commands organized by stage in the development workflow.</p>
 
 <!--More-->
@@ -210,9 +210,6 @@
 </table>
 
 
-
-
-<h2 id="histgit">Examine Commit History</h2>
 
 ]]></content>
   </entry>
