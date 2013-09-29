@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-29T09:06:28-04:00</updated>
+  <updated>2013-09-29T09:08:26-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -37,8 +37,6 @@
 <span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#modgit">View File Modifications</a>
 <span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#preparegit">Prepare for Next Commit</a>
 <span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#comgit">Commit Modified Version</a></p>
-
-<h3>Examine Git History</h3>
 
 <h1>Begin Version Control with Git</h1>
 
