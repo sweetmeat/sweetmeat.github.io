@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Essential Git Commands | A Cheat Sheet for Version Control Organized by Stage of Development Workflow - Sweetmeat</title>
+  <title>Essential Git Commands | A Cheat Sheet for Git Version Control - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
   <meta name="description" content="A reference for the most commonly used Git commands, organized by stage of development">
@@ -73,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">Essential Git Commands | a Cheat Sheet for Version Control Organized by Stage of Development Workflow</h1>
+      <h1 class="entry-title">Essential Git Commands | a Cheat Sheet for Git Version Control</h1>
     
     
       <p class="meta">
@@ -96,7 +96,7 @@
   </header>
 
 
-<div class="entry-content"><p>A reference sheet that includes the most commonly used <a href="http://git-scm.com/">Git</a> commands organized by stage in the development workflow.</p>
+<div class="entry-content"><p>A reference sheet that includes the most commonly used <a href="http://git-scm.com/">Git</a> commands.</p>
 
 <!--More-->
 
@@ -121,6 +121,10 @@
 <h3>Working with Remote Repositories</h3>
 
 <p><span style="color:#00aced;"><i class="icon-star"></i></span> <a href="#remotegit">Tasks with Remote Repositories</a></p>
+
+<h3>Annotation</h3>
+
+<p><span style="color:#00aced;"><i class="icon-star"></i></span> <a href="#tagsgit">Tags</a></p>
 
 <h1>Begin Version Control with Git</h1>
 
@@ -253,7 +257,16 @@
 <td>Begin Tracking New Files by Type</td><td>git add [ *.filetype  ]</td>
 </tr>
 <tr>
-<td>Unstage Changes to Match Current Commit</td><td>git reset</td>
+<td>Reset Files to Last Commit, Preserve Tracked File Changes</td><td>git reset</td>
+</tr>
+<tr>
+<td>Reset Files to Last Commit, Stage Tracked File Changes</td><td>git reset &#45;&#45;soft</td>
+</tr>
+<tr>
+<td>Reset Files to Last Commit, Discard Tracked File Changes</td><td>git reset &#45;&#45;hard</td>
+</tr>
+<tr>
+<td>Revert a File to the Last Commit</td><td>git checkout [ file-name ]</td>
 </tr>
 <tr>
 <td>Stash Changes in Working Directory & Undo Unstaged Changes</td><td>git stash &#45;&#45;keep-index</td>
@@ -387,6 +400,29 @@
 </tbody>
 </table>
 
+
+<h1>Annotation</h1>
+
+<h2 id="tagsgit">Tags</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Lightweight Tags</td><td>git tag [ &#8220;Message&#8221; ]</td>
+</tr>
+<tr>
+<td>Annotated Tags</td><td>git tag -a [ &#8220;Version&#8221; ] -m [ &#8220;Message&#8221; ]</td>
+</tr>
+</tbody>
+</table>
+
+
+
 </div>
 
 
@@ -443,7 +479,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2013/09/29/essential-git-commands-cheat-sheet/">Essential Git Commands | A Cheat Sheet for Version Control Organized by Stage of Development Workflow</a>
+        <a href="/2013/09/29/essential-git-commands-cheat-sheet/">Essential Git Commands | A Cheat Sheet for Git Version Control</a>
       </li>
     
       <li class="post">
