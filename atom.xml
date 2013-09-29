@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-29T18:01:44-04:00</updated>
+  <updated>2013-09-29T18:04:46-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -218,7 +218,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Commit Tracked Files with Message</td><td>git commit -m [ &#8220;Message Content&#8221; ]</td>
+<td>Commit Staged Changes with Message</td><td>git commit -m [ &#8220;Message Content&#8221; ]</td>
 </tr>
 <tr>
 <td>Commit All Tracked Files, Ignore Stage Status</td><td>git commit -a -m [ &#8220;Message Content&#8221; ]</td>
