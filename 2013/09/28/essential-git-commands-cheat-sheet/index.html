@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Special Characters in Your Shell - Sweetmeat</title>
+  <title>Essential Git Commands | A Cheat Sheet for Version Control Organized by Stage of Development Workflow - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="These are all special characters that need to be escaped or surrounded by single quotations marks at the command line.">
-  <meta name="keywords" content="shell, special characters, escape characters, bash, CLI, command line">
+  <meta name="description" content="A reference for the most commonly used Git commands, organized by stage of development">
+  <meta name="keywords" content="Chris Simpkins, coding, programming, web, internet, application, python, PHP, Ruby, C, C++, CPP, XML, linux, OSX, Mac, unix">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/08/30/special-characters-in-your-shell">
+  <link rel="canonical" href="http://sweetme.at/2013/09/28/essential-git-commands-cheat-sheet">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -73,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">Special Characters in Your Shell</h1>
+      <h1 class="entry-title">Essential Git Commands | a Cheat Sheet for Version Control Organized by Stage of Development Workflow</h1>
     
     
       <p class="meta">
@@ -89,20 +89,208 @@
   
 
 
-<time datetime="2013-08-30T17:21:00-04:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
+<time datetime="2013-09-28T14:05:00-04:00" pubdate data-updated="true">Sep 28<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>All of these characters have special functions in the shell and need to be escaped with a backslash <code>\&amp;</code> or surrounded with single quotation marks <code>'&amp;'</code> if you intend to use the character itself, rather than the shell-specific meaning, on the command line.  Here is the list:</p>
+<div class="entry-content"><p>A reference sheet that includes the most commonly used <a href="http://git-scm.com/">Git</a> commands organized by stage in the development workflow.</p>
 
 <!--More-->
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>* ? & ! ~ $ ; | ' " ` ( ) [ ] &lt; &gt; { } \ / </span></code></pre></td></tr></table></div></figure>
+<h2>Contents</h2>
+
+<h3>Begin Version Control with Git</h3>
+
+<p><span style="color:#00aced;"><i class="icon-star"></i></span> <a href="#creategit">Create a Local Git Repository</a>
+<span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#trackgit">Track New Files</a>
+<span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#initcomgit">Perform Initial Version Commit</a></p>
+
+<h3>Development with Git</h3>
+
+<p><span style="color:#00aced;"><i class="icon-star"></i></span> <a href="#statusgit">State Reporting</a>
+<span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#modgit">View File Modifications</a>
+<span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#preparegit">Prepare for Next Commit</a>
+<span style="color:#00aced;"><i class="icon-chevron-sign-right"></i></span> <a href="#comgit">Commit Modified Version</a></p>
+
+<h3>Examine Git History</h3>
+
+<h1>Begin Version Control with Git</h1>
+
+<h2 id="creategit">Create a Local Git Repository</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Initialize a New Git Repository</td><td>git init</td>
+</tr>
+<tr>
+<td>Clone an Existing Git Repository</td><td>git clone [ URL ]</td>
+</tr>
+<tbody>
+</table>
+
+
+
+
+<h2 id="trackgit">Track New Files</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Begin File Tracking by Name</td><td>git add [ file-name  ]</td>
+</tr>
+<tr>
+<td>Begin File Tracking by Type</td><td>git add [ *.filetype  ]</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="initcomgit">Perform Initial Commit of Tracked Files</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Initial Commit of Tracked Files with Message</td><td>git commit -m [ &#8220;Message Content&#8221; ]</td>
+</tr>
+</tbody>
+</table>
+
+
+<h1>Development with Git</h1>
+
+<h2 id="statusgit">State Reporting</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>List Untracked Files</td><td>git status</td>
+</tr>
+<tr>
+<td>List New Tracked & Staged Files</td><td>git status</td>
+</tr>
+<td>List Modified Files</td><td>git status</td>
+</tr>
+<tr>
+<td>Indicate Working Branch</td><td>git status</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="modgit">View File Modifications</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Working Version vs. Staged Version</td><td>git diff</td>
+</tr>
+<tr>
+<td>Staged Version vs. Last Commit Version</td><td>git diff -staged</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="preparegit">File Edit Tasks</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Stage Modified, Tracked Files by Name</td><td>git add [ file-name  ]</td>
+</tr>
+<tr>
+<td>Stage Modified, Tracked Files by Type</td><td>git add [ *.filetype  ]</td>
+</tr>
+<tr>
+<td>Begin Tracking New File by Name</td><td>git add [ file-name  ]</td>
+</tr>
+<tr>
+<td>Begin Tracking New Files by Type</td><td>git add [ *.filetype  ]</td>
+</tr>
+<tr>
+<td>Unstage Changes to Match Current Commit</td><td>git reset</td>
+</tr>
+<tr>
+<td>Stash Changes in Working Directory & Undo Unstaged Changes</td><td>git stash &#8211;keep-index</td>
+</tr>
+<tr>
+<td>Restore Stashed Changes to Working Directory</td><td>git stash pop</td>
+</tr>
+<tr>
+<td>Remove Tracked File from Index + Working Directory</td><td>git rm [ file-name ]</td>
+</tr>
+<tr>
+<td>Remove Tracked File from Index, Leave in Working Directory</td><td>git rm &#8211;cached [ file-name ]</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="comgit">Commit Modified Version</h2>
+
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Command</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Commit Tracked Files with Message</td><td>git commit -m [ &#8220;Message Content&#8221; ]</td>
+</tr>
+<tr>
+<td>Commit All Tracked Files, Ignore Stage Status</td><td>git commit -a -m [ &#8220;Message Content&#8221; ]</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="histgit">Examine Commit History</h2>
 
 </div>
 
@@ -126,7 +314,7 @@
   
 
 
-<time datetime="2013-08-30T17:21:00-04:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
+<time datetime="2013-09-28T14:05:00-04:00" pubdate data-updated="true">Sep 28<span>th</span>, 2013</time>
       
 
 
@@ -134,7 +322,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/30/special-characters-in-your-shell/" data-via="" data-counturl="http://sweetme.at/2013/08/30/special-characters-in-your-shell/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/28/essential-git-commands-cheat-sheet/" data-via="" data-counturl="http://sweetme.at/2013/09/28/essential-git-commands-cheat-sheet/" >Tweet</a>
   
   
   
@@ -143,10 +331,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/08/29/how-to-determine-if-a-directory-has-been-initialized-with-git/" title="Previous Post: How to Determine if a Directory Has Been Initialized with Git">&laquo; How to Determine if a Directory Has Been Initialized with Git</a>
+        <a class="basic-alignment left" href="/2013/09/26/automate-your-git-directory-initialization-workflow/" title="Previous Post: Automate Your Git Directory Initialization Workflow">&laquo; Automate Your Git Directory Initialization Workflow</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/02/how-to-open-a-url-in-the-default-browser-across-os-platforms/" title="Next Post: How to Open a URL in the Default Browser Across OS Platforms">How to Open a URL in the Default Browser Across OS Platforms &raquo;</a>
       
     </p>
   </footer>
