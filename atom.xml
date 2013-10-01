@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-09-30T23:51:58-04:00</updated>
+  <updated>2013-10-01T17:44:45-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Multi-Select Editing with Sublime Text]]></title>
+    <link href="http://sweetme.at/2013/10/01/multi-select-editing-with-sublime-text/"/>
+    <updated>2013-10-01T17:17:00-04:00</updated>
+    <id>http://sweetme.at/2013/10/01/multi-select-editing-with-sublime-text</id>
+    <content type="html"><![CDATA[<p>This is at the top of my favorite Sublime Text features list.  Use these keyboard shortcuts to find all instances of a string in a file and then simultaneously edit them.  It&rsquo;s a gem and works in versions 2 and 3 of Sublime Text.</p>
+
+<!--More-->
+
+
+<h2>Key to the Keys</h2>
+
+<p>⌃ = CTRL key</p>
+
+<p>⌘ = CMD key</p>
+
+<h2>The Keyboard Shortcuts</h2>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Command</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Mac OSX</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-windows"></i> Windows</span>   </th>
+<th>  <span style="font-size:22px;"><i class="icon-linux"></i> Linux</span> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Multi-Select Editing</strong> </td>
+<td> ⌃ +  ⌘ + G </td>
+<td> ALT + F3 </td>
+<td> ALT + F3</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>How to Use It</h2>
+
+<p>Select any string in your text and then enter the keyboard shortcut.  Sublime Text will select all instances of the string in the document and place a cursor at the end of every match.  Delete the matched strings and enter something new or append whatever you need to the matched text.  Your edits show up at every matched position simultaneously.</p>
+
+<h2>More Sublime Text Shortcuts</h2>
+
+<p>You can find a detailed list of Sublime Text 2 and 3 shortcuts on the post, <a href="http://sweetme.at/2013/08/08/sublime-text-keyboard-shortcuts/">Sublime Text Keyboard Shortcut Cheat Sheet</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Essential Git Commands | A Cheat Sheet for Git Version Control]]></title>
@@ -1512,35 +1562,6 @@ creates the file <code>example-min.js</code>.</p>
 <p>Trying to do this in another language?  A quick search for &ldquo;directory exists&rdquo; in your language du jour generally leads to the information that you need.</p>
 
 <p>Here is how you determine whether a directory exists in <a href="http://stackoverflow.com/questions/6940394/how-to-use-javascript-to-determine-whether-a-directory-exists">JavaScript</a>, <a href="http://php.net/manual/en/function.file-exists.php">PHP</a>, <a href="http://docs.python.org/2/library/os.path.html#os.path.exists">Python</a>, and <a href="http://stackoverflow.com/questions/1085218/how-to-check-if-a-given-directory-exists-in-ruby">Ruby</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Simple Local HTTP Server with Ruby]]></title>
-    <link href="http://sweetme.at/2013/08/28/simple-local-http-server-with-ruby/"/>
-    <updated>2013-08-28T15:12:00-04:00</updated>
-    <id>http://sweetme.at/2013/08/28/simple-local-http-server-with-ruby</id>
-    <content type="html"><![CDATA[<p><a href="http://sweetme.at/2013/08/21/simple-local-http-server-with-python/">You can do it with Python</a>.  And you can do it with Ruby.  The Ruby one line command for a local HTTP server.</p>
-
-<!--More-->
-
-
-<h2>One Line Ruby HTTP Server</h2>
-
-<p>Navigate to your local site directory and then use the following command:</p>
-
-<figure class='code'><figcaption><span>One Line Ruby HTTP Server</span><a href='https://coderwall.com/p/ocnxeq'>Source</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ruby</span> <span class="o">-</span><span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="n">httpd</span> <span class="o">.</span> <span class="o">-</span><span class="nb">p</span> <span class="mi">8000</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can access your site at <code>http://localhost:8000</code>. If you want to change the port, modify the argument after the <code>-p</code> switch.  I confirmed that this works with Ruby v1.9.3.</p>
-
-<h2>Ruby?</h2>
-
-<p>Don&rsquo;t know what version of Ruby you have (or if it is installed)? Use the command <code>ruby --version</code> and you will know.</p>
-
-<p><small><i class="icon-link"></i> Kudos <a href="https://twitter.com/dallas_reedy">Dallas Reedy</a> via <a href="https://coderwall.com/p/ocnxeq">Coderwall</a></small></p>
 ]]></content>
   </entry>
   
