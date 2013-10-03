@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-10-01T17:44:45-04:00</updated>
+  <updated>2013-10-02T22:03:02-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Test for the Success of a Previous Command in a Bash Shell Script]]></title>
+    <link href="http://sweetme.at/2013/10/02/how-to-test-for-the-success-of-previous-command-in-a-bash-shell-script/"/>
+    <updated>2013-10-02T21:41:00-04:00</updated>
+    <id>http://sweetme.at/2013/10/02/how-to-test-for-the-success-of-previous-command-in-a-bash-shell-script</id>
+    <content type="html"><![CDATA[<p>This bash idiom captures the exit status code from the previous command that was executed.  You can use it to confirm that the last command was successful in your shell script.</p>
+
+<!--More-->
+
+
+<h2>Exit Status Code</h2>
+
+<table>
+<thead>
+<th><span style="font-size:22px;">Description</span></th>
+<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Idiom</span></th>
+</thead>
+<tbody>
+<tr>
+<td>Exit Status Idiom</td><td>$?</td>
+</tr>
+<tbody>
+</table>
+
+
+<h2>Use Example</h2>
+
+<p>Here is an example of how you could use it to confirm that a command was executed successfully:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># run git pull and test for exit code = 1 = failure</span>
+</span><span class='line'>git pull
+</span><span class='line'><span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Failure&quot;</span> &gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Success&quot;</span>
+</span><span class='line'>  <span class="c"># code block that is dependent on success of previous command</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'><span class="nb">exit </span>0
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Multi-Select Editing with Sublime Text]]></title>
@@ -1519,49 +1573,6 @@ creates the file <code>example-min.js</code>.</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>* ? & ! ~ $ ; | ' " ` ( ) [ ] &lt; &gt; { } \ / </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Determine if a Directory Has Been Initialized with Git]]></title>
-    <link href="http://sweetme.at/2013/08/29/how-to-determine-if-a-directory-has-been-initialized-with-git/"/>
-    <updated>2013-08-29T23:56:00-04:00</updated>
-    <id>http://sweetme.at/2013/08/29/how-to-determine-if-a-directory-has-been-initialized-with-git</id>
-    <content type="html"><![CDATA[<p>Has <code>git init</code> been run on the directory?  Here&rsquo;s how you find out.</p>
-
-<!--More-->
-
-
-<p>Git initialization of an existing directory with the command <code>git init</code> results in a subdirectory that is named <code>.git</code>.  It contains your git goodies.  To determine whether the directory has been git initialized, simply check for the presence of the <code>.git</code> subdirectory.  Here&rsquo;s how to do it with C or C++:</p>
-
-<figure class='code'><figcaption><span>Git or No Git?</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;sys/stat.h&gt;</span>
-</span><span class='line'><span class="k">struct</span> <span class="n">stat</span> <span class="n">sb</span><span class="p">;</span>
-</span><span class='line'><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">pathname</span> <span class="o">=</span> <span class="s">&quot;.git&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">stat</span><span class="p">(</span><span class="n">pathname</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">sb</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">S_ISDIR</span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="n">st_mode</span><span class="p">))</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="c1">// .git directory is present so initialization has occurred, do git stuff in this block</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>  <span class="c1">// .git initialization has not occurred, handle that here</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Directory Exists in Other Languages</h2>
-
-<p>Trying to do this in another language?  A quick search for &ldquo;directory exists&rdquo; in your language du jour generally leads to the information that you need.</p>
-
-<p>Here is how you determine whether a directory exists in <a href="http://stackoverflow.com/questions/6940394/how-to-use-javascript-to-determine-whether-a-directory-exists">JavaScript</a>, <a href="http://php.net/manual/en/function.file-exists.php">PHP</a>, <a href="http://docs.python.org/2/library/os.path.html#os.path.exists">Python</a>, and <a href="http://stackoverflow.com/questions/1085218/how-to-check-if-a-given-directory-exists-in-ruby">Ruby</a>.</p>
 ]]></content>
   </entry>
   

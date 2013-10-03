@@ -171,12 +171,18 @@
         <lastmod>2013-10-01T17:43:45-04:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://sweetme.at/2013/10/02/how-to-test-for-the-success-of-previous-command-in-a-bash-shell-script/
+        </loc>
+        <lastmod>2013-10-02T21:57:23-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://sweetme.at/blog/archives/</loc>
-        <lastmod>2013-10-01T17:43:45-04:00</lastmod>
+        <lastmod>2013-10-02T21:57:23-04:00</lastmod>
     </url>
     <url>
         <loc>http://sweetme.at/</loc>
-        <lastmod>2013-10-01T17:43:45-04:00</lastmod>
+        <lastmod>2013-10-02T21:57:23-04:00</lastmod>
     </url>
     <url>
         <loc>http://sweetme.at/robots.txt</loc>
