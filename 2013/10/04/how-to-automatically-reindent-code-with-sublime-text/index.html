@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>A Simple One-Liner to Rerun Your Last Shell Command with a Modification - Sweetmeat</title>
+  <title>How to Automatically Reindent Code with Sublime Text - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to modify and re-run your last shell command with a simple one-liner">
-  <meta name="keywords" content="shell, linux, unix, modify, command, command line, CLI, error, how to">
+  <meta name="description" content="Juicy lil' bytes served up by Chris Simpkins.">
+  <meta name="keywords" content="Chris Simpkins, coding, programming, web, internet, application, shell, bash, python, PHP, Ruby, C, C++, CPP, XML, linux, OSX, Mac, unix">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification">
+  <link rel="canonical" href="http://sweetme.at/2013/10/04/how-to-automatically-reindent-code-with-sublime-text">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">A Simple One-Liner to Rerun Your Last Shell Command With a Modification</h1>
+      <h1 class="entry-title">How to Automatically Reindent Code With Sublime Text</h1>
     
     
       <p class="meta">
@@ -90,33 +90,62 @@
   
 
 
-<time datetime="2013-08-26T08:31:00-04:00" pubdate data-updated="true">Aug 26<span>th</span>, 2013</time>
+<time datetime="2013-10-04T12:46:00-04:00" pubdate data-updated="true">Oct 4<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>This one-liner will modify an error in your last shell command and automatically re-run it.</p>
+<div class="entry-content"><p>This doesn&rsquo;t come with it&rsquo;s own keyboard shortcut, but this helpful feature is available in Sublime Text and you can create your own key binding for it.  Here&rsquo;s how you do it.</p>
 
 <!--More-->
 
 
-<p>You meant to run <code>make &amp;&amp; make install</code> to build and install an application, but you actually typed <code>nake &amp;&amp; make install</code>.  The scenic route to correct this is UP ARROW to retrieve the command, navigate to the beginning of the line, switch the n to m, and then submit it again.</p>
+<h2>Automatically Reindent Code</h2>
 
-<p>Here&rsquo;s your jetpack:</p>
+<p>You can find the reindent menu item in <code>Edit &gt; Line &gt; Reindent</code>.  Select the text that you would like to reindent before using the menu item.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>^na^ma^</span></code></pre></td></tr></table></div></figure>
+<h2>Create a Sublime Text Keybinding for Reindent</h2>
+
+<p>For Mac OSX, Linux, and Windows users, the keybindings settings file can be found in the menus <code>Preferences &gt; Keybindings - User</code>.  If you haven&rsquo;t set new keybindings previously the default keymap file JSON looks like this:</p>
+
+<figure class='code'><figcaption><span>Default Keymap JSON File</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
+</span><span class='line'>  
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>This command uses the generic syntax:</p>
+<p>Add a JSON object that includes your key(s) and the Sublime Text command.  The available key names are listed in the <a href="http://www.sublimetext.com/docs/key-bindings">Sublime Text documentation</a> (see the Key Names section).</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>^before^after^</span></code></pre></td></tr></table></div></figure>
+<p>The general pattern for your settings object looks like this:</p>
+
+<figure class='code'><figcaption><span>Keybinding Object Pattern for Sublime Text</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;KEY(S)&quot;</span><span class="p">],</span> <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;COMMAND&quot;</span><span class="p">}</span>
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>to modify the <em>before</em> substring to the <em>after</em> substring and then it automatically resubmits the command.</p>
+<p>For the reindent command, you could set it to the F10 key like so:</p>
+
+<figure class='code'><figcaption><span>Example Reindent Keybinding with F10 Key</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;f10&quot;</span><span class="p">],</span> <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;reindent&quot;</span><span class="p">}</span>
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or if you prefer to set a multi keystroke binding, simply add a <code>+</code> symbol between the key names with no spaces.</p>
+
+<p>Kudos to eznme who provided an <a href="http://stackoverflow.com/questions/9495007/indenting-code-in-sublime-text-2">answer to this question on Stack Overflow</a>.</p>
 </div>
 
 
@@ -139,7 +168,7 @@
   
 
 
-<time datetime="2013-08-26T08:31:00-04:00" pubdate data-updated="true">Aug 26<span>th</span>, 2013</time>
+<time datetime="2013-10-04T12:46:00-04:00" pubdate data-updated="true">Oct 4<span>th</span>, 2013</time>
       
 
 
@@ -147,7 +176,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification/" data-via="" data-counturl="http://sweetme.at/2013/08/26/a-simple-one-liner-to-rerun-your-last-shell-command-with-a-modification/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/10/04/how-to-automatically-reindent-code-with-sublime-text/" data-via="" data-counturl="http://sweetme.at/2013/10/04/how-to-automatically-reindent-code-with-sublime-text/" >Tweet</a>
   
   
   
@@ -156,10 +185,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/08/23/find-files-by-extension-and-modification-time/" title="Previous Post: Find Files by Extension and Modification Time">&laquo; Find Files by Extension and Modification Time</a>
+        <a class="basic-alignment left" href="/2013/10/02/how-to-test-for-the-success-of-previous-command-in-a-bash-shell-script/" title="Previous Post: How to Test for the Success of a Previous Command in a Bash Shell Script">&laquo; How to Test for the Success of a Previous Command in a Bash Shell Script</a>
       
-      
-        <a class="basic-alignment right" href="/2013/08/27/how-to-automatically-handle-php-arguments-from-both-a-url-and-the-command-line/" title="Next Post: How to Automatically Handle PHP Arguments from Both a URL and the Command Line in the Same File">How to Automatically Handle PHP Arguments from Both a URL and the Command Line in the Same File &raquo;</a>
       
     </p>
   </footer>

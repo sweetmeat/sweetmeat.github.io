@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-10-02T22:03:02-04:00</updated>
+  <updated>2013-10-04T13:58:59-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Automatically Reindent Code with Sublime Text]]></title>
+    <link href="http://sweetme.at/2013/10/04/how-to-automatically-reindent-code-with-sublime-text/"/>
+    <updated>2013-10-04T12:46:00-04:00</updated>
+    <id>http://sweetme.at/2013/10/04/how-to-automatically-reindent-code-with-sublime-text</id>
+    <content type="html"><![CDATA[<p>This doesn&rsquo;t come with it&rsquo;s own keyboard shortcut, but this helpful feature is available in Sublime Text and you can create your own key binding for it.  Here&rsquo;s how you do it.</p>
+
+<!--More-->
+
+
+<h2>Automatically Reindent Code</h2>
+
+<p>You can find the reindent menu item in <code>Edit &gt; Line &gt; Reindent</code>.  Select the text that you would like to reindent before using the menu item.</p>
+
+<h2>Create a Sublime Text Keybinding for Reindent</h2>
+
+<p>For Mac OSX, Linux, and Windows users, the keybindings settings file can be found in the menus <code>Preferences &gt; Keybindings - User</code>.  If you haven&rsquo;t set new keybindings previously the default keymap file JSON looks like this:</p>
+
+<figure class='code'><figcaption><span>Default Keymap JSON File</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
+</span><span class='line'>  
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add a JSON object that includes your key(s) and the Sublime Text command.  The available key names are listed in the <a href="http://www.sublimetext.com/docs/key-bindings">Sublime Text documentation</a> (see the Key Names section).</p>
+
+<p>The general pattern for your settings object looks like this:</p>
+
+<figure class='code'><figcaption><span>Keybinding Object Pattern for Sublime Text</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;KEY(S)&quot;</span><span class="p">],</span> <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;COMMAND&quot;</span><span class="p">}</span>
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For the reindent command, you could set it to the F10 key like so:</p>
+
+<figure class='code'><figcaption><span>Example Reindent Keybinding with F10 Key</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;f10&quot;</span><span class="p">],</span> <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;reindent&quot;</span><span class="p">}</span>
+</span><span class='line'><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or if you prefer to set a multi keystroke binding, simply add a <code>+</code> symbol between the key names with no spaces.</p>
+
+<p>Kudos to eznme who provided an <a href="http://stackoverflow.com/questions/9495007/indenting-code-in-sublime-text-2">answer to this question on Stack Overflow</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Test for the Success of a Previous Command in a Bash Shell Script]]></title>
@@ -1557,22 +1614,6 @@ creates the file <code>example-min.js</code>.</p>
 <h2>Python Docs</h2>
 
 <p>Here are the webbrowser module docs for Python versions <a href="http://docs.python.org/2.7/library/webbrowser.html">2.7</a> and <a href="http://docs.python.org/3.3/library/webbrowser.html">3.3</a>. There are a few more examples and details on possible exceptions that are raised with these scripts.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Special Characters in Your Shell]]></title>
-    <link href="http://sweetme.at/2013/08/30/special-characters-in-your-shell/"/>
-    <updated>2013-08-30T17:21:00-04:00</updated>
-    <id>http://sweetme.at/2013/08/30/special-characters-in-your-shell</id>
-    <content type="html"><![CDATA[<p>All of these characters have special functions in the shell and need to be escaped with a backslash <code>\&amp;</code> or surrounded with single quotation marks <code>'&amp;'</code> if you intend to use the character itself, rather than the shell-specific meaning, on the command line.  Here is the list:</p>
-
-<!--More-->
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>* ? & ! ~ $ ; | ' " ` ( ) [ ] &lt; &gt; { } \ / </span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   
