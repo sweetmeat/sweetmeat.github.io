@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Special Characters in Your Shell - Sweetmeat</title>
+  <title>How to Check HTTP Status Codes with cURL - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="These are all special characters that need to be escaped or surrounded by single quotations marks at the command line.">
-  <meta name="keywords" content="shell, special characters, escape characters, bash, CLI, command line">
+  <meta name="description" content="Learn how to check the HTTP status code for a web site from the command line with cURL">
+  <meta name="keywords" content="cURL, curl, http, status code, response, status, test, check, error, redirect, OK, HTTP/1.1">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/08/30/special-characters-in-your-shell">
+  <link rel="canonical" href="http://sweetme.at/2013/10/11/how-to-check-http-status-codes-with-curl">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">Special Characters in Your Shell</h1>
+      <h1 class="entry-title">How to Check HTTP Status Codes With cURL</h1>
     
     
       <p class="meta">
@@ -90,21 +90,44 @@
   
 
 
-<time datetime="2013-08-30T17:21:00-04:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
+<time datetime="2013-10-11T16:48:00-04:00" pubdate data-updated="true">Oct 11<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>All of these characters have special functions in the shell and need to be escaped with a backslash <code>\&amp;</code> or surrounded with single quotation marks <code>'&amp;'</code> if you intend to use the character itself, rather than the shell-specific meaning, on the command line.  Here is the list:</p>
+<div class="entry-content"><p>Here is a shell one-liner that will pull the headers from a web server and display the HTTP/1.1 response status code(s).</p>
 
 <!--More-->
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>* ? & ! ~ $ ; | ' " ` ( ) [ ] &lt; &gt; { } \ / </span></code></pre></td></tr></table></div></figure>
+<h2>cURL + grep</h2>
 
+<p>Use the following cURL command and pipe it to grep like so:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -I -s -L &lt;http://yoururl.com&gt; | grep <span class="s2">&quot;HTTP/1.1&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Run it from your command line with the appropriate URL.  This runs curl in silent mode, follows any redirects, pulls the HTTP headers, and then pipes them to grep.  grep will print the HTTP status code to standard output.</p>
+
+<h2>HTTP Status Codes</h2>
+
+<p>Here is a link to a <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">detailed reference of HTTP status codes</a>.  They boil down to this concise summary by <a href="https://twitter.com/stevelosh/status/372740571749572610">@stevelosh</a>:</p>
+
+<h4>HTTP Status Code Summary (via @stevelosh)</h4>
+
+<blockquote><p>1xx: hold on</p>
+
+<p>2xx: here you go</p>
+
+<p>3xx: go away</p>
+
+<p>4xx: you f$*%ed up</p>
+
+<p>5xx: I f$*%ed up</p></blockquote>
 </div>
 
 
@@ -127,7 +150,7 @@
   
 
 
-<time datetime="2013-08-30T17:21:00-04:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
+<time datetime="2013-10-11T16:48:00-04:00" pubdate data-updated="true">Oct 11<span>th</span>, 2013</time>
       
 
 
@@ -135,7 +158,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/30/special-characters-in-your-shell/" data-via="" data-counturl="http://sweetme.at/2013/08/30/special-characters-in-your-shell/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/10/11/how-to-check-http-status-codes-with-curl/" data-via="" data-counturl="http://sweetme.at/2013/10/11/how-to-check-http-status-codes-with-curl/" >Tweet</a>
   
   
   
@@ -144,10 +167,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/08/29/how-to-determine-if-a-directory-has-been-initialized-with-git/" title="Previous Post: How to Determine if a Directory Has Been Initialized with Git">&laquo; How to Determine if a Directory Has Been Initialized with Git</a>
+        <a class="basic-alignment left" href="/2013/10/08/keep-a-local-git-repository-synchronized-with-a-remote-git-repository/" title="Previous Post: Keep a Local Git Repository Synchronized with a Remote Git Repository">&laquo; Keep a Local Git Repository Synchronized with a Remote Git Repository</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/02/how-to-open-a-url-in-the-default-browser-across-os-platforms/" title="Next Post: How to Open a URL in the Default Browser Across OS Platforms">How to Open a URL in the Default Browser Across OS Platforms &raquo;</a>
       
     </p>
   </footer>
