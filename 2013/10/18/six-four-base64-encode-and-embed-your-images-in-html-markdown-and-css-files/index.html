@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Six-Four | base64 Encode and Embed Your Images in HTML, Markdown, and CSS Files - Sweetmeat</title>
+  <meta name="author" content="Chris Simpkins">
+  
+  <meta name="description" content="Six-Four is a base64 encoder and embedder for HTML, Markdown, and CSS files.">
+  <meta name="keywords" content="web,image,png,jpg,base64,encode,embed,CSS,HTML,HTML5,Markdown,.css,.html,.md">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <link rel="canonical" href="http://sweetme.at/2013/10/18/six-four-base64-encode-and-embed-your-images-in-html-markdown-and-css-files">
+  <link href="/favicon.ico" rel="icon">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
+  <meta name="msvalidate.01" content="B7F76ABC07B92C53D7A954927CB1BE82" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42941038-1', 'sweetme.at');
+  ga('send', 'pageview');
+</script>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <div id="sm-blog-title"><h1><a href="/">sweet<span id="title-color">meat</span></a> <i class="icon-food"></i></h1></div>
+  
+    <h2 class="sm-subtitle"> Juicy lil' bytes</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/sweetmeat" title="subscribe via RSS" class="rsslink"><i class="icon-rss icon-4x fullsize"></i></a></li>
+  
+</ul>
+  
+<ul class="main-navigation">
+  <li><span id="sm-nav-1-color"><a href="/" title="Home"><i class="icon-home icon-4x"></i></a></span></li>
+  <li><span id="sm-nav-2-color"><a href="/blog/archives" title="Archives"><i class="icon-archive icon-4x"></i></a></span></li>
+  <li><span id="sm-nav-3-color"><a href="http://more.sweetme.at" title="Even More Sweetmeat"><i class="icon-link icon-4x"></i></a></span></li>
+  <li><span id="sm-nav-twitter-color"><a href="https://twitter.com/csimpkins" title="@csimpkins Twitter"><i class="icon-twitter-sign icon-4x"></i></a></span></li>
+  <li><span id="sm-nav-github-color"><a href="https://github.com/chrissimpkins/" title="@chrissimpkins GitHub"><i class="icon-github-sign icon-4x"></i></a></span></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Six-Four | Base64 Encode and Embed Your Images in HTML, Markdown, and CSS Files</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-18T17:20:00-04:00" pubdate data-updated="true">Oct 18<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Six-Four is a command line tool that performs base64 encoding of image files and optionally embeds the data,  with appropriate data URI formatting, into a user determined HTML, Markdown, or CSS file location.</p>
+
+<!--More-->
+
+
+<h2>Dependencies</h2>
+
+<p>Six-Four was developed in Python and will run in versions 2 or 3.  I have tested it in versions 2.7.5 and 3.3.2.</p>
+
+<h2>Install</h2>
+
+<p>If you use pip for Python package management, you can use the following install command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pip install sixfour
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Skip the remainder of this section if you use the above command.</p>
+
+<p>If you don&rsquo;t use pip, you can clone the source from the GitHub repository with the following command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git clone https://github.com/chrissimpkins/six-four.git
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>or, alternatively, download a <a href="https://github.com/chrissimpkins/six-four/tarball/master">tar.gz</a> or <a href="https://github.com/chrissimpkins/six-four/zipball/master">.zip</a> compressed archive from GitHub.</p>
+
+<p>Decompress the source and navigate to the top level of the directory.  Then run the following install command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python setup.py install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will install a script named <code>sixfour</code> in your PATH so that you can run the application with the following command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sixfour
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To confirm that it worked, give it a try with this command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sixfour --version
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the version number is displayed, you are good to go.</p>
+
+<h2>How to Embed a base64 Encoded Image in HTML or Markdown</h2>
+
+<p>Insert the tag &lcub;&lcub;64&rcub;&rcub; at the site where you want to embed the base64 encoded image tag in your Markdown or HTML file.  My preformatted code block formatting chokes with that tag syntax so imagine the 64 below actually looks like this &mdash;> &lcub;&lcub;64&rcub;&rcub;  (or feel free to head over to the <a href="http://chrissimpkins.github.io/six-four/">documentation</a> to view the appropriate syntax).</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class='line'>    <span class="c">&lt;!-- snip --&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;main-container&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;main wrapper clearfix&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>            64
+</span><span class='line'>            <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>    <span class="c">&lt;!-- snip --&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Include both the -i flag with an image file path and the -o flag with a HTML or Markdown file path in your command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sixfour -i <span class="s1">&#39;path/to/coolimage.png&#39;</span> -o <span class="s1">&#39;path/to/index.html&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and here is what you get (with the sweetmeat logo as the encoded file in this example):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class='line'>    <span class="c">&lt;!-- snip --&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;main-container&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;main wrapper clearfix&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAJYAAAAdCAQAAADif11yAAAMs0lEQVR4XuXVeXRUZZ7G8e/73ltb</span>
+</span><span class='line'><span class="s">            KiQEEnayYwSSEBYBaQF3BxVQoBFBcMGIGEG7e9C2tdumjyAoR3oUURAUQURAwKUH2nYJCOg0QpBF</span>
+</span><span class='line'><span class="s">            CYuGxUQIS4AklVTVvfc3Wid1kkAPYjMe//Dz/vfc+9aTPOfUKSVDWMkvQf3/OZRV9khpaT6P7YzH</span>
+</span><span class='line'><span class="s">            0i/hcgrkmLEQG4Cu9vTT1zgA6OMJt/H36G39C5kKVhK1Aqd9Uko2IeyUzpk9cdY6mf1S0nEA8F0/</span>
+</span><span class='line'><span class="s">            rEevXHLIJZfs+Lz4+tsmv0T6+JXS76FH+gePDfQ0WzGlNOnYjXZbplC7xnPX7CN3CFGYniGsJEyE</span>
+</span><span class='line'><span class="s">            5meQ1rTPXb1789MjJeGysT16cRbtdnkcj+12ubye+OaJSS48PgxU/n2NpgJapOODn3Gstvnl8yvm</span>
+</span><span class='line'><span class="s">            TI7hp6aSxx2eV/nCb32cQQShjkuZCpSCyU1OjRcaUwr1s45lZQtGwlEfP7lQjqATar38MIXsTw+n</span>
+</span><span class='line'><span class="s">            cAYN/JxjuQJZABUOPzX3901K2edsMsUmAo+pNOegaUj9ofnMzKktUfxoM33T0qcnLzf+VT4lZa1J</span>
+</span><span class='line'><span class="s">            FKv6eLNt3M17d+dsenK7ye3QREyPfyLt7K/Q5Jh/2WRMT366w5NJKKJY/itvJxt3YpdunEWbXhLF</span>
+</span><span class='line'><span class="s">            NDRJCa3jFedDE0XfXtmvr9g8b8vCok5L+3YB6HhR5qsZb+b2B0BlDchYmfF8tzYAw42MBzJXdRiN</span>
+</span><span class='line'><span class="s">            Alju7jppzqcLi17d+od1ebfUT73FlfebOZ8sLFpcNG5d15FoQF08/E9LTvoNqmPmLslckzUGBR37</span>
+</span><span class='line'><span class="s">            ZCzOnXyi9/Vjst5fsnVJUc6y+T0/bp/3xwX/fH3ruxuyhxLFc568h5d817Rg66Nruw2LNqEvGd2p</span>
+</span><span class='line'><span class="s">            cEHRgi0Lii5e2elqAFTHW/+y+JTPIOB/cWn6mg63oagnYmY+WP1bia/h9MNWQQAl/DCpO/0v7XA8</span>
+</span><span class='line'><span class="s">            Q1IlXVIlQzocuDxbuGJShmRI73fEJaz25GzJkEy5dpIgXJ6XGcqQnG3iFZa5c+ZmSJqkRm5nhrPH</span>
+</span><span class='line'><span class="s">            CoIwx5U7uz7PsLPvFcTMWZki6ZIeyTvIxevEFKPPG+nSScaGOkj0LxhcNeBYWuStDMkI5PQXBOFZ</span>
+</span><span class='line'><span class="s">            T84rDZpCnW+P5DpvSmbkM6Pvd7820vR2w6asD8UU6o6OWYO0l7RIkCbtBUkslphxPbxhpPHps1ni</span>
+</span><span class='line'><span class="s">            o4EmAuPUo3Yzh4sO37IopczBSa7+PTquxECobYFAYXI4UxBO5qCgWR4uwV1CGGaPqcm3iZMRGy7b</span>
+</span><span class='line'><span class="s">            C44ZnHpzKsAbtwbGO8QyYmO/3QrRoSmjOmA1n5q3HwQPXQrjJ5j3YqFMn1DDP1ytdwx7LeWYoNnq</span>
+</span><span class='line'><span class="s">            39282/KrlvhDDvgkHw2w8o6aO2ziZeT6X+0DxxV+cngyXJNV/aCDQc7fBy9qVusgvtB4DKykKV0O</span>
+</span><span class='line'><span class="s">            guCly4fxE6QAi0YOUQJACYc4P5qIl1uGezrEUfCnqWMHPegXGyMXb/p+bQmhlFktYG9bpwk4WLn4</span>
+</span><span class='line'><span class="s">            oDIeFAl7sTFPjXJQ9Fjz5KBFA9MO20iLigGAefq7HLq//+SgVweml9rYzcpugMLN3Z8zAdeJMXd/</span>
+</span><span class='line'><span class="s">            NmvHLgAEoPXOF6+bdle/CS4LXPRb9ObouWOz1oCgshe4AdfpkZGmv00Z9PLg1HIbp3XFDaAvd2KE</span>
+</span><span class='line'><span class="s">            9oVvjXgmv+tcDdDpqRj4cFOX5w3APD5x7GezdhfTkOIMDsh5jiUuTIXNviOEO66VwwbBI1h6vyoD</span>
+</span><span class='line'><span class="s">            EsqToCLXVgKE2v+xJZxOFxTsgodbVHcUvMQupIL9iV9oHFxpMLV5Vbbgwb+IExxovkMj6FSAfYcF</span>
+</span><span class='line'><span class="s">            hVW1+iQNaPhnx28Jf/6BKgdN4jqC1Hj2qsg9dxuY2LIq2nTS/XWzLzWCKxUigxC3klMES97UtkA7</span>
+</span><span class='line'><span class="s">            fzJAyWFQhE+/e4ozeA5yBr2FoKOQ8xhrbJlRrAjw5u24BxwNTWBe6FFCMypjS8F270sG1VVwoQk3</span>
+</span><span class='line'><span class="s">            q8jENLMdDDuxGE4lqaaAo0sAy6zWKEIKyhJJACXqayBsVmkg1KBS8CoasUMAhiW1AKctQEUiTE9T</span>
+</span><span class='line'><span class="s">            PwRbqHjQtlEChF3VCggAB5eaM/SLh1YABE6KBYY7wU8DQUVjziXPJpTUh4r4kpy/4NginMdYhP3z</span>
+</span><span class='line'><span class="s">            FHD05ssLUHtW7MvfuQkIW7s0tjK64Q/0CHMl8ViUZoEVKxi1XSsgqAQw9DU9iSUnJSuM4AVqFYBW</span>
+</span><span class='line'><span class="s">            V3+fZ6d1DAMeUPxfzvnMUlCjUaD1td835ba/yAI8Duw8UTypePzmbwGyL1JuAFtxTu/tfCw/KUCd</span>
+</span><span class='line'><span class="s">            Fva03320G7Qg5zMW1y3zbgFHlT1xY/1PstOyWGFD+rGOVjvoSXOCeK8P9wglg/ebi78hQhHkzWkj</span>
+</span><span class='line'><span class="s">            Vk9YsT1LAVrq83eeuHXN/Su3dVaAIVywoFr69IjVE1d80UEBhkMUU1tefd+OmbbivFz6SfgAdexT</span>
+</span><span class='line'><span class="s">            l2zhPJjUebyqaFLx21YTO2bf3FuOLS0kwtkrWHiuLkk+3dRNx5p4j6WtfiUvhFuBr3RQiDo2q/2u</span>
+</span><span class='line'><span class="s">            vg4aE42zmzoOq2Ncl0Xz0G6EC6IIN2hShOua9nvvvPfoA4HUEB7OT2uxwtSxnHIHwBaM8xoL3l57</span>
+</span><span class='line'><span class="s">            xUOls20VbrrzpfxrXioBSNpzKFAbE2xT1qaWRKvljCYDjB7H/YfzLDT6C0LUUfQM1m6rDgBStbN8</span>
+</span><span class='line'><span class="s">            RYM8FNxWVQ1I9a7gMi6YQa/awPZApKlyW+VbABPabJhXNSBMKm35lH9f1SF7s5GnPNYPj4UUzuvf</span>
+</span><span class='line'><span class="s">            sXSiUJux6b++HNYpBP3Ki44bMVUU4+A9lPZs2HD3OMlubBSt9iBECDHc/uiQuYQBIYwTzX2MfPyW</span>
+</span><span class='line'><span class="s">            5xvkF0jwyR2P3DQPq75prmvtrJoBDi2/fGpm+b3/0/3fL1l2tN0N7nad26Y+9UJnm7Np6rmw1j2c</span>
+</span><span class='line'><span class="s">            uAAgMLBgCMA9Fd69itMcQBP+jOO+j91U8xUO2jF3U0dhW+sLqaSWWoLRSZQobKdxfuGs8EeFVDVs</span>
+</span><span class='line'><span class="s">            eu3KmsEO8TWjxvWct/k9Nxfim+Nfb3t3davXTDjHWKpTQef38oZTO2RizCcgHB2BAYjnkOYI23DR</span>
+</span><span class='line'><span class="s">            rBhJ3mNUWKxF8FRmfQXgEQWIeBURGTkZOUqDV0SBiKcuz8xOz1UGF8AjoECaKCLScyNNuvZW0ULq</span>
+</span><span class='line'><span class="s">            7onboTbIhaOsinONNbulPF5zRfx/4nuostc0t+Ogsn8fCzgUGQQow0C+gMdKfV8LRwDKbzwO4K2Q</span>
+</span><span class='line'><span class="s">            KhCzLA7g+mvVRvm0z83gPyVVgD4cDzDwcjaqT3sPIwqt+ZFckSbHVRppum6A/q7puhHEmj0cFAkB</span>
+</span><span class='line'><span class="s">            bDAUZ1E/ukmrc45l+7VXCKRvTEf/R8An9U/SShQKjRnO2gfYzk6NBmKLu1cC/LXMuwfCqmYUMTRx</span>
+</span><span class='line'><span class="s">            xksTw++Ng+nf+oohrGpHEkOsc5/E6RhfPIDtgKCapWbyo8w+5N0LYR0YhY8mjJdYw++JIxgq1ziU</span>
+</span><span class='line'><span class="s">            p9AKT2KmTT1xBMFI7JDBhaufxF/Ot5oTzSe/Mf6Z+c+eNhTO9mlVANV7VCWAOppSBtitdioAPPuJ</span>
+</span><span class='line'><span class="s">            wPa9oxCK7xyzaMyiQ4METsZ9DDi+txTCnttGL7594YGhgqpsuhag9mtlKWpi/nv+Vfd36AaA4iyi</span>
+</span><span class='line'><span class="s">            znpied5VCLvHjl44evE3NwrqhOc9gk6hwmBP22GL819eNSyEIsr5StmKgP+dV64uSO36/zbWXZWe</span>
+</span><span class='line'><span class="s">            mUpgb/b7DxR3EnSF+2lsgLFl7qMKhW//pOMAvl0KhYGzCQcASZ/nKtJU6Q1DNgyu0RrXjFVfRfJX</span>
+</span><span class='line'><span class="s">            3Js01XrjTetvDmiN8czKPQB//txdqID9nQ8+xwwU2LZC4VgAji0oIBwCCIcjT7QdBuTiua7tmkpj</span>
+</span><span class='line'><span class="s">            47CNA2uUxnh6WQn4l6pjCostvT4YedTbBHAMKwwwusi9LtKUfWCWazqK82RTz1FnjQVFc/0Frr2m</span>
+</span><span class='line'><span class="s">            bWDWuD9qctPWjUQMqgo+xVbZEpyFBeBfyxzZ7ixP/Ad1Xj/W6hbfcuOoC1M8B2IeefApIhZXJI3w</span>
+</span><span class='line'><span class="s">            LTXKI/lB/2MjphLRKWTcb7yvq12oMnMegnX6VT6TT4LLAN6ucubINvtv32wApHSVfMyO2nkJJQAL</span>
+</span><span class='line'><span class="s">            y1sP964wjrkwHc9+/0MjZgCs39PsTmOXKWbQtWnoX3stsIqC8w/uARgQ9N1nfGh831Sq5yM0pqjj</span>
+</span><span class='line'><span class="s">            iLZp4NsjQlTlMYJESYNzU9N7ehVcNSpHTGmUd3Z3djdMUr3CGUdf276gX36fguZn5+O+y+9JFNUw</span>
+</span><span class='line'><span class="s">            /7M5uNPdfQe1iSbdXTTozPQQfZtfG+18jZsGJo/vP+7Sxk2/js/vMzLvFa9EPqtx09DOd/cd0lo4</span>
+</span><span class='line'><span class="s">            45hxa6JB3PvS6E6/9uaRaF3739TnSviluvOabYsDSYKxq9WtH22jIdV3/InpdiwS+0Hf4TNPUkcz</span>
+</span><span class='line'><span class="s">            hF+GIUQNJeKVvVvWb+Xz0JerP9pPY7J+0+c7Pmfrqc1rZlbX3/5fbmn4nw/pQsUAAAAASUVORK5C</span>
+</span><span class='line'><span class="s">            YII=&quot;</span> <span class="na">alt=</span><span class="s">&#39;coolimage&#39;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>    <span class="c">&lt;!-- snip --&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The image filename is included as the alt attribute in the img tag.</p>
+
+<h2>How to Embed a base64 Encoded Image in CSS</h2>
+
+<p>In order to embed a base64 encoded image URI in a CSS document, insert the &lcub;&lcub;64&rcub;&rcub;  tag in a CSS file element at the location where you would like the data URI to be embeded.  Then, use the <code>-c</code> or <code>--css</code> flags (with the CSS file as an argument) rather than the <code>-o</code> or <code>--html</code> flags that were used above for Markdown and HTML files.</p>
+
+<p>Again, imagine that the 64 in the preformatted code below actually looks like this &lcub;&lcub;64&rcub;&rcub;.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>.base64test {
+</span><span class='line'>    background: #fff 64 repeat-x;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then run a command with the following syntax:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sixfour -i <span class="s1">&#39;img/coolimage.png&#39;</span> -c <span class="s1">&#39;css/main.css&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and the CSS file will have the data URI embedded like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nc">.base64test</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="m">#fff</span> <span class="sx">url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAIAAABLixI0AAAAOElEQVQ4y2N4Qz3AAMSfP73DJCEIPxuNZBh112Bz14cPEISPjdVdg9Ws0fAaDa8hHF6j5dcQcxcA3DHODs/IAR8AAAAASUVORK5CYII=)</span> <span class="k">repeat-x</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Get Help</h2>
+
+<p>The documentation is available <a href="http://chrissimpkins.github.io/six-four/">here</a> and you can view the help documentation in the application with the command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sixfour --help
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Chris Simpkins <a href="https://twitter.com/csimpkins"><i class="icon-twitter"></i></a> <a href="https://github.com/chrissimpkins"><i class="icon-github"></i></a></span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-18T17:20:00-04:00" pubdate data-updated="true">Oct 18<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/10/18/six-four-base64-encode-and-embed-your-images-in-html-markdown-and-css-files/" data-via="" data-counturl="http://sweetme.at/2013/10/18/six-four-base64-encode-and-embed-your-images-in-html-markdown-and-css-files/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/10/11/how-to-check-http-status-codes-with-curl/" title="Previous Post: How to Check HTTP Status Codes with cURL">&laquo; How to Check HTTP Status Codes with cURL</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/10/18/six-four-base64-encode-and-embed-your-images-in-html-markdown-and-css-files/">Six-Four | base64 Encode and Embed Your Images in HTML, Markdown, and CSS Files</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/10/11/how-to-check-http-status-codes-with-curl/">How to Check HTTP Status Codes with cURL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/10/08/keep-a-local-git-repository-synchronized-with-a-remote-git-repository/">Keep a Local Git Repository Synchronized with a Remote Git Repository</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/10/04/how-to-automatically-reindent-code-with-sublime-text/">How to Automatically Reindent Code with Sublime Text</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/10/02/how-to-test-for-the-success-of-previous-command-in-a-bash-shell-script/">How to Test for the Success of a Previous Command in a Bash Shell Script</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <div class="dotswrapper hideit">
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+	  <div class="dot"></div>
+</div>
+  <footer role="contentinfo"><p>
+  <span style="color:#888;"><i class="icon-food"></i></span> &nbsp;Delicacies by <a href="https://twitter.com/csimpkins" style="font-family: Lato; font-weight:700;">Chris Simpkins</a>
+  <!--Start hidden span for small screens-->
+  <span class="hideit"> • <span style="color:#888;"><i class="icon-rocket"></i></span> Built with <a href="http://chrissimpkins.github.io/octopus" style="font-family: Lato; font-weight:700;">Octopus</a> • <span style="color:#888;"><i class="icon-bolt"></i></span> &nbsp;Powered by <a href="http://octopress.org" style="font-family: Lato; font-weight:700;">Octopress</a>
+  </span> <!--End hidden span for small screens-->
+  </br>
+  <span style="color:#888;"><i class="icon-github"></i></span> Proudly hosted by <a href="http://www.github.com" style="font-family: Lato; font-weight:700;">GitHub</a>
+</p>
+<div id="license-footer" class="hideit"><p><a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/images/cc-license.png" height="24" width="100"></a> SA-v3.0</p></div>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<script src='/javascripts/select.min.js'></script>
+<script src='/javascripts/sweetmeat.js'></script>
+
+</body>
+</html>
