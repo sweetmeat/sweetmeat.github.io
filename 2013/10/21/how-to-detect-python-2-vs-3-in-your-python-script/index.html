@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>A Generic Reusable Install Shell Script That You Can Modify for Your Projects - Sweetmeat</title>
+  <title>How to Detect Python Version 2 vs 3 in Your Script - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="A bash install script that you can easily modify and use in your projects.">
-  <meta name="keywords" content="bash, install, script, unix, linux, mac osx, developer, dev, application, applications, app, apps">
+  <meta name="description" content="Learn how to programmatically determine whether the user is running Python 2 or 3 in your Python script">
+  <meta name="keywords" content="python, python 2, python 3, detect, script, .py">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/09/17/a-generic-reusable-install-shell-script-that-you-can-modify-for-your-projects">
+  <link rel="canonical" href="http://sweetme.at/2013/10/21/how-to-detect-python-2-vs-3-in-your-python-script">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">A Generic Reusable Install Shell Script That You Can Modify for Your Projects</h1>
+      <h1 class="entry-title">How to Detect Python Version 2 vs 3 in Your Script</h1>
     
     
       <p class="meta">
@@ -90,23 +90,28 @@
   
 
 
-<time datetime="2013-09-17T23:13:00-04:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time>
+<time datetime="2013-10-21T22:45:00-04:00" pubdate data-updated="true">Oct 21<span>st</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Here is a generic bash shell script for single file installs that you can easily modify and include in your own projects.</p>
+<div class="entry-content"><p>Here is a way to build in the logic to deliver separate blocks of Python 2 and 3 code based upon the version of the Python interpreter that the user is running.</p>
 
 <!--More-->
 
 
-<h2>Description</h2>
+<h2>The Python <code>sys.version_info</code> Tuple</h2>
 
-<p>The script confirms that the target directory path exists and copies the developer-specified file into that path.  If it does not exist, it creates the directory path and then copies the file into the new directory.</p>
+<p>This technique requires the sys module, so let&rsquo;s import that first:</p>
 
-<h2>Script</h2>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then use the <code>sys.version_info</code> tuple to determine the version of the Python interpreter:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -115,76 +120,21 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
-</span><span class='line'><span class="c"># Scriptacular - install.sh</span>
-</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
-</span><span class='line'><span class="c"># MIT License</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">TARGET_DIR</span><span class="o">=</span><span class="s2">&quot;path/to/the/install/directory&quot;</span>
-</span><span class='line'><span class="nv">INSTALL_FILE</span><span class="o">=</span><span class="s2">&quot;your-file.txt&quot;</span>
-</span><span class='line'><span class="nv">SUCCESS_MSG</span><span class="o">=</span><span class="s2">&quot;Sexy message for user goes here!&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;$TARGET_DIR&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">  </span>cp <span class="s2">&quot;$INSTALL_FILE&quot;</span> <span class="s2">&quot;$TARGET_DIR&quot;</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$SUCCESS_MSG&quot;</span>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Creating the install directory path...&quot;</span>
-</span><span class='line'>  mkdir -p <span class="s2">&quot;$TARGET_DIR&quot;</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;Done. Installing &#39;$INSTALL_FILE&#39;...&quot;</span>
-</span><span class='line'>  cp <span class="s2">&quot;$INSTALL_FILE&quot;</span> <span class="s2">&quot;$TARGET_DIR&quot;</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$SUCCESS_MSG&quot;</span>
-</span><span class='line'><span class="k">fi</span>
-</span><span class='line'><span class="nb">exit </span>0
+</pre></td><td class='code'><pre><code class='python'><span class='line'> <span class="k">if</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+</span><span class='line'>     <span class="c"># Python 3 code in this block</span>
+</span><span class='line'>     <span class="kn">import</span> <span class="nn">base64</span>
+</span><span class='line'>     <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</span><span class='line'> <span class="k">else</span><span class="p">:</span>
+</span><span class='line'>     <span class="c"># Python 2 code in this block</span>
+</span><span class='line'>     <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;base64&quot;</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Save the script as <code>install.sh</code>.</p>
+<p>You can use this to build in detection of any major or minor Python release (or development releases if that is required in your project &ndash; see below).</p>
 
-<h2>Customization</h2>
+<p>Here is the description of the version_info tuple from the <a href="http://docs.python.org/2/library/sys.html#sys.version_info">Python documentation</a>:</p>
 
-<ol>
-<li>Modify <code>TARGET_DIR</code> with the target install directory</li>
-<li>Modify <code>INSTALL_FILE</code> with the path to the file that is to be installed</li>
-<li>Modify <code>SUCCESS_MSG</code> with the message to present to the user after a successful install</li>
-</ol>
-
-
-<h2>Use</h2>
-
-<p>The user will need navigate to the directory that contains <code>install.sh</code> in your release and set the file permissions so that they can execute the script:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>chmod 744 install.sh
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and then use it with the following command:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>./install.sh
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Script Repository</h2>
-
-<p>The script is <a href="https://github.com/chrissimpkins/scriptacular/blob/master/install/install.sh">available on GitHub</a>.</p>
-
-<h2>License</h2>
-
-<p><a href="https://github.com/chrissimpkins/scriptacular/blob/master/LICENSE">MIT license</a></p>
+<blockquote><p>A tuple containing the five components of the version number: major, minor, micro, releaselevel, and serial. All values except releaselevel are integers; the release level is &lsquo;alpha&rsquo;, &lsquo;beta&rsquo;, &lsquo;candidate&rsquo;, or &lsquo;final&rsquo;. The version_info value corresponding to the Python version 2.0 is (2, 0, 0, &lsquo;final&rsquo;, 0). The components can also be accessed by name, so sys.version_info[0] is equivalent to sys.version_info.major and so on.</p></blockquote>
 </div>
 
 
@@ -207,7 +157,7 @@
   
 
 
-<time datetime="2013-09-17T23:13:00-04:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time>
+<time datetime="2013-10-21T22:45:00-04:00" pubdate data-updated="true">Oct 21<span>st</span>, 2013</time>
       
 
 
@@ -215,7 +165,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/17/a-generic-reusable-install-shell-script-that-you-can-modify-for-your-projects/" data-via="" data-counturl="http://sweetme.at/2013/09/17/a-generic-reusable-install-shell-script-that-you-can-modify-for-your-projects/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/10/21/how-to-detect-python-2-vs-3-in-your-python-script/" data-via="" data-counturl="http://sweetme.at/2013/10/21/how-to-detect-python-2-vs-3-in-your-python-script/" >Tweet</a>
   
   
   
@@ -224,10 +174,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/09/16/how-to-rapidly-navigate-to-the-beginning-or-end-of-your-bash-command/" title="Previous Post: How to Rapidly Navigate to the Beginning or End of Your Bash Command">&laquo; How to Rapidly Navigate to the Beginning or End of Your Bash Command</a>
+        <a class="basic-alignment left" href="/2013/10/18/six-four-base64-encode-and-embed-your-images-in-html-markdown-and-css-files/" title="Previous Post: Six-Four | base64 Encode and Embed Your Images in HTML, Markdown, and CSS Files">&laquo; Six-Four | base64 Encode and Embed Your Images in HTML, Markdown, and CSS Files</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/18/compress-your-css-output-with-the-sass-command-line-tool/" title="Next Post: Compress Your CSS Output with the SASS Command Line Tool">Compress Your CSS Output with the SASS Command Line Tool &raquo;</a>
       
     </p>
   </footer>

@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-10-18T18:32:18-04:00</updated>
+  <updated>2013-10-21T23:05:49-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,52 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Detect Python Version 2 vs 3 in Your Script]]></title>
+    <link href="http://sweetme.at/2013/10/21/how-to-detect-python-2-vs-3-in-your-python-script/"/>
+    <updated>2013-10-21T22:45:00-04:00</updated>
+    <id>http://sweetme.at/2013/10/21/how-to-detect-python-2-vs-3-in-your-python-script</id>
+    <content type="html"><![CDATA[<p>Here is a way to build in the logic to deliver separate blocks of Python 2 and 3 code based upon the version of the Python interpreter that the user is running.</p>
+
+<!--More-->
+
+
+<h2>The Python <code>sys.version_info</code> Tuple</h2>
+
+<p>This technique requires the sys module, so let&rsquo;s import that first:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then use the <code>sys.version_info</code> tuple to determine the version of the Python interpreter:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'> <span class="k">if</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+</span><span class='line'>     <span class="c"># Python 3 code in this block</span>
+</span><span class='line'>     <span class="kn">import</span> <span class="nn">base64</span>
+</span><span class='line'>     <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</span><span class='line'> <span class="k">else</span><span class="p">:</span>
+</span><span class='line'>     <span class="c"># Python 2 code in this block</span>
+</span><span class='line'>     <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;base64&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can use this to build in detection of any major or minor Python release (or development releases if that is required in your project &ndash; see below).</p>
+
+<p>Here is the description of the version_info tuple from the <a href="http://docs.python.org/2/library/sys.html#sys.version_info">Python documentation</a>:</p>
+
+<blockquote><p>A tuple containing the five components of the version number: major, minor, micro, releaselevel, and serial. All values except releaselevel are integers; the release level is &lsquo;alpha&rsquo;, &lsquo;beta&rsquo;, &lsquo;candidate&rsquo;, or &lsquo;final&rsquo;. The version_info value corresponding to the Python version 2.0 is (2, 0, 0, &lsquo;final&rsquo;, 0). The components can also be accessed by name, so sys.version_info[0] is equivalent to sys.version_info.major and so on.</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Six-Four | base64 Encode and Embed Your Images in HTML, Markdown, and CSS Files]]></title>
@@ -1913,38 +1959,6 @@ creates the file <code>example-min.js</code>.</p>
 <p><strong>Fonts</strong>: Helvetica Neue, Helvetica, &amp; Menlo</p>
 
 <p><strong>Palette</strong>: <a href="http://www.colourlovers.com/palette/444487/Curiosity_Killed">Curiosity Killed</a> with a few additions {^5 Miaka}</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Read RSS Feeds in Your Terminal on Linux and Mac OSX]]></title>
-    <link href="http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal/"/>
-    <updated>2013-09-05T15:01:00-04:00</updated>
-    <id>http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal</id>
-    <content type="html"><![CDATA[<p>Here&rsquo;s a one liner that allows you to read RSS feed titles in your terminal window.</p>
-
-<!--More-->
-
-
-<h2>cURL + grep + sed = Terminal RSS Feeds</h2>
-
-<p>Here is the the generic command:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>curl "THE_RSS_FEED"  2&gt;/dev/null | grep "&lt;title&gt;" | sed -e "s/.*\&lt;title\&gt;\(.*\)\&lt;\/title\&gt;.*/»\ \1/g" | less</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Replace <code>THE_RSS_FEED</code> with the URL of the syndicated site feed (surrounded by the double quotes) and confirm that the raw feed XML displays item titles with a plain &lt;title&gt; tag (i.e. without CDATA tags or other XML detritus).</p>
-
-<p>If you&rsquo;d like to prepend a different list symbol for the titles, replace the <code>»</code> character with another ascii symbol or symbols.</p>
-
-<p>I have been playing around with this using the <a href="http://chrissimpkins.github.io/tweetledee/">Tweetledee</a> files to view Twitter search, favorites, list, and user timeline feeds.  The formatting for up to 140 chars could use a bit of work but it is functional.</p>
-
-<h2>Do it Without less</h2>
-
-<p>The command uses the less shell command to create paginated formatting.  If you prefer not to use this, just remove the last pipe (|) and the less command at the end of the command string.</p>
-
-<p><small>Source: I made slight modifications to the shell command posted by <a href="http://www.commandlinefu.com/commands/view/12671/extract-xml-rss-etc-by-tags-such-as-or-or-">c3w on commandlinefu.com</a></small></p>
 ]]></content>
   </entry>
   
