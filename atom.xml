@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-10-21T23:05:49-04:00</updated>
+  <updated>2013-11-01T16:08:57-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Use grep to Find File Names with a Matching String]]></title>
+    <link href="http://sweetme.at/2013/11/01/how-to-use-grep-to-find-files-with-a-matching-string/"/>
+    <updated>2013-11-01T15:48:00-04:00</updated>
+    <id>http://sweetme.at/2013/11/01/how-to-use-grep-to-find-files-with-a-matching-string</id>
+    <content type="html"><![CDATA[<p>By default, grep displays the lines in one or more files that match your search string (or regular expression).  Here is how you recursively search through a directory of files and list the name(s) of the files that contain a matching string instead of the matched line.</p>
+
+<!--More-->
+
+
+<h2>grep -l Switch</h2>
+
+<p>The -l switch indicates that you want to display the names of files that contain a string that matches your query.  Here is an example of its use with an entire directory of JavaScript files (using the *.js wildcard):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>grep -l <span class="s1">&#39;SEARCH TERM&#39;</span> *.js
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command causes grep to search for lines that match the query SEARCH TERM in every .js file in the working directory.  The application will print the names of the files that contain a match to the standard output stream.</p>
+
+<p>Replace <code>SEARCH TERM</code> with your query and *.js with any filetype or the names of a set of files that you would like to search. The query can be a string or regular expression.</p>
+
+<h2>grep Documentation</h2>
+
+<p><a href="http://www.gnu.org/software/grep/manual/grep.html#General-Output-Control">Here is the link to the grep documentation on this switch</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Detect Python Version 2 vs 3 in Your Script]]></title>
@@ -1917,48 +1946,6 @@ creates the file <code>example-min.js</code>.</p>
 <h2>^5</h2>
 
 <p>Kudos to <a href="https://gist.github.com/jdkanani/4670615">jdkanani</a> for this script.  Head over to his repository and show him some love if you use it.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Swizzle, a Markdown Text Editor Theme for Mou and LightPaper]]></title>
-    <link href="http://sweetme.at/2013/09/09/swizzle-a-markdown-text-editor-theme/"/>
-    <updated>2013-09-09T22:13:00-04:00</updated>
-    <id>http://sweetme.at/2013/09/09/swizzle-a-markdown-text-editor-theme</id>
-    <content type="html"><![CDATA[<p>Swizzle is a dark Markdown theme that I released on GitHub for the <a href="http://mouapp.com/">Mou</a> and <a href="http://clockworkengine.com/lightpaper-mac/">LightPaper</a> text editors.</p>
-
-<!--More-->
-
-
-<h2>Demo</h2>
-
-<p><img src="https://raw.github.com/chrissimpkins/swizzle/master/img/swizzle_demo.png" alt="Swizzle Demo" /></p>
-
-<h2>Download</h2>
-
-<p>Swizzle is available on <a href="https://github.com/chrissimpkins/swizzle">GitHub</a> <i class="icon-github"></i></p>
-
-<p>You can clone it with this URL:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>https://github.com/chrissimpkins/swizzle.git</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Install</h2>
-
-<p>Place the <code>Swizzle.txt</code> file in your application Themes directory.</p>
-
-<p><strong>Mou Themes</strong> : <code>~/Library/Application Support/Mou/Themes</code></p>
-
-<p><strong>LightPaper Themes</strong> : <code>~/.lightpaper/Themes</code></p>
-
-<p>Open your Markdown editor, open the Preferences pane, &amp; select the Swizzle theme in the dropdown for the text editor themes (not the preview themes!).</p>
-
-<h2>Specs</h2>
-
-<p><strong>Fonts</strong>: Helvetica Neue, Helvetica, &amp; Menlo</p>
-
-<p><strong>Palette</strong>: <a href="http://www.colourlovers.com/palette/444487/Curiosity_Killed">Curiosity Killed</a> with a few additions {^5 Miaka}</p>
 ]]></content>
   </entry>
   

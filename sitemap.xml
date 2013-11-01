@@ -203,12 +203,18 @@
         <lastmod>2013-10-21T23:04:55-04:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://sweetme.at/2013/11/01/how-to-use-grep-to-find-files-with-a-matching-string/
+        </loc>
+        <lastmod>2013-11-01T16:07:09-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://sweetme.at/blog/archives/</loc>
-        <lastmod>2013-10-21T23:04:55-04:00</lastmod>
+        <lastmod>2013-11-01T16:07:09-04:00</lastmod>
     </url>
     <url>
         <loc>http://sweetme.at/</loc>
-        <lastmod>2013-10-21T23:04:55-04:00</lastmod>
+        <lastmod>2013-11-01T16:07:09-04:00</lastmod>
     </url>
     <url>
         <loc>http://sweetme.at/robots.txt</loc>
