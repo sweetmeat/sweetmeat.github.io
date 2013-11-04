@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-11-01T16:08:57-04:00</updated>
+  <updated>2013-11-04T13:00:25-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,73 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Python Testing Assertion Methods]]></title>
+    <link href="http://sweetme.at/2013/11/04/python-testing-assertion-methods/"/>
+    <updated>2013-11-04T12:41:00-05:00</updated>
+    <id>http://sweetme.at/2013/11/04/python-testing-assertion-methods</id>
+    <content type="html"><![CDATA[<p>Here&rsquo;s a complete list of the Python assertion methods that are available in the Python unittest module for versions 2 &amp; 3 of the Python interpreter.</p>
+
+<!--More-->
+
+
+<h2>Python Assertions</h2>
+
+<table>
+    <tr>
+        <th>Method</th>
+        <th>Assertion</th>
+        <th>Min Version</th>
+    </tr>
+    <tr>
+        <td>assertEqual(a,b)</td>
+        <td>a == b</td>
+        <td>2 &amp; 3</td>
+    </tr>
+    <tr>
+        <td>assertNotEqual(a,b)</td>
+        <td>a != b</td>
+        <td>2 &amp; 3</td>
+    </tr>
+    <tr>
+    <td>assertIsNone(x)</td>
+    <td>x is None</td>
+    <td>3.1 +</td>
+</tr>
+<tr>
+    <td>assertIsNotNone(x)</td>
+    <td>x is not None</td>
+    <td>3.1 +</td>
+</tr>
+<tr>
+    <td>assertIn(a,b)</td>
+    <td>a in b</td>
+    <td>3.1 +</td>
+</tr>
+<tr>
+    <td>assertNotIn(a,b)</td>
+    <td>a not in b</td>
+    <td>3.1 +</td>
+</tr>
+<tr>
+    <td>assertIsInstance(a,b)</td>
+    <td>isinstance(a,b)</td>
+    <td>3.2 +</td>
+</tr>
+<tr>
+    <td>assertNotIsInstance(a,b)</td>
+    <td>not isinstance(a,b)</td>
+    <td>3.2 +</td>
+</tr>
+</table>
+
+
+<h2>Python Documentation</h2>
+
+<p>And <a href="http://docs.python.org/dev/library/unittest.html#assert-methods">here is the link</a> to the Python documentation on the topic.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Use grep to Find File Names with a Matching String]]></title>
@@ -1881,71 +1948,6 @@ creates the file <code>example-min.js</code>.</p>
 <h2>Learn More About PNG Compression</h2>
 
 <p>Want more background?  <a href="http://optipng.sourceforge.net/pngtech/optipng.html">This guide by Cosmin Truţa</a> is a good resource.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Turn Your Browser into a Text Editor with Syntax Highlighting]]></title>
-    <link href="http://sweetme.at/2013/09/10/how-to-turn-your-browser-into-a-text-editor-with-syntax-highlighting/"/>
-    <updated>2013-09-10T19:31:00-04:00</updated>
-    <id>http://sweetme.at/2013/09/10/how-to-turn-your-browser-into-a-text-editor-with-syntax-highlighting</id>
-    <content type="html"><![CDATA[<p>Pop this script into your browser&rsquo;s navigation bar and code away in the browser with syntax highlighting for multiple languages.</p>
-
-<!--More-->
-
-
-<h2>Script</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'>data:text/html, <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span><span class="nc">.e</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><span class="k">top</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">right</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">bottom</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">left</span><span class="o">:</span><span class="m">0</span><span class="p">;}</span><span class="nt">&lt;/style&gt;&lt;div</span> <span class="na">class=</span><span class="s">&quot;e&quot;</span> <span class="na">id=</span><span class="s">&quot;editor&quot;</span><span class="nt">&gt;&lt;/div&gt;&lt;script </span><span class="na">src=</span><span class="s">&quot;http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;&lt;/script&gt;&lt;script&gt;</span><span class="kd">var</span> <span class="nx">e</span><span class="o">=</span><span class="nx">ace</span><span class="p">.</span><span class="nx">edit</span><span class="p">(</span><span class="s2">&quot;editor&quot;</span><span class="p">);</span><span class="nx">e</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="s2">&quot;ace/theme/textmate&quot;</span><span class="p">);</span><span class="nx">e</span><span class="p">.</span><span class="nx">getSession</span><span class="p">().</span><span class="nx">setMode</span><span class="p">(</span><span class="s2">&quot;ace/mode/python&quot;</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><small>Source: <a href="https://gist.github.com/jdkanani/4670615">jdkanani Gist on GitHub</a> with language + theme modifications</small></p>
-
-<h2>Instructions</h2>
-
-<p>Copy the script above, paste it into your browser navigation bar, and hit Enter/Return.  Through the power of <a href="http://ace.c9.io/">Ace</a>, your browser will turn into a text editor with automatic line numbers, code folding, and syntax highlighting (in this case for Python).</p>
-
-<h2>Browser Screenshot with a Python Script</h2>
-
-<p><img src="http://sweetme.at/images/ace_browser_editor.png" alt="image" /></p>
-
-<h2>Customize Your Language</h2>
-
-<p>Ace supports over 60 languages.  To change the syntax highlighter in the script, modify the line:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">e</span><span class="p">.</span><span class="nx">getSession</span><span class="p">().</span><span class="nx">setMode</span><span class="p">(</span><span class="s2">&quot;ace/mode/python&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>with the language mode that you&rsquo;d like to use.  You can <a href="https://github.com/ajaxorg/ace/tree/master/lib/ace/mode">find the list of supported language modes in the GitHub repository</a>.  Here is how you specify the JavaScript syntax highlighter:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">e</span><span class="p">.</span><span class="nx">getSession</span><span class="p">().</span><span class="nx">setMode</span><span class="p">(</span><span class="s2">&quot;ace/mode/javascript&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Customize Your Editor Theme</h2>
-
-<p>The Ace editor supports over 20 different text editor themes too.  To change the editor theme, modify the line:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">e</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="s2">&quot;ace/theme/textmate&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>with <a href="https://github.com/ajaxorg/ace/tree/master/lib/ace/theme">any of the supported themes</a>.  Here is how you switch to Monokai:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">e</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="s2">&quot;ace/theme/monokai&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>^5</h2>
-
-<p>Kudos to <a href="https://gist.github.com/jdkanani/4670615">jdkanani</a> for this script.  Head over to his repository and show him some love if you use it.</p>
 ]]></content>
   </entry>
   
