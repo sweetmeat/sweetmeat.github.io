@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-11-04T13:00:25-05:00</updated>
+  <updated>2013-11-10T13:47:25-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,152 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Automated Ruby Gem Build and Deployment to Rubygems.org]]></title>
+    <link href="http://sweetme.at/2013/11/10/automated-ruby-gem-build-and-deployment-to-rubygems.org/"/>
+    <updated>2013-11-10T13:01:00-05:00</updated>
+    <id>http://sweetme.at/2013/11/10/automated-ruby-gem-build-and-deployment-to-rubygems.org</id>
+    <content type="html"><![CDATA[<p>Drop this shell script in your Ruby project and it will build and deploy your updated gem release when you run it.  It allows you to either hard code the gem name in the script or pass the name in as an argument to the script.</p>
+
+<!--More-->
+
+
+<h2>gemify.sh</h2>
+
+<h3>Install in Your Project</h3>
+
+<p>Here is the full script which is available on <a href="https://github.com/chrissimpkins/scriptacular/blob/master/distribute/gemify.sh">my GitHub repository</a>:</p>
+
+<figure class='code'><figcaption><span>gemify.sh - automated gem build and deployment</span><a href='https://raw.github.com/chrissimpkins/scriptacular/master/distribute/gemify.sh'>raw</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/sh</span>
+</span><span class='line'><span class="c"># Scriptacular - gemify.sh</span>
+</span><span class='line'><span class="c"># Create a Ruby gem and push it to rubygems.org</span>
+</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
+</span><span class='line'><span class="c"># MIT License</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Enter your gem name below (do not enter version number)</span>
+</span><span class='line'><span class="c"># or pass it as the first argument to the shell script</span>
+</span><span class='line'><span class="nv">GEM_NAME</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Don&#39;t touch these</span>
+</span><span class='line'><span class="nv">GEMSPEC_SUFFIX</span><span class="o">=</span><span class="s2">&quot;.gemspec&quot;</span>
+</span><span class='line'><span class="nv">GEM_BUILD_CMD</span><span class="o">=</span><span class="s2">&quot;gem build&quot;</span>
+</span><span class='line'><span class="nv">GEM_PUSH_CMD</span><span class="o">=</span><span class="s2">&quot;gem push&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># if there is an argument to the script, define the gem name with it</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-eq 1 <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nv">GEM_NAME</span><span class="o">=</span><span class="nv">$1</span>
+</span><span class='line'><span class="k">elif</span> <span class="o">[</span> <span class="nv">$# </span>-gt 1 <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;You entered too many arguments.  Please specify the name of your gem as the argument to the script.&quot;</span> &gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># if the gem name has not been defined, print error message and exit</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$GEM_NAME&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;You did not enter a gem name.  Please include it as an argument to the script or hard code it as a variable in the script.&quot;</span> &gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># run the gem build and parse for the gem release filename</span>
+</span><span class='line'><span class="nv">GEM_BUILD_NAME</span><span class="o">=</span><span class="k">$(</span>gem build <span class="s2">&quot;$GEM_NAME$GEMSPEC_SUFFIX&quot;</span> |  awk <span class="s1">&#39;/File/ {print $2}&#39;</span> -<span class="k">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># if the build failed (i.e. no file name obtained above), print error message and exit</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$GEM_BUILD_NAME&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;The gem build failed.  Please confirm the gem name and try again.&quot;</span> &gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># if above succeeded, then push to rubygems.org using the gem that was compiled</span>
+</span><span class='line'>gem push <span class="nv">$GEM_BUILD_NAME</span>
+</span><span class='line'><span class="nb">exit </span>0
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Place the above file in the directory that contains your project gemspec file.  To simplify re-use on the same project, you can hard code the gem name by defining the <code>GEM_NAME</code> variable.  Alternatively, you can pass the gem name as the first argument to the script each time that you use it.  It is not necessary to include version information or the .gemspec file suffix.  The script takes care of these details.</p>
+
+<h3>Permissions</h3>
+
+<p>Run <code>chmod 744</code> on the script in order to make it an executable file.</p>
+
+<h3>Use It</h3>
+
+<p>When you are ready to build and deploy your Ruby gem, you run the script from the command line with or without the gem name as an argument to the script depending upon how you chose to install it above.  Here are a couple of examples for a gem named &ldquo;bogus&rdquo;.</p>
+
+<h3>Run with Hard Coded Gem Name</h3>
+
+<p>Change the <code>GEM_NAME</code> shell variable in the file like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">GEM_NAME</span><span class="o">=</span><span class="s2">&quot;bogus&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Save the file in the directory that contains your project gemspec file.  Then, make that directory your working directory and run the following command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>./gemify.sh
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The script will run <code>gem build bogus.gemspec</code> and (assuming that this is version 0.1.0 of your gem), <code>gem push bogus-0.1.0.gem</code>.  The new release version number of the gem is automatically captured with each build and populated in this push command.</p>
+
+<h3>Run with Gem Name as an Argument</h3>
+
+<p>If you would prefer to avoid a hard coded gem name in the file, then you can pass the name of the gem as an argument to the script like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>./gemify.sh bogus
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The script will run just as it did with the hard coded name.</p>
+
+<h3>Use with Multiple Gem Projects</h3>
+
+<p>If you have a lot of Ruby gem projects in active development, you could toss this in an external script directory and create an alias for it in your <code>.bashrc</code> or <code>.bash_profile</code> file.   Run a source command on the bash settings file and then use the script alias from any working directory that includes a gemspec file.  Include the gem name as the argument to the alias.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Python Testing Assertion Methods]]></title>
@@ -1889,65 +2035,6 @@ creates the file <code>example-min.js</code>.</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>git lg</span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Maximize PNG Image Compression with OptiPNG]]></title>
-    <link href="http://sweetme.at/2013/09/11/how-to-maximize-png-image-compression-with-optipng/"/>
-    <updated>2013-09-11T23:11:00-04:00</updated>
-    <id>http://sweetme.at/2013/09/11/how-to-maximize-png-image-compression-with-optipng</id>
-    <content type="html"><![CDATA[<p>OptiPNG is an open source, lossless PNG file compression application that performs well on compression testing.  Here&rsquo;s how you maximize your compression ratios with it.</p>
-
-<!--More-->
-
-
-<h2>Install</h2>
-
-<p>OptiPNG is an open source application that is <a href="http://optipng.sourceforge.net/">available on SourceForge</a>.  Documentation in a pdf format is available <a href="http://optipng.sourceforge.net/optipng-0.7.4.man.pdf">here</a>.</p>
-
-<p>On *nix systems, you can build and install it with the standard set of autotools commands:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>./configure
-</span><span class='line'>make && sudo make install</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Windows users get an .exe binary in the zip archive on the download page.</p>
-
-<h2>PNG Compression with OptiPNG</h2>
-
-<p>I have been testing a few lossless PNG compression applications with PNG files that I generated from both Photoshop CS6 and Pixelmator.  These included files ranging from 1.2 kB to 1.5 MB that were saved in each application&rsquo;s default RGB + alpha 8 bit format, as well as in the Photoshop &ldquo;Save for web&rdquo; compressed format.  Generally speaking, the best compression / time command based upon my testing on a MacBook Pro (2.4 GHz Intel Core i7, 8GB RAM) is:</p>
-
-<h3>Near Maximal Compression + Fast</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>optipng -o2 -strip all &lt;image.png&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This command strips all meta data and compresses the image data.  It led to a 18% decrease in the default Pixelmator PNG size and a 95% decrease in the default Photoshop PNG size.</p>
-
-<p>If you want to maximize your compression ratio with a fairly significant time tradeoff at larger file sizes, you can use the <code>-o7</code> switch.</p>
-
-<h3>Maximal Compression + Not So Fast (for Large File Sizes)</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>optipng -o7 -strip all &lt;image.png&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>In the files that I tested, this led to a modest ~1 percentage point gain, though your results may vary depending upon the complexity of your image.</p>
-
-<p>The Photoshop CS6 &ldquo;Save for web&rdquo; PNG-8 compression format with 256 colors, bicubic sampling, no metadata, &amp; diffusion dither resulted in a file that had near maximal compression by current standards.  On a 100x100 pixel image, I was only able to wring out another 2.4% of the original file size with the latter optipng command.</p>
-
-<h2>File Size by OptiPNG Switch</h2>
-
-<p>Here are the data for the default 100x100px Photoshop PNG file.
-<img src="http://sweetme.at/images/optipng-compression-tests.png" alt="image" /></p>
-
-<h2>Learn More About PNG Compression</h2>
-
-<p>Want more background?  <a href="http://optipng.sourceforge.net/pngtech/optipng.html">This guide by Cosmin Truţa</a> is a good resource.</p>
 ]]></content>
   </entry>
   
