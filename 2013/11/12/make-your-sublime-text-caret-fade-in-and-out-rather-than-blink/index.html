@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Python Testing Assertion Methods - Sweetmeat</title>
+  <title>Make Your Sublime Text Caret Fade In and Out Rather Than Blink - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="The complete list of Python testing assertion methods in unittest">
-  <meta name="keywords" content="python,unittest,testing,assertion,method,help,tip">
+  <meta name="description" content="How to change your Sublime Text caret to the phase style so that it fades in and out instead of blinking.">
+  <meta name="keywords" content="sublime text, sublime, sublime text 2, sublime text 3, caret, text editor, blink, fade">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/11/04/python-testing-assertion-methods">
+  <link rel="canonical" href="http://sweetme.at/2013/11/12/make-your-sublime-text-caret-fade-in-and-out-rather-than-blink">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">Python Testing Assertion Methods</h1>
+      <h1 class="entry-title">Make Your Sublime Text Caret Fade in and Out Rather Than Blink</h1>
     
     
       <p class="meta">
@@ -90,72 +90,42 @@
   
 
 
-<time datetime="2013-11-04T12:41:00-05:00" pubdate data-updated="true">Nov 4<span>th</span>, 2013</time>
+<time datetime="2013-11-12T22:44:00-05:00" pubdate data-updated="true">Nov 12<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Here&rsquo;s a complete list of the Python assertion methods that are available in the Python unittest module for versions 2 &amp; 3 of the Python interpreter.</p>
+<div class="entry-content"><p>With a simple adjustment of your Sublime Text User Settings, you can create a phasing caret in your editor.</p>
 
 <!--More-->
 
 
-<h2>Python Assertions</h2>
+<h2>Sublime Text Phasing caret_style</h2>
 
-<table>
-    <tr>
-        <th>Method</th>
-        <th>Assertion</th>
-        <th>Min Version</th>
-    </tr>
-    <tr>
-        <td>assertEqual(a,b)</td>
-        <td>a == b</td>
-        <td>2 &amp; 3</td>
-    </tr>
-    <tr>
-        <td>assertNotEqual(a,b)</td>
-        <td>a != b</td>
-        <td>2 &amp; 3</td>
-    </tr>
-    <tr>
-    <td>assertIsNone(x)</td>
-    <td>x is None</td>
-    <td>3.1 +</td>
-</tr>
-<tr>
-    <td>assertIsNotNone(x)</td>
-    <td>x is not None</td>
-    <td>3.1 +</td>
-</tr>
-<tr>
-    <td>assertIn(a,b)</td>
-    <td>a in b</td>
-    <td>3.1 +</td>
-</tr>
-<tr>
-    <td>assertNotIn(a,b)</td>
-    <td>a not in b</td>
-    <td>3.1 +</td>
-</tr>
-<tr>
-    <td>assertIsInstance(a,b)</td>
-    <td>isinstance(a,b)</td>
-    <td>3.2 +</td>
-</tr>
-<tr>
-    <td>assertNotIsInstance(a,b)</td>
-    <td>not isinstance(a,b)</td>
-    <td>3.2 +</td>
-</tr>
-</table>
+<p>Open your Sublime Text Preferences menu item and select the Settings &ndash; User menu.  This will open your user settings JSON file.  Insert the following <code>caret_style</code> setting:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>   <span class="err">...</span>
+</span><span class='line'>   <span class="nt">&quot;caret_style&quot;</span> <span class="p">:</span> <span class="s2">&quot;phase&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Python Documentation</h2>
+<p>Save the settings file and your cursor will fade in and out of view.</p>
 
-<p>And <a href="http://docs.python.org/dev/library/unittest.html#assert-methods">here is the link</a> to the Python documentation on the topic.</p>
+<h2>Other Caret Options</h2>
+
+<p>The other <code>caret_style</code> options include: &ldquo;smooth&rdquo; (intermediate between blink and phase transition), &ldquo;blink&rdquo; (standard blinking caret), &ldquo;wide&rdquo; (always visible, wide caret), and &ldquo;solid&rdquo; (always visible, narrow caret).</p>
+
+<h2>Source</h2>
+
+<p>Kudos to <a href="http://twitter.com/wesbos">Wes Bos</a> for <a href="http://wesbos.com/sublime-text-5-visual-tweaks">pointing out this modification</a>.</p>
 </div>
 
 
@@ -178,7 +148,7 @@
   
 
 
-<time datetime="2013-11-04T12:41:00-05:00" pubdate data-updated="true">Nov 4<span>th</span>, 2013</time>
+<time datetime="2013-11-12T22:44:00-05:00" pubdate data-updated="true">Nov 12<span>th</span>, 2013</time>
       
 
 
@@ -186,7 +156,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/11/04/python-testing-assertion-methods/" data-via="" data-counturl="http://sweetme.at/2013/11/04/python-testing-assertion-methods/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/11/12/make-your-sublime-text-caret-fade-in-and-out-rather-than-blink/" data-via="" data-counturl="http://sweetme.at/2013/11/12/make-your-sublime-text-caret-fade-in-and-out-rather-than-blink/" >Tweet</a>
   
   
   
@@ -195,10 +165,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/11/01/how-to-use-grep-to-find-files-with-a-matching-string/" title="Previous Post: How to Use grep to Find File Names with a Matching String">&laquo; How to Use grep to Find File Names with a Matching String</a>
+        <a class="basic-alignment left" href="/2013/11/10/automated-ruby-gem-build-and-deployment-to-rubygems.org/" title="Previous Post: Automated Ruby Gem Build and Deployment to Rubygems.org">&laquo; Automated Ruby Gem Build and Deployment to Rubygems.org</a>
       
-      
-        <a class="basic-alignment right" href="/2013/11/10/automated-ruby-gem-build-and-deployment-to-rubygems.org/" title="Next Post: Automated Ruby Gem Build and Deployment to Rubygems.org">Automated Ruby Gem Build and Deployment to Rubygems.org &raquo;</a>
       
     </p>
   </footer>
