@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-11-12T23:02:03-05:00</updated>
+  <updated>2013-11-17T11:50:35-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,69 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Copy to and Paste from the Clipboard on the Mac OSX Command Line]]></title>
+    <link href="http://sweetme.at/2013/11/17/copy-to-and-paste-from-the-clipboard-on-the-mac-osx-command-line/"/>
+    <updated>2013-11-17T11:18:00-05:00</updated>
+    <id>http://sweetme.at/2013/11/17/copy-to-and-paste-from-the-clipboard-on-the-mac-osx-command-line</id>
+    <content type="html"><![CDATA[<p>You can access the clipboard from the Mac OSX command line with a set of copy and paste commands.</p>
+
+<!--More-->
+
+
+<h2>Mac OSX Copy and Paste Commands</h2>
+
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Function</th>
+  </tr>
+  <tr>
+    <td>pbcopy</td>
+    <td>Copy to Clipboard</td>
+  </tr>
+  <tr>
+    <td>pbpaste</td>
+    <td>Paste from Clipboard</td>
+  </tr>
+</table>
+
+
+<h2>Mac OSX Command Line Copy</h2>
+
+<p>To add the standard output from any other command to the clipboard, pipe it to the <code>pbcopy</code> command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -L <span class="s2">&quot;http://coolsite.com&quot;</span> | pbcopy
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and then paste it in your GUI applications wherever you need.</p>
+
+<h2>Mac OSX Command Line Paste</h2>
+
+<p>To paste text from the clipboard to the standard output stream, use the <code>pbpaste</code> command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pbpaste
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and the clipboard text will be printed out in your terminal window.</p>
+
+<p>If you&rsquo;d like to do more with it, you can pipe the clipboard data to any other application that accepts the standard input stream.  For instance, to create paginated output from a large block of text, you can pipe it to <code>less</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pbpaste | less
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Source</h2>
+
+<p>Kudos to <a href="http://apple.stackexchange.com/a/5437">Chealion on apple.stackexchange.com</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Make Your Sublime Text Caret Fade In and Out Rather Than Blink]]></title>
@@ -1993,26 +2056,6 @@ creates the file <code>example-min.js</code>.</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>CTRL-e</span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[B.S. Tech Job Title Generator]]></title>
-    <link href="http://sweetme.at/2013/09/13/b.s.-tech-job-title-generator/"/>
-    <updated>2013-09-13T15:38:00-04:00</updated>
-    <id>http://sweetme.at/2013/09/13/b.s.-tech-job-title-generator</id>
-    <content type="html"><![CDATA[<p>Generate a glossy new title for yourself with this little gem from Tim Pietrusky… and enjoy your weekend.</p>
-
-<!--More-->
-
-
-<p data-height="569" data-theme-id="0" data-slug-hash="CxiHF" data-user="TimPietrusky" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/chrissimpkins/pen/CxiHF'>Bullshit Job Title Generator</a> by Tim Pietrusky (<a href='http://codepen.io/TimPietrusky'>@TimPietrusky</a>) on <a href='http://codepen.io'>CodePen</a></p>
-
-
-<script async src="http://codepen.io/assets/embed/ei.js"></script>
-
-
-<p><small>Source: <a href="http://cdpn.io/CxiHF">Tim Pietrusky on Codepen</a></small></p>
 ]]></content>
   </entry>
   

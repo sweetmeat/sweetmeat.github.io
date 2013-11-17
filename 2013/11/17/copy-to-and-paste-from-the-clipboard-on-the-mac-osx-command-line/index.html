@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How to Turn Your Browser into a Text Editor with Syntax Highlighting - Sweetmeat</title>
+  <title>Copy to and Paste from the Clipboard on the Mac OSX Command Line - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Juicy lil' bytes served up by Chris Simpkins.">
-  <meta name="keywords" content="Chris Simpkins, coding, programming, web, internet, application, shell, bash, python, PHP, Ruby, C, C++, CPP, XML, linux, OSX, Mac, unix">
+  <meta name="description" content="Learn how to use the clipboard copy and paste functions from the Mac OSX command line">
+  <meta name="keywords" content="mac, mac osx, apple, terminal.app, terminal, shell, clipboard, copy, paste">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/09/10/how-to-turn-your-browser-into-a-text-editor-with-syntax-highlighting">
+  <link rel="canonical" href="http://sweetme.at/2013/11/17/copy-to-and-paste-from-the-clipboard-on-the-mac-osx-command-line">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">How to Turn Your Browser Into a Text Editor With Syntax Highlighting</h1>
+      <h1 class="entry-title">Copy to and Paste From the Clipboard on the Mac OSX Command Line</h1>
     
     
       <p class="meta">
@@ -90,70 +90,68 @@
   
 
 
-<time datetime="2013-09-10T19:31:00-04:00" pubdate data-updated="true">Sep 10<span>th</span>, 2013</time>
+<time datetime="2013-11-17T11:18:00-05:00" pubdate data-updated="true">Nov 17<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Pop this script into your browser&rsquo;s navigation bar and code away in the browser with syntax highlighting for multiple languages.</p>
+<div class="entry-content"><p>You can access the clipboard from the Mac OSX command line with a set of copy and paste commands.</p>
 
 <!--More-->
 
 
-<h2>Script</h2>
+<h2>Mac OSX Copy and Paste Commands</h2>
+
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Function</th>
+  </tr>
+  <tr>
+    <td>pbcopy</td>
+    <td>Copy to Clipboard</td>
+  </tr>
+  <tr>
+    <td>pbpaste</td>
+    <td>Paste from Clipboard</td>
+  </tr>
+</table>
+
+
+<h2>Mac OSX Command Line Copy</h2>
+
+<p>To add the standard output from any other command to the clipboard, pipe it to the <code>pbcopy</code> command:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'>data:text/html, <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span><span class="nc">.e</span><span class="p">{</span><span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><span class="k">top</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">right</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">bottom</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">left</span><span class="o">:</span><span class="m">0</span><span class="p">;}</span><span class="nt">&lt;/style&gt;&lt;div</span> <span class="na">class=</span><span class="s">&quot;e&quot;</span> <span class="na">id=</span><span class="s">&quot;editor&quot;</span><span class="nt">&gt;&lt;/div&gt;&lt;script </span><span class="na">src=</span><span class="s">&quot;http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;&lt;/script&gt;&lt;script&gt;</span><span class="kd">var</span> <span class="nx">e</span><span class="o">=</span><span class="nx">ace</span><span class="p">.</span><span class="nx">edit</span><span class="p">(</span><span class="s2">&quot;editor&quot;</span><span class="p">);</span><span class="nx">e</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="s2">&quot;ace/theme/textmate&quot;</span><span class="p">);</span><span class="nx">e</span><span class="p">.</span><span class="nx">getSession</span><span class="p">().</span><span class="nx">setMode</span><span class="p">(</span><span class="s2">&quot;ace/mode/python&quot;</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -L <span class="s2">&quot;http://coolsite.com&quot;</span> | pbcopy
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><small>Source: <a href="https://gist.github.com/jdkanani/4670615">jdkanani Gist on GitHub</a> with language + theme modifications</small></p>
+<p>and then paste it in your GUI applications wherever you need.</p>
 
-<h2>Instructions</h2>
+<h2>Mac OSX Command Line Paste</h2>
 
-<p>Copy the script above, paste it into your browser navigation bar, and hit Enter/Return.  Through the power of <a href="http://ace.c9.io/">Ace</a>, your browser will turn into a text editor with automatic line numbers, code folding, and syntax highlighting (in this case for Python).</p>
-
-<h2>Browser Screenshot with a Python Script</h2>
-
-<p><img src="/images/ace_browser_editor.png" alt="image" /></p>
-
-<h2>Customize Your Language</h2>
-
-<p>Ace supports over 60 languages.  To change the syntax highlighter in the script, modify the line:</p>
+<p>To paste text from the clipboard to the standard output stream, use the <code>pbpaste</code> command:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">e</span><span class="p">.</span><span class="nx">getSession</span><span class="p">().</span><span class="nx">setMode</span><span class="p">(</span><span class="s2">&quot;ace/mode/python&quot;</span><span class="p">);</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pbpaste
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>with the language mode that you&rsquo;d like to use.  You can <a href="https://github.com/ajaxorg/ace/tree/master/lib/ace/mode">find the list of supported language modes in the GitHub repository</a>.  Here is how you specify the JavaScript syntax highlighter:</p>
+<p>and the clipboard text will be printed out in your terminal window.</p>
+
+<p>If you&rsquo;d like to do more with it, you can pipe the clipboard data to any other application that accepts the standard input stream.  For instance, to create paginated output from a large block of text, you can pipe it to <code>less</code>:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">e</span><span class="p">.</span><span class="nx">getSession</span><span class="p">().</span><span class="nx">setMode</span><span class="p">(</span><span class="s2">&quot;ace/mode/javascript&quot;</span><span class="p">);</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pbpaste | less
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Customize Your Editor Theme</h2>
+<h2>Source</h2>
 
-<p>The Ace editor supports over 20 different text editor themes too.  To change the editor theme, modify the line:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">e</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="s2">&quot;ace/theme/textmate&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>with <a href="https://github.com/ajaxorg/ace/tree/master/lib/ace/theme">any of the supported themes</a>.  Here is how you switch to Monokai:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">e</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="s2">&quot;ace/theme/monokai&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>^5</h2>
-
-<p>Kudos to <a href="https://gist.github.com/jdkanani/4670615">jdkanani</a> for this script.  Head over to his repository and show him some love if you use it.</p>
+<p>Kudos to <a href="http://apple.stackexchange.com/a/5437">Chealion on apple.stackexchange.com</a>.</p>
 </div>
 
 
@@ -176,7 +174,7 @@
   
 
 
-<time datetime="2013-09-10T19:31:00-04:00" pubdate data-updated="true">Sep 10<span>th</span>, 2013</time>
+<time datetime="2013-11-17T11:18:00-05:00" pubdate data-updated="true">Nov 17<span>th</span>, 2013</time>
       
 
 
@@ -184,7 +182,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/10/how-to-turn-your-browser-into-a-text-editor-with-syntax-highlighting/" data-via="" data-counturl="http://sweetme.at/2013/09/10/how-to-turn-your-browser-into-a-text-editor-with-syntax-highlighting/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/11/17/copy-to-and-paste-from-the-clipboard-on-the-mac-osx-command-line/" data-via="" data-counturl="http://sweetme.at/2013/11/17/copy-to-and-paste-from-the-clipboard-on-the-mac-osx-command-line/" >Tweet</a>
   
   
   
@@ -193,10 +191,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/09/09/swizzle-a-markdown-text-editor-theme/" title="Previous Post: Swizzle, a Markdown Text Editor Theme for Mou and LightPaper">&laquo; Swizzle, a Markdown Text Editor Theme for Mou and LightPaper</a>
+        <a class="basic-alignment left" href="/2013/11/12/make-your-sublime-text-caret-fade-in-and-out-rather-than-blink/" title="Previous Post: Make Your Sublime Text Caret Fade In and Out Rather Than Blink">&laquo; Make Your Sublime Text Caret Fade In and Out Rather Than Blink</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/11/how-to-maximize-png-image-compression-with-optipng/" title="Next Post: How to Maximize PNG Image Compression with OptiPNG">How to Maximize PNG Image Compression with OptiPNG &raquo;</a>
       
     </p>
   </footer>
