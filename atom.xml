@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-12-09T14:45:23-05:00</updated>
+  <updated>2013-12-09T15:03:25-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -125,6 +125,8 @@
 </span><span class='line'><span class="nb">exit </span>0
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>Drop it in the same directory as your setup.py file, give it executable permission (e.g. <code>chmod 744 pypush.sh</code>), and run it.</p>
 ]]></content>
   </entry>
   
