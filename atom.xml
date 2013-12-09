@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-11-22T09:31:14-05:00</updated>
+  <updated>2013-12-09T14:45:23-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,121 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Automated Python Source Distribution and Wheel Build with Push to PyPI]]></title>
+    <link href="http://sweetme.at/2013/12/09/automated-python-source-distribution-and-wheel-build-with-push-to-pypi/"/>
+    <updated>2013-12-09T14:31:00-05:00</updated>
+    <id>http://sweetme.at/2013/12/09/automated-python-source-distribution-and-wheel-build-with-push-to-pypi</id>
+    <content type="html"><![CDATA[<p>Here is a script that automates the Python source distribution and wheel release build process, then pushes your release to the <a href="https://pypi.python.org/pypi">Python Package Index</a>.</p>
+
+<!--More-->
+
+
+<h2>Automate the Source Distribution Build</h2>
+
+<p>The source distribution is built and pushed to PyPI with the command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python setup.py sdist upload
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and the script confirms that it succeeded by checking the exit code and displaying an error message for any non-zero exit codes:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Unable to distribute your release to PyPI&quot;</span> &gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Automate the Wheel Distribution Build</h2>
+
+<p>Next, the script builds your wheel release and distributes it to PyPI with :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python setup.py bdist_wheel upload
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It again confirms that it exited with a success exit code:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Unable to distribute your wheel to PyPI&quot;</span> &gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and prompts you if there were problems.</p>
+
+<h2>The PyPush.sh Script</h2>
+
+<p>Here it is in its entirety:</p>
+
+<figure class='code'><figcaption><span>pypush.sh</span><a href='https://github.com/chrissimpkins/scriptacular/blob/master/distribute/pypush.sh'>Source</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/sh</span>
+</span><span class='line'><span class="c"># Scriptacular - pypush.sh</span>
+</span><span class='line'><span class="c"># Create a Python source distribution and push it to PyPi</span>
+</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
+</span><span class='line'><span class="c"># MIT License</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Build and push to PyPi</span>
+</span><span class='line'>python setup.py sdist upload
+</span><span class='line'>
+</span><span class='line'><span class="c"># Confirm that it worked</span>
+</span><span class='line'><span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Unable to distribute your release to PyPI&quot;</span> &gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'>python setup.py bdist_wheel upload
+</span><span class='line'>
+</span><span class='line'><span class="c"># Confirm that wheel distribution worked</span>
+</span><span class='line'><span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Unable to distribute your wheel to PyPI&quot;</span> &gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Exit success</span>
+</span><span class='line'><span class="nb">exit </span>0
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Pip Installer | A Simple pip Python Package Manager Installer]]></title>
@@ -1999,102 +2114,6 @@ creates the file <code>example-min.js</code>.</p>
 
 
 <p>Have a look through the <a href="http://sass-lang.com/docs.html">SASS documentation</a> on the <code>--watch</code> switch which indicates that sass should watch for changes in your SCSS or SASS files and automatically compile CSS files from the changes.  This may be a better fit for your development workflow than these manual compression commands.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Generic Reusable Install Shell Script That You Can Modify for Your Projects]]></title>
-    <link href="http://sweetme.at/2013/09/17/a-generic-reusable-install-shell-script-that-you-can-modify-for-your-projects/"/>
-    <updated>2013-09-17T23:13:00-04:00</updated>
-    <id>http://sweetme.at/2013/09/17/a-generic-reusable-install-shell-script-that-you-can-modify-for-your-projects</id>
-    <content type="html"><![CDATA[<p>Here is a generic bash shell script for single file installs that you can easily modify and include in your own projects.</p>
-
-<!--More-->
-
-
-<h2>Description</h2>
-
-<p>The script confirms that the target directory path exists and copies the developer-specified file into that path.  If it does not exist, it creates the directory path and then copies the file into the new directory.</p>
-
-<h2>Script</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
-</span><span class='line'><span class="c"># Scriptacular - install.sh</span>
-</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
-</span><span class='line'><span class="c"># MIT License</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">TARGET_DIR</span><span class="o">=</span><span class="s2">&quot;path/to/the/install/directory&quot;</span>
-</span><span class='line'><span class="nv">INSTALL_FILE</span><span class="o">=</span><span class="s2">&quot;your-file.txt&quot;</span>
-</span><span class='line'><span class="nv">SUCCESS_MSG</span><span class="o">=</span><span class="s2">&quot;Sexy message for user goes here!&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;$TARGET_DIR&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">  </span>cp <span class="s2">&quot;$INSTALL_FILE&quot;</span> <span class="s2">&quot;$TARGET_DIR&quot;</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$SUCCESS_MSG&quot;</span>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Creating the install directory path...&quot;</span>
-</span><span class='line'>  mkdir -p <span class="s2">&quot;$TARGET_DIR&quot;</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;Done. Installing &#39;$INSTALL_FILE&#39;...&quot;</span>
-</span><span class='line'>  cp <span class="s2">&quot;$INSTALL_FILE&quot;</span> <span class="s2">&quot;$TARGET_DIR&quot;</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$SUCCESS_MSG&quot;</span>
-</span><span class='line'><span class="k">fi</span>
-</span><span class='line'><span class="nb">exit </span>0
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Save the script as <code>install.sh</code>.</p>
-
-<h2>Customization</h2>
-
-<ol>
-<li>Modify <code>TARGET_DIR</code> with the target install directory</li>
-<li>Modify <code>INSTALL_FILE</code> with the path to the file that is to be installed</li>
-<li>Modify <code>SUCCESS_MSG</code> with the message to present to the user after a successful install</li>
-</ol>
-
-
-<h2>Use</h2>
-
-<p>The user will need navigate to the directory that contains <code>install.sh</code> in your release and set the file permissions so that they can execute the script:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>chmod 744 install.sh
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and then use it with the following command:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>./install.sh
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Script Repository</h2>
-
-<p>The script is <a href="https://github.com/chrissimpkins/scriptacular/blob/master/install/install.sh">available on GitHub</a>.</p>
-
-<h2>License</h2>
-
-<p><a href="https://github.com/chrissimpkins/scriptacular/blob/master/LICENSE">MIT license</a></p>
 ]]></content>
   </entry>
   

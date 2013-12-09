@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How to Test for the Success of a Previous Command in a Bash Shell Script - Sweetmeat</title>
+  <title>Automated Python Source Distribution and Wheel Build with Push to PyPI - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to test for the success of the previously run command in your bash shell script.">
-  <meta name="keywords" content="command, shell, script, bash, bash shell script, success, fail, error, code, shell script">
+  <meta name="description" content="Learn how to use a shell script to automate the Python source distribution and wheel build process, then push your source to the Python Package Index">
+  <meta name="keywords" content="pypi,python,source,build,automate,how to,script,shell,bash">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/10/02/how-to-test-for-the-success-of-previous-command-in-a-bash-shell-script">
+  <link rel="canonical" href="http://sweetme.at/2013/12/09/automated-python-source-distribution-and-wheel-build-with-push-to-pypi">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">How to Test for the Success of a Previous Command in a Bash Shell Script</h1>
+      <h1 class="entry-title">Automated Python Source Distribution and Wheel Build With Push to PyPI</h1>
     
     
       <p class="meta">
@@ -90,38 +90,69 @@
   
 
 
-<time datetime="2013-10-02T21:41:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
+<time datetime="2013-12-09T14:31:00-05:00" pubdate data-updated="true">Dec 9<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>This bash idiom captures the exit status code from the previous command that was executed.  You can use it to confirm that the last command was successful in your shell script.</p>
+<div class="entry-content"><p>Here is a script that automates the Python source distribution and wheel release build process, then pushes your release to the <a href="https://pypi.python.org/pypi">Python Package Index</a>.</p>
 
 <!--More-->
 
 
-<h2>Exit Status Code</h2>
+<h2>Automate the Source Distribution Build</h2>
 
-<table>
-<thead>
-<th><span style="font-size:22px;">Description</span></th>
-<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Idiom</span></th>
-</thead>
-<tbody>
-<tr>
-<td>Exit Status Idiom</td><td>$?</td>
-</tr>
-<tbody>
-</table>
-
-
-<h2>Use Example</h2>
-
-<p>Here is an example of how you could use it to confirm that a command was executed successfully:</p>
+<p>The source distribution is built and pushed to PyPI with the command:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python setup.py sdist upload
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and the script confirms that it succeeded by checking the exit code and displaying an error message for any non-zero exit codes:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Unable to distribute your release to PyPI&quot;</span> &gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Automate the Wheel Distribution Build</h2>
+
+<p>Next, the script builds your wheel release and distributes it to PyPI with :</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python setup.py bdist_wheel upload
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It again confirms that it exited with a success exit code:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Unable to distribute your wheel to PyPI&quot;</span> &gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and prompts you if there were problems.</p>
+
+<h2>The PyPush.sh Script</h2>
+
+<p>Here it is in its entirety:</p>
+
+<figure class='code'><figcaption><span>pypush.sh</span><a href='https://github.com/chrissimpkins/scriptacular/blob/master/distribute/pypush.sh'>Source</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -131,15 +162,45 @@
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># run git pull and test for exit code = 1 = failure</span>
-</span><span class='line'>git pull
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/sh</span>
+</span><span class='line'><span class="c"># Scriptacular - pypush.sh</span>
+</span><span class='line'><span class="c"># Create a Python source distribution and push it to PyPi</span>
+</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
+</span><span class='line'><span class="c"># MIT License</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Build and push to PyPi</span>
+</span><span class='line'>python setup.py sdist upload
+</span><span class='line'>
+</span><span class='line'><span class="c"># Confirm that it worked</span>
 </span><span class='line'><span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Failure&quot;</span> &gt;&amp;2
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Unable to distribute your release to PyPI&quot;</span> &gt;&amp;2
 </span><span class='line'>  <span class="nb">exit </span>1
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Success&quot;</span>
-</span><span class='line'>  <span class="c"># code block that is dependent on success of previous command</span>
 </span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'>python setup.py bdist_wheel upload
+</span><span class='line'>
+</span><span class='line'><span class="c"># Confirm that wheel distribution worked</span>
+</span><span class='line'><span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Unable to distribute your wheel to PyPI&quot;</span> &gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Exit success</span>
 </span><span class='line'><span class="nb">exit </span>0
 </span></code></pre></td></tr></table></div></figure>
 
@@ -165,7 +226,7 @@
   
 
 
-<time datetime="2013-10-02T21:41:00-04:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
+<time datetime="2013-12-09T14:31:00-05:00" pubdate data-updated="true">Dec 9<span>th</span>, 2013</time>
       
 
 
@@ -173,7 +234,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/10/02/how-to-test-for-the-success-of-previous-command-in-a-bash-shell-script/" data-via="" data-counturl="http://sweetme.at/2013/10/02/how-to-test-for-the-success-of-previous-command-in-a-bash-shell-script/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/12/09/automated-python-source-distribution-and-wheel-build-with-push-to-pypi/" data-via="" data-counturl="http://sweetme.at/2013/12/09/automated-python-source-distribution-and-wheel-build-with-push-to-pypi/" >Tweet</a>
   
   
   
@@ -182,10 +243,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/10/01/multi-select-editing-with-sublime-text/" title="Previous Post: Multi-Select Editing with Sublime Text">&laquo; Multi-Select Editing with Sublime Text</a>
+        <a class="basic-alignment left" href="/2013/11/22/a-simple-pip-python-package-manager-installer/" title="Previous Post: Pip Installer | A Simple pip Python Package Manager Installer">&laquo; Pip Installer | A Simple pip Python Package Manager Installer</a>
       
-      
-        <a class="basic-alignment right" href="/2013/10/04/how-to-automatically-reindent-code-with-sublime-text/" title="Next Post: How to Automatically Reindent Code with Sublime Text">How to Automatically Reindent Code with Sublime Text &raquo;</a>
       
     </p>
   </footer>
