@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-12-09T15:03:53-05:00</updated>
+  <updated>2013-12-20T20:52:27-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,273 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Shugr | A HTML Editor that Supports Rapid HTML Development with the Emmet Syntax]]></title>
+    <link href="http://sweetme.at/2013/12/20/shugr-a-rapid-html-editor-that-supports-the-emmet-syntax/"/>
+    <updated>2013-12-20T15:57:00-05:00</updated>
+    <id>http://sweetme.at/2013/12/20/shugr-a-rapid-html-editor-that-supports-the-emmet-syntax</id>
+    <content type="html"><![CDATA[<p>I released a web browser based HTML editor that allows you to rapidly develop with the Emmet toolkit.  Here are a few examples that demonstrate how it simplifies the HTML development process.</p>
+
+<!--More-->
+
+
+<h2>The Shugr Editor</h2>
+
+<p><a href="http://shu.gr">Shugr</a> is an <a href="http://www.github.com/chrissimpkins/shugr">open source HTML editor</a> that provides a cross-platform interface to the <a href="http://docs.emmet.io/">Emmet HTML toolkit</a>.   Shugr allows you to develop HTML in real time without the need for a separate preprocessor run on a markup document.</p>
+
+<p>Detailed documentation is available <a href="http://chrissimpkins.github.io/shugr/">here</a>.</p>
+
+<h2>The Emmet HTML Toolkit</h2>
+
+<p>If you do any signficant amount of work with HTML and haven&rsquo;t used the Emmet toolkit, you are in for a treat.  Spend some time learning the syntax for the HTML entities that you commonly use and this will dramatically improve your productivity.  It is possible to create hundreds of characters of HTML in a few short lines of Emmet script.  A press of your TAB key and the HTML is immediately populated in the location where you placed the script in the Shugr editor (including within other tags of preexisting HTML).</p>
+
+<p>Here are several common tasks that demonstrate the Emmet syntax in action:</p>
+
+<h2>HTML 5 Document Creation</h2>
+
+<p>To begin a new HTML 5 document, type the following in Shugr:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>html:5</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Leave your cursor positioned immediately after the &lsquo;5&rsquo; and press your TAB key.  The editor will remove the Emmet script and replace it with the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!doctype html&gt;</span>
+</span><span class='line'><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>  
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Create a Body div</h2>
+
+<p>Now let&rsquo;s place a div with the id, &ldquo;main-content&rdquo;, inside our body tags.  Place the cursor in between the body tags and enter:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>#main-content
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>press the TAB key with the cursor positioned at the end of the above script and the text in the editor becomes:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!doctype html&gt;</span>
+</span><span class='line'><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;main-content&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Create Multiple HTML Headers with Classes</h2>
+
+<p>Let&rsquo;s create several h2 headers in the div with the &ldquo;main-content&rdquo; id and assign the class, &ldquo;headclass&rdquo;, to these headers.  This example demonstrates how you can use multiplication to specify the number of HTML entities that you want to generate.</p>
+
+<p>Place your cursor inside the &ldquo;main-content&rdquo; div tags and then type:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>h2.headclass*7
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then click your TAB key and now you have:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!doctype html&gt;</span>
+</span><span class='line'><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;main-content&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Add CSS File Links</h2>
+
+<p>Now add a few CSS file links to the head section with this script:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>link:css*3
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Click the TAB key and you have CSS tags.  Enter the path to the appropriate files and they are complete.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!doctype html&gt;</span>
+</span><span class='line'><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css&quot;</span> <span class="na">media=</span><span class="s">&quot;all&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css&quot;</span> <span class="na">media=</span><span class="s">&quot;all&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css&quot;</span> <span class="na">media=</span><span class="s">&quot;all&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;main-content&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Add JavaScript File Links</h2>
+
+<p>And finally let&rsquo;s add a couple of JavaScript file links to the document.  We&rsquo;ll place the following script just before the final body tag:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>script:src*2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And with the last click on the TAB key, you now have a framework for your web page:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!doctype html&gt;</span>
+</span><span class='line'><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css&quot;</span> <span class="na">media=</span><span class="s">&quot;all&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css&quot;</span> <span class="na">media=</span><span class="s">&quot;all&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css&quot;</span> <span class="na">media=</span><span class="s">&quot;all&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;main-content&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;headclass&quot;</span><span class="nt">&gt;&lt;/h2&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>And Much More&hellip;</h2>
+
+<p>These simple examples only scratch the surface of the Emmet toolkit capabilities.  Have a look through the <a href="http://docs.emmet.io/">Emmet documentation</a> for more details on how to use it.  The Emmet developer has also released a <a href="http://docs.emmet.io/cheat-sheet/">comprehensive cheat sheet</a> that is very helpful.</p>
+
+<h2>Feedback and Contributions</h2>
+
+<p>If you have any issues with Shugr, please <a href="https://github.com/chrissimpkins/shugr/issues/new">submit an issue report on the GitHub repository</a>.   If you&rsquo;d like to contribute to the Shugr source, fork the <code>develop</code> branch of the repository, edit it, and submit a pull request back to the main repository with a description of your changes.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Automated Python Source Distribution and Wheel Build with Push to PyPI]]></title>
@@ -2046,76 +2313,6 @@ creates the file <code>example-min.js</code>.</p>
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Compress Your CSS Output with the SASS Command Line Tool]]></title>
-    <link href="http://sweetme.at/2013/09/18/compress-your-css-output-with-the-sass-command-line-tool/"/>
-    <updated>2013-09-18T23:41:00-04:00</updated>
-    <id>http://sweetme.at/2013/09/18/compress-your-css-output-with-the-sass-command-line-tool</id>
-    <content type="html"><![CDATA[<p>Here is a one-liner that compiles your <a href="http://sass-lang.com/">SASS or SCSS files</a> into compressed CSS.</p>
-
-<!--More-->
-
-
-<p>Use the following command to install the sass Ruby gem:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gem install sass</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Compress Indented Syntax Sass Files</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sass -t compressed path/to/input.sass path/to/output.css</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Compress Bracketed Syntax SCSS Files</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sass --scss -t compressed path/to/input.scss path/to/output.css</span></code></pre></td></tr></table></div></figure>
-
-
-<p>or alternatively, you can use the <code>scss</code> command line tool (which is installed with the sass gem) that defaults to the SCSS syntax.  This avoids the need for the <code>--scss</code> switch.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>scss -t compressed path/to/input.scss path/to/output.css</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Use with Compass</h2>
-
-<p>If you are using <a href="http://compass-style.org/">Compass</a> in your project, add the <code>--compass</code> switch to your command so that the Compass imports are available during the compile.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sass -t compressed --compass path/to/input.sass path/to/output.css</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>scss -t compressed --compass path/to/input.scss path/to/output.css</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Create an Alias</h2>
-
-<p>Save the command as an alias in your bash startup file (<code>~/.bash_profile</code> or <code>~/.bashrc</code>) to make it quick and easy to use.  Let&rsquo;s call it ccss for &lsquo;compressed css&rsquo;:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>alias ccss='sass -t compressed --compass --scss'</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<p>If you want to use the alias in the open terminal window, run a source command on your bash startup file.  For .bash_profile it would look like this: <code>source ~/.bash_profile</code>.  You won&rsquo;t need to do this again the next time that you open the terminal.  The alias will automatically load in the new shell process that you launch.</p>
-
-<p>Then use it on the command line by adding your file paths for the input SCSS file and output CSS file:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ccss path/to/input.scss path/to/output.css</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Have a look through the <a href="http://sass-lang.com/docs.html">SASS documentation</a> on the <code>--watch</code> switch which indicates that sass should watch for changes in your SCSS or SASS files and automatically compile CSS files from the changes.  This may be a better fit for your development workflow than these manual compression commands.</p>
 ]]></content>
   </entry>
   
