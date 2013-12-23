@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2013-12-20T20:52:27-05:00</updated>
+  <updated>2013-12-23T12:27:43-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Make Adjacent File Group Panes with Sublime Text 3 to View and Edit Code in Multiple Files]]></title>
+    <link href="http://sweetme.at/2013/12/23/how-to-make-file-group-panes-with-sublime-text/"/>
+    <updated>2013-12-23T11:47:00-05:00</updated>
+    <id>http://sweetme.at/2013/12/23/how-to-make-file-group-panes-with-sublime-text</id>
+    <content type="html"><![CDATA[<p>Here is the Sublime Text 3 solution to display files in adjacent group panes so that you can you work on multiple files simultaneously with the files in view.</p>
+
+<!--More-->
+
+
+<h2>Sublime Text Group Panes</h2>
+
+<p>Open a file in your editor and then create a second group pane with the menu items <code>View &gt; Groups &gt; New Group</code>.
+This gives you a vertical divider with a new file group pane on the right side.  Click in the right pane and then open another file.  The files are displayed adjacent to each other like this:</p>
+
+<p><img src="http://sweetme.at/images/post_images/sublime_groups_example.jpg" alt="image" /></p>
+
+<h2>Make Additional Groups</h2>
+
+<p>Open another file in either of the groups and (with the file selected) use the menu items <code>View &gt; Groups &gt; Move File to New Group</code>.  This will place a horizontal divider below your right side pane with the new file in the bottom right corner.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Shugr | A HTML Editor that Supports Rapid HTML Development with the Emmet Syntax]]></title>
@@ -2182,137 +2205,6 @@
 
 
 <p>If you use it with your cursor at the end of the command, this shortcut deletes the entire line.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Compress and Obfuscate Your JavaScript with this YUI Compressor Script]]></title>
-    <link href="http://sweetme.at/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script/"/>
-    <updated>2013-09-19T23:04:00-04:00</updated>
-    <id>http://sweetme.at/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script</id>
-    <content type="html"><![CDATA[<p>The YUI Compressor is a tool that was developed by Yahoo for JavaScript obfuscation and compression (and CSS compression).  This shell script makes it simple to minify one or more JS files.</p>
-
-<!--More-->
-
-
-<h2>What it Does</h2>
-
-<p>According to <a href="http://yui.github.io/yuicompressor/">the documentation</a>:</p>
-
-<blockquote><p>It starts by analyzing the source JavaScript file to understand how it is structured. It then prints out the token stream, omitting as many white space characters as possible, and replacing all local symbols by a 1 (or 2, or 3) letter symbol wherever such a substitution is appropriate (in the face of evil features such as eval or with, the YUI Compressor takes a defensive approach by not obfuscating any of the scopes containing the evil statement).</p></blockquote>
-
-<h2>Dependencies</h2>
-
-<p>The YUI Compressor is a Java .jar file and Java version 1.4+ is necessary to run it on your system.</p>
-
-<h2>Download YUI Compressor</h2>
-
-<p>Release 2.4.8 is <a href="https://github.com/yui/yuicompressor/releases">available on the GitHub repository</a>.  Download and decompress the <code>yuicompressor-2.4.8.jar</code> file.</p>
-
-<h2>Set Up Your Shell Script</h2>
-
-<p>You can use the yuijs.sh script below (also available on <a href="https://github.com/chrissimpkins/scriptacular/blob/master/compress/yuijs.sh">my GitHub repository</a>):</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Modify YUI_PATH with the path to the yuicompressor jar file</span>
-</span><span class='line'><span class="nv">YUI_PATH</span><span class="o">=</span><span class="s2">&quot;path/to/yuicompressor-2.4.8.jar&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-eq 0 <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Please include the file path(s) for the file(s) that you would like to compress.&quot;</span> 1&gt;&amp;2
-</span><span class='line'>  <span class="nb">exit </span>1
-</span><span class='line'><span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">for </span>file in <span class="s2">&quot;$@&quot;</span>;
-</span><span class='line'><span class="k">do</span>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;$file&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span>java -jar <span class="s2">&quot;$YUI_PATH&quot;</span> -o <span class="s2">&quot;${file%%.*}-min.js&quot;</span> <span class="s2">&quot;$file&quot;</span>
-</span><span class='line'>      <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was not able to be minified&quot;</span>
-</span><span class='line'>          <span class="nb">exit </span>1
-</span><span class='line'>      <span class="k">else</span>
-</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was minified to ${file%%.*}-min.js&quot;</span>
-</span><span class='line'>      <span class="k">fi</span>
-</span><span class='line'><span class="k">  else</span>
-</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to find the javascript file &#39;$file&#39;.&quot;</span>
-</span><span class='line'><span class="k">fi</span>
-</span><span class='line'><span class="k">done</span>;
-</span><span class='line'><span class="nb">exit </span>0
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Change the <code>YUI_PATH</code> variable to the actual path to your <code>yuicompressor-2.4.8.jar</code> file.  Save the file and use the command <code>chmod 744 yuijs.sh</code> to make it executable.</p>
-
-<h2>Make a Bash Alias</h2>
-
-<p>Create an alias for your shell script so that you don&rsquo;t have to type the full path to the script each time that you use it.  Let&rsquo;s say that you saved the <code>yuijs.sh</code> file on the path <code>~/scripts/yuijs.sh</code>.   Open your bash startup file (either <code>.bash_profile</code> or <code>.bashrc</code>) and enter the following line to create the alias minijs:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">alias </span><span class="nv">minijs</span><span class="o">=</span><span class="s2">&quot;~/scripts/yuijs.sh&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To use this alias in your current shell process, use the source command on the bash startup file.  Assuming that you placed this in the <code>.bash_profile</code> file and your working directory contains that file, your command is:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> .bash_profile
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It is not necessary to run the source command again when you close and then reopen your terminal.</p>
-
-<h2>Compress Your JS Files with YUI Compressor</h2>
-
-<p>You&rsquo;re all set.  Now you can use the alias in any directory.  Navigate to a directory that contains one or more JS files and go to town.  It works with as many files as you&rsquo;d like to throw at it.  The file is compressed and obfuscated, and then saved as the original file name with a <code>-min</code> suffix.  The original file is <em>not modified</em> and remains in the same directory.  Hang on to the original because the obfuscated file is no longer human readable (intentionally so as to minimize file size).</p>
-
-<h4>Single File Example</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>minijs example.js
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-creates the file <code>example-min.js</code>.</p>
-
-<h4>Multiple Files Example</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>minijs example.js example2.js example3.js
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>creates the files <code>example-min.js</code>, <code>example2-min.js</code>, and <code>example3-min.js</code>.</p>
-
-<h4>All .js Files in Working Directory</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>minijs *.js
-</span></code></pre></td></tr></table></div></figure>
-
-
-
 ]]></content>
   </entry>
   
