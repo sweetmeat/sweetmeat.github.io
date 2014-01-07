@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Read RSS Feeds in Your Terminal on Linux and Mac OSX - Sweetmeat</title>
+  <title>How to Maximize PNG Image Compression with advPNG - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to use a one line shell script to read RSS feed titles in your terminal window on Linux and Mac OSX.">
-  <meta name="keywords" content="RSS, terminal, feed, XML, shell, command line, CLI, how to, instructions, read">
+  <meta name="description" content="Learn how to maximize compression of PNG images with the advpng command line tool.">
+  <meta name="keywords" content="image,png,compression,maximize,greatest,most,compressed,compressor,zopfli,zip,7z">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal">
+  <link rel="canonical" href="http://sweetme.at/2014/01/07/how-to-maximize-png-image-compression-with-advpng">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">Read RSS Feeds in Your Terminal on Linux and Mac OSX</h1>
+      <h1 class="entry-title">How to Maximize PNG Image Compression With advPNG</h1>
     
     
       <p class="meta">
@@ -90,37 +90,104 @@
   
 
 
-<time datetime="2013-09-05T15:01:00-04:00" pubdate data-updated="true">Sep 5<span>th</span>, 2013</time>
+<time datetime="2014-01-07T13:37:00-05:00" pubdate data-updated="true">Jan 7<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Here&rsquo;s a one liner that allows you to read RSS feed titles in your terminal window.</p>
+<div class="entry-content"><p>advPNG is a command line tool that is available as part of the <a href="http://advancemame.sourceforge.net/comp-readme.html">AdvanceCOMP package</a>.   In my (admittedly very limited) testing, it had excellent compression ratios for a standard 100x100 pixel, 4x8 bits/pixel, RGB+alpha channel PNG image that was generated in Photoshop CS6 for Mac.  Here are the compression level flags that are available so that you can carry out your own testing on the types of image files that you commonly use.</p>
 
 <!--More-->
 
 
-<h2>cURL + grep + sed = Terminal RSS Feeds</h2>
+<h2>advPNG</h2>
 
-<p>Here is the the generic command:</p>
+<p>To install the application, download the <a href="http://advancemame.sourceforge.net/comp-download.html">binary</a> (for Windows users) or <a href="http://advancemame.sourceforge.net/comp-download.html">source</a> (for Linux / Unix &ndash; including Mac OSX users) for the project.  If you are installing from source, navigate to the decompressed source directory and use the following commands:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>curl "THE_RSS_FEED"  2&gt;/dev/null | grep "&lt;title&gt;" | sed -e "s/.*\&lt;title\&gt;\(.*\)\&lt;\/title\&gt;.*/»\ \1/g" | less</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>./configure
+</span><span class='line'>sudo make <span class="o">&amp;&amp;</span> sudo make install
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Replace <code>THE_RSS_FEED</code> with the URL of the syndicated site feed (surrounded by the double quotes) and confirm that the raw feed XML displays item titles with a plain &lt;title&gt; tag (i.e. without CDATA tags or other XML detritus).</p>
+<p>This will compile the source to an executable which can be run by typing:</p>
 
-<p>If you&rsquo;d like to prepend a different list symbol for the titles, replace the <code>»</code> character with another ascii symbol or symbols.</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>advpng
+</span></code></pre></td></tr></table></div></figure>
 
-<p>I have been playing around with this using the <a href="http://chrissimpkins.github.io/tweetledee/">Tweetledee</a> files to view Twitter search, favorites, list, and user timeline feeds.  The formatting for up to 140 chars could use a bit of work but it is functional.</p>
 
-<h2>Do it Without less</h2>
+<p>on your command line.  For windows users, enter the full path to the .exe file or place the .exe file in a directory on your system PATH so that you can enter the filename and extension without the absolute file path.</p>
 
-<p>The command uses the less shell command to create paginated formatting.  If you prefer not to use this, just remove the last pipe (|) and the less command at the end of the command string.</p>
+<p>My testing was performed with v1.17 of advPNG.</p>
 
-<p><small>Source: I made slight modifications to the shell command posted by <a href="http://www.commandlinefu.com/commands/view/12671/extract-xml-rss-etc-by-tags-such-as-or-or-">c3w on commandlinefu.com</a></small></p>
+<h2>How to Maximize Image Compression</h2>
+
+<p>There are four available flags that modify the level of compression that you achieve on the file.  The tradeoff for the compression level is the time spent on the compression which can be significant for large image files.</p>
+
+<p>The flags (and their associated descriptions in the <code>advpng --help</code>) are:</p>
+
+<table>
+  <tr>
+    <th>Flag</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>-z -1</td>
+    <td>Compress Fast</td>
+  </tr>
+  <tr>
+    <td>-z -2</td>
+    <td>Compress Normal</td>
+  </tr>
+  <tr>
+    <td>-z -3</td>
+    <td>Compress Extra</td>
+  </tr>
+  <tr>
+    <td>-z -4</td>
+    <td>Compress Extreme</td>
+  </tr>
+</table>
+
+
+<h2>Results</h2>
+
+<p>Here are the results for my PNG file that started at 42889 bytes.  This file was saved in the default PNG format and <strong>was not</strong> exported in the Photoshop web format (which notably produces a smaller, already compressed file if you are using Photoshop for your images).</p>
+
+<table>
+  <tr>
+    <th>Compression Flag</th>
+    <th>Bytes</th>
+    <th>% Original</th>
+  </tr>
+  <tr>
+    <td>-z -1</td>
+    <td>2344</td>
+    <td>5.47</td>
+  </tr>
+  <tr>
+    <td>-z -2</td>
+    <td>2339</td>
+    <td>5.45</td>
+  </tr>
+  <tr>
+    <td>-z -3</td>
+    <td>2275</td>
+    <td>5.30</td>
+  </tr>
+  <tr>
+    <td>-z -4</td>
+    <td>2167</td>
+    <td>5.05</td>
+  </tr>
+</table>
+
+
+<p>Not bad, 5% of the original file size and there wasn&rsquo;t a significant decrease across the different compression flags with this file.  Have a go at it for yourself and see how it works for your files with the applications that you use to generate or modify images.  If you have storage space or bandwidth constraints, it may be worth the effort.</p>
 </div>
 
 
@@ -143,7 +210,7 @@
   
 
 
-<time datetime="2013-09-05T15:01:00-04:00" pubdate data-updated="true">Sep 5<span>th</span>, 2013</time>
+<time datetime="2014-01-07T13:37:00-05:00" pubdate data-updated="true">Jan 7<span>th</span>, 2014</time>
       
 
 
@@ -151,7 +218,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal/" data-via="" data-counturl="http://sweetme.at/2013/09/05/read-rss-feeds-in-your-terminal/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2014/01/07/how-to-maximize-png-image-compression-with-advpng/" data-via="" data-counturl="http://sweetme.at/2014/01/07/how-to-maximize-png-image-compression-with-advpng/" >Tweet</a>
   
   
   
@@ -160,10 +227,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/09/04/how-to-mute-the-standard-output-stream-in-a-bash-shell-command/" title="Previous Post: How to Mute the Standard Output Stream in a Bash Shell Command">&laquo; How to Mute the Standard Output Stream in a Bash Shell Command</a>
+        <a class="basic-alignment left" href="/2013/12/23/how-to-make-file-group-panes-with-sublime-text/" title="Previous Post: How to Make Adjacent File Group Panes with Sublime Text 3 to View and Edit Code in Multiple Files">&laquo; How to Make Adjacent File Group Panes with Sublime Text 3 to View and Edit Code in Multiple Files</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/09/swizzle-a-markdown-text-editor-theme/" title="Next Post: Swizzle, a Markdown Text Editor Theme for Mou and LightPaper">Swizzle, a Markdown Text Editor Theme for Mou and LightPaper &raquo;</a>
       
     </p>
   </footer>
