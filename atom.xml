@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-01-22T08:48:11-05:00</updated>
+  <updated>2014-01-22T10:49:59-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -18,7 +18,7 @@
     <link href="http://sweetme.at/2014/01/22/how-to-get-user-input-from-the-command-line-in-a-python-script/"/>
     <updated>2014-01-22T08:26:00-05:00</updated>
     <id>http://sweetme.at/2014/01/22/how-to-get-user-input-from-the-command-line-in-a-python-script</id>
-    <content type="html"><![CDATA[<p>Here is an example script that demonstrates how to obtain data from the user in a Python command line script with the Python 2 or 3 interpreter.</p>
+    <content type="html"><![CDATA[<p>Here is an example Python command line script that demonstrates how to obtain data from the user with the Python 2 or 3 interpreter.</p>
 
 <!--More-->
 
