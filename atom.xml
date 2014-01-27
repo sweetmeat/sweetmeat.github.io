@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-01-22T10:49:59-05:00</updated>
+  <updated>2014-01-26T19:02:56-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,96 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Status | Check HTTP Status Codes for GET and POST Requests]]></title>
+    <link href="http://sweetme.at/2014/01/26/status-check-http-status-codes-for-get-and-post-requests/"/>
+    <updated>2014-01-26T18:14:00-05:00</updated>
+    <id>http://sweetme.at/2014/01/26/status-check-http-status-codes-for-get-and-post-requests</id>
+    <content type="html"><![CDATA[<p>Status is an open source command line application that allows you to check HTTP status codes for GET and POST requests.</p>
+
+<!--More-->
+
+
+<h2>Install</h2>
+
+<p>You can install status with <a href="http://www.pip-installer.org/en/latest/">pip</a> using the following command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pip install status</span></code></pre></td></tr></table></div></figure>
+
+
+<p>or <a href="https://github.com/chrissimpkins/status/archive/master.zip">download the source repository</a>, unpack it, and navigate to the top level directory.  Then enter the following:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>python setup.py install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can confirm the install by checking that the help displays with the following command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>status --help</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>GET Request Status Codes</h2>
+
+<p>GET requests are the default.  To check the response status code for a URL, enter the URL as the argument to status:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>status &lt;url&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You do not need to include the protocol (<a href="http://">http://</a>) unless you are interested in testing a URL with the secure http protocol (<a href="https://">https://</a>) in which case this needs to be part of the URL.</p>
+
+<p>Here are examples of tests on google.com:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ status http://www.google.com
+</span><span class='line'>200 : http://www.google.com/</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ status google.com
+</span><span class='line'>301 : http://google.com/
+</span><span class='line'>200 : http://www.google.com/</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Status follows all 300 status range redirects and displays each of the URL with the status codes across these jumps.</p>
+
+<h2>POST Request Status Codes</h2>
+
+<p>To run a POST request, add the <code>-p</code> or  <code>--post</code> option to your command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>status -p &lt;url&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here is an example:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ status -p httpbin.org/post
+</span><span class='line'>200 : http://httpbin.org/post</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Status Help</h2>
+
+<p>Help is available with the <code>-h</code> or <code>--help</code> options.</p>
+
+<h2>Source Repositories</h2>
+
+<p>The source is available on <a href="https://github.com/chrissimpkins/status">GitHub</a> and <a href="https://pypi.python.org/pypi/status">PyPI</a>.</p>
+
+<h2>Issue Tracking</h2>
+
+<p>If you come across a bug, please report it on the <a href="https://github.com/chrissimpkins/status/issues">GitHub issue tracker</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Get User Input from the Command Line in a Python Script]]></title>
@@ -2034,162 +2124,6 @@ This gives you a vertical divider with a new file group pane on the right side. 
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Automate Your Git Directory Initialization Workflow]]></title>
-    <link href="http://sweetme.at/2013/09/26/automate-your-git-directory-initialization-workflow/"/>
-    <updated>2013-09-26T09:11:00-04:00</updated>
-    <id>http://sweetme.at/2013/09/26/automate-your-git-directory-initialization-workflow</id>
-    <content type="html"><![CDATA[<p>Automate initialization of a directory with git, the initial tracking / staging of existing files, and your first commit with this script.  A README.md and .gitignore file come as a bonus&hellip;</p>
-
-<!--More-->
-
-
-<h2>Git Init + Git Add + Git Commit</h2>
-
-<p>So, you are applying <a href="http://git-scm.com/">Git version control</a> to a new directory of files.  The standard sequence of commands looks like this:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git init
-</span><span class='line'>git add .
-</span><span class='line'>git commit -m "Initial commit"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And then you hammer away at your project with git capturing all of your moves.</p>
-
-<p>This script allows you to consolidate that series of commands into a single statement, and throws in blank README.md and .gitignore files.</p>
-
-<h2>The Script</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
-</span><span class='line'><span class="c"># Scriptacular - gitinit.sh</span>
-</span><span class='line'><span class="c"># Initialize a directory with git, stage and commit existing files</span>
-</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
-</span><span class='line'><span class="c"># MIT License</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">FILE_TYPE</span><span class="o">=</span><span class="s2">&quot;.&quot;</span>
-</span><span class='line'><span class="nv">INITIAL_COMMIT_MESSAGE</span><span class="o">=</span><span class="s2">&quot;Initial commit&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;.git&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;This directory has already been initialized with git.&quot;</span>
-</span><span class='line'>  <span class="nb">exit </span>1
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'><span class="k">  </span>git init
-</span><span class='line'>  <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to initialize your directory&quot;</span>
-</span><span class='line'>      <span class="nb">exit </span>1
-</span><span class='line'>  <span class="k">fi</span>
-</span><span class='line'><span class="k">  </span>git add <span class="s2">&quot;$FILE_TYPE&quot;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to stage files&quot;</span>
-</span><span class='line'>      <span class="nb">exit </span>1
-</span><span class='line'>  <span class="k">fi</span>
-</span><span class='line'><span class="k">  </span>git commit -m <span class="s2">&quot;$INITIAL_COMMIT_MESSAGE&quot;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to create the initial commit&quot;</span>
-</span><span class='line'>      <span class="nb">exit </span>1
-</span><span class='line'>  <span class="k">fi</span>
-</span><span class='line'><span class="k">  </span>touch README.md
-</span><span class='line'>  touch .gitignore
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot; ----- &quot;</span>
-</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;The directory was initialized and an initial commit was performed with the files matching the pattern &#39;$FILE_TYPE&#39;&quot;</span>
-</span><span class='line'><span class="k">fi</span>
-</span><span class='line'><span class="nb">exit </span>0
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The <a href="https://github.com/chrissimpkins/scriptacular/blob/master/version-control/gitinit.sh">script is also available on my GitHub repository</a>.  Either copy and paste the code above or download the raw script file from the repository and then run <code>chmod 744 gitinit.sh</code> on the file to make the script executable.  The following sections assume that you saved it in the path <code>~/scripts/gitinit.sh</code>.</p>
-
-<h2>Create a Bash Alias</h2>
-
-<p>Create an alias for the shell script so that you don&rsquo;t have to type the full path to the script each time that you use it.  Open your bash startup file (either <code>.bash_profile</code> or <code>.bashrc</code>) and enter the following line to create the alias gitinit:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">alias </span><span class="nv">gitinit</span><span class="o">=</span><span class="s2">&quot;~/scripts/gitinit.sh&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To use this alias in your current shell process, use the source command on the bash startup file.  Assuming that you placed this in the <code>.bash_profile</code> file and your working directory contains that file, your command is:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> .bash_profile
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It is not necessary to run the source command again when you close and then reopen your terminal.</p>
-
-<h2>Use It</h2>
-
-<p>Navigate to the directory that you would like to initialize with git and enter your alias:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>gitinit
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Examine the directory and you will find a new .git directory, README.md file, and .gitignore file.  With the unmodified shell script, all files in that were present in the directory (with the exception of the README.md and .gitignore that were just added) are tracked by git and an initial commit is performed with the commit message, &ldquo;Initial commit&rdquo;.</p>
-
-<h2>Modify It</h2>
-
-<h3>Limit Commit by File Type</h3>
-
-<p>You have the option to modify the script so that only a specific filetype is added to the initial commit.  Use the <code>FILE_TYPE</code> variable to indicate the filetype that you intend to commit.  For example, if you want to add all Python files (.py), change the variable to:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">FILE_TYPE</span><span class="o">=</span><span class="s2">&quot;*.py&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>While I haven&rsquo;t tested this, it should work with multiple file types using your shell&rsquo;s brace expansion feature.  So, you could add all C source and C header files with a <code>FILE_TYPE</code> variable like this:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">FILE_TYPE</span><span class="o">=</span><span class="s2">&quot;*.{c,h}&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Change Your Initial Commit Message</h3>
-
-<p>And if you would prefer a different initial commit message, just change the <code>INITIAL_COMMIT_MESSAGE</code> variable at the top of the script to any message that you&rsquo;d like.  Make sure that you maintain the double quotes if there are spaces or special characters in the commit message.</p>
-
-<p>If you&rsquo;d like to add the README.md and/or .gitignore files to your commit, move the <code>touch README.md</code> and <code>touch .gitignore</code> commands in the script above the <code>git add "$FILE_TYPE"</code> line (and don&rsquo;t modify the default <code>FILE_TYPE</code> variable).</p>
 ]]></content>
   </entry>
   

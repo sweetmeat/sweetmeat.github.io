@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Pip Installer | A Simple pip Python Package Manager Installer - Sweetmeat</title>
+  <title>Status | Check HTTP Status Codes for GET and POST Requests - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="A simple technique for new Python setuptools and pip package installs. Installs the latest versions of both packages.">
-  <meta name="keywords" content="python,pip,setuptools,install,script,python3,2.7,3.3">
+  <meta name="description" content="Status is an open source command line application that reports GET and POST status codes for any URL">
+  <meta name="keywords" content="status, GET, POST, status code, open source, application, PyPI, command line, CLI">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/11/22/a-simple-pip-python-package-manager-installer">
+  <link rel="canonical" href="http://sweetme.at/2014/01/26/status-check-http-status-codes-for-get-and-post-requests">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">Pip Installer | a Simple Pip Python Package Manager Installer</h1>
+      <h1 class="entry-title">Status | Check HTTP Status Codes for GET and POST Requests</h1>
     
     
       <p class="meta">
@@ -90,72 +90,95 @@
   
 
 
-<time datetime="2013-11-22T08:33:00-05:00" pubdate data-updated="true">Nov 22<span>nd</span>, 2013</time>
+<time datetime="2014-01-26T18:14:00-05:00" pubdate data-updated="true">Jan 26<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Pip Installer allows you to install the Python <em>setuptools</em> and <em>pip</em> packages on Unix (including Mac OSX) and Linux platforms with a single command.</p>
+<div class="entry-content"><p>Status is an open source command line application that allows you to check HTTP status codes for GET and POST requests.</p>
 
 <!--More-->
 
 
-<h2>Install Setuptools and Pip</h2>
+<h2>Install</h2>
 
-<p>Simply pipe the remote Python install script to a local Python interpreter and Pip Installer will take care of the rest.  Here is how you do it with <a href="http://curl.haxx.se/">cURL</a>:</p>
-
-<h3>Unix + Linux</h3>
+<p>You can install status with <a href="http://www.pip-installer.org/en/latest/">pip</a> using the following command:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>curl "https://raw.github.com/chrissimpkins/pip-installer/master/pipinstall.py" | python</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pip install status</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>What it Does</h2>
+<p>or <a href="https://github.com/chrissimpkins/status/archive/master.zip">download the source repository</a>, unpack it, and navigate to the top level directory.  Then enter the following:</p>
 
-<p>The script executes the install scripts provided by the setuptools and pip projects and then upgrades the setuptools package to the current release.</p>
-
-<p>When you run Pip Installer by piping the remote script to the Python interpreter, it pipes the setuptools install script to the Python interpreter:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;curl &#39;https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py&#39; | python&quot;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>python setup.py install</span></code></pre></td></tr></table></div></figure>
 
 
-<p>then it pipes the pip install script to the Python interpreter:</p>
+<p>You can confirm the install by checking that the help displays with the following command:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;curl &#39;https://raw.github.com/pypa/pip/master/contrib/get-pip.py&#39; | python&quot;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and finally, it upgrades setuptools to the current release version with your new pip install:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;pip install --upgrade setuptools&quot;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>status --help</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Use Pip</h2>
+<h2>GET Request Status Codes</h2>
 
-<p>After running this install script, you can use pip to install a Python package:</p>
+<p>GET requests are the default.  To check the response status code for a URL, enter the URL as the argument to status:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>pip install &lt;package-name&gt;
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>or upgrade a Python package:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>pip install --upgrade &lt;package-name&gt;
-</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>status &lt;url&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-<p>from the <a href="https://pypi.python.org/pypi">Python Package Index (PyPI)</a>.</p>
+<p>You do not need to include the protocol (<a href="http://">http://</a>) unless you are interested in testing a URL with the secure http protocol (<a href="https://">https://</a>) in which case this needs to be part of the URL.</p>
 
-<p><a href="https://github.com/chrissimpkins/pip-installer">Here is a link to the Pip Installer project repository</a> if you would prefer to save the files locally.</p>
+<p>Here are examples of tests on google.com:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ status http://www.google.com
+</span><span class='line'>200 : http://www.google.com/</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ status google.com
+</span><span class='line'>301 : http://google.com/
+</span><span class='line'>200 : http://www.google.com/</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Status follows all 300 status range redirects and displays each of the URL with the status codes across these jumps.</p>
+
+<h2>POST Request Status Codes</h2>
+
+<p>To run a POST request, add the <code>-p</code> or  <code>--post</code> option to your command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>status -p &lt;url&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here is an example:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ status -p httpbin.org/post
+</span><span class='line'>200 : http://httpbin.org/post</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Status Help</h2>
+
+<p>Help is available with the <code>-h</code> or <code>--help</code> options.</p>
+
+<h2>Source Repositories</h2>
+
+<p>The source is available on <a href="https://github.com/chrissimpkins/status">GitHub</a> and <a href="https://pypi.python.org/pypi/status">PyPI</a>.</p>
+
+<h2>Issue Tracking</h2>
+
+<p>If you come across a bug, please report it on the <a href="https://github.com/chrissimpkins/status/issues">GitHub issue tracker</a>.</p>
 </div>
 
 
@@ -178,7 +201,7 @@
   
 
 
-<time datetime="2013-11-22T08:33:00-05:00" pubdate data-updated="true">Nov 22<span>nd</span>, 2013</time>
+<time datetime="2014-01-26T18:14:00-05:00" pubdate data-updated="true">Jan 26<span>th</span>, 2014</time>
       
 
 
@@ -186,7 +209,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/11/22/a-simple-pip-python-package-manager-installer/" data-via="" data-counturl="http://sweetme.at/2013/11/22/a-simple-pip-python-package-manager-installer/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2014/01/26/status-check-http-status-codes-for-get-and-post-requests/" data-via="" data-counturl="http://sweetme.at/2014/01/26/status-check-http-status-codes-for-get-and-post-requests/" >Tweet</a>
   
   
   
@@ -195,10 +218,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/11/17/copy-to-and-paste-from-the-clipboard-on-the-mac-osx-command-line/" title="Previous Post: Copy to and Paste from the Clipboard on the Mac OSX Command Line">&laquo; Copy to and Paste from the Clipboard on the Mac OSX Command Line</a>
+        <a class="basic-alignment left" href="/2014/01/22/how-to-get-user-input-from-the-command-line-in-a-python-script/" title="Previous Post: How to Get User Input from the Command Line in a Python Script">&laquo; How to Get User Input from the Command Line in a Python Script</a>
       
-      
-        <a class="basic-alignment right" href="/2013/12/09/automated-python-source-distribution-and-wheel-build-with-push-to-pypi/" title="Next Post: Automated Python Source Distribution and Wheel Build with Push to PyPI">Automated Python Source Distribution and Wheel Build with Push to PyPI &raquo;</a>
       
     </p>
   </footer>

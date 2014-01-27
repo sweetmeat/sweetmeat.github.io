@@ -261,12 +261,18 @@
         <lastmod>2014-01-22T10:49:38-05:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://sweetme.at/2014/01/26/status-check-http-status-codes-for-get-and-post-requests/
+        </loc>
+        <lastmod>2014-01-26T19:02:28-05:00</lastmod>
+    </url>
+    <url>
         <loc>http://sweetme.at/blog/archives/</loc>
-        <lastmod>2014-01-22T10:49:38-05:00</lastmod>
+        <lastmod>2014-01-26T19:02:28-05:00</lastmod>
     </url>
     <url>
         <loc>http://sweetme.at/</loc>
-        <lastmod>2014-01-22T10:49:38-05:00</lastmod>
+        <lastmod>2014-01-26T19:02:28-05:00</lastmod>
     </url>
     <url>
         <loc>http://sweetme.at/robots.txt</loc>
