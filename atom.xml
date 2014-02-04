@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-02-03T21:04:06-05:00</updated>
+  <updated>2014-02-03T21:22:20-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -152,12 +152,12 @@
 </span><span class='line'>          |
 </span><span class='line'>          |
 </span><span class='line'>          lib----|
-</span><span class='line'>          |      PROJECT---|
-</span><span class='line'>          |                commands---<span class="o">(</span>__init__.py<span class="o">)</span>
-</span><span class='line'>          |                |
-</span><span class='line'>          |                app.py
-</span><span class='line'>          |                |
-</span><span class='line'>          |                settings.py
+</span><span class='line'>          |      PROJECT-------|
+</span><span class='line'>          |      |             commands---<span class="o">(</span>__init__.py<span class="o">)</span>
+</span><span class='line'>          |      |             |
+</span><span class='line'>          |      profiler.py   app.py
+</span><span class='line'>          |                    |
+</span><span class='line'>          |                    settings.py
 </span><span class='line'>          |
 </span><span class='line'>          MANIFEST.in
 </span><span class='line'>          |
