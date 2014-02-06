@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-02-03T21:22:20-05:00</updated>
+  <updated>2014-02-06T17:31:28-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -18,7 +18,7 @@
     <link href="http://sweetme.at/2014/02/03/naked-make-%7C-how-to-generate-a-python-command-line-application-project-with-naked/"/>
     <updated>2014-02-03T19:55:00-05:00</updated>
     <id>http://sweetme.at/2014/02/03/naked-make-|-how-to-generate-a-python-command-line-application-project-with-naked</id>
-    <content type="html"><![CDATA[<p><a href="http://naked-py.com">Naked</a> is a brand new Python application framework (developed by yours truly) that provides a wide range of features for command line application developers.  This tutorial will demonstrate how to go from an empty directory to a complete directory structure with file stubs for development and distribution of a command suite application in under five minutes.</p>
+    <content type="html"><![CDATA[<p><a href="http://naked-py.com">Naked</a> is a brand new Python application framework that provides a wide range of features for command line application developers.  This tutorial will demonstrate how to go from an empty directory to a complete directory structure with file stubs for development and distribution of a command suite application in under five minutes.</p>
 
 <!--More-->
 
