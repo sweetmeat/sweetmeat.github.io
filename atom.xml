@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-02-17T16:49:57-05:00</updated>
+  <updated>2014-02-17T17:22:37-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,217 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Open the Current Working Directory in the Mac OSX Finder from the Command Line]]></title>
+    <link href="http://sweetme.at/2014/02/17/open-the-current-working-directory-in-the-mac-osx-finder-from-the-command-line/"/>
+    <updated>2014-02-17T17:09:00-05:00</updated>
+    <id>http://sweetme.at/2014/02/17/open-the-current-working-directory-in-the-mac-osx-finder-from-the-command-line</id>
+    <content type="html"><![CDATA[<p>Here is a simple command line one-liner that opens the current working directory in your Mac OSX finder.</p>
+
+<!--more-->
+
+
+<h2>Open the Current Working Directory in the OSX Finder</h2>
+
+<p>The <code>open</code> command is your ticket:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>open .</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Enter <code>open</code> with a period symbol (i.e. the current directory) and the finder will open in your current working directory.</p>
+
+<p><code>open</code> is an extremely flexible and useful executable.  Here is the manual page for OSX version 10.9 from the <a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/open.1.html">Mac Developer Library</a>:</p>
+
+<figure class='code'><figcaption><span>The open Manual Page</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">OPEN(1)                   BSD General Commands Manual                  OPEN(1)</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">NAME</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">open -- open files and directories</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">SYNOPSIS</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">open [-e] [-t] [-f] [-F] [-W] [-R] [-n] [-g] [-h] [-b bundle_identifier] [-a application] file ...</span>
+</span><span class='line'>          <span class="l-Scalar-Plain">[--args arg1 ...]</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">DESCRIPTION</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">The open command opens a file (or a directory or URL), just as if you had double-clicked the file&#39;s</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">icon. If no application name is specified, the default application as determined via LaunchServices is</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">used to open the specified files.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">If the file is in the form of a URL, the file will be opened as a URL.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">You can specify one or more file names (or pathnames), which are interpreted relative to the shell or</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">Terminal window&#39;s current working directory. For example, the following command would open all Word</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">files in the current working directory</span><span class="p-Indicator">:</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">open *.doc</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">Opened applications inherit environment variables just as if you had launched the application directly</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">through its full path.  This behavior was also present in Tiger.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">The options are as follows</span><span class="p-Indicator">:</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">-a application</span>
+</span><span class='line'>         <span class="l-Scalar-Plain">Specifies the application to use for opening the file</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">-b bundle_indentifier</span>
+</span><span class='line'>         <span class="l-Scalar-Plain">Specifies the bundle identifier for the application to use when opening the file</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">-e  Causes the file to be opened with /Applications/TextEdit</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">-t  Causes the file to be opened with the default text editor, as determined via LaunchServices</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">-f  Reads input from standard input and opens the results in the default text editor.  End input by</span>
+</span><span class='line'>         <span class="l-Scalar-Plain">sending EOF character (type Control-D).  Also useful for piping output to open and having it open</span>
+</span><span class='line'>         <span class="l-Scalar-Plain">in the default text editor.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">-F  Opens the application &quot;fresh,&quot; that is, without restoring windows. Saved persistent state is lost,</span>
+</span><span class='line'>         <span class="l-Scalar-Plain">except for Untitled documents.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">-W  Causes open to wait until the applications it opens (or that were already open) have exited.  Use</span>
+</span><span class='line'>         <span class="l-Scalar-Plain">with the -n flag to allow open to function as an appropriate app for the $EDITOR environment vari-able. variable.</span>
+</span><span class='line'>         <span class="l-Scalar-Plain">able.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">-R  Reveals the file(s) in the Finder instead of opening them.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">-n  Open a new instance of the application(s) even if one is already running.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">-g  Do not bring the application to the foreground.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">-h  Searches header locations for a header whose name matches the given string and then opens it.  Pass</span>
+</span><span class='line'>         <span class="l-Scalar-Plain">a full header name (such as NSView.h) for increased performance.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">--args</span>
+</span><span class='line'>         <span class="l-Scalar-Plain">All remaining arguments are passed to the opened application in the argv parameter to main().</span>
+</span><span class='line'>         <span class="l-Scalar-Plain">These arguments are not opened or interpreted by the open tool.</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">EXAMPLES</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">&quot;open &#39;/Volumes/Macintosh HD/foo.txt&#39;&quot; opens the document in the default application for its type (as</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">determined by LaunchServices).</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">&quot;open &#39;/Volumes/Macintosh HD/Applications/&#39;&quot; opens that directory in the Finder.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">&quot;open -a /Applications/TextEdit.app &#39;/Volumes/Macintosh HD/foo.txt&#39;&quot; opens the document in the applica-tion application</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">tion specified (in this case, TextEdit).</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">&quot;open -b com.apple.TextEdit &#39;/Volumes/Macintosh HD/foo.txt&#39;&quot; opens the document in the application</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">specified (in this case, TextEdit).</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">&quot;open -e &#39;/Volumes/Macintosh HD/foo.txt&#39;&quot; opens the document in TextEdit.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">&quot;ls | open -f&quot; writes the output of the &#39;ls&#39; command to a file in /tmp and opens the file in the</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">default text editor (as determined by LaunchServices).</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">&quot;open http://www.apple.com/&quot; opens the URL in the default browser.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">&quot;open &#39;file://localhost/Volumes/Macintosh HD/foo.txt&#39;&quot; opens the document in the default application</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">for its type (as determined by LaunchServices).</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">&quot;open &#39;file://localhost/Volumes/Macintosh HD/Applications/&#39;&quot; opens that directory in the Finder.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">&quot;open -h NSView&quot; lists headers whose names contain NSView and allows you to choose which ones to open.</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="l-Scalar-Plain">&quot;open -a Xcode -h NSString.h&quot; quickly opens /System/Library/Frameworks/Foundation.framework/Head-ers/NSString.h /System/Library/Frameworks/Foundation.framework/Headers/NSString.h</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">ers/NSString.h in Xcode.</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">HISTORY</span>
+</span><span class='line'>     <span class="l-Scalar-Plain">First appeared in NextStep.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A Simple Approach to Execute Node.js Scripts with Python]]></title>
@@ -2036,60 +2247,6 @@ This gives you a vertical divider with a new file group pane on the right side. 
 <p>Or if you prefer to set a multi keystroke binding, simply add a <code>+</code> symbol between the key names with no spaces.</p>
 
 <p>Kudos to eznme who provided an <a href="http://stackoverflow.com/questions/9495007/indenting-code-in-sublime-text-2">answer to this question on Stack Overflow</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Test for the Success of a Previous Command in a Bash Shell Script]]></title>
-    <link href="http://sweetme.at/2013/10/02/how-to-test-for-the-success-of-previous-command-in-a-bash-shell-script/"/>
-    <updated>2013-10-02T21:41:00-04:00</updated>
-    <id>http://sweetme.at/2013/10/02/how-to-test-for-the-success-of-previous-command-in-a-bash-shell-script</id>
-    <content type="html"><![CDATA[<p>This bash idiom captures the exit status code from the previous command that was executed.  You can use it to confirm that the last command was successful in your shell script.</p>
-
-<!--More-->
-
-
-<h2>Exit Status Code</h2>
-
-<table>
-<thead>
-<th><span style="font-size:22px;">Description</span></th>
-<th><span style="font-size:22px;"><i class="icon-terminal" align="center"></i> Idiom</span></th>
-</thead>
-<tbody>
-<tr>
-<td>Exit Status Idiom</td><td>$?</td>
-</tr>
-<tbody>
-</table>
-
-
-<h2>Use Example</h2>
-
-<p>Here is an example of how you could use it to confirm that a command was executed successfully:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># run git pull and test for exit code = 1 = failure</span>
-</span><span class='line'>git pull
-</span><span class='line'><span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Failure&quot;</span> &gt;&amp;2
-</span><span class='line'>  <span class="nb">exit </span>1
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Success&quot;</span>
-</span><span class='line'>  <span class="c"># code block that is dependent on success of previous command</span>
-</span><span class='line'><span class="k">fi</span>
-</span><span class='line'><span class="nb">exit </span>0
-</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   
