@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-02-17T13:02:45-05:00</updated>
+  <updated>2014-02-17T16:25:29-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -150,7 +150,7 @@
 
 <p>You have the option to pass additional arguments to the <code>node</code> system command that this function wraps by including them in a second parameter string to the function.  Details are available in <a href="http://docs.naked-py.com/toolshed_shell.html#Naked.toolshed.shell.muterun_js">the Naked documentation</a>.</p>
 
-<h2>Deploy Naked With Your Code</h2>
+<h2>Distribute Naked With Your Code</h2>
 
 <p>To make the Naked Framework available for other users of the Python script that you developed, include the following line in your  <code>setup.py</code> file:</p>
 
