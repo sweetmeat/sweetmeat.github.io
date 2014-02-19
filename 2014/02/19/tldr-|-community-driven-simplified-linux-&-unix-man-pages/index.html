@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Python Testing Assertion Methods - Sweetmeat</title>
+  <title>TLDR | Community-Driven Concise Linux & Unix Man Pages - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="The complete list of Python testing assertion methods in unittest">
-  <meta name="keywords" content="python,unittest,testing,assertion,method,help,tip">
+  <meta name="description" content="tldr is a simplified approach to linux and unix man pages">
+  <meta name="keywords" content="unix, linux, man page, man pages, manual, documentation, mac osx">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/11/04/python-testing-assertion-methods">
+  <link rel="canonical" href="http://sweetme.at/2014/02/19/tldr-%7C-community-driven-simplified-linux-%26-unix-man-pages">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">Python Testing Assertion Methods</h1>
+      <h1 class="entry-title">TLDR | Community-Driven Concise Linux & Unix Man Pages</h1>
     
     
       <p class="meta">
@@ -90,72 +90,94 @@
   
 
 
-<time datetime="2013-11-04T12:41:00-05:00" pubdate data-updated="true">Nov 4<span>th</span>, 2013</time>
+<time datetime="2014-02-19T13:03:00-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Here&rsquo;s a complete list of the Python assertion methods that are available in the Python unittest module for versions 2 &amp; 3 of the Python interpreter.</p>
+<div class="entry-content"><p><a href="https://github.com/rprieto/tldr">tldr is a community driven, open source project</a> that aims to deliver a concise version of man pages for commonly used Unix and Linux commands.</p>
 
-<!--More-->
-
-
-<h2>Python Assertions</h2>
-
-<table>
-    <tr>
-        <th>Method</th>
-        <th>Assertion</th>
-        <th>Min Version</th>
-    </tr>
-    <tr>
-        <td>assertEqual(a,b)</td>
-        <td>a == b</td>
-        <td>2 &amp; 3</td>
-    </tr>
-    <tr>
-        <td>assertNotEqual(a,b)</td>
-        <td>a != b</td>
-        <td>2 &amp; 3</td>
-    </tr>
-    <tr>
-    <td>assertIsNone(x)</td>
-    <td>x is None</td>
-    <td>3.1 +</td>
-</tr>
-<tr>
-    <td>assertIsNotNone(x)</td>
-    <td>x is not None</td>
-    <td>3.1 +</td>
-</tr>
-<tr>
-    <td>assertIn(a,b)</td>
-    <td>a in b</td>
-    <td>3.1 +</td>
-</tr>
-<tr>
-    <td>assertNotIn(a,b)</td>
-    <td>a not in b</td>
-    <td>3.1 +</td>
-</tr>
-<tr>
-    <td>assertIsInstance(a,b)</td>
-    <td>isinstance(a,b)</td>
-    <td>3.2 +</td>
-</tr>
-<tr>
-    <td>assertNotIsInstance(a,b)</td>
-    <td>not isinstance(a,b)</td>
-    <td>3.2 +</td>
-</tr>
-</table>
+<!--more-->
 
 
-<h2>Python Documentation</h2>
+<h2>How it Works</h2>
 
-<p>And <a href="http://docs.python.org/dev/library/unittest.html#assert-methods">here is the link</a> to the Python documentation on the topic.</p>
+<p>You view the documentation with the following command syntax:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>tldr &lt;<span class="nb">command</span>&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here is an example of the <code>tldr</code> documentation for the <code>tar</code> executable:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>tldr tar
+</span><span class='line'>
+</span><span class='line'> Archiving utility
+</span><span class='line'> Optional compression with gzip / bzip
+</span><span class='line'>
+</span><span class='line'> - create an archive from files
+</span><span class='line'>
+</span><span class='line'>   tar cf target.tar file1 file2 file3
+</span><span class='line'>
+</span><span class='line'> - create a gzipped archive
+</span><span class='line'>
+</span><span class='line'>   tar cfz target.tar.gz file1 file2 file3
+</span><span class='line'>
+</span><span class='line'> - extract an archive in a target folder
+</span><span class='line'>
+</span><span class='line'>   tar xf source.tar -C folder
+</span><span class='line'>
+</span><span class='line'> - extract a gzipped archive in the current directory
+</span><span class='line'>
+</span><span class='line'>   tar xzf source.tar.gz
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Install</h2>
+
+<p><code>tldr</code> requires a local install of <a href="http://nodejs.org/">Node.js</a>.</p>
+
+<p><code>tldr</code> is installed with <a href="https://www.npmjs.org/">npm</a>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install -g tldr
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command may need to be run with superuser privileges on your box.</p>
+
+<h2>Contribute</h2>
+
+<p>The project already includes many Unix (including Mac OSX specific) and Linux commands.  If you&rsquo;d like to extend the current documentation or add additional pages, you can do so by forking the GitHub repository, creating the documentation in <a href="http://guides.github.com/overviews/mastering-markdown/">Markdown</a>, and submitting a pull request back to the main repository.</p>
+
+<p>Here is <a href="http://guides.github.com/overviews/forking/">the GitHub Guide documentation on forks and pull requests</a> for those who are unfamiliar (<em>it&rsquo;s simple</em>).</p>
+
+<h2>Source</h2>
+
+<p><code>tldr</code> was spotted on <a href="http://thechangelog.com/">The Changelog</a>.</p>
 </div>
 
 
@@ -178,7 +200,7 @@
   
 
 
-<time datetime="2013-11-04T12:41:00-05:00" pubdate data-updated="true">Nov 4<span>th</span>, 2013</time>
+<time datetime="2014-02-19T13:03:00-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
       
 
 
@@ -186,7 +208,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/11/04/python-testing-assertion-methods/" data-via="" data-counturl="http://sweetme.at/2013/11/04/python-testing-assertion-methods/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2014/02/19/tldr-%7C-community-driven-simplified-linux-%26-unix-man-pages/" data-via="" data-counturl="http://sweetme.at/2014/02/19/tldr-%7C-community-driven-simplified-linux-%26-unix-man-pages/" >Tweet</a>
   
   
   
@@ -195,10 +217,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/11/01/how-to-use-grep-to-find-files-with-a-matching-string/" title="Previous Post: How to Use grep to Find File Names with a Matching String">&laquo; How to Use grep to Find File Names with a Matching String</a>
+        <a class="basic-alignment left" href="/2014/02/17/open-the-current-working-directory-in-the-mac-osx-finder-from-the-command-line/" title="Previous Post: Open the Current Working Directory in the Mac OSX Finder from the Command Line">&laquo; Open the Current Working Directory in the Mac OSX Finder from the Command Line</a>
       
-      
-        <a class="basic-alignment right" href="/2013/11/10/automated-ruby-gem-build-and-deployment-to-rubygems.org/" title="Next Post: Automated Ruby Gem Build and Deployment to Rubygems.org">Automated Ruby Gem Build and Deployment to Rubygems.org &raquo;</a>
       
     </p>
   </footer>

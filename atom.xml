@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-02-17T17:22:37-05:00</updated>
+  <updated>2014-02-19T13:39:00-05:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,95 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[TLDR | Community-Driven Concise Linux & Unix Man Pages]]></title>
+    <link href="http://sweetme.at/2014/02/19/tldr-%7C-community-driven-simplified-linux-%26-unix-man-pages/"/>
+    <updated>2014-02-19T13:03:00-05:00</updated>
+    <id>http://sweetme.at/2014/02/19/tldr-|-community-driven-simplified-linux-&-unix-man-pages</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/rprieto/tldr">tldr is a community driven, open source project</a> that aims to deliver a concise version of man pages for commonly used Unix and Linux commands.</p>
+
+<!--more-->
+
+
+<h2>How it Works</h2>
+
+<p>You view the documentation with the following command syntax:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>tldr &lt;<span class="nb">command</span>&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here is an example of the <code>tldr</code> documentation for the <code>tar</code> executable:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>tldr tar
+</span><span class='line'>
+</span><span class='line'> Archiving utility
+</span><span class='line'> Optional compression with gzip / bzip
+</span><span class='line'>
+</span><span class='line'> - create an archive from files
+</span><span class='line'>
+</span><span class='line'>   tar cf target.tar file1 file2 file3
+</span><span class='line'>
+</span><span class='line'> - create a gzipped archive
+</span><span class='line'>
+</span><span class='line'>   tar cfz target.tar.gz file1 file2 file3
+</span><span class='line'>
+</span><span class='line'> - extract an archive in a target folder
+</span><span class='line'>
+</span><span class='line'>   tar xf source.tar -C folder
+</span><span class='line'>
+</span><span class='line'> - extract a gzipped archive in the current directory
+</span><span class='line'>
+</span><span class='line'>   tar xzf source.tar.gz
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Install</h2>
+
+<p><code>tldr</code> requires a local install of <a href="http://nodejs.org/">Node.js</a>.</p>
+
+<p><code>tldr</code> is installed with <a href="https://www.npmjs.org/">npm</a>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install -g tldr
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command may need to be run with superuser privileges on your box.</p>
+
+<h2>Contribute</h2>
+
+<p>The project already includes many Unix (including Mac OSX specific) and Linux commands.  If you&rsquo;d like to extend the current documentation or add additional pages, you can do so by forking the GitHub repository, creating the documentation in <a href="http://guides.github.com/overviews/mastering-markdown/">Markdown</a>, and submitting a pull request back to the main repository.</p>
+
+<p>Here is <a href="http://guides.github.com/overviews/forking/">the GitHub Guide documentation on forks and pull requests</a> for those who are unfamiliar (<em>it&rsquo;s simple</em>).</p>
+
+<h2>Source</h2>
+
+<p><code>tldr</code> was spotted on <a href="http://thechangelog.com/">The Changelog</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Open the Current Working Directory in the Mac OSX Finder from the Command Line]]></title>
@@ -2190,63 +2279,6 @@ This gives you a vertical divider with a new file group pane on the right side. 
 <h2>What it Doesn&rsquo;t Do</h2>
 
 <p>I developed this to keep a static set of files in a local repository synchronized with a remote repository that receives updates.  If the local repository is being used for development and there is overlap between changes in the remote and local repositories, git will cancel the merge and notify the user that they have changes that need to be committed (or stashed) before the merge will take place.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Automatically Reindent Code with Sublime Text]]></title>
-    <link href="http://sweetme.at/2013/10/04/how-to-automatically-reindent-code-with-sublime-text/"/>
-    <updated>2013-10-04T12:46:00-04:00</updated>
-    <id>http://sweetme.at/2013/10/04/how-to-automatically-reindent-code-with-sublime-text</id>
-    <content type="html"><![CDATA[<p>This doesn&rsquo;t come with it&rsquo;s own keyboard shortcut, but this helpful feature is available in Sublime Text and you can create your own key binding for it.  Here&rsquo;s how you do it.</p>
-
-<!--More-->
-
-
-<h2>Automatically Reindent Code</h2>
-
-<p>You can find the reindent menu item in <code>Edit &gt; Line &gt; Reindent</code>.  Select the text that you would like to reindent before using the menu item.</p>
-
-<h2>Create a Sublime Text Keybinding for Reindent</h2>
-
-<p>For Mac OSX, Linux, and Windows users, the keybindings settings file can be found in the menus <code>Preferences &gt; Keybindings - User</code>.  If you haven&rsquo;t set new keybindings previously the default keymap file JSON looks like this:</p>
-
-<figure class='code'><figcaption><span>Default Keymap JSON File</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
-</span><span class='line'>  
-</span><span class='line'><span class="p">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Add a JSON object that includes your key(s) and the Sublime Text command.  The available key names are listed in the <a href="http://www.sublimetext.com/docs/key-bindings">Sublime Text documentation</a> (see the Key Names section).</p>
-
-<p>The general pattern for your settings object looks like this:</p>
-
-<figure class='code'><figcaption><span>Keybinding Object Pattern for Sublime Text</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
-</span><span class='line'>  <span class="p">{</span> <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;KEY(S)&quot;</span><span class="p">],</span> <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;COMMAND&quot;</span><span class="p">}</span>
-</span><span class='line'><span class="p">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>For the reindent command, you could set it to the F10 key like so:</p>
-
-<figure class='code'><figcaption><span>Example Reindent Keybinding with F10 Key</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">[</span>
-</span><span class='line'>  <span class="p">{</span> <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;f10&quot;</span><span class="p">],</span> <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;reindent&quot;</span><span class="p">}</span>
-</span><span class='line'><span class="p">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Or if you prefer to set a multi keystroke binding, simply add a <code>+</code> symbol between the key names with no spaces.</p>
-
-<p>Kudos to eznme who provided an <a href="http://stackoverflow.com/questions/9495007/indenting-code-in-sublime-text-2">answer to this question on Stack Overflow</a>.</p>
 ]]></content>
   </entry>
   
