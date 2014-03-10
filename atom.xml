@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-02-19T13:39:00-05:00</updated>
+  <updated>2014-03-10T15:55:43-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,862 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Atom Editor Keyboard Shortcut Cheat Sheet]]></title>
+    <link href="http://sweetme.at/2014/03/10/atom-editor-cheat-sheet/"/>
+    <updated>2014-03-10T11:38:00-04:00</updated>
+    <id>http://sweetme.at/2014/03/10/atom-editor-cheat-sheet</id>
+    <content type="html"><![CDATA[<p>Use these rapid keyboard shortcuts to control the <a href="http://atom.io">GitHub Atom text editor</a> on Mac OSX.</p>
+
+<!--More-->
+
+
+<h1>Key to the Keys</h1>
+
+<ul>
+<li>⌘ : Command key</li>
+<li>⌃ : Control key</li>
+<li>⌫ : Delete key</li>
+<li>← : Left arrow key</li>
+<li>→ : Right arrow key</li>
+<li>↑ : Up arrow key</li>
+<li>↓ : Down arrow key</li>
+<li>⌥ : Option or Alt key</li>
+<li>↩ : Return or Enter key</li>
+<li>⇧ : Shift key</li>
+</ul>
+
+
+<h1>Contents</h1>
+
+<ul>
+<li><a href="#atom_cmd_palette">The Command Palette</a></li>
+<li><a href="#atom_config">Configuration</a></li>
+<li><a href="#atom_app_tasks">Application Tasks</a></li>
+<li><a href="#atom_autocomplete">Autocomplete</a></li>
+<li><a href="#atom_bookmarks">Bookmarks</a></li>
+<li><a href="#atom_brackets">Brackets</a></li>
+<li><a href="#atom_code_fold">Code Folding</a></li>
+<li><a href="#atom_code_nav">Code Navigation &amp; Management</a></li>
+<li><a href="#atom_char_transform">Character Transformations</a></li>
+<li><a href="#atom_comments">Comments</a></li>
+<li><a href="#atom_editor_view">Editor View Tasks</a></li>
+<li><a href="#atom_file">File Tasks</a></li>
+<li><a href="#atom_find_replace">Find &amp; Replace</a></li>
+<li><a href="#atom_font">Font Tasks</a></li>
+<li><a href="#atom_grammar">Grammar</a></li>
+<li><a href="#atom_search">Search Tasks</a></li>
+</ul>
+
+
+<h2 id="atom_cmd_palette"> The Command Palette</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Open Command Palette</strong> </td>
+<td> ⌘-⇧-p </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_config">Configuration</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Open Configuration Editor</strong> </td>
+<td> ⌘-, </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_app_tasks">Application Tasks</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Hide Application</strong> </td>
+<td> ⌘-h </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Hide Other Applications</strong> </td>
+<td> ⌥-⌘-h </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Minimize Application</strong> </td>
+<td> ⌘-m </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>New File</strong> </td>
+<td> ⌘-n </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>New Window</strong> </td>
+<td> ⌘-⇧-n </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Open Application</strong> </td>
+<td> ⌘-o </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Open Dev</strong> </td>
+<td> ⇧-⌘-o </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Quit</strong> </td>
+<td> ⌘-q </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_autocomplete">Autocomplete</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Toggle Autocomplete</strong> </td>
+<td> ⌃-<code>space</code> </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_bookmarks">Bookmarks</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Toggle Bookmark</strong> </td>
+<td> ⌘-<code>F2</code> </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>View All Bookmarks</strong> </td>
+<td> ⌃-<code>F2</code> </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Jump to Next Bookmark</strong> </td>
+<td> <code>F2</code> </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Jump to Previous Bookmark</strong> </td>
+<td> ⇧-<code>F2</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Clear All Bookmarks</strong> </td>
+<td> ⌘-⇧-<code>F2</code> </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_brackets">Brackets</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Find Matching Bracket</strong> </td>
+<td> ⌃-m </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_code_fold">Code Folding</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Fold Code</strong> </td>
+<td> ⌥-⌘-[ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Unfold Code</strong> </td>
+<td> ⌥-⌘-] </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Fold at Indentation Level (N)</strong> </td>
+<td> ⌘-k cmd-<code>N</code> </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Fold Selected Text</strong> </td>
+<td> ⌥-⌘-⌃-f </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Unfold All Code</strong> </td>
+<td> ⌥-⌘-} </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_code_nav">Code Navigation &amp; Management</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Cut to End of Line</strong> </td>
+<td> ⌃-k </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Delete to Beginning of Word</strong> </td>
+<td> ⌥-⌫ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Delete to End of Word</strong> </td>
+<td> ⌥-d </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Delete Line</strong> </td>
+<td> ⌃-⇧-k </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Duplicate Line</strong> </td>
+<td> ⌘-⇧-d </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Go to Line</strong> </td>
+<td> ⌃-g </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Go to Matching Bracket</strong> </td>
+<td> ⌃-m </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Indent Selected Text</strong> </td>
+<td> ⌘-] </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Outdent Selected Text</strong> </td>
+<td> ⌘-[ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Join Lines</strong> </td>
+<td> ⌘-j </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Move to Beginning of Word</strong> </td>
+<td> ⌥-b </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Move to End of Word</strong> </td>
+<td> ⌥-f </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Move to Beginning of Line</strong> </td>
+<td> ⌃-a </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Move to End of Line</strong> </td>
+<td> ⌃-e </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Move Line Up</strong> </td>
+<td> ⌘-⌃-↑ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Move Line Down</strong> </td>
+<td> ⌘-⌃-↓ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Move to Top of File</strong> </td>
+<td> ⌘-↑ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Move to Bottom of File</strong> </td>
+<td> ⌘-↓ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Move to First Character of Line</strong> </td>
+<td>  ⌘-← </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Move to Last Character of Line</strong> </td>
+<td> ⌘-→</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select Left Character</strong> </td>
+<td> ⌘-⌃-b </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select Right Character</strong> </td>
+<td> ⌘-⌃-f </td>
+<td> </td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select to Beginning of Word</strong> </td>
+<td> ⌥-⇧-b </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select to End of Word</strong> </td>
+<td> ⌥-⇧-f </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select Entire Word</strong> </td>
+<td> ⌃-⇧-w </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select to First Character of Line</strong> </td>
+<td> ⌥-⇧-a </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select to Last Character of Line</strong> </td>
+<td> ⌥-⇧-e </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select to Same Position, Next Line</strong> </td>
+<td> ⌥-⇧-n </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select to Same Position, Previous Line</strong> </td>
+<td> ⌥-⇧-p </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select to Top of File</strong> </td>
+<td> ⌘-⇧-↑ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select to Bottom of File</strong> </td>
+<td> ⌘-⇧-↓ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select All</strong> </td>
+<td> ⌘-a </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select Next</strong> </td>
+<td> ⌘-d </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select Line</strong> </td>
+<td> ⌘-L </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Toggle Line Comments</strong> </td>
+<td> ⌘-/ </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_char_transform">Character Transformations</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Convert Tabs to Spaces</strong> </td>
+<td> ⌥-⌘-[ </td>
+<td> </td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Convert Spaces to Tabs</strong> </td>
+<td> ⌥-⌘-] </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Convert to Upper Case</strong> </td>
+<td> ⌘-k-u </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Convert to Lower Case</strong> </td>
+<td> ⌘-k-L </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_comments">Comments</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Toggle Comment</strong> </td>
+<td> ⌘-/ </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_editor_view">Editor View Tasks</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Split Panes Vertically</strong> </td>
+<td> ⌘-k-↓ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Split Panes Horizontally</strong> </td>
+<td> ⌘-k-→ </td>
+<td> </td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Vertical Navigation Panes</strong> </td>
+<td> ⌘-k ⌘-↓ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Horizontal Navigation Panes</strong> </td>
+<td> ⌘-k ⌘-→ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Toggle Full Screen</strong> </td>
+<td> ⌃-⌘-f </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Toggle Tree View</strong> </td>
+<td> ⌘-\ </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_file">File Tasks</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Fuzzy Find Files</strong> </td>
+<td> ⌘-t </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Find Open File</strong> </td>
+<td> ⌘-b </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Find Modified, Untracked (git) File</strong> </td>
+<td> ⌘-⇧-b </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Open Tree View</strong> </td>
+<td> ⌃-0 </td>
+<td> </td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Toggle Tree View</strong> </td>
+<td> ⌘-\ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Add a File</strong> </td>
+<td> a </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Move a File</strong> </td>
+<td> m </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Delete a File</strong> </td>
+<td> ⌫ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Reopen Last File</strong> </td>
+<td> ⌘-⇧-t </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_find_replace">Find &amp; Replace</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Find String in Current File</strong> </td>
+<td> ⌘-f </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Find String in All Project Files</strong> </td>
+<td> ⇧-⌘-f </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Find Next Matching String</strong> </td>
+<td> ⌘-g </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Find Previous Matching String</strong> </td>
+<td> ⇧-⌘-g </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select Next Matching String</strong> </td>
+<td> ⌘-d </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Select All Matching Strings</strong> </td>
+<td> ⌃-⌘-g </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Replace String in Current File</strong> </td>
+<td> ⌥-⌘-f </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_font">Font Tasks</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Increase Font Size</strong> </td>
+<td> cmd-+ </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Decrease Font Size</strong> </td>
+<td> cmd&mdash; </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_grammar">Grammar</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Select Grammar</strong> </td>
+<td> ⌃-⇧-L </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="atom_search">Search Tasks</h2>
+
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <span style="font-size:22px;">Task</span> </th>
+<th> <span style="font-size:22px;"><i class="icon-apple" align="center"></i> Keystrokes</span> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <strong>Search for Symbol</strong> </td>
+<td> ⌘-r </td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td> <strong>Search for Symbol Across Project</strong> </td>
+<td> ⌘-⇧-r </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[TLDR | Community-Driven Concise Linux & Unix Man Pages]]></title>
@@ -2129,156 +2985,6 @@ This gives you a vertical divider with a new file group pane on the right side. 
 <p>4xx: you f$*%ed up</p>
 
 <p>5xx: I f$*%ed up</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Keep a Local Git Repository Synchronized with a Remote Git Repository]]></title>
-    <link href="http://sweetme.at/2013/10/08/keep-a-local-git-repository-synchronized-with-a-remote-git-repository/"/>
-    <updated>2013-10-08T15:14:00-04:00</updated>
-    <id>http://sweetme.at/2013/10/08/keep-a-local-git-repository-synchronized-with-a-remote-git-repository</id>
-    <content type="html"><![CDATA[<p>Here&rsquo;s a shell script that will compare the SHA-1 commit ID&rsquo;s between a local and remote Git repository, and then pull + fast forward merge any remote changes.</p>
-
-<!--More-->
-
-
-<h2>The Shell Script</h2>
-
-<p>This bash shell script is also available on <a href="https://raw.github.com/chrissimpkins/scriptacular/master/version-control/gitupdate.sh">my GitHub repository</a>:</p>
-
-<figure class='code'><figcaption><span>gitupdate.sh</span><a href='https://raw.github.com/chrissimpkins/scriptacular/master/version-control/gitupdate.sh'>Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
-</span><span class='line'><span class="c"># Scriptacular - gitupdate.sh</span>
-</span><span class='line'><span class="c"># Compare SHA-1 between local and remote repositories, git pull + FF merge in local if they differ</span>
-</span><span class='line'><span class="c"># Copyright 2013 Christopher Simpkins</span>
-</span><span class='line'><span class="c"># MIT License</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Default to working directory</span>
-</span><span class='line'><span class="nv">LOCAL_REPO</span><span class="o">=</span><span class="s2">&quot;.&quot;</span>
-</span><span class='line'><span class="c"># Default to git pull with FF merge in quiet mode</span>
-</span><span class='line'><span class="nv">GIT_COMMAND</span><span class="o">=</span><span class="s2">&quot;git pull --quiet&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># User messages</span>
-</span><span class='line'><span class="nv">GU_ERROR_FETCH_FAIL</span><span class="o">=</span><span class="s2">&quot;Unable to fetch the remote repository.&quot;</span>
-</span><span class='line'><span class="nv">GU_ERROR_UPDATE_FAIL</span><span class="o">=</span><span class="s2">&quot;Unable to update the local repository.&quot;</span>
-</span><span class='line'><span class="nv">GU_ERROR_NO_GIT</span><span class="o">=</span><span class="s2">&quot;This directory has not been initialized with Git.&quot;</span>
-</span><span class='line'><span class="nv">GU_INFO_REPOS_EQUAL</span><span class="o">=</span><span class="s2">&quot;The local repository is current. No update is needed.&quot;</span>
-</span><span class='line'><span class="nv">GU_SUCCESS_REPORT</span><span class="o">=</span><span class="s2">&quot;Update complete.&quot;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-eq 1 <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">  </span><span class="nv">LOCAL_REPO</span><span class="o">=</span><span class="s2">&quot;$1&quot;</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="s2">&quot;$LOCAL_REPO&quot;</span>
-</span><span class='line'><span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;.git&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'>  <span class="c"># update remote tracking branch</span>
-</span><span class='line'>  git remote update &gt;&amp;-
-</span><span class='line'>  <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="nv">$GU_ERROR_FETCH_FAIL</span> &gt;&amp;2
-</span><span class='line'>      <span class="nb">exit </span>1
-</span><span class='line'>  <span class="k">else</span>
-</span><span class='line'><span class="k">      </span><span class="nv">LOCAL_SHA</span><span class="o">=</span><span class="k">$(</span>git rev-parse --verify HEAD<span class="k">)</span>
-</span><span class='line'>      <span class="nv">REMOTE_SHA</span><span class="o">=</span><span class="k">$(</span>git rev-parse --verify FETCH_HEAD<span class="k">)</span>
-</span><span class='line'>      <span class="k">if</span> <span class="o">[</span> <span class="nv">$LOCAL_SHA</span> <span class="o">=</span> <span class="nv">$REMOTE_SHA</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="nv">$GU_INFO_REPOS_EQUAL</span>
-</span><span class='line'>          <span class="nb">exit </span>0
-</span><span class='line'>      <span class="k">else</span>
-</span><span class='line'>          <span class="nv">$GIT_COMMAND</span>
-</span><span class='line'>          <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">              </span><span class="nb">echo</span> <span class="nv">$GU_ERROR_UPDATE_FAIL</span> &gt;&amp;2
-</span><span class='line'>              <span class="nb">exit </span>1
-</span><span class='line'>          <span class="k">else</span>
-</span><span class='line'><span class="k">              </span><span class="nb">echo</span> <span class="nv">$GU_SUCCESS_REPORT</span>
-</span><span class='line'>          <span class="k">fi</span>
-</span><span class='line'><span class="k">      fi</span>
-</span><span class='line'><span class="k">  fi</span>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="nv">$GU_ERROR_NO_GIT</span> &gt;&amp;2
-</span><span class='line'>  <span class="nb">exit </span>1
-</span><span class='line'><span class="k">fi</span>
-</span><span class='line'><span class="nb">exit </span>0
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>What it Does</h2>
-
-<p>The script confirms that the working directory (with the option to specify a different directory as an argument to the script) is initialized with git and then compares the SHA-1 ID&rsquo;s between the local HEAD commit and the remote HEAD commit.  If they have different commit ID&rsquo;s, it performs a <code>git pull</code> based fast forward merge in the local repository.  If the SHA-1 ID&rsquo;s do not differ, the script aborts the pull, informs the user, and exits.</p>
-
-<p>The magic is in the shell command substitution lines that retrieve the SHA-1 from the local HEAD commit and the remote HEAD commit:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">LOCAL_SHA</span><span class="o">=</span><span class="k">$(</span>git rev-parse --verify HEAD<span class="k">)</span>
-</span><span class='line'><span class="nv">REMOTE_SHA</span><span class="o">=</span><span class="k">$(</span>git rev-parse --verify FETCH_HEAD<span class="k">)</span>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$LOCAL_SHA</span> <span class="o">=</span> <span class="nv">$REMOTE_SHA</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="nv">$GU_INFO_REPOS_EQUAL</span>
-</span><span class='line'>  <span class="nb">exit </span>0
-</span><span class='line'><span class="k">else</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The <code>git rev-parse</code> command is how you get this information and the bash idiom <code>$(COMMAND)</code> assigns the result of the command to local script variables.</p>
-
-<p>You could hook this up to a cron task and keep your directory current on whatever schedule is appropriate based upon the frequency of changes in the remote repository.  I am including it in a project to keep a user&rsquo;s local set of scripts current with updates that I make to a remote script repository after a user initiated request for an update.</p>
-
-<h2>What it Doesn&rsquo;t Do</h2>
-
-<p>I developed this to keep a static set of files in a local repository synchronized with a remote repository that receives updates.  If the local repository is being used for development and there is overlap between changes in the remote and local repositories, git will cancel the merge and notify the user that they have changes that need to be committed (or stashed) before the merge will take place.</p>
 ]]></content>
   </entry>
   
