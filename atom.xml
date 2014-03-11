@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-03-10T15:55:43-04:00</updated>
+  <updated>2014-03-11T00:32:14-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,52 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Open a File or Directory in the Atom Editor from the Command Line]]></title>
+    <link href="http://sweetme.at/2014/03/11/how-to-open-a-file-or-directory-in-the-atom-editor-from-the-command-line/"/>
+    <updated>2014-03-11T00:14:00-04:00</updated>
+    <id>http://sweetme.at/2014/03/11/how-to-open-a-file-or-directory-in-the-atom-editor-from-the-command-line</id>
+    <content type="html"><![CDATA[<p>You can use the <code>atom</code> executable to open a file or source directory in the <a href="http://atom.io/">GitHub Atom text editor</a>.</p>
+
+<!--More-->
+
+
+<h2>Confirm Command Line Tools Install</h2>
+
+<p>Atom installs the <code>atom</code> and <code>apm</code> executables as part of the MacOSX install.  We will be using the <code>atom</code> executable to open files and directories in Atom.  To confirm that <code>atom</code> is installed, call the help documentation with:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>atom --help</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you don&rsquo;t see a help message, use the Atom menu item and select Atom > Install Shell Commands.  You will receive a confirmation message if this was successful.</p>
+
+<h2>Open a File in Atom</h2>
+
+<p>To open a file in Atom, enter the path to the file as the argument to the <code>atom</code> executable:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>atom &lt;filepath&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For a file named &lsquo;test.c&rsquo; in the working directory, use the following command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>atom test.c</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Open the Current Working Directory in Atom</h2>
+
+<p>To open your working directory in Atom, use the following command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>atom .</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Atom Editor Keyboard Shortcut Cheat Sheet]]></title>
@@ -2946,45 +2992,6 @@ This gives you a vertical divider with a new file group pane on the right side. 
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Check HTTP Status Codes with cURL]]></title>
-    <link href="http://sweetme.at/2013/10/11/how-to-check-http-status-codes-with-curl/"/>
-    <updated>2013-10-11T16:48:00-04:00</updated>
-    <id>http://sweetme.at/2013/10/11/how-to-check-http-status-codes-with-curl</id>
-    <content type="html"><![CDATA[<p>Here is a shell one-liner that will pull the headers from a web server and display the HTTP/1.1 response status code(s).</p>
-
-<!--More-->
-
-
-<h2>cURL + grep</h2>
-
-<p>Use the following cURL command and pipe it to grep like so:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -I -s -L &lt;http://yoururl.com&gt; | grep <span class="s2">&quot;HTTP/1.1&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Run it from your command line with the appropriate URL.  This runs curl in silent mode, follows any redirects, pulls the HTTP headers, and then pipes them to grep.  grep will print the HTTP status code to standard output.</p>
-
-<h2>HTTP Status Codes</h2>
-
-<p>Here is a link to a <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">detailed reference of HTTP status codes</a>.  They boil down to this concise summary by <a href="https://twitter.com/stevelosh/status/372740571749572610">@stevelosh</a>:</p>
-
-<h4>HTTP Status Code Summary (via @stevelosh)</h4>
-
-<blockquote><p>1xx: hold on</p>
-
-<p>2xx: here you go</p>
-
-<p>3xx: go away</p>
-
-<p>4xx: you f$*%ed up</p>
-
-<p>5xx: I f$*%ed up</p></blockquote>
 ]]></content>
   </entry>
   

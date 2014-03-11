@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How to Pipe Twitter Data to other Applications with Tweetledee - Sweetmeat</title>
+  <title>How to Open a File or Directory in the Atom Editor from the Command Line - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to pipe data from Twitter to any application using the Tweetledee files at the command line.">
-  <meta name="keywords" content="Twitter, RSS, JSON, command line, pipe, data, application, programming, developer, source">
+  <meta name="description" content="Learn how to open a file or directory in the GitHub Atom text editor from the command line.">
+  <meta name="keywords" content="atom, github, text editor, editor, code, command line, CLI, executable">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/08/04/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee">
+  <link rel="canonical" href="http://sweetme.at/2014/03/11/how-to-open-a-file-or-directory-in-the-atom-editor-from-the-command-line">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">How to Pipe Twitter Data to Other Applications With Tweetledee</h1>
+      <h1 class="entry-title">How to Open a File or Directory in the Atom Editor From the Command Line</h1>
     
     
       <p class="meta">
@@ -90,72 +90,51 @@
   
 
 
-<time datetime="2013-08-04T21:01:00-04:00" pubdate data-updated="true">Aug 4<span>th</span>, 2013</time>
+<time datetime="2014-03-11T00:14:00-04:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Tweetledee is a <a href="https://github.com/chrissimpkins/tweetledee">MIT licensed PHP project on GitHub</a> that simplifies access to Twitter JSON and RSS feed data for user timelines, home timelines, lists, favorites, and tweet search.  You can run the PHP files directly through the PHP interpreter using standard CLI syntax, take advantage of the many available options through command line switches, and pipe the Twitter data to any application that you&rsquo;d like.  Here&rsquo;s how you do it.</p>
+<div class="entry-content"><p>You can use the <code>atom</code> executable to open a file or source directory in the <a href="http://atom.io/">GitHub Atom text editor</a>.</p>
 
-<!-- more -->
-
-
-<h2>The Software</h2>
-
-<ul>
-<li>Resource: <a href="https://github.com/chrissimpkins/tweetledee">Tweetledee</a></li>
-<li>Docs: <a href="http://chrissimpkins.github.io/tweetledee/">Tweetledee documentation</a></li>
-<li>Dependencies: PHP 5.3+ for RSS + JSON, PHP 5.4+ for pretty printed JSON</li>
-</ul>
+<!--More-->
 
 
-<h2>How to Run Tweetledee from the Command Line</h2>
+<h2>Confirm Command Line Tools Install</h2>
 
-<p>You can access Twitter JSON and RSS feed data through the Tweetledee files with standard command line syntax and display your results in a terminal or pipe the data through the standard out stream to any other application. Instead of running the Tweetledee scripts via URL on a web server, you run the them directly through the PHP interpreter. The Tweetledee files automatically detect whether you are accessing the data by URL or from a terminal window.</p>
-
-<p><a href="http://chrissimpkins.github.io/tweetledee/usage.html">The Tweetledee scripts have a number of available options</a> that allow you to modify the user of interest, exclude retweets or replies, define your search query and more.  These parameter names do not change with the CLI approach; however, you use standard CLI syntax to define them. For single character options, use a short switch format (<code>-c</code>). For multiple character options, use a long switch format (<code>--user</code>).</p>
-
-<p>Here are a few examples. Download the Tweetledee files from the GitHub site, navigate to the inner tweetledee directory and then test the following commands that demonstrate the options available for the <em>user timeline</em> JSON file.</p>
-
-<h4>User Timeline JSON (default user = you)</h4>
+<p>Atom installs the <code>atom</code> and <code>apm</code> executables as part of the MacOSX install.  We will be using the <code>atom</code> executable to open files and directories in Atom.  To confirm that <code>atom</code> is installed, call the help documentation with:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>atom --help</span></code></pre></td></tr></table></div></figure>
 
 
-<h4>User Timeline JSON (another user = me)</h4>
+<p>If you don&rsquo;t see a help message, use the Atom menu item and select Atom > Install Shell Commands.  You will receive a confirmation message if this was successful.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php --user=csimpkins</span></code></pre></td></tr></table></div></figure>
+<h2>Open a File in Atom</h2>
 
-
-<h4>User Timeline JSON (another user + exclude RT&rsquo;s)</h4>
+<p>To open a file in Atom, enter the path to the file as the argument to the <code>atom</code> executable:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php --user=csimpkins --xrt=1</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>atom &lt;filepath&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-<h4>User Timeline JSON (another user + exclude RT&rsquo;s + include only 5 tweets)</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php --user=csimpkins --xrt=1 -c 5</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Pipe the Twitter Data to Another Application</h2>
-
-<p>Viewing the data in your terminal is not terribly exciting.  The beauty of this approach is that the JSON data travels through the standard out stream when you run a Tweetledee script directly through the PHP interpreter so you can pipe it to any application that accepts data through the standard in stream.  This provides an easily implemented Twitter JSON (or Atom feed) data source for any application without the hassle of generating the OAuth code yourself.</p>
-
-<p>As a trivial, relatively useless demonstration of the approach, let&rsquo;s pipe the user timeline JSON to the *nix application wc to perform a character count.</p>
-
-<h4>Twitter User JSON Data Piped to wc for a Character Count</h4>
+<p>For a file named &lsquo;test.c&rsquo; in the working directory, use the following command:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>php userjson.php | wc -c</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>atom test.c</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Simple. I leave it as an exercise for the interested reader to come up with a much more useful application of your Twitter data.</p>
+<h2>Open the Current Working Directory in Atom</h2>
+
+<p>To open your working directory in Atom, use the following command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>atom .</span></code></pre></td></tr></table></div></figure>
+
+
+
 </div>
 
 
@@ -178,7 +157,7 @@
   
 
 
-<time datetime="2013-08-04T21:01:00-04:00" pubdate data-updated="true">Aug 4<span>th</span>, 2013</time>
+<time datetime="2014-03-11T00:14:00-04:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
       
 
 
@@ -186,7 +165,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/08/04/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee/" data-via="" data-counturl="http://sweetme.at/2013/08/04/how-to-pipe-your-twitter-data-to-other-applications-with-tweetledee/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2014/03/11/how-to-open-a-file-or-directory-in-the-atom-editor-from-the-command-line/" data-via="" data-counturl="http://sweetme.at/2014/03/11/how-to-open-a-file-or-directory-in-the-atom-editor-from-the-command-line/" >Tweet</a>
   
   
   
@@ -195,8 +174,8 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/2014/03/10/atom-editor-cheat-sheet/" title="Previous Post: Atom Editor Keyboard Shortcut Cheat Sheet">&laquo; Atom Editor Keyboard Shortcut Cheat Sheet</a>
       
-        <a class="basic-alignment right" href="/2013/08/05/markdown-cheat-sheet/" title="Next Post: Markdown Cheat Sheet">Markdown Cheat Sheet &raquo;</a>
       
     </p>
   </footer>
