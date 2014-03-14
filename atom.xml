@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-03-14T15:29:27-04:00</updated>
+  <updated>2014-03-14T15:34:18-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -1525,7 +1525,7 @@
 
 <h2>Naked Does Ruby Too</h2>
 
-<p>Naked includes a method for Ruby scripts as well. Details are <a href="http://sweetme.at/2014/02/17/a-simple-approach-to-execute-ruby-scripts-with-python/">available in this post</a>.</p>
+<p>Naked includes a method for Ruby scripts as well. Details are <a href="http://sweetme.at/2014/03/14/a-simple-approach-to-execute-ruby-scripts-with-python/">available in this post</a>.</p>
 ]]></content>
   </entry>
   
