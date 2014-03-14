@@ -276,7 +276,7 @@
         <loc>
             http://sweetme.at/2014/02/17/a-simple-approach-to-execute-a-node.js-script-from-python/
         </loc>
-        <lastmod>2014-02-17T16:30:31-05:00</lastmod>
+        <lastmod>2014-03-14T15:22:03-04:00</lastmod>
     </url>
     <url>
         <loc>
@@ -301,12 +301,18 @@
         <lastmod>2014-03-11T00:31:57-04:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://sweetme.at/2014/03/14/a-simple-approach-to-execute-ruby-scripts-with-python/
+        </loc>
+        <lastmod>2014-03-14T15:28:05-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://sweetme.at/blog/archives/</loc>
-        <lastmod>2014-03-14T08:49:44-04:00</lastmod>
+        <lastmod>2014-03-14T15:28:05-04:00</lastmod>
     </url>
     <url>
         <loc>http://sweetme.at/</loc>
-        <lastmod>2014-03-14T08:49:44-04:00</lastmod>
+        <lastmod>2014-03-14T15:28:05-04:00</lastmod>
     </url>
     <url>
         <loc>http://sweetme.at/robots.txt</loc>

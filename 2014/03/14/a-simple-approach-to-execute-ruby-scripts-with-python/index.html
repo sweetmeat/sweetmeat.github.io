@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>A Simple Approach to Execute Node.js Scripts with Python - Sweetmeat</title>
+  <title>A Simple Approach to Execute Ruby Scripts with Python - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to execute a Node.js script from a Python script with tools from the Naked Python Framework">
-  <meta name="keywords" content="node.js,node.python,script.execute,how to,extension,pypi,run">
+  <meta name="description" content="Learn how to execute a Ruby script from Python code with the Naked Python framework.">
+  <meta name="keywords" content="python, ruby, script, execute, run, code, developer, naked, naked framework">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2014/02/17/a-simple-approach-to-execute-a-node.js-script-from-python">
+  <link rel="canonical" href="http://sweetme.at/2014/03/14/a-simple-approach-to-execute-ruby-scripts-with-python">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">A Simple Approach to Execute Node.js Scripts With Python</h1>
+      <h1 class="entry-title">A Simple Approach to Execute Ruby Scripts With Python</h1>
     
     
       <p class="meta">
@@ -90,23 +90,21 @@
   
 
 
-
-  
-<time datetime="2014-02-17T10:36:00-05:00" pubdate data-updated="true">Feb 17<span>th</span>, 2014</time>
+<time datetime="2014-03-14T14:58:00-04:00" pubdate data-updated="true">Mar 14<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Here are two examples that demonstrate how to execute Node.js/JavaScript scripts from a Python script with standard output and standard error stream handling on either the JavaScript side or the Python side.</p>
+<div class="entry-content"><p>Here are a couple of examples that demonstrate how to execute Ruby scripts from a Python script with standard output and standard error stream handling on either the Ruby side or the Python side.</p>
 
 <!--more-->
 
 
-<h2>Node Dependency</h2>
+<h2>Ruby Dependency</h2>
 
-<p>Execution of these local JavaScript files is dependent on a local Node.js install on the system where the Python code is executed.  See <a href="http://nodejs.org/">the Node documentation</a> for install details.</p>
+<p>Execution of local Ruby script files requires you to have Ruby installed on your system.  Refer to the <a href="https://www.ruby-lang.org/en/downloads/">Ruby documentation</a> for details.</p>
 
 <h2>The Naked Shell Library</h2>
 
@@ -128,80 +126,78 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The Naked shell library is part of the larger <a href="http://docs.naked-py.com/toolshed_overview.html">Naked toolshed library</a> in the framework.  You can import the functions that we will use in these examples with the following Python import statement:</p>
-
 <h4>Import Naked Shell Library Functions</h4>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">Naked.toolshed.shell</span> <span class="kn">import</span> <span class="n">execute_js</span><span class="p">,</span> <span class="n">muterun_js</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">Naked.toolshed.shell</span> <span class="kn">import</span> <span class="n">execute_rb</span><span class="p">,</span> <span class="n">muterun_rb</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Execute a Node.js Script</h2>
+<h2>Execute a Ruby Script</h2>
 
-<p>To execute a JavaScript file and allow the JavaScript side to control the standard output and standard error streams for the user, use the <code>execute_js()</code> function.  The path to the JavaScript file is included as a parameter to the function like this:</p>
+<p>To execute a Ruby file and allow the Ruby side to control the standard output and standard error streams for the user, use the <code>execute_rb()</code> function.  The path to the Ruby file is included as a parameter to the function like this:</p>
 
-<h4>Execute the JS File</h4>
+<h4>Execute the Ruby File</h4>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">Naked.toolshed.shell</span> <span class="kn">import</span> <span class="n">execute_js</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">Naked.toolshed.shell</span> <span class="kn">import</span> <span class="n">execute_rb</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">success</span> <span class="o">=</span> <span class="n">execute_js</span><span class="p">(</span><span class="s">&#39;testscript.js&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">success</span> <span class="o">=</span> <span class="n">execute_rb</span><span class="p">(</span><span class="s">&#39;testscript.rb&#39;</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The <code>execute_js()</code> function returns a boolean value for the success (or lack thereof) of the JavaScript.  This is based upon the zero (success) or non-zero (failure) exit code returned from the JavaScript to the Python code.</p>
+<p>The <code>execute_rb()</code> function returns a boolean value for the success (or lack thereof) of the Ruby script.  This is based upon the zero (success) or non-zero (failure) exit code returned from the Ruby code to the Python calling code.</p>
 
-<p>You can test for the success of the JavaScript like this:</p>
+<p>You can test for the success of the Ruby script like this:</p>
 
-<h4>Test for Success of JS Execution</h4>
+<h4>Test for Success of Ruby Execution</h4>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-</span><span class='line'>    <span class="c"># handle success of the JavaScript</span>
+</span><span class='line'>    <span class="c"># handle success of the Ruby code</span>
 </span><span class='line'><span class="k">else</span><span class="p">:</span>
-</span><span class='line'>    <span class="c"># handle failure of the JavaScript</span>
+</span><span class='line'>    <span class="c"># handle failure of the Ruby code</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>because the <code>success</code> variable is defined with the returned boolean value from the <code>execute_js()</code> function.</p>
+<p>because the <code>success</code> variable is defined with the returned boolean value from the <code>execute_rb()</code> function.</p>
 
-<p>This function executes the JavaScript file with the following system command:</p>
+<p>This function executes the Ruby file with the following system command:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>node &lt;JS file path&gt; <span class="o">[</span>arguments<span class="o">]</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ruby &lt;Ruby file path&gt; <span class="o">[</span>arguments<span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>To pass additional arguments to the <code>node</code> executable, include them as a second string parameter in the <code>execute_js()</code> function.  See the <a href="http://docs.naked-py.com/toolshed_shell.html#Naked.toolshed.shell.execute_js">Naked documentation</a> for additional details.</p>
+<p>To pass additional arguments to the <code>ruby</code> executable, include them as a second string parameter in the <code>execute_rb()</code> function.  See the <a href="http://docs.naked-py.com/toolshed_shell.html#Naked.toolshed.shell.execute_rb">Naked documentation</a> for additional details.</p>
 
-<h2>Execute a Node.js Script and Control the Standard Output and Standard Error from the Python Side</h2>
+<h2>Execute a Ruby Script and Control the Standard Ouput and Standard Error from the Python Side</h2>
 
-<p>To gain control over the standard output and standard error streams returned from the JS script, use the <code>muterun_js()</code> function rather than the <code>execute_js()</code> function.  This function suppresses output of the standard output and error streams from the JavaScript and, instead, returns these streams along with the exit code to the Python script as attributes of a generic object.  You can access these strings (actually bytes strings) using standard Python dot syntax.</p>
+<p>To gain control over the standard output and standard error streams returned from the Ruby script, use the <code>muterun_rb()</code> function rather than the <code>execute_rb()</code> function.  This function suppresses output of the standard output and error streams from the Ruby script and, instead, returns these streams along with the exit code to the Python script as attributes of a generic object.  You can access these strings (actually bytes strings) using standard Python dot syntax.</p>
 
-<p>As with the <code>execute_js()</code> function, use the JavaScript file path as the argument to the function:</p>
+<p>As with the <code>execute_rb()</code> function, use the Ruby file path as the argument to the function:</p>
 
-<h4>Execute the JS File</h4>
+<h4>Execute the Ruby File</h4>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">Naked.toolshed.shell</span> <span class="kn">import</span> <span class="n">muterun_js</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">Naked.toolshed.shell</span> <span class="kn">import</span> <span class="n">muterun_rb</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">response</span> <span class="o">=</span> <span class="n">muterun_js</span><span class="p">(</span><span class="s">&#39;testscript.js&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">response</span> <span class="o">=</span> <span class="n">muterun_rb</span><span class="p">(</span><span class="s">&#39;testscript.rb&#39;</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>The object is assigned to the <code>response</code> variable.  To confirm that the executed code was successful, you can test the <code>exitcode</code> attribute returned in the object:</p>
 
-<h4>Test for Success of the Executed JS File</h4>
+<h4>Test for Success of the Executed Ruby File</h4>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -229,7 +225,7 @@
 
 <p>Here, we simply push it back out to the standard output or error stream from the Python script.  You can manipulate the output however you would like in your Python code before pushing it to the user.</p>
 
-<p>You have the option to pass additional arguments to the <code>node</code> system command that this function wraps by including them in a second parameter string to the function.  Details are available in <a href="http://docs.naked-py.com/toolshed_shell.html#Naked.toolshed.shell.muterun_js">the Naked documentation</a>.</p>
+<p>You have the option to pass additional arguments to the <code>ruby</code> system command that this function wraps by including them in a second parameter string to the function.  Details are available in <a href="http://docs.naked-py.com/toolshed_shell.html#Naked.toolshed.shell.muterun_rb">the Naked documentation</a>.</p>
 
 <h2>Distribute Naked With Your Code</h2>
 
@@ -246,9 +242,9 @@
 
 <p>If you are interested in learning more about the Naked shell library module, <a href="http://docs.naked-py.com/toolshed_shell.html">you can find the documentation here</a>.</p>
 
-<h2>Naked Does Ruby Too</h2>
+<h2>Naked Does Node Too&hellip;</h2>
 
-<p>Naked includes a method for Ruby scripts as well. Details are <a href="http://sweetme.at/2014/02/17/a-simple-approach-to-execute-ruby-scripts-with-python/">available in this post</a>.</p>
+<p>Naked includes a method for Node.js scripts as well. Details are <a href="http://sweetme.at/2014/02/17/a-simple-approach-to-execute-a-node.js-script-from-python/">available in this post</a>.</p>
 </div>
 
 
@@ -271,9 +267,7 @@
   
 
 
-
-  
-<time datetime="2014-03-14T15:36:00-04:00" class="updated">Updated Mar 14<span>th</span>, 2014</time>
+<time datetime="2014-03-14T14:58:00-04:00" pubdate data-updated="true">Mar 14<span>th</span>, 2014</time>
       
 
 
@@ -281,7 +275,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2014/02/17/a-simple-approach-to-execute-a-node.js-script-from-python/" data-via="" data-counturl="http://sweetme.at/2014/02/17/a-simple-approach-to-execute-a-node.js-script-from-python/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2014/03/14/a-simple-approach-to-execute-ruby-scripts-with-python/" data-via="" data-counturl="http://sweetme.at/2014/03/14/a-simple-approach-to-execute-ruby-scripts-with-python/" >Tweet</a>
   
   
   
@@ -290,10 +284,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2014/02/03/naked-make-%7C-how-to-generate-a-python-command-line-application-project-with-naked/" title="Previous Post: Naked Make | How to Stub a Python Command Line Application Project in Under Five Minutes">&laquo; Naked Make | How to Stub a Python Command Line Application Project in Under Five Minutes</a>
+        <a class="basic-alignment left" href="/2014/03/11/how-to-open-a-file-or-directory-in-the-atom-editor-from-the-command-line/" title="Previous Post: How to Open a File or Directory in the Atom Editor from the Command Line">&laquo; How to Open a File or Directory in the Atom Editor from the Command Line</a>
       
-      
-        <a class="basic-alignment right" href="/2014/02/17/open-the-current-working-directory-in-the-mac-osx-finder-from-the-command-line/" title="Next Post: Open the Current Working Directory in the Mac OSX Finder from the Command Line">Open the Current Working Directory in the Mac OSX Finder from the Command Line &raquo;</a>
       
     </p>
   </footer>
