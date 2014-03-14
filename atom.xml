@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-03-11T00:32:14-04:00</updated>
+  <updated>2014-03-14T08:48:14-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -917,9 +917,9 @@
   
   <entry>
     <title type="html"><![CDATA[TLDR | Community-Driven Concise Linux & Unix Man Pages]]></title>
-    <link href="http://sweetme.at/2014/02/19/tldr-%7C-community-driven-simplified-linux-%26-unix-man-pages/"/>
+    <link href="http://sweetme.at/2014/02/19/tldr-community-driven-simplified-linux-unix-man-pages/"/>
     <updated>2014-02-19T13:03:00-05:00</updated>
-    <id>http://sweetme.at/2014/02/19/tldr-|-community-driven-simplified-linux-&-unix-man-pages</id>
+    <id>http://sweetme.at/2014/02/19/tldr-community-driven-simplified-linux-unix-man-pages</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/rprieto/tldr">tldr is a community driven, open source project</a> that aims to deliver a concise version of man pages for commonly used Unix and Linux commands.</p>
 
 <!--more-->
