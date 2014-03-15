@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-03-14T15:34:18-04:00</updated>
+  <updated>2014-03-15T10:16:23-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PyDOC - Python Documentation Search from the Sublime Text Editor]]></title>
+    <link href="http://sweetme.at/2014/03/15/pydoc-python-documentation-search-from-the-sublime-text-editor/"/>
+    <updated>2014-03-15T10:09:00-04:00</updated>
+    <id>http://sweetme.at/2014/03/15/pydoc-python-documentation-search-from-the-sublime-text-editor</id>
+    <content type="html"><![CDATA[<p>PyDOC allows you to search <a href="http://docs.python.org">Python 2 or Python 3 documentation</a> for built-in Python modules, classes, methods, and functions that are selected in the Sublime Text editor. A browser window is launched (in your default browser), using your selected text as the query term for the Python 2 or Python 3 documentation.</p>
+
+<!--More-->
+
+
+<h2>Install PyDOC</h2>
+
+<h3>Using Sublime Package Control</h3>
+
+<p>PyDOC can be installed using <a href="https://sublime.wbond.net/">Sublime Package Control</a>.  Open the command palette with:</p>
+
+<h5>Mac OSX</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Cmd + Shift + P</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>Linux &amp; Windows</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Ctrl + Shift + P</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Type <code>install</code> and select the menu item, <code>Package Control: Install Package</code>.</p>
+
+<p>Type <code>PyDOC</code> and select the PyDOC package that is displayed.  This will install the package in your editor.</p>
+
+<h3>Using Git</h3>
+
+<p>Use the Sublime Text menu items <code>Preferences -&gt; Browse Packages</code> to locate your Packages directory.</p>
+
+<p>Navigate to the directory in your terminal and clone the PyDOC source repository inside the Packages directory using the command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git clone https://github.com/chrissimpkins/PyDOC.git <span class="s2">&quot;PyDOC&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Manual Install</h3>
+
+<p>Download the <a href="https://github.com/chrissimpkins/PyDOC/archive/master.zip">zip compressed archive from GitHub</a>.</p>
+
+<p>Decompress the zip archive and rename the directory <code>PyDOC</code>.</p>
+
+<p>Open your Sublime Text Packages directory using the <code>Preferences -&gt; Browse Packages</code> menu items.</p>
+
+<p>Move the entire <code>PyDOC</code> directory into your Sublime Text Packages directory.</p>
+
+<h2>Use PyDOC</h2>
+
+<h3>Search with Right Click Menu</h3>
+
+<p>Select a built-in Python object in your editor text, then use the <code>Python 2 Doc Search</code> or <code>Python 3 Doc Search</code> menu item in the right click menu.</p>
+
+<h3>Search with Keybinding</h3>
+
+<p>Select a built-in Python object in your editor text, then use one of the following keybindings to perform the search:</p>
+
+<h5>Python 2 Documentation Search Keybinding</h5>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Ctrl-2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>Python 3 Documentation Search Keybinding</h5>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Ctrl-3
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Search with the Command Palette</h3>
+
+<p>Select a built-in Python object in your editor text then enter the keybinding to open the command palette (see description above in the Sublime Package Control section).  Type &lsquo;pydoc&rsquo; and then select either <code>Python 2 Doc Search (PyDOC)</code> or <code>Python 3 Doc Search (PyDOC)</code>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A Simple Approach to Execute Ruby Scripts with Python]]></title>
@@ -2822,52 +2905,6 @@ This gives you a vertical divider with a new file group pane on the right side. 
 <h2>grep Documentation</h2>
 
 <p><a href="http://www.gnu.org/software/grep/manual/grep.html#General-Output-Control">Here is the link to the grep documentation on this switch</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Detect Python Version 2 vs 3 in Your Script]]></title>
-    <link href="http://sweetme.at/2013/10/21/how-to-detect-python-2-vs-3-in-your-python-script/"/>
-    <updated>2013-10-21T22:45:00-04:00</updated>
-    <id>http://sweetme.at/2013/10/21/how-to-detect-python-2-vs-3-in-your-python-script</id>
-    <content type="html"><![CDATA[<p>Here is a way to build in the logic to deliver separate blocks of Python 2 and 3 code based upon the version of the Python interpreter that the user is running.</p>
-
-<!--More-->
-
-
-<h2>The Python <code>sys.version_info</code> Tuple</h2>
-
-<p>This technique requires the sys module, so let&rsquo;s import that first:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then use the <code>sys.version_info</code> tuple to determine the version of the Python interpreter:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'> <span class="k">if</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
-</span><span class='line'>     <span class="c"># Python 3 code in this block</span>
-</span><span class='line'>     <span class="kn">import</span> <span class="nn">base64</span>
-</span><span class='line'>     <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-</span><span class='line'> <span class="k">else</span><span class="p">:</span>
-</span><span class='line'>     <span class="c"># Python 2 code in this block</span>
-</span><span class='line'>     <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;base64&quot;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can use this to build in detection of any major or minor Python release (or development releases if that is required in your project &ndash; see below).</p>
-
-<p>Here is the description of the version_info tuple from the <a href="http://docs.python.org/2/library/sys.html#sys.version_info">Python documentation</a>:</p>
-
-<blockquote><p>A tuple containing the five components of the version number: major, minor, micro, releaselevel, and serial. All values except releaselevel are integers; the release level is &lsquo;alpha&rsquo;, &lsquo;beta&rsquo;, &lsquo;candidate&rsquo;, or &lsquo;final&rsquo;. The version_info value corresponding to the Python version 2.0 is (2, 0, 0, &lsquo;final&rsquo;, 0). The components can also be accessed by name, so sys.version_info[0] is equivalent to sys.version_info.major and so on.</p></blockquote>
 ]]></content>
   </entry>
   

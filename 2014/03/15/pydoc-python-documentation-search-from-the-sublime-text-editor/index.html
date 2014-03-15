@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line - Sweetmeat</title>
+  <title>PyDOC - Python Documentation Search from the Sublime Text Editor - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to delete entire segments of your command relative to your cursor position in the bash shell">
-  <meta name="keywords" content="bash, command, shell, command line, delete, text, how to, help">
+  <meta name="description" content="PyDOC is a Sublime Text plugin that allows you to search Python documentation with any selected text in the editor">
+  <meta name="keywords" content="pydoc, python documentation, sublime text, sublime text 2, sublime text 3, editor, code, docs">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/09/21/how-to-erase-segments-of-text-from-the-cursor-position-on-your-command-line">
+  <link rel="canonical" href="http://sweetme.at/2014/03/15/pydoc-python-documentation-search-from-the-sublime-text-editor">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line</h1>
+      <h1 class="entry-title">PyDOC - Python Documentation Search From the Sublime Text Editor</h1>
     
     
       <p class="meta">
@@ -90,37 +90,88 @@
   
 
 
-<time datetime="2013-09-21T17:36:00-04:00" pubdate data-updated="true">Sep 21<span>st</span>, 2013</time>
+<time datetime="2014-03-15T10:09:00-04:00" pubdate data-updated="true">Mar 15<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Further hone your command line chops with these shortcuts that will erase segments of text before or after your cursor position.</p>
+<div class="entry-content"><p>PyDOC allows you to search <a href="http://docs.python.org">Python 2 or Python 3 documentation</a> for built-in Python modules, classes, methods, and functions that are selected in the Sublime Text editor. A browser window is launched (in your default browser), using your selected text as the query term for the Python 2 or Python 3 documentation.</p>
 
 <!--More-->
 
 
-<h2>Delete All Text After the Cursor Position</h2>
+<h2>Install PyDOC</h2>
 
-<p>This command deletes all text from the cursor position to the end of the line:</p>
+<h3>Using Sublime Package Control</h3>
+
+<p>PyDOC can be installed using <a href="https://sublime.wbond.net/">Sublime Package Control</a>.  Open the command palette with:</p>
+
+<h5>Mac OSX</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Cmd + Shift + P</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>Linux &amp; Windows</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Ctrl + Shift + P</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Type <code>install</code> and select the menu item, <code>Package Control: Install Package</code>.</p>
+
+<p>Type <code>PyDOC</code> and select the PyDOC package that is displayed.  This will install the package in your editor.</p>
+
+<h3>Using Git</h3>
+
+<p>Use the Sublime Text menu items <code>Preferences -&gt; Browse Packages</code> to locate your Packages directory.</p>
+
+<p>Navigate to the directory in your terminal and clone the PyDOC source repository inside the Packages directory using the command:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>CTRL-k
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git clone https://github.com/chrissimpkins/PyDOC.git <span class="s2">&quot;PyDOC&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Delete All Text Before the Cursor Position</h2>
+<h3>Manual Install</h3>
 
-<p>This command deletes all text from the cursor position to the beginning of the line:</p>
+<p>Download the <a href="https://github.com/chrissimpkins/PyDOC/archive/master.zip">zip compressed archive from GitHub</a>.</p>
+
+<p>Decompress the zip archive and rename the directory <code>PyDOC</code>.</p>
+
+<p>Open your Sublime Text Packages directory using the <code>Preferences -&gt; Browse Packages</code> menu items.</p>
+
+<p>Move the entire <code>PyDOC</code> directory into your Sublime Text Packages directory.</p>
+
+<h2>Use PyDOC</h2>
+
+<h3>Search with Right Click Menu</h3>
+
+<p>Select a built-in Python object in your editor text, then use the <code>Python 2 Doc Search</code> or <code>Python 3 Doc Search</code> menu item in the right click menu.</p>
+
+<h3>Search with Keybinding</h3>
+
+<p>Select a built-in Python object in your editor text, then use one of the following keybindings to perform the search:</p>
+
+<h5>Python 2 Documentation Search Keybinding</h5>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>CTRL-u
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Ctrl-2
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>If you use it with your cursor at the end of the command, this shortcut deletes the entire line.</p>
+<h5>Python 3 Documentation Search Keybinding</h5>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Ctrl-3
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Search with the Command Palette</h3>
+
+<p>Select a built-in Python object in your editor text then enter the keybinding to open the command palette (see description above in the Sublime Package Control section).  Type &lsquo;pydoc&rsquo; and then select either <code>Python 2 Doc Search (PyDOC)</code> or <code>Python 3 Doc Search (PyDOC)</code>.</p>
 </div>
 
 
@@ -143,7 +194,7 @@
   
 
 
-<time datetime="2013-09-21T17:36:00-04:00" pubdate data-updated="true">Sep 21<span>st</span>, 2013</time>
+<time datetime="2014-03-15T10:09:00-04:00" pubdate data-updated="true">Mar 15<span>th</span>, 2014</time>
       
 
 
@@ -151,7 +202,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/21/how-to-erase-segments-of-text-from-the-cursor-position-on-your-command-line/" data-via="" data-counturl="http://sweetme.at/2013/09/21/how-to-erase-segments-of-text-from-the-cursor-position-on-your-command-line/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2014/03/15/pydoc-python-documentation-search-from-the-sublime-text-editor/" data-via="" data-counturl="http://sweetme.at/2014/03/15/pydoc-python-documentation-search-from-the-sublime-text-editor/" >Tweet</a>
   
   
   
@@ -160,10 +211,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script/" title="Previous Post: Compress and Obfuscate Your JavaScript with this YUI Compressor Script">&laquo; Compress and Obfuscate Your JavaScript with this YUI Compressor Script</a>
+        <a class="basic-alignment left" href="/2014/03/14/a-simple-approach-to-execute-ruby-scripts-with-python/" title="Previous Post: A Simple Approach to Execute Ruby Scripts with Python">&laquo; A Simple Approach to Execute Ruby Scripts with Python</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/24/compress-an-entire-directory-of-css-files/" title="Next Post: Compress an Entire Directory of CSS Files">Compress an Entire Directory of CSS Files &raquo;</a>
       
     </p>
   </footer>
