@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-03-15T10:16:23-04:00</updated>
+  <updated>2014-04-07T22:26:03-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,362 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Glue | A Terminal for Sublime Text]]></title>
+    <link href="http://sweetme.at/2014/04/07/glue-a-terminal-for-sublime-text/"/>
+    <updated>2014-04-07T14:16:00-04:00</updated>
+    <id>http://sweetme.at/2014/04/07/glue-a-terminal-for-sublime-text</id>
+    <content type="html"><![CDATA[<p><a href="http://gluedocs.readthedocs.org/en/latest/">Glue</a> is a plugin that provides an interface to your shell from the <a href="http://www.sublimetext.com/">Sublime Text editor</a>.  It features command entry within the Sublime Text editor window, standard output display in an editor view, and it works with most system utilities.  This includes any compiled or interpreted source that you develop which effectively allows you to create Sublime Text extensions in any programming language that your system supports.</p>
+
+<p>Here&rsquo;s how you get started with it.</p>
+
+<!--More-->
+
+
+<h2>Install Glue in Your Sublime Text Editor</h2>
+
+<p>Glue works in Sublime Text versions 2 and 3 and these install instructions apply for either version.</p>
+
+<h3>Install with Package Control</h3>
+
+<p>If you are using <a href="https://sublime.wbond.net/">Will Bond&rsquo;s Package Control</a>, the install is simple. Open the Command Palette in your Sublime Text editor with the menus <code>Tools &gt; Command Palette</code> and then type <code>install</code> in the text entry field.  Select the option <code>Package Control - Install Package</code>.  Next, type &lsquo;glue&rsquo; in the text input box and select the &lsquo;Glue&rsquo; plugin option that is displayed in the Command Palette.  The install automatically takes place.  You will see a confirmation in the status bar at the bottom of the editor window.</p>
+
+<h3>Install with Git</h3>
+
+<p>Open your <code>Packages</code> directory with the Sublime Text menu items <code>Preferences &gt; Browse Packages</code>. Then git clone the Glue repository as a new directory named ‘Glue’ in your Packages directory with the following command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone https://github.com/chrissimpkins/glue.git "Glue"</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Install Manually</h3>
+
+<p>If you like to do things the good ole’ fashion way, download the source repository from GitHub (<a href="https://github.com/chrissimpkins/glue/tarball/master">tar.gz</a> | <a href="https://github.com/chrissimpkins/glue/archive/master.zip">zip</a>).  Decompress the archive and rename it “Glue”.</p>
+
+<p>Then, open your Sublime Text Packages directory using the <code>Preferences &gt; Browse Packages</code> menu items and move the entire <code>Glue</code> directory into your Packages directory.</p>
+
+<h2>Confirm Your Install</h2>
+
+<p>Glue should automatically load in your editor after you install with any of the above approaches.  You can confirm that it is installed by opening a project, right clicking in the sidebar and selecting the menu item <code>Open Glue Terminal</code>.</p>
+
+<h2>Confirm Your PATH</h2>
+
+<p>The next step is to confirm that your PATH is properly set in Glue.   Glue assigns a default user PATH from your environment PATH variable. In general the PATH is correct, but on some installs it may require a bit of assistance.</p>
+
+<p>First, check the PATH that Glue is using by entering the following command on the Glue command line:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ glue path</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will display a colon-delimited PATH string for Unix/Linux users and a semicolon delimited PATH string for Windows users.  If the PATH doesn&rsquo;t match your existing system PATH, you can set a new Glue PATH string.  This does not modify your existing system PATH.</p>
+
+<p>To do this, open the Glue user settings JSON file by navigating to <code>Preferences &gt; Package Settings &gt; Glue &gt; Glue Settings - User</code>.  If you have not already entered settings in this file, it will appear as an empty buffer in Sublime Text.  Create a JSON file with the following syntax:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;glue_userpath&quot;</span><span class="p">:</span> <span class="s2">&quot;your path string here&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Unix (including Mac OSX) and Linux users should enter a colon delimited string.  Windows users should include semicolons as delimiters.</p>
+
+<p>Here is an example for Unix/Linux users:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;glue_userpath&quot;</span> <span class="p">:</span> <span class="s2">&quot;/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and for Windows users:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;glue_userpath&quot;</span><span class="p">:</span> <span class="s2">&quot;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Windows users should escape their backward slashes as shown above.</p>
+
+<h2>Use Glue</h2>
+
+<p>Glue works with many of your favorite system utilities and allows you to extend what you can do inside the Sublime Text editor window.  Here are a few examples:</p>
+
+<h4>Glue + grep</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>grep <span class="s2">&quot;def&quot;</span> *.py
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://gluedocs.readthedocs.org/en/latest/_images/grep-example.png" alt=""></p>
+
+<h4>Glue + git</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git init
+</span><span class='line'><span class="nv">$ </span>git add .
+</span><span class='line'><span class="nv">$ </span>git commit -m <span class="s2">&quot;&#39;initial commit&#39;&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://gluedocs.readthedocs.org/en/latest/_images/git-example.png" alt=""></p>
+
+<h4>Glue + cURL</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>curl -sS https://raw.githubusercontent.com/chrissimpkins/naked/master/lib/Naked/app.py
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://gluedocs.readthedocs.org/en/latest/_images/curl-example.png" alt=""></p>
+
+<h4>Glue + Your Own Scripts</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>node test.js
+</span><span class='line'><span class="nv">$ </span>python test.py
+</span><span class='line'><span class="nv">$ </span>ruby test.rb
+</span><span class='line'><span class="nv">$ </span>./test.sh
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://gluedocs.readthedocs.org/en/latest/_images/scripting-language-example.png" alt=""></p>
+
+<h2>Glue Commands</h2>
+
+<p>Glue includes its own set of built in commands that let you navigate around your directory structure, manipulate the editor (e.g. create new buffers, open files by wildcard), and perform other useful tasks:</p>
+
+<table>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>cd</td>
+<td>change directory</td>
+    </tr>
+<tr>
+<td>exit</td>
+        <td>exit the Glue terminal</td>
+    </tr>
+<tr>
+<td>glue browse</td>
+        <td>open URL or local project file in default browser</td>
+    </tr>
+<tr>
+<td>glue clear</td>
+        <td>clear text in the Glue view</td>
+    </tr>
+<tr>
+<td>glue finder</td>
+        <td>reveal current directory (default) or optional path in finder</td>
+    </tr>
+<tr>
+<td>glue help</td>
+        <td>view help documentation in Glue view</td>
+    </tr>
+<tr>
+<td>glue localhost</td>
+        <td>open default web browser to local server</td>
+    </tr>
+<tr>
+<td>glue new</td>
+        <td>open a new Sublime Text buffer</td>
+    </tr>
+<tr>
+<td>glue open</td>
+        <td>open one or more project files by filepath</td>
+    </tr>
+<tr>
+<td>glue path</td>
+        <td>display the system PATH setting that is used by Glue</td>
+    </tr>
+<tr>
+<td>glue user</td>
+        <td>display alphabetized list of your Glue user extensions</td>
+    </tr>
+<tr>
+<td>glue wco</td>
+        <td>open one or more files by wildcard pattern</td>
+    </tr>
+</table>
+
+
+<h2>Extend Glue</h2>
+
+<p>You can extend the built-in Glue commands with aliases that support system utilities, your own compiled executables, shell scripts, and source from any scripting language that is supported on your machine.</p>
+
+<p>These Glue aliases can be called from the command line with the syntax:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>glue &lt;your-command&gt; <span class="o">[</span>optional args<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>They are incredibly simple to develop and require absolutely no programming knowledge (but can be hooked into anything that you develop with the capability to process data from the standard input stream).</p>
+
+<p>Here are the steps to create your own extensions:</p>
+
+<h4>Create the Glue-Commands Directory</h4>
+
+<p>Create a <code>Glue-Commands</code> directory inside your Sublime Text <code>Packages</code> directory. You can open your Sublime Text Packages directory with the menu item <code>Preferences &gt; Browse Packages</code>.</p>
+
+<h4>Create a <code>glue.json</code> File</h4>
+
+<p>Create a <code>glue.json</code> file inside the Glue-Commands directory.</p>
+
+<h4>Define Your Glue Extensions</h4>
+
+<p>Commands are defined in the <code>glue.json</code> file with a simple mapping of JSON key:value pairs using the following syntax</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;&lt;command-name-1&gt;&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;system command string 1&gt;&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;&lt;command-name-2&gt;&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;system command string 2&gt;&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="err">[...]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You have the option to include replacement tags in your system command string that allow you to pass command line arguments, the text in your clipboard, or the current working directory path to the aliased command:</p>
+
+<h4>Glue Extension Replacement Tags</h4>
+
+<table>
+    <tr>
+        <th>Tag</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>&#123;&#123;args&#125;&#125;</td>
+        <td>additional arguments that you include on the command line</td>
+    </tr>
+    <tr>
+        <td>&#123;&#123;clipboard&#125;&#125;</td>
+        <td>the contents of the clipboard</td>
+    </tr>
+    <tr>
+        <td>&#123;&#123;pwd&#125;&#125;</td>
+        <td>the working directory path</td>
+    </tr>
+</table>
+
+
+<h3>JavaScript Minifier Extension Example</h3>
+
+<p>Here is an example that will take you through each of these steps to create a command that will minify and obfuscate a JavaScript file, and then save it in the same directory with the new path <code>&lt;filename&gt;-min.js</code>:</p>
+
+<p>If you are following along, you can download YUICompressor from <a href="https://github.com/yui/yuicompressor">the GitHub repository</a>. You will need to have Java version 1.4+ installed to use it. Unpack the repository and move the yuicompressor-2.4.8.jar file to a directory for safe keeping (you will run it from this directory).</p>
+
+<p>Next, create a shell script named minijs.sh. Include the following script and modify the YUI_PATH variable with the actual path to your YUICompressor jar file:</p>
+
+<h4>JavaScript Minifier Shell Script</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/sh</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Modify YUI_PATH with the path to the yuicompressor jar file</span>
+</span><span class='line'><span class="nv">YUI_PATH</span><span class="o">=</span><span class="s2">&quot;path/to/yuicompressor-2.4.8.jar&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-eq 0 <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Please include the file path(s) for the file(s) that you would like to compress.&quot;</span> 1&gt;&amp;2
+</span><span class='line'>  <span class="nb">exit </span>1
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">for </span>file in <span class="s2">&quot;$@&quot;</span>;
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;$file&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span>java -jar <span class="s2">&quot;$YUI_PATH&quot;</span> -o <span class="s2">&quot;${file%%.*}-min.js&quot;</span> <span class="s2">&quot;$file&quot;</span>
+</span><span class='line'>      <span class="k">if</span> <span class="o">((</span> <span class="nv">$?</span> <span class="o">))</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was not able to be minified&quot;</span>
+</span><span class='line'>          <span class="nb">exit </span>1
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'><span class="k">          </span><span class="nb">echo</span> <span class="s2">&quot;$file was minified to ${file%%.*}-min.js&quot;</span>
+</span><span class='line'>      <span class="k">fi</span>
+</span><span class='line'><span class="k">  else</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> <span class="s2">&quot;Unable to find the javascript file &#39;$file&#39;.&quot;</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'><span class="k">done</span>;
+</span><span class='line'><span class="nb">exit </span>0
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Next, create a Glue extension that will serve as an alias for the call to this shell script when you use the <code>glue minijs</code> command. We’ll include the &#123;&#123;args&#125;&#125; template tag so that we can pass filepath arguments to our script.  Insert the following in your <code>glue.json</code> file that you generated above:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;minijs&quot;</span> <span class="p">:</span> <span class="s2">&quot;/path/to/minijs.sh { {args} }&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To use your new Sublime Text feature, launch Glue in your editor and minify JS files in the working directory with a command like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>glue minijs awesome.js
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The minified file is saved as <code>awesome-min.js</code> in the same directory.</p>
+
+<p>You can use the same technique with any compiled application or interpreted script that accepts the standard input stream and returns the data to be displayed for the user in the standard output stream.  Glue provides the interface with your shell to take care of the rest.</p>
+
+<h2>Learn More</h2>
+
+<p>The Glue documentation is available <a href="http://gluedocs.readthedocs.org/">here</a>.</p>
+
+<h2>Issue Reporting</h2>
+
+<p>If you come across a bug in the plugin, please report it on <a href="https://github.com/chrissimpkins/glue/issues">the GitHub repository</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PyDOC - Python Documentation Search from the Sublime Text Editor]]></title>
@@ -2876,35 +3232,6 @@ This gives you a vertical divider with a new file group pane on the right side. 
 <h2>Python Documentation</h2>
 
 <p>And <a href="http://docs.python.org/dev/library/unittest.html#assert-methods">here is the link</a> to the Python documentation on the topic.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Use grep to Find File Names with a Matching String]]></title>
-    <link href="http://sweetme.at/2013/11/01/how-to-use-grep-to-find-files-with-a-matching-string/"/>
-    <updated>2013-11-01T15:48:00-04:00</updated>
-    <id>http://sweetme.at/2013/11/01/how-to-use-grep-to-find-files-with-a-matching-string</id>
-    <content type="html"><![CDATA[<p>By default, grep displays the lines in one or more files that match your search string (or regular expression).  Here is how you recursively search through a directory of files and list the name(s) of the files that contain a matching string instead of the matched line.</p>
-
-<!--More-->
-
-
-<h2>grep -l Switch</h2>
-
-<p>The -l switch indicates that you want to display the names of files that contain a string that matches your query.  Here is an example of its use with an entire directory of JavaScript files (using the *.js wildcard):</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>grep -l <span class="s1">&#39;SEARCH TERM&#39;</span> *.js
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This command causes grep to search for lines that match the query SEARCH TERM in every .js file in the working directory.  The application will print the names of the files that contain a match to the standard output stream.</p>
-
-<p>Replace <code>SEARCH TERM</code> with your query and *.js with any filetype or the names of a set of files that you would like to search. The query can be a string or regular expression.</p>
-
-<h2>grep Documentation</h2>
-
-<p><a href="http://www.gnu.org/software/grep/manual/grep.html#General-Output-Control">Here is the link to the grep documentation on this switch</a>.</p>
 ]]></content>
   </entry>
   
