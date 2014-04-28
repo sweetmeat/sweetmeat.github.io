@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line - Sweetmeat</title>
+  <title>Source Code TODO Logs - Sweetmeat</title>
   <meta name="author" content="Chris Simpkins">
   
-  <meta name="description" content="Learn how to delete entire segments of your command relative to your cursor position in the bash shell">
-  <meta name="keywords" content="bash, command, shell, command line, delete, text, how to, help">
+  <meta name="description" content="A command line one-liner that provides a log of TODO comments in your source code files">
+  <meta name="keywords" content="TODO, source code, source, code, todo list, comment, comments">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   
-  <link rel="canonical" href="http://sweetme.at/2013/09/21/how-to-erase-segments-of-text-from-the-cursor-position-on-your-command-line">
+  <link rel="canonical" href="http://sweetme.at/2014/04/27/source-code-todo-logs">
   <link href="/favicon.ico" rel="icon">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link href="/atom.xml" rel="alternate" title="Sweetmeat" type="application/atom+xml">
@@ -74,7 +74,7 @@
   
   <header>
     
-      <h1 class="entry-title">How to Erase Segments of Text Relative to the Cursor Position on Your Bash Command Line</h1>
+      <h1 class="entry-title">Source Code TODO Logs</h1>
     
     
       <p class="meta">
@@ -90,37 +90,66 @@
   
 
 
-<time datetime="2013-09-21T17:36:00-04:00" pubdate data-updated="true">Sep 21<span>st</span>, 2013</time>
+<time datetime="2014-04-27T20:17:00-04:00" pubdate data-updated="true">Apr 27<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Further hone your command line chops with these shortcuts that will erase segments of text before or after your cursor position.</p>
+<div class="entry-content"><p>This one-liner parses your source file for TODO comments after any comment indicator character(s) and prints the message by line number to the standard output stream.</p>
 
 <!--More-->
 
 
-<h2>Delete All Text After the Cursor Position</h2>
-
-<p>This command deletes all text from the cursor position to the end of the line:</p>
+<h2>Usage</h2>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>CTRL-k
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>awk <span class="s1">&#39;/TODO/ {print NR &quot;\t&quot; ($1=$2=&quot;&quot;) $0}&#39;</span> &lt;<span class="nb">source </span>filepath&gt;
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Delete All Text Before the Cursor Position</h2>
+<h2>Example</h2>
 
-<p>This command deletes all text from the cursor position to the beginning of the line:</p>
+<h3>Source</h3>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>CTRL-u
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/env python</span>
+</span><span class='line'><span class="c"># encoding: utf-8</span>
+</span><span class='line'><span class="c"># file: pydoc.py</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">## TODO this needs a lot of this and that</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">PythonThreeDocCommand</span><span class="p">(</span><span class="n">sublime_plugin</span><span class="o">.</span><span class="n">TextCommand</span><span class="p">):</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">...</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">## TODO wow, did I really release it like this?</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">PythonTwoDocCommand</span><span class="p">(</span><span class="n">sublime_plugin</span><span class="o">.</span><span class="n">TextCommand</span><span class="p">):</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>If you use it with your cursor at the end of the command, this shortcut deletes the entire line.</p>
+<h3>Command Line</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>awk <span class="s1">&#39;/TODO/ {print NR &quot;\t&quot; ($1=$2=&quot;&quot;) $0}&#39;</span> pydoc.py
+</span><span class='line'>10    this needs a lot of this and that
+</span><span class='line'>39    wow, did I really release it like this?
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Use an all-caps <code>TODO</code> comment in your source (like I did above) or modify the regular expression <code>/TODO/</code> in the awk script to whatever format you use.  Limit the comment to a single line or add TODO at the beginning of additional lines in your comment block.</p>
 </div>
 
 
@@ -143,7 +172,7 @@
   
 
 
-<time datetime="2013-09-21T17:36:00-04:00" pubdate data-updated="true">Sep 21<span>st</span>, 2013</time>
+<time datetime="2014-04-27T20:17:00-04:00" pubdate data-updated="true">Apr 27<span>th</span>, 2014</time>
       
 
 
@@ -151,7 +180,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2013/09/21/how-to-erase-segments-of-text-from-the-cursor-position-on-your-command-line/" data-via="" data-counturl="http://sweetme.at/2013/09/21/how-to-erase-segments-of-text-from-the-cursor-position-on-your-command-line/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sweetme.at/2014/04/27/source-code-todo-logs/" data-via="" data-counturl="http://sweetme.at/2014/04/27/source-code-todo-logs/" >Tweet</a>
   
   
   
@@ -160,10 +189,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/09/19/compress-and-obfuscate-your-javascript-with-this-yui-compressor-script/" title="Previous Post: Compress and Obfuscate Your JavaScript with this YUI Compressor Script">&laquo; Compress and Obfuscate Your JavaScript with this YUI Compressor Script</a>
+        <a class="basic-alignment left" href="/2014/04/27/tagged-git-commit-log/" title="Previous Post: Tagged Git Commit Log">&laquo; Tagged Git Commit Log</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/24/compress-an-entire-directory-of-css-files/" title="Next Post: Compress an Entire Directory of CSS Files">Compress an Entire Directory of CSS Files &raquo;</a>
       
     </p>
   </footer>
