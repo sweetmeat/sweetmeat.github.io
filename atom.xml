@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-04-07T22:26:03-04:00</updated>
+  <updated>2014-04-27T20:14:29-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Tagged Git Commit Log]]></title>
+    <link href="http://sweetme.at/2014/04/27/tagged-git-commit-log/"/>
+    <updated>2014-04-27T20:07:00-04:00</updated>
+    <id>http://sweetme.at/2014/04/27/tagged-git-commit-log</id>
+    <content type="html"><![CDATA[<p>Here is an awk augmented git log that will provide a list of your tagged git commits with an abbreviated commit hash and the subject of the commit.</p>
+
+<!--More-->
+
+
+<h2>Usage</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log --oneline --decorate<span class="o">=</span>short | awk <span class="s1">&#39;/tag/ {print substr($3,0,(length($3)-1)) &quot;\t&quot; $1 &quot;\t&quot; ($1=$2=$3=&quot;&quot;) $0}&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Example</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git log --oneline --decorate<span class="o">=</span>short | awk <span class="s1">&#39;/tag/ {print substr($3,0,(length($3)-1)) &quot;\t&quot; $1 &quot;\t&quot; ($1=$2=$3=&quot;&quot;) $0}&#39;</span>
+</span><span class='line'>v1.3.3       6d2a491       Refactored text handling
+</span><span class='line'>v1.3.2       7e35d5b       Merge branch <span class="s1">&#39;development&#39;</span>
+</span><span class='line'>v1.3.1       307b457       Updated Python 2 vs 3 interpreter check
+</span><span class='line'>v1.3.0       61f43bf       Added support <span class="k">for </span>Python 3.x
+</span><span class='line'><span class="o">[</span>...<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Glue | A Terminal for Sublime Text]]></title>
@@ -3165,73 +3201,6 @@ This gives you a vertical divider with a new file group pane on the right side. 
 <h3>Use with Multiple Gem Projects</h3>
 
 <p>If you have a lot of Ruby gem projects in active development, you could toss this in an external script directory and create an alias for it in your <code>.bashrc</code> or <code>.bash_profile</code> file.   Run a source command on the bash settings file and then use the script alias from any working directory that includes a gemspec file.  Include the gem name as the argument to the alias.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Python Testing Assertion Methods]]></title>
-    <link href="http://sweetme.at/2013/11/04/python-testing-assertion-methods/"/>
-    <updated>2013-11-04T12:41:00-05:00</updated>
-    <id>http://sweetme.at/2013/11/04/python-testing-assertion-methods</id>
-    <content type="html"><![CDATA[<p>Here&rsquo;s a complete list of the Python assertion methods that are available in the Python unittest module for versions 2 &amp; 3 of the Python interpreter.</p>
-
-<!--More-->
-
-
-<h2>Python Assertions</h2>
-
-<table>
-    <tr>
-        <th>Method</th>
-        <th>Assertion</th>
-        <th>Min Version</th>
-    </tr>
-    <tr>
-        <td>assertEqual(a,b)</td>
-        <td>a == b</td>
-        <td>2 &amp; 3</td>
-    </tr>
-    <tr>
-        <td>assertNotEqual(a,b)</td>
-        <td>a != b</td>
-        <td>2 &amp; 3</td>
-    </tr>
-    <tr>
-    <td>assertIsNone(x)</td>
-    <td>x is None</td>
-    <td>3.1 +</td>
-</tr>
-<tr>
-    <td>assertIsNotNone(x)</td>
-    <td>x is not None</td>
-    <td>3.1 +</td>
-</tr>
-<tr>
-    <td>assertIn(a,b)</td>
-    <td>a in b</td>
-    <td>3.1 +</td>
-</tr>
-<tr>
-    <td>assertNotIn(a,b)</td>
-    <td>a not in b</td>
-    <td>3.1 +</td>
-</tr>
-<tr>
-    <td>assertIsInstance(a,b)</td>
-    <td>isinstance(a,b)</td>
-    <td>3.2 +</td>
-</tr>
-<tr>
-    <td>assertNotIsInstance(a,b)</td>
-    <td>not isinstance(a,b)</td>
-    <td>3.2 +</td>
-</tr>
-</table>
-
-
-<h2>Python Documentation</h2>
-
-<p>And <a href="http://docs.python.org/dev/library/unittest.html#assert-methods">here is the link</a> to the Python documentation on the topic.</p>
 ]]></content>
   </entry>
   
