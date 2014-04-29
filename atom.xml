@@ -4,7 +4,7 @@
   <title><![CDATA[Sweetmeat]]></title>
   <link href="http://sweetme.at/atom.xml" rel="self"/>
   <link href="http://sweetme.at/"/>
-  <updated>2014-04-27T20:33:02-04:00</updated>
+  <updated>2014-04-29T12:24:17-04:00</updated>
   <id>http://sweetme.at/</id>
   <author>
     <name><![CDATA[Chris Simpkins]]></name>
@@ -12,6 +12,90 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Simple One-Line Local HTTP Servers]]></title>
+    <link href="http://sweetme.at/2014/04/29/simple-local-http-servers/"/>
+    <updated>2014-04-29T11:37:00-04:00</updated>
+    <id>http://sweetme.at/2014/04/29/simple-local-http-servers</id>
+    <content type="html"><![CDATA[<p>Here&rsquo;s a collection of one line commands that will start a local HTTP server for static files.</p>
+
+<!--More-->
+
+
+<h2>PHP</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>php -S localhost:<span class="o">[</span>port<span class="o">]</span> -t <span class="o">[</span>root-path<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Example</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>php -S localhost:8080 -t ./_build
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Python</h2>
+
+<h3>Python 2.x</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python -m SimpleHTTPServer <span class="o">[</span>port<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Example</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python -m SimpleHTTPServer 8080
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Python 3.x</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python -m http.server <span class="o">[</span>port<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Example</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python -m http.server 8080
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Ruby</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ruby -run -e httpd . -p <span class="o">[</span>port<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Example</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ruby -run -e httpd . -p 8080
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Documentation</h2>
+
+<p><a href="http://www.php.net/manual/pt_BR/features.commandline.webserver.php">PHP</a></p>
+
+<p><a href="https://docs.python.org/2/library/simplehttpserver.html">Python 2</a></p>
+
+<p><a href="https://docs.python.org/3/library/http.server.html">Python 3</a></p>
+
+<p><a href="http://www.ruby-doc.org/stdlib-2.0/libdoc/webrick/rdoc/WEBrick.html">Ruby Webrick</a></p>
+
+<h2>Sources</h2>
+
+<p>Thanks to <a href="https://twitter.com/arglbr">Adriano Guerrero</a> for the PHP command and to <a href="https://twitter.com/dallas_reedy">Dallas Reedy</a> for the Ruby command.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Source Code TODO Logs]]></title>
@@ -3079,43 +3163,6 @@ This gives you a vertical divider with a new file group pane on the right side. 
 <h2>Source</h2>
 
 <p>Kudos to <a href="http://apple.stackexchange.com/a/5437">Chealion on apple.stackexchange.com</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Make Your Sublime Text Caret Fade In and Out Rather Than Blink]]></title>
-    <link href="http://sweetme.at/2013/11/12/make-your-sublime-text-caret-fade-in-and-out-rather-than-blink/"/>
-    <updated>2013-11-12T22:44:00-05:00</updated>
-    <id>http://sweetme.at/2013/11/12/make-your-sublime-text-caret-fade-in-and-out-rather-than-blink</id>
-    <content type="html"><![CDATA[<p>With a simple addition to your Sublime Text User Settings, you can create a phasing caret in your editor.</p>
-
-<!--More-->
-
-
-<h2>Sublime Text Phasing caret_style</h2>
-
-<p>Open your Sublime Text Preferences menu item and select the Settings &ndash; User menu.  This will open your user settings JSON file.  Insert the following <code>caret_style</code> setting:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
-</span><span class='line'>   <span class="err">...</span>
-</span><span class='line'>   <span class="nt">&quot;caret_style&quot;</span> <span class="p">:</span> <span class="s2">&quot;phase&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Save the settings file and your cursor will fade in and out of view.</p>
-
-<h2>Other Caret Options</h2>
-
-<p>The other <code>caret_style</code> options include: &ldquo;smooth&rdquo; (intermediate between blink and phase transition), &ldquo;blink&rdquo; (standard blinking caret), &ldquo;wide&rdquo; (always visible, wide caret), and &ldquo;solid&rdquo; (always visible, narrow caret).</p>
-
-<h2>Source</h2>
-
-<p>Kudos to <a href="http://twitter.com/wesbos">Wes Bos</a> for <a href="http://wesbos.com/sublime-text-5-visual-tweaks">pointing out this modification</a>.</p>
 ]]></content>
   </entry>
   
